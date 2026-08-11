@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio de Paisajismo y Diseño de Jardines | Gran Palmera</title>
+    <meta name="description" content="Desarrollamos proyectos de paisajismo desde la concepción hasta la ejecución para propietarios, arquitectos y desarrolladores. Presupuesto sin cargo.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b3b24; 
+            --btn-bg: #f5eedc; 
+            --text-dark: #1f2924;
+            --text-light: #949a96;
+            --text-white: #ffffff;
+            --accent-color: #a4b39e;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-white); display: flex; justify-content: center; min-height: 100vh; padding: 2rem 1rem; }
+        .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; }
+        
+        header { text-align: center; margin-bottom: 2rem; }
+        .logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-color); overflow: hidden; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; background-color: white; }
+        .logo-image { width: 100%; height: 100%; object-fit: cover; }
+        h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; color: #d6e2cf; }
+        .description { font-size: 1rem; line-height: 1.4; color: #b0beb5; margin: 0 auto; }
+
+        /* Estilos para contenido de texto */
+        .content-card { background-color: var(--btn-bg); color: var(--text-dark); padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; width: 100%; text-align: left; }
+        .content-card h2 { font-size: 1.2rem; color: #2c4c3b; margin-bottom: 15px; border-bottom: 1px solid #d4cca9; padding-bottom: 8px; text-transform: uppercase; }
+        .content-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
+        .target-list { list-style: none; margin-bottom: 15px; }
+        .target-list li { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.4; }
+        .target-list span { font-weight: bold; color: #2c4c3b; display: block; margin-bottom: 2px; }
+
+        /* Estilos de botones (heredados del index) */
+        .links-container { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; }
+        .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 14px 20px; border-radius: 12px; transition: transform 0.2s; }
+        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .btn-icon { font-size: 1.5rem; margin-right: 15px; min-width: 30px; text-align: center; }
+        .btn-text { flex-grow: 1; display: flex; flex-direction: column; }
+        .btn-title { font-weight: 600; font-size: 1rem; margin-bottom: 3px; }
+        .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 500; }
+        .btn-arrow { font-size: 1.2rem; color: #5a665f; }
+
+        /* Estilos de pie de página y redes */
+        footer { text-align: center; width: 100%; }
+        .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
+        .social-btn:hover { background-color: rgba(255,255,255,0.1); border-color: var(--text-white); }
+        .footer-text { font-size: 0.8rem; color: #8c9b91; margin-bottom: 2rem; line-height: 1.5; }
+        .home-btn { display: inline-block; margin-bottom: 20px; color: var(--accent-color); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="home-btn">← Volver al inicio</a>
+        <header>
+            <div class="logo-circle">
+                <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image">
+            </div>
+            <h1>Servicio de Paisajismo</h1>
+            <p class="description">Del diseño a la instalación. Integramos arquitectura y naturaleza.</p>
+        </header>
+
+        <article class="content-card">
+            <h2>Paisajismo Integral</h2>
+            <p>En <strong>GRAN PALMERA VIVERO Y PAISAJISMO</strong> desarrollamos proyectos de paisajismo desde la concepción hasta la ejecución, integrando diseño, visualización, selección vegetal, provisión de plantas e instalación.</p>
+            <p>Trabajamos tanto con propietarios que buscan transformar sus espacios exteriores como con arquitectos, constructoras, desarrolladores e instituciones que necesitan incorporar el paisaje a proyectos de mayor escala.</p>
+        </article>
+
+        <article class="content-card">
+            <h2>¿Para quién trabajamos?</h2>
+            <ul class="target-list">
+                <li><span>🏡 Propietarios y particulares</span> Diseñamos y transformamos jardines, patios y espacios exteriores.</li>
+                <li><span>🏛️ Arquitectos y estudios</span> Integramos el paisaje a tu proyecto arquitectónico.</li>
+                <li><span>🏗️ Constructoras</span> Documentación, provisión y asistencia para la ejecución.</li>
+                <li><span>🏢 Desarrolladores inmobiliarios</span> Paisaje diseñado para aumentar la calidad y el valor percibido del proyecto.</li>
+                <li><span>🏨 Hotelería e instituciones</span> Espacios exteriores diseñados para mejorar experiencia, identidad y funcionamiento.</li>
+                <li><span>🌳 Profesionales independientes</span> Apoyo especializado en vegetación, diseño y documentación.</li>
+            </ul>
+        </article>
+
+        <h2 style="color: #d6e2cf; margin: 1rem 0; font-size: 1.2rem; text-align: center;">ELEGÍ CÓMO PODEMOS AYUDARTE</h2>
+
+        <main class="links-container">
+            <a href="#" class="link-btn">
+                <span class="btn-icon">🏡</span>
+                <div class="btn-text">
+                    <span class="btn-title">Servicio de paisajismo residencial</span>
+                    <span class="btn-subtitle">Diseño · Visualización · Ejecución | PRESUPUESTO SIN CARGO</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+            <a href="#" class="link-btn">
+                <span class="btn-icon">👷🏻‍♂️</span>
+                <div class="btn-text">
+                    <span class="btn-title">Paisajismo para profesionales</span>
+                    <span class="btn-subtitle">Proyecto · Documentación · 3D · Provisión | TRABAJEMOS JUNTOS</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+            <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="link-btn">
+                <span class="btn-icon">📲</span>
+                <div class="btn-text">
+                    <span class="btn-title">Chat de WhatsApp</span>
+                    <span class="btn-subtitle">Consultas, proyectos y pedidos | HABLEMOS</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+        </main>
+
+        <footer>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/GranPalmera/" target="_blank" class="social-btn" title="Seguinos en Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="social-btn" title="plantas, Ideas y proyectos de jardín" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.youtube.com/@GranPalmera" target="_blank" class="social-btn" title="Videos y tutoriales" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="footer-text">GRANPALMERA VIVERO Y PAISAJISMO · Posadas, Misiones, Argentina</p>
+        </footer>
+    </div>
+</body>
+</html>

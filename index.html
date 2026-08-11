@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palmeras & Jardín — Enlaces</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b3b24; 
+            --btn-bg: #f5eedc; 
+            --text-dark: #1f2924;
+            --text-light: #949a96;
+            --text-white: #ffffff;
+            --accent-color: #a4b39e;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-white); display: flex; justify-content: center; min-height: 100vh; padding: 2rem 1rem; }
+        .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; }
+        
+        header { text-align: center; margin-bottom: 2rem; }
+        .logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-color); overflow: hidden; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; background-color: white; }
+        .logo-image { width: 100%; height: 100%; object-fit: cover; }
+        h1 { font-size: 2rem; font-weight: 700; margin-bottom: 10px; color: #d6e2cf; }
+        .description { font-size: 1rem; line-height: 1.4; color: #b0beb5; max-width: 90%; margin: 0 auto; }
+
+        .links-container { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; }
+        .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 14px 20px; border-radius: 12px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+        .btn-icon { font-size: 1.5rem; margin-right: 15px; min-width: 30px; text-align: center; }
+        .btn-text { flex-grow: 1; display: flex; flex-direction: column; text-align: left; }
+        .btn-title { font-weight: 600; font-size: 1rem; margin-bottom: 3px; }
+        .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 500; }
+        .btn-arrow { font-size: 1.2rem; color: #5a665f; }
+
+        footer { text-align: center; width: 100%; }
+        .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: background-color 0.2s, border-color 0.2s; }
+        .social-btn:hover { background-color: rgba(255, 255, 255, 0.1); border-color: var(--text-white); }
+        .footer-text { font-size: 0.8rem; color: #8c9b91; margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <header>
+            <div class="logo-circle">
+                <img src="img/logo_granpalmera.png" alt="Logotipo Gran Palmera Paisajismo" class="logo-image">
+            </div>
+            <h1>Palmeras & Jardín</h1>
+            <p class="description">Palmeras y plantas tropicales enviadas a todo el país + diseño de espacios verdes a medida.</p>
+        </header>
+
+        <main class="links-container">
+            <!-- Enlace a la nueva subpágina de WhatsApp -->
+            <a href="whatsapp/whatsapp_granpalmera.html" class="link-btn">
+                <span class="btn-icon">📲</span>
+                <div class="btn-text">
+                    <span class="btn-title">WhatsApp Granpalmera</span>
+                    <span class="btn-subtitle">CHAT, CATÁLOGO Y CANAL</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+
+            <a href="https://granpalmera.mitiendanube.com/" target="_blank" class="link-btn">
+                <span class="btn-icon">🛒</span>
+                <div class="btn-text">
+                    <span class="btn-title">Tienda online</span>
+                    <span class="btn-subtitle">COMPRÁ TUS PLANTAS AQUÍ</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+
+            <a href="https://www.mercadolibre.com.ar/pagina/granpalmera" target="_blank" class="link-btn">
+                <span class="btn-icon">🏷️</span>
+                <div class="btn-text">
+                    <span class="btn-title">Mercado Libre</span>
+                    <span class="btn-subtitle">VISITÁ NUESTRA TIENDA OFICIAL</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+
+            <!-- Enlace actualizado a carpeta paisajismo -->
+            <a href="paisajismo/paisajismo_granpalmera.html" class="link-btn">
+                <span class="btn-icon">🏡</span>
+                <div class="btn-text">
+                    <span class="btn-title">Servicio de paisajismo</span>
+                    <span class="btn-subtitle">PRESUPUESTO SIN CARGO</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+
+            <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="link-btn">
+                <span class="btn-icon">📌</span>
+                <div class="btn-text">
+                    <span class="btn-title">Pinterest</span>
+                    <span class="btn-subtitle">IDEAS Y PROYECTOS DE JARDÍN</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+
+            <!-- Enlace actualizado a carpeta envios -->
+            <a href="envios/envios_granpalmera.html" class="link-btn">
+                <span class="btn-icon">🚚</span>
+                <div class="btn-text">
+                    <span class="btn-title">Envíos a todo el país</span>
+                    <span class="btn-subtitle">CÓMO LLEGA TU PLANTA</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+
+            <!-- Enlace actualizado a carpeta direccion -->
+            <a href="direccion/direccion_granpalmera.html" class="link-btn">
+                <span class="btn-icon">📍</span>
+                <div class="btn-text">
+                    <span class="btn-title">Visitá el vivero</span>
+                    <span class="btn-subtitle">UBICACIÓN Y HORARIOS</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+        </main>
+
+        <footer>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/GranPalmera/" target="_blank" class="social-btn" title="Seguinos en Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@granpalmera" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="social-btn" title="plantas, Ideas y proyectos de jardín" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.youtube.com/@GranPalmera" target="_blank" class="social-btn" title="Videos y tutoriales" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="whatsapp/whatsapp_granpalmera.html" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="footer-text">GRANPALMERA VIVERO Y PAISAJISMO · Posadas, Misiones, Argentina</p>
+        </footer>
+    </div>
+</body>
+</html>
