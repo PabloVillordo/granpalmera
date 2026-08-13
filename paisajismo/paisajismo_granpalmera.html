@@ -5,7 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicio de Paisajismo y Diseño de Jardines | Gran Palmera</title>
     <meta name="description" content="Desarrollamos proyectos de paisajismo desde la concepción hasta la ejecución para propietarios, arquitectos y desarrolladores. Presupuesto sin cargo.">
+    
+    <!-- ========================================== -->
+    <!-- METADATOS PARA WHATSAPP Y REDES (OPEN GRAPH) -->
+    <!-- ========================================== -->
+    <meta property="og:title" content="Gran Palmera | Vivero y Paisajismo">
+    <meta property="og:description" content="Palmeras y plantas tropicales enviadas a todo el país + diseño de espacios verdes a medida.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/">
+    <meta property="og:image" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    <meta property="og:image:secure_url" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    
+    <!-- ========================================== -->
+    <!-- FAVICON (ICONO DEL NAVEGADOR)              -->
+    <!-- ========================================== -->
+    <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --bg-color: #0b3b24; 
@@ -33,15 +53,71 @@
         .target-list li { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.4; }
         .target-list span { font-weight: bold; color: #2c4c3b; display: block; margin-bottom: 2px; }
 
-        /* Estilos de botones (heredados del index) */
-        .links-container { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; }
-        .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 14px 20px; border-radius: 12px; transition: transform 0.2s; }
-        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-        .btn-icon { font-size: 1.5rem; margin-right: 15px; min-width: 30px; text-align: center; }
-        .btn-text { flex-grow: 1; display: flex; flex-direction: column; }
-        .btn-title { font-weight: 600; font-size: 1rem; margin-bottom: 3px; }
-        .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 500; }
-        .btn-arrow { font-size: 1.2rem; color: #5a665f; }
+        /* Estilos de botones - Tarjetas de Servicio (NUEVO DISEÑO) */
+        .links-container { width: 100%; display: flex; flex-direction: column; gap: 15px; margin-bottom: 3rem; }
+        
+        .service-card-btn {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--btn-bg);
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: left;
+        }
+        
+        .service-card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .sc-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #1a2f24; /* Verde muy oscuro para destacar la necesidad */
+        }
+
+        .sc-icon {
+            font-size: 1.4rem;
+            margin-right: 12px;
+        }
+
+        .sc-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+            color: #2c4c3b;
+        }
+
+        .sc-subtitle {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #5a665f;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .sc-action {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #2c4c3b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #d4cca9;
+            padding-top: 12px;
+        }
+        
+        .sc-action span:last-child {
+            font-size: 1.2rem;
+            color: #5a665f;
+        }
 
         /* Estilos de pie de página y redes */
         footer { text-align: center; width: 100%; }
@@ -49,7 +125,7 @@
         .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
         .social-btn:hover { background-color: rgba(255,255,255,0.1); border-color: var(--text-white); }
         .footer-text { font-size: 0.8rem; color: #8c9b91; margin-bottom: 2rem; line-height: 1.5; }
-        .home-btn { display: inline-block; margin-bottom: 20px; color: var(--accent-color); text-decoration: none; font-weight: bold; }
+        .home-btn { display: inline-block; margin-bottom: 20px; color: var(--accent-color); text-decoration: none; font-weight: bold; align-self: flex-start; }
     </style>
 </head>
 <body>
@@ -83,31 +159,45 @@
 
         <h2 style="color: #d6e2cf; margin: 1rem 0; font-size: 1.2rem; text-align: center;">ELEGÍ CÓMO PODEMOS AYUDARTE</h2>
 
+        <!-- NUEVA ESTRUCTURA DE BOTONES TIPO "CARJETAS DE MENÚ" -->
         <main class="links-container">
-            <a href="#" class="link-btn">
-                <span class="btn-icon">🏡</span>
-                <div class="btn-text">
-                    <span class="btn-title">Servicio de paisajismo residencial</span>
-                    <span class="btn-subtitle">Diseño · Visualización · Ejecución | PRESUPUESTO SIN CARGO</span>
+            
+            <a href="paisajismo_residencial_granpalmera.html" class="service-card-btn">
+                <div class="sc-header">
+                    <span class="sc-icon">🏡</span> QUIERO DISEÑAR MI JARDÍN
                 </div>
-                <span class="btn-arrow">→</span>
-            </a>
-            <a href="#" class="link-btn">
-                <span class="btn-icon">👷🏻‍♂️</span>
-                <div class="btn-text">
-                    <span class="btn-title">Paisajismo para profesionales</span>
-                    <span class="btn-subtitle">Proyecto · Documentación · 3D · Provisión | TRABAJEMOS JUNTOS</span>
+                <div class="sc-title">Paisajismo residencial</div>
+                <div class="sc-subtitle">PRESUPUESTO SIN CARGO</div>
+                <div class="sc-action">
+                    <span>CONOCER EL SERVICIO</span>
+                    <span>→</span>
                 </div>
-                <span class="btn-arrow">→</span>
             </a>
-            <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="link-btn">
-                <span class="btn-icon">📲</span>
-                <div class="btn-text">
-                    <span class="btn-title">Chat de WhatsApp</span>
-                    <span class="btn-subtitle">Consultas, proyectos y pedidos | HABLEMOS</span>
+
+            <a href="paisajismo_profesional_granpalmera.html" class="service-card-btn">
+                <div class="sc-header">
+                    <span class="sc-icon">👷🏻‍♂️</span> TENGO UN PROYECTO
                 </div>
-                <span class="btn-arrow">→</span>
+                <div class="sc-title">Paisajismo para profesionales</div>
+                <div class="sc-subtitle">TRABAJEMOS JUNTOS</div>
+                <div class="sc-action">
+                    <span>CONOCER EL SERVICIO</span>
+                    <span>→</span>
+                </div>
             </a>
+
+            <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="service-card-btn">
+                <div class="sc-header">
+                    <span class="sc-icon">📲</span> QUIERO CONSULTAR
+                </div>
+                <div class="sc-title">Chat de WhatsApp</div>
+                <div class="sc-subtitle">CONSULTAS Y ASESORAMIENTO</div>
+                <div class="sc-action">
+                    <span>ABRIR WHATSAPP</span>
+                    <span>→</span>
+                </div>
+            </a>
+
         </main>
 
         <footer>
@@ -118,7 +208,7 @@
                 <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="social-btn" title="plantas, Ideas y proyectos de jardín" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                 <a href="https://www.youtube.com/@GranPalmera" target="_blank" class="social-btn" title="Videos y tutoriales" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="../whatsapp/whatsapp_granpalmera.html" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p class="footer-text">GRANPALMERA VIVERO Y PAISAJISMO · Posadas, Misiones, Argentina</p>
         </footer>

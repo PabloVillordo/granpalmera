@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paisajismo para Profesionales | B2B | Gran Palmera</title>
+    <meta name="description" content="Partner técnico en paisajismo para arquitectos, constructoras y desarrolladores. Diseño, documentación, visualización 3D y provisión vegetal a gran escala.">
+    
+    <!-- ========================================== -->
+    <!-- METADATOS PARA WHATSAPP Y REDES (OPEN GRAPH) -->
+    <!-- ========================================== -->
+    <meta property="og:title" content="Gran Palmera | Paisajismo para Profesionales">
+    <meta property="og:description" content="Partner técnico en paisajismo para arquitectura, construcción y desarrollos inmobiliarios.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/">
+    <meta property="og:image" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    <meta property="og:image:secure_url" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    
+    <!-- ========================================== -->
+    <!-- FAVICON (ICONO DEL NAVEGADOR)              -->
+    <!-- ========================================== -->
+    <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0b3b24; 
+            --btn-bg: #f5eedc; 
+            --text-dark: #1f2924;
+            --text-white: #ffffff;
+            --accent-color: #a4b39e;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-white); display: flex; justify-content: center; min-height: 100vh; padding: 2rem 1rem; }
+        .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; }
+        
+        /* Navegación superior */
+        .nav-links { width: 100%; display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .home-btn { color: var(--accent-color); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .home-btn:hover { text-decoration: underline; }
+
+        header { text-align: center; margin-bottom: 2rem; }
+        .logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-color); overflow: hidden; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; background-color: white; }
+        .logo-image { width: 100%; height: 100%; object-fit: cover; }
+        h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; color: #d6e2cf; line-height: 1.2; }
+        .subtitle { font-size: 1.1rem; color: var(--accent-color); font-weight: 600; margin-bottom: 15px; }
+        .description { font-size: 0.95rem; line-height: 1.5; color: #b0beb5; margin: 0 auto; max-width: 95%; }
+
+        /* Estilos para contenido de texto */
+        .content-card { background-color: var(--btn-bg); color: var(--text-dark); padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; width: 100%; text-align: left; }
+        
+        /* Encabezados de tarjeta especiales para B2B */
+        .card-number { font-size: 0.9rem; font-weight: 800; color: #5a665f; display: block; margin-bottom: 5px; }
+        .content-card h2 { font-size: 1.3rem; color: #1a2f24; margin-bottom: 5px; text-transform: uppercase; font-weight: 800;}
+        .card-tagline { font-size: 1rem; color: #2c4c3b; margin-bottom: 15px; font-weight: 600; border-bottom: 2px solid #d4cca9; padding-bottom: 8px; }
+        
+        .content-card h3 { font-size: 1.1rem; color: #2c4c3b; margin-top: 20px; margin-bottom: 10px; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; }
+        .content-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
+        
+        /* Estilos de listas */
+        .bullet-list { padding-left: 20px; margin-bottom: 15px; }
+        .bullet-list li { margin-bottom: 8px; font-size: 0.95rem; line-height: 1.5; }
+        
+        .feature-list { list-style: none; margin-bottom: 15px; }
+        .feature-list li { margin-bottom: 15px; font-size: 0.95rem; line-height: 1.5; }
+        .feature-list span { font-weight: bold; color: #2c4c3b; display: block; margin-bottom: 2px;}
+
+        /* Grid para listas cortas (ej. consideraciones) */
+        .grid-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px 15px; list-style-type: none; margin-bottom: 15px; padding-left: 0; }
+        .grid-list li { font-size: 0.9rem; position: relative; padding-left: 12px; }
+        .grid-list li::before { content: "•"; position: absolute; left: 0; color: #2c4c3b; font-weight: bold; }
+
+        /* Cajas de servicios/roles (B2B) */
+        .role-box { background-color: #e5dac1; padding: 15px; border-radius: 8px; margin-bottom: 12px; border-left: 4px solid #2c4c3b; display: flex; align-items: flex-start; }
+        .role-icon { font-size: 1.2rem; margin-right: 12px; min-width: 25px; }
+        .role-content strong { display: block; color: #1a2f24; margin-bottom: 4px; font-size: 1rem; text-transform: uppercase;}
+        .role-content p { margin-bottom: 0; font-size: 0.9rem; }
+
+        /* Bloque final destacado */
+        .highlight-box { background-color: #1a2f24; color: white; padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
+        .highlight-box h2 { color: #d6e2cf; border-bottom: none; margin-bottom: 10px; }
+        .highlight-box p { margin-bottom: 0; color: #b0beb5; }
+
+        /* Call To Action Text */
+        .cta-text-box { margin: 2rem 0 1.5rem 0; padding: 0 10px; }
+        .cta-text-box h3 { color: #d6e2cf; font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; }
+        .cta-text-box p { color: #b0beb5; font-size: 0.95rem; line-height: 1.6; margin-bottom: 8px; }
+
+        /* Estilos de botones */
+        .links-container { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; }
+        .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 16px 20px; border-radius: 12px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+        .btn-icon { font-size: 1.5rem; margin-right: 15px; min-width: 30px; text-align: center; }
+        .btn-text { flex-grow: 1; display: flex; flex-direction: column; text-align: left; }
+        .btn-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 3px; color: #1a2f24; }
+        .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 600; }
+        .btn-arrow { font-size: 1.2rem; color: #5a665f; font-weight: bold; }
+
+        footer { text-align: center; width: 100%; }
+        .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
+        .social-btn:hover { background-color: rgba(255,255,255,0.1); border-color: var(--text-white); }
+        .footer-text { font-size: 0.8rem; color: #8c9b91; margin-bottom: 2rem; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="nav-links">
+            <a href="paisajismo_granpalmera.html" class="home-btn">← Volver a Servicios</a>
+            <a href="../index.html" class="home-btn"><i class="fa-solid fa-house"></i> Inicio</a>
+        </div>
+
+        <header>
+            <div class="logo-circle">
+                <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image">
+            </div>
+            <h1>Paisajismo para Profesionales</h1>
+            <p class="subtitle">El paisaje como parte del proyecto</p>
+            <p class="description"><strong>Partner técnico para arquitectura, construcción y desarrollos.</strong><br><br>En GRANPALMERA colaboramos con arquitectos, estudios, constructoras, desarrolladores inmobiliarios, hoteles e instituciones para incorporar el paisaje a proyectos de distintas escalas.<br><br>Integramos diseño paisajístico, documentación, visualización 3D, curaduría vegetal, provisión de plantas, logística y asistencia en obra.</p>
+        </header>
+
+        <article class="content-card">
+            <h2>Del proyecto arquitectónico al paisaje</h2>
+            <p class="card-tagline">El paisaje no debería ser un agregado de último momento.</p>
+            <p>Cuando el paisaje se incorpora desde las primeras etapas, puede integrarse mejor con:</p>
+            <ul class="grid-list">
+                <li>Arquitectura</li>
+                <li>Topografía</li>
+                <li>Circulaciones</li>
+                <li>Espacios exteriores</li>
+                <li>Infraestructura</li>
+                <li>Iluminación</li>
+                <li>Riego y drenaje</li>
+                <li>Materialidad</li>
+                <li>Experiencia del usuario</li>
+            </ul>
+            <p>Trabajamos para que la vegetación y los espacios exteriores sean considerados parte de la concepción integral del proyecto.</p>
+        </article>
+
+        <article class="content-card">
+            <h2>¿Con quién trabajamos?</h2>
+            
+            <div class="role-box">
+                <div class="role-icon">🏛️</div>
+                <div class="role-content">
+                    <strong>Arquitectos y estudios</strong>
+                    <p>Desarrollo del componente paisajístico de proyectos arquitectónicos.</p>
+                </div>
+            </div>
+            
+            <div class="role-box">
+                <div class="role-icon">🏗️</div>
+                <div class="role-content">
+                    <strong>Constructoras</strong>
+                    <p>Documentación, provisión vegetal y asistencia durante la ejecución.</p>
+                </div>
+            </div>
+            
+            <div class="role-box">
+                <div class="role-icon">🏢</div>
+                <div class="role-content">
+                    <strong>Desarrolladores inmobiliarios</strong>
+                    <p>Diseño de espacios exteriores, amenities y áreas comunes.</p>
+                </div>
+            </div>
+            
+            <div class="role-box">
+                <div class="role-icon">🏨</div>
+                <div class="role-content">
+                    <strong>Hoteles e instituciones</strong>
+                    <p>Paisajes orientados a experiencia, identidad y funcionamiento (sanitarios, educativos, corporativos).</p>
+                </div>
+            </div>
+            
+            <div class="role-box">
+                <div class="role-icon">🌳</div>
+                <div class="role-content">
+                    <strong>Profesionales independientes</strong>
+                    <p>Apoyo especializado en diseño, documentación y vegetación.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="content-card">
+            <h2>¿En qué etapa podemos incorporarnos?</h2>
+            <p class="card-tagline">No necesitás comenzar un proyecto desde cero.</p>
+            <ul class="feature-list">
+                <li><span>Concepto</span>Definimos la estrategia general del paisaje.</li>
+                <li><span>Anteproyecto</span>Desarrollamos la organización espacial y la propuesta vegetal.</li>
+                <li><span>Proyecto</span>Desarrollamos el diseño paisajístico con mayor precisión.</li>
+                <li><span>Documentación</span>Generamos planos, detalles, cuadros y especificaciones.</li>
+                <li><span>Presupuesto</span>Desarrollamos cómputos y criterios para presupuestar.</li>
+                <li><span>Ejecución / Provisión</span>Acompañamos la implantación y suministramos ejemplares.</li>
+                <li><span>Supervisión / Post-obra</span>Controlamos la ejecución y acompañamos la evolución.</li>
+            </ul>
+        </article>
+
+        <div style="text-align: center; margin: 2rem 0 1rem 0;">
+            <h2 style="color: #d6e2cf; font-size: 1.4rem; text-transform: uppercase;">Metodología de Trabajo</h2>
+        </div>
+
+        <article class="content-card">
+            <span class="card-number">01</span>
+            <h2>Estrategia y Diseño</h2>
+            <p class="card-tagline">Integramos paisaje y arquitectura</p>
+            <p>Comenzamos entendiendo el proyecto y sus objetivos analizando implantación, orientación, topografía, clima, suelo, vegetación, accesos, visuales y relaciones interior-exterior.</p>
+            <h3>Concepto Paisajístico</h3>
+            <p>Definimos el lenguaje (geometría, escala, ritmo, textura, volumen) para construir una identidad que acompañe y potencie la arquitectura.</p>
+        </article>
+
+        <article class="content-card">
+            <span class="card-number">02 & 03</span>
+            <h2>Anteproyecto y Proyecto</h2>
+            <p class="card-tagline">Convertimos la estrategia en espacio</p>
+            <p>Desarrollamos la organización general: accesos, plazas, áreas sociales, puntos focales e iluminación.</p>
+            <p>El proyecto alcanza el nivel de precisión requerido, incluyendo zonificación, niveles, sectores vegetales, cuadros de especies y detalles constructivos listos para avanzar hacia la obra.</p>
+        </article>
+
+        <article class="content-card">
+            <span class="card-number">04 & 05</span>
+            <h2>Documentación y Cómputos</h2>
+            <p class="card-tagline">Lo que se diseña debe poder construirse y presupuestarse</p>
+            <ul class="bullet-list">
+                <li><strong>Planos:</strong> General, implantación, plantación, niveles.</li>
+                <li><strong>Cuadros & Detalles:</strong> Especies, canteros, encuentros, especificaciones técnicas.</li>
+                <li><strong>Cómputos:</strong> Especies, sustratos, insumos, riego, superficies.</li>
+            </ul>
+            <p>Base fundamental para presupuestos, licitaciones y compras.</p>
+        </article>
+
+        <article class="content-card">
+            <span class="card-number">06</span>
+            <h2>Modelado 3D y Visualización</h2>
+            <p class="card-tagline">El paisaje en tres dimensiones</p>
+            <p>Estudiamos la relación Arquitectura + Paisaje + Topografía. Analizamos volúmenes, escalas y crecimiento futuro.</p>
+            <p>Generamos <strong>Renders fotorrealistas</strong> ideales para concursos, aprobación de proyectos, comercialización inmobiliaria y marketing institucional.</p>
+        </article>
+
+        <article class="content-card">
+            <span class="card-number">07, 08 & 09</span>
+            <h2>La Vegetación: Curaduría, Provisión y Logística</h2>
+            <p class="card-tagline">La planta como material de proyecto</p>
+            <p>Especificamos detalladamente: especie, variedad, calibre, formato y estado sanitario.</p>
+            <p>Al integrar <strong>Paisajismo + Vivero</strong>, proveemos palmeras, ejemplares especiales y especies tropicales que actúan como hitos visuales.</p>
+            <p><strong>Logística Vegetal:</strong> Coordinamos disponibilidad, transporte, acopio y momento exacto de plantación. En la gran escala, la logística se planifica, no se improvisa.</p>
+        </article>
+
+        <article class="content-card">
+            <span class="card-number">10, 11 & 12</span>
+            <h2>Ejecución, Coordinación y Supervisión</h2>
+            <p class="card-tagline">Del proyecto al terreno de forma articulada</p>
+            <p>Participamos en la preparación de suelo, plantación y terminaciones, coordinando interdisciplinariamente con hidráulica, iluminación y estructura para evitar conflictos en obra.</p>
+            <p>Controlamos la correcta ubicación, distancias, niveles y calidad de ejemplares mediante visitas periódicas o supervisión por hitos.</p>
+        </article>
+
+        <div class="highlight-box">
+            <h2>¿Por qué Gran Palmera?</h2>
+            <p>Integramos capacidades que habitualmente se encuentran separadas: <strong>Diseño + Conocimiento Vegetal + Vivero + Logística + Ejecución.</strong></p>
+        </div>
+
+        <article class="content-card">
+            <h2>Un servicio modular</h2>
+            <p class="card-tagline">Contratá solamente lo que necesitás</p>
+            <div class="grid-list" style="grid-template-columns: 1fr; gap: 10px;">
+                <li><strong>Consultor:</strong> Asesoramiento y estrategia.</li>
+                <li><strong>Diseñador:</strong> Anteproyecto y proyecto.</li>
+                <li><strong>Documentador:</strong> Planos y especificaciones.</li>
+                <li><strong>Especialista vegetal:</strong> Curaduría de especies.</li>
+                <li><strong>Proveedor:</strong> Suministro de plantas.</li>
+                <li><strong>Supervisor / Asistencia:</strong> Apoyo técnico en ejecución.</li>
+                <li><strong>Partner Integral:</strong> Desde el concepto a la entrega.</li>
+            </div>
+        </article>
+
+        <div class="cta-text-box">
+            <h3>¿Tenés un proyecto?</h3>
+            <p>Puede estar en etapa de idea, anteproyecto, ejecución o comercialización.</p>
+            <p>Contanos qué tipo de desarrollo es y qué necesitás resolver o documentar. Evaluamos rápidamente cómo podemos incorporarnos al equipo.</p>
+        </div>
+
+        <main class="links-container">
+            <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="link-btn" style="background-color: #2c4c3b; color: white;">
+                <span class="btn-icon">👷🏻‍♂️</span>
+                <div class="btn-text">
+                    <span class="btn-title" style="color: white;">Tengo un proyecto</span>
+                    <span class="btn-subtitle" style="color: #d6e2cf;">TRABAJEMOS JUNTOS - CONTACTAR</span>
+                </div>
+                <span class="btn-arrow" style="color: #d6e2cf;">→</span>
+            </a>
+            
+            <a href="paisajismo_granpalmera.html" class="link-btn">
+                <span class="btn-icon">🌿</span>
+                <div class="btn-text">
+                    <span class="btn-title">Ver más servicios</span>
+                    <span class="btn-subtitle">VOLVER AL MENÚ DE PAISAJISMO</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+        </main>
+
+        <footer>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/GranPalmera/" target="_blank" class="social-btn" title="Seguinos en Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="social-btn" title="plantas, Ideas y proyectos de jardín" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.youtube.com/@GranPalmera" target="_blank" class="social-btn" title="Videos y tutoriales" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="../whatsapp/whatsapp_granpalmera.html" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="footer-text"><strong>GRANPALMERA</strong><br>PAISAJE · VEGETACIÓN · PROYECTOS<br>Posadas, Misiones, Argentina</p>
+        </footer>
+    </div>
+</body>
+</html>
