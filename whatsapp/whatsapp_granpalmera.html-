@@ -1,51 +1,32 @@
 <!DOCTYPE html>
-<!-- Declaración del tipo de documento para indicar que usamos el estándar HTML5 -->
 <html lang="es">
 <head>
-    <!-- ========================================== -->
-    <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
-    <!-- ========================================== -->
-    
-    <!-- Charset: Codificación de caracteres. Garantiza que las tildes, comillas y la "ñ" se vean perfectas. -->
     <meta charset="UTF-8">
-    
-    <!-- Viewport: Obligatorio para diseño Responsive. Adapta el ancho de la web al tamaño de la pantalla del celular. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Title: El título principal de tu web en el navegador y el texto azul en Google. -->
     <title>Contacto por WhatsApp | Gran Palmera</title>
-    
-    <!-- Description: Resumen clave para el SEO. Muestra de qué trata esta página específica en las búsquedas. -->
     <meta name="description" content="Comunicate con Gran Palmera a través de WhatsApp. Accedé a nuestro chat para consultas, sumate al canal de novedades o explorá el catálogo con stock disponible.">
     
     <!-- ========================================== -->
-    <!-- 1. GOOGLE ANALYTICS (MEDICIÓN DE TRÁFICO)  -->
+    <!-- 1. GOOGLE ANALYTICS                        -->
     <!-- ========================================== -->
-    <!-- Script de seguimiento (GA4) para trackear visitas, comportamiento y clics. -->
+     <!-- Script de seguimiento (GA4) para trackear visitas y comportamiento de usuarios -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW542SW71"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      
-      /* Inicialización de tu propiedad específica de Analytics */
       gtag('config', 'G-LWW542SW71');
     </script>
 
     <!-- ========================================== -->
-    <!-- 2. METADATOS OPEN GRAPH (VISTAS PREVIAS)   -->
+    <!-- 2. METADATOS PARA WHATSAPP (OPEN GRAPH)    -->
     <!-- ========================================== -->
-    <!-- Estas etiquetas son leídas por WhatsApp, Facebook y Telegram para generar la tarjeta visual al compartir el link. -->
     <meta property="og:title" content="Contacto por WhatsApp | Gran Palmera">
-    <meta property="og:description" content="Accedé a nuestro chat para consultas, sumate al canal de novedades o explorá el catálogo.">
+    <meta property="og:description" content="Comunicate con Gran Palmera a través de WhatsApp. Accedé a nuestro chat para consultas, sumate al canal de novedades o explorá el catálogo con stock disponible.">
     <meta property="og:type" content="website">
-    
-    <!-- RUTAS ABSOLUTAS: Obligatorias para que las apps móviles rastreen el archivo (https://...) -->
     <meta property="og:url" content="https://granpalmera-sepia.vercel.app/whatsapp/whatsapp_granpalmera.html">
     <meta property="og:image" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
     <meta property="og:image:secure_url" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
-    
-    <!-- Dimensiones explícitas (500x500) para forzar la carga rápida de la imagen en redes. -->
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="500">
     <meta property="og:image:height" content="500">
@@ -53,64 +34,32 @@
     <!-- ========================================== -->
     <!-- 3. FAVICON (ICONO DEL NAVEGADOR)           -->
     <!-- ========================================== -->
-    <!-- Icono de la pestaña. Usamos ruta relativa (../) para subir una carpeta y entrar a /img/ -->
     <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
 
-    <!-- ========================================== -->
-    <!-- 4. LIBRERÍAS EXTERNAS                      -->
-    <!-- ========================================== -->
-    <!-- FontAwesome vía CDN para cargar los iconos de redes sociales y de interfaz de forma optimizada. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- ========================================== -->
-    <!-- 5. HOJA DE ESTILOS CSS (DISEÑO VISUAL)     -->
-    <!-- ========================================== -->
     <style>
-        /* Variables globales CSS: Paleta de colores centralizada para todo el proyecto. */
-        :root { 
-            --bg-color: #0b3b24; /* Verde oscuro principal */
-            --btn-bg: #f5eedc;   /* Color crema/hueso para los botones */
-            --text-dark: #1f2924; 
-            --text-white: #ffffff; 
-            --accent-color: #a4b39e; 
-        }
-
-        /* Reseteo: Borra márgenes nativos y aplica fuente del sistema (rápida, limpia y sin parpadeos). */
+        :root { --bg-color: #0b3b24; --btn-bg: #f5eedc; --text-dark: #1f2924; --text-white: #ffffff; --accent-color: #a4b39e; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-        
-        /* Layout principal: Centrado horizontal y con altura mínima al 100% de la pantalla (100vh). */
         body { background-color: var(--bg-color); color: var(--text-white); display: flex; justify-content: center; min-height: 100vh; padding: 2rem 1rem; }
-        
-        /* Contenedor central: Limita el ancho a 600px para simular la vista móvil limpia incluso viéndolo en PC. */
         .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; }
         
-        /* ==================== Encabezado y Logo ==================== */
         header { text-align: center; margin-bottom: 2rem; }
         .logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-color); overflow: hidden; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; background-color: white; }
         .logo-image { width: 100%; height: 100%; object-fit: cover; }
         h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; color: #d6e2cf; }
         .description { font-size: 1rem; line-height: 1.4; color: #b0beb5; margin: 0 auto; max-width: 90%; text-align: center;}
 
-        /* ==================== Estilos de los Botones de Acción ==================== */
         .links-container { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; margin-top: 1.5rem;}
-        
-        /* Contenedor principal de cada botón (Flexbox para alinear icono y textos) */
         .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 14px 20px; border-radius: 12px; transition: transform 0.2s; }
-        
-        /* Efecto hover: eleva el botón ligeramente al pasar el mouse (solo visible en PC) */
         .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-        
-        /* Estilos internos de los botones (Iconos, Título, Subtítulo, Flecha) */
         .btn-icon { font-size: 1.5rem; margin-right: 15px; min-width: 30px; text-align: center; }
-        .btn-text { flex-grow: 1; display: flex; flex-direction: column; } /* flex-grow: 1 empuja la flecha hacia el borde derecho */
+        .btn-text { flex-grow: 1; display: flex; flex-direction: column; }
         .btn-title { font-weight: 600; font-size: 1rem; margin-bottom: 3px; }
         .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 500; }
         .btn-arrow { font-size: 1.2rem; color: #5a665f; }
 
-        /* Botón de retroceso al inicio */
         .home-btn { display: inline-block; margin-bottom: 20px; color: var(--accent-color); text-decoration: none; font-weight: bold; align-self: flex-start;}
         
-        /* ==================== Footer y Redes Sociales ==================== */
         footer { text-align: center; width: 100%; }
         .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
         .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
@@ -119,15 +68,10 @@
     </style>
 </head>
 <body>
-    <!-- ========================================== -->
-    <!-- CUERPO DEL DOCUMENTO (Lo que ve el usuario)-->
-    <!-- ========================================== -->
     <div class="container">
-        
-        <!-- Enlace relativo para volver al archivo index.html que está en la carpeta raíz -->
+        <!-- Enlace relativo para volver al index que está en la carpeta raíz -->
         <a href="../index.html" class="home-btn">← Volver al inicio</a>
         
-        <!-- Etiqueta semántica HEADER para la cabecera -->
         <header>
             <div class="logo-circle">
                 <!-- Enlace relativo a la carpeta img -->
@@ -137,10 +81,8 @@
             <p class="description">Elegí la opción que mejor se adapte a lo que estás buscando.</p>
         </header>
 
-        <!-- Etiqueta MAIN para englobar las interacciones principales -->
         <main class="links-container">
             
-            <!-- Botón 1: Chat directo (Abre conversación con el asesor) -->
             <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="link-btn">
                 <span class="btn-icon">💬</span>
                 <div class="btn-text">
@@ -150,8 +92,8 @@
                 <span class="btn-arrow">→</span>
             </a>
 
-            <!-- Botón 2: Catálogo (Abre el catálogo nativo de WhatsApp Business) -->
-            <a href="https://wa.me/c/5493764149835" target="_blank" class="link-btn">
+            <!-- Nota: Para el catálogo directo de WhatsApp Business el link suele ser wa.me/c/numero, por defecto dejo el del canal adaptado, cambialo por tu enlace de catálogo real si tenés uno de tienda. -->
+            <a href=" https://wa.me/c/5493764149835" target="_blank" class="link-btn">
                 <span class="btn-icon">🛍️</span>
                 <div class="btn-text">
                     <span class="btn-title">Catálogo de WhatsApp</span>
@@ -160,7 +102,6 @@
                 <span class="btn-arrow">→</span>
             </a>
 
-            <!-- Botón 3: Canal (Abre el canal de difusión para seguir novedades) -->
             <a href="https://whatsapp.com/channel/0029VbDNEdM6rsR2btM00y2Z" target="_blank" class="link-btn">
                 <span class="btn-icon">📢</span>
                 <div class="btn-text">
@@ -172,7 +113,6 @@
 
         </main>
 
-        <!-- Etiqueta FOOTER para cierre corporativo y redes -->
         <footer>
             <div class="social-icons">
                 <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
