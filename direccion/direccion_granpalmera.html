@@ -1,31 +1,103 @@
 <!DOCTYPE html>
+<!-- Declaración del tipo de documento. Le indica al navegador que usamos el estándar HTML5. -->
 <html lang="es">
 <head>
+    <!-- ========================================== -->
+    <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
+    <!-- ========================================== -->
+    
+    <!-- Define la codificación de caracteres. Evita que las "ñ" y tildes se vean como símbolos rotos. -->
     <meta charset="UTF-8">
+    
+    <!-- Etiqueta vital para el diseño Responsive (adaptable a celulares). -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título de la pestaña y de los resultados de búsqueda de Google. -->
     <title>Visitá Nuestro Vivero en Posadas | Gran Palmera</title>
+    
+    <!-- Resumen que Google muestra debajo del título. -->
     <meta name="description" content="Nos estamos preparando para recibirte. Conocé los avances de nuestro nuevo vivero físico en Posadas, Misiones. Tienda online funcionando 24/7.">
+    
+    <!-- ========================================== -->
+    <!-- 1. GOOGLE ANALYTICS (MEDICIÓN DE TRÁFICO)  -->
+    <!-- ========================================== -->
+    <!-- Script para trackear visitas. ¡No olvides cambiar G-XXXXXXXXXX por tu ID real! -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- ========================================== -->
+    <!-- 2. METADATOS OPEN GRAPH (VISTAS PREVIAS)   -->
+    <!-- ========================================== -->
+    <!-- Etiquetas para que WhatsApp, Facebook, etc., generen la tarjeta con imagen al compartir el link. -->
+    <meta property="og:title" content="Visitá Nuestro Vivero en Posadas | Gran Palmera">
+    <meta property="og:description" content="Nos estamos preparando para recibirte. Conocé los avances de nuestro nuevo vivero físico en Posadas.">
+    <meta property="og:type" content="website">
+    
+    <!-- Rutas ABSOLUTAS (https://...) obligatorias para que la imagen cargue en WhatsApp. -->
+    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/direccion/direccion_granpalmera.html">
+    <meta property="og:image" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    <meta property="og:image:secure_url" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    
+    <!-- Dimensiones explícitas para forzar a WhatsApp a renderizar la imagen rápido. -->
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    
+    <!-- ========================================== -->
+    <!-- 3. FAVICON (ICONO DEL NAVEGADOR)           -->
+    <!-- ========================================== -->
+    <!-- Iconito de la pestaña. Usa ruta relativa (../) para buscar en la carpeta de imágenes. -->
+    <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
+
+    <!-- ========================================== -->
+    <!-- 4. LIBRERÍAS EXTERNAS                      -->
+    <!-- ========================================== -->
+    <!-- FontAwesome para los iconos vectoriales de las redes sociales y elementos decorativos. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ========================================== -->
+    <!-- 5. HOJA DE ESTILOS CSS (DISEÑO VISUAL)     -->
+    <!-- ========================================== -->
     <style>
-        :root { --bg-color: #0b3b24; --btn-bg: #f5eedc; --text-dark: #1f2924; --text-white: #ffffff; --accent-color: #a4b39e; }
+        /* Variables CSS: Colores globales del proyecto. */
+        :root { 
+            --bg-color: #0b3b24; 
+            --btn-bg: #f5eedc; 
+            --text-dark: #1f2924; 
+            --text-white: #ffffff; 
+            --accent-color: #a4b39e; 
+        }
+
+        /* Reseteo universal y tipografía base. */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        
+        /* Layout principal (fondo y centrado) */
         body { background-color: var(--bg-color); color: var(--text-white); display: flex; justify-content: center; min-height: 100vh; padding: 2rem 1rem; }
         .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; text-align: center; }
         
+        /* Encabezado y logotipo circular */
         header { margin-bottom: 2rem; }
         .logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-color); overflow: hidden; margin: 0 auto 15px auto; display: flex; justify-content: center; background-color: white; }
         .logo-image { width: 100%; height: 100%; object-fit: cover; }
         h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; color: #d6e2cf; }
         
+        /* Tarjeta principal (En construcción) */
         .content-card { background-color: var(--btn-bg); color: var(--text-dark); padding: 30px 20px; border-radius: 12px; margin-bottom: 20px; width: 100%; text-align: center; }
-        .content-card i.fa-tools { font-size: 3rem; color: #5a665f; margin-bottom: 15px; }
+        .content-card i.fa-tools { font-size: 3rem; color: #5a665f; margin-bottom: 15px; } /* Icono decorativo grande */
         .content-card h2 { font-size: 1.4rem; color: #2c4c3b; margin-bottom: 15px; text-transform: uppercase; }
         .content-card p { font-size: 1rem; line-height: 1.6; margin-bottom: 20px; }
         
+        /* Caja de estatus/estado actual */
         .status-box { background-color: #e5dac1; padding: 15px; border-radius: 8px; border: 1px dashed #2c4c3b; margin-top: 20px; text-align: left; }
         .status-box p { margin-bottom: 8px; font-size: 0.9rem; }
         .status-box strong { color: #2c4c3b; }
 
+        /* Estructura de los botones de acción */
         .links-container { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; margin-top: 1rem;}
         .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 14px 20px; border-radius: 12px; transition: transform 0.2s; text-align: left;}
         .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
@@ -35,9 +107,10 @@
         .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 500; }
         .btn-arrow { font-size: 1.2rem; color: #5a665f; }
         
+        /* Botón de retroceso al inicio */
         .home-btn { display: inline-block; margin-bottom: 20px; color: var(--accent-color); text-decoration: none; font-weight: bold; align-self: flex-start;}
         
-        /* Estilos de pie de página y redes */
+        /* Pie de página y Redes */
         footer { text-align: center; width: 100%; margin-top: 2rem; }
         .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
         .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
@@ -46,8 +119,14 @@
     </style>
 </head>
 <body>
+    <!-- ========================================== -->
+    <!-- CUERPO DEL DOCUMENTO (Lo que ve el usuario)-->
+    <!-- ========================================== -->
     <div class="container">
+        
+        <!-- Enlace con ruta relativa (../) para volver al index principal -->
         <a href="../index.html" class="home-btn">← Volver al inicio</a>
+        
         <header>
             <div class="logo-circle">
                 <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image">
@@ -55,6 +134,7 @@
             <h1>Visita al Vivero</h1>
         </header>
 
+        <!-- Etiqueta <article> para agrupar el bloque informativo principal -->
         <article class="content-card">
             <i class="fa-solid fa-person-digging fa-tools"></i>
             <h2>¡Nos estamos preparando!</h2>
@@ -68,6 +148,7 @@
             </div>
         </article>
 
+        <!-- Etiqueta <main> para los botones de acción -->
         <main class="links-container">
             <a href="https://granpalmera.mitiendanube.com/" target="_blank" class="link-btn">
                 <span class="btn-icon">🛒</span>
@@ -77,6 +158,17 @@
                 </div>
                 <span class="btn-arrow">→</span>
             </a>
+
+            <!-- Botón de Mercado Libre agregado anteriormente -->
+            <a href="https://www.mercadolibre.com.ar/pagina/granpalmera" target="_blank" class="link-btn">
+                <span class="btn-icon">🏷️</span>
+                <div class="btn-text">
+                    <span class="btn-title">Mercado Libre</span>
+                    <span class="btn-subtitle">VISITÁ NUESTRA TIENDA OFICIAL</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+
             <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="link-btn">
                 <span class="btn-icon">📲</span>
                 <div class="btn-text">
@@ -87,15 +179,20 @@
             </a>
         </main>
 
+        <!-- Etiqueta <footer> para el cierre, redes y ubicación -->
         <footer>
             <div class="social-icons">
                 <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/GranPalmera/" target="_blank" class="social-btn" title="Seguinos en Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                
+                <!-- ENLACE DE TIKTOK ACTUALIZADO CON URL REAL -->
+                <a href="https://www.tiktok.com/@granpalmera" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                
                 <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="social-btn" title="plantas, Ideas y proyectos de jardín" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                 <a href="https://www.youtube.com/@GranPalmera" target="_blank" class="social-btn" title="Videos y tutoriales" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                
+                <a href="../whatsapp/whatsapp_granpalmera.html" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p class="footer-text">GRANPALMERA VIVERO Y PAISAJISMO · Posadas, Misiones, Argentina</p>
         </footer>
