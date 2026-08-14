@@ -1,59 +1,96 @@
 <!DOCTYPE html>
+<!-- Declaración del tipo de documento para usar HTML5 -->
 <html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW5425W71"></script>
+    <!-- ========================================== -->
+    <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
+    <!-- ========================================== -->
+    
+    <!-- Charset: Codificación de caracteres. Mantiene sanas las tildes y las "ñ". -->
+    <meta charset="UTF-8">
+    
+    <!-- Viewport: Obligatorio para diseño Responsive (adaptación a celulares). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title: El título principal de tu web en el navegador y en Google. -->
+    <title>Paisajismo Residencial | Gran Palmera</title>
+    
+    <!-- Description: Resumen clave para el SEO. Muestra de qué trata tu página en las búsquedas. -->
+    <meta name="description" content="Diseñamos jardines para vivirlos. Proyectos integrales de paisajismo residencial, desde la idea hasta la instalación. Presupuesto sin cargo.">
+    
+    <!-- ========================================== -->
+    <!-- 1. GOOGLE ANALYTICS (MEDICIÓN DE TRÁFICO)  -->
+    <!-- ========================================== -->
+    <!-- Script de seguimiento (GA4) para trackear visitas, comportamiento y clics. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW542SW71"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-LWW5425W71');
+      
+      /* Aquí se inicializa tu propiedad específica */
+      gtag('config', 'G-LWW542SW71');
     </script>
-        
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paisajismo Residencial | Gran Palmera</title>
-    <meta name="description" content="Diseñamos jardines para vivirlos. Proyectos integrales de paisajismo residencial, desde la idea hasta la instalación. Presupuesto sin cargo.">
-    
+
     <!-- ========================================== -->
-    <!-- METADATOS PARA WHATSAPP Y REDES (OPEN GRAPH) -->
+    <!-- 2. METADATOS OPEN GRAPH (VISTAS PREVIAS)   -->
     <!-- ========================================== -->
+    <!-- Etiquetas leídas por WhatsApp, Facebook y Telegram para generar la tarjeta con imagen. -->
     <meta property="og:title" content="Gran Palmera | Paisajismo Residencial">
     <meta property="og:description" content="Transformamos patios, jardines y espacios exteriores en ambientes pensados para disfrutar y valorizar tu propiedad.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/">
+    
+    <!-- RUTAS ABSOLUTAS: Obligatorias para que las apps rastreen el archivo (https://...) -->
+    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/paisajismo/paisajismo_residencial_granpalmera.html">
     <meta property="og:image" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
     <meta property="og:image:secure_url" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    
+    <!-- Dimensiones explícitas para forzar la carga rápida de la imagen (500x500). -->
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="600">
-    <meta property="og:image:height" content="600">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
     
     <!-- ========================================== -->
-    <!-- FAVICON (ICONO DEL NAVEGADOR)              -->
+    <!-- 3. FAVICON (ICONO DEL NAVEGADOR)           -->
     <!-- ========================================== -->
+    <!-- Icono de la pestaña. Usamos ruta relativa (../) para subir una carpeta e ir a /img/ -->
     <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
 
+    <!-- ========================================== -->
+    <!-- 4. LIBRERÍAS EXTERNAS                      -->
+    <!-- ========================================== -->
+    <!-- FontAwesome vía CDN para los iconos de redes sociales y decorativos. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- ========================================== -->
+    <!-- 5. HOJA DE ESTILOS CSS (DISEÑO VISUAL)     -->
+    <!-- ========================================== -->
     <style>
+        /* Variables globales CSS: Paleta de colores centralizada. */
         :root {
-            --bg-color: #0b3b24; 
-            --btn-bg: #f5eedc; 
+            --bg-color: #0b3b24; /* Verde oscuro principal */
+            --btn-bg: #f5eedc;   /* Color hueso para tarjetas */
             --text-dark: #1f2924;
             --text-light: #949a96;
             --text-white: #ffffff;
             --accent-color: #a4b39e;
         }
+
+        /* Reseteo: Borra márgenes nativos y aplica fuente del sistema (rápida y limpia). */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        
+        /* Layout principal: Centrado y con altura mínima al 100% (100vh). */
         body { background-color: var(--bg-color); color: var(--text-white); display: flex; justify-content: center; min-height: 100vh; padding: 2rem 1rem; }
+        
+        /* Contenedor central: Limita el ancho a 600px para simular la vista móvil en PC. */
         .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; }
         
-        /* Navegación superior */
+        /* ==================== Navegación Superior ==================== */
         .nav-links { width: 100%; display: flex; justify-content: space-between; margin-bottom: 20px; }
         .home-btn { color: var(--accent-color); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
         .home-btn:hover { text-decoration: underline; }
 
+        /* ==================== Encabezado y Logo ==================== */
         header { text-align: center; margin-bottom: 2rem; }
         .logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-color); overflow: hidden; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; background-color: white; }
         .logo-image { width: 100%; height: 100%; object-fit: cover; }
@@ -61,13 +98,13 @@
         .subtitle { font-size: 1.1rem; color: var(--accent-color); font-weight: 600; margin-bottom: 15px; }
         .description { font-size: 0.95rem; line-height: 1.5; color: #b0beb5; margin: 0 auto; max-width: 95%; }
 
-        /* Estilos para contenido de texto */
+        /* ==================== Tarjetas de Contenido ==================== */
         .content-card { background-color: var(--btn-bg); color: var(--text-dark); padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; width: 100%; text-align: left; }
         .content-card h2 { font-size: 1.3rem; color: #1a2f24; margin-bottom: 15px; border-bottom: 2px solid #d4cca9; padding-bottom: 8px; text-transform: uppercase; font-weight: 800;}
         .content-card h3 { font-size: 1.1rem; color: #2c4c3b; margin-top: 20px; margin-bottom: 10px; font-weight: 700; }
         .content-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
         
-        /* Estilos de listas */
+        /* ==================== Estilos de Listas ==================== */
         .bullet-list { padding-left: 20px; margin-bottom: 15px; }
         .bullet-list li { margin-bottom: 8px; font-size: 0.95rem; line-height: 1.5; }
         
@@ -75,23 +112,23 @@
         .feature-list li { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.5; }
         .feature-list span { font-weight: bold; color: #2c4c3b; }
 
-        /* Lista de pasos (Proceso) */
+        /* Lista de procesos numerados (Ej: 01, 02, 03) */
         .step-list { list-style: none; margin-bottom: 10px; margin-top: 15px; }
         .step-list li { margin-bottom: 18px; font-size: 0.95rem; line-height: 1.5; display: flex; align-items: flex-start; }
         .step-number { font-weight: bold; color: var(--text-white); background-color: #2c4c3b; min-width: 28px; height: 28px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 12px; font-size: 0.85rem; flex-shrink: 0; }
         .step-content span { font-weight: bold; color: #2c4c3b; display: block; margin-bottom: 2px; text-transform: uppercase; font-size: 0.9rem;}
         
-        /* Cajas de servicios/opciones */
+        /* Cajas de servicios / Opciones modulares */
         .service-box { background-color: #e5dac1; padding: 15px; border-radius: 8px; margin-bottom: 12px; border-left: 4px solid #2c4c3b; }
         .service-box strong { display: block; color: #1a2f24; margin-bottom: 4px; font-size: 1rem; }
         .service-box p { margin-bottom: 0; font-size: 0.9rem; }
 
-        /* Call To Action Text */
+        /* ==================== Textos previos al CTA (Call To Action) ==================== */
         .cta-text-box { text-align: center; margin: 2rem 0 1.5rem 0; padding: 0 10px; }
         .cta-text-box h3 { color: #d6e2cf; font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; }
         .cta-text-box p { color: #b0beb5; font-size: 0.95rem; line-height: 1.6; margin-bottom: 8px; }
 
-        /* Estilos de botones */
+        /* ==================== Botones de Acción Principales ==================== */
         .links-container { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; }
         .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 16px 20px; border-radius: 12px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
@@ -101,7 +138,7 @@
         .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 600; }
         .btn-arrow { font-size: 1.2rem; color: #5a665f; font-weight: bold; }
 
-        /* Estilos de pie de página y redes */
+        /* ==================== Footer y Redes Sociales ==================== */
         footer { text-align: center; width: 100%; }
         .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
         .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
@@ -110,13 +147,18 @@
     </style>
 </head>
 <body>
+    <!-- ========================================== -->
+    <!-- CUERPO DEL DOCUMENTO (Lo que ve el usuario)-->
+    <!-- ========================================== -->
     <div class="container">
         
+        <!-- Navegación superior: Usa rutas relativas para moverse entre las carpetas -->
         <div class="nav-links">
             <a href="paisajismo_granpalmera.html" class="home-btn">← Volver a Servicios</a>
             <a href="../index.html" class="home-btn"><i class="fa-solid fa-house"></i> Inicio</a>
         </div>
 
+        <!-- Etiqueta semántica HEADER -->
         <header>
             <div class="logo-circle">
                 <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image">
@@ -126,6 +168,7 @@
             <p class="description">Transformamos patios, jardines y espacios exteriores en ambientes pensados para disfrutar, conectar con la naturaleza y valorizar tu propiedad.<br><br>En <strong>GRANPALMERA VIVERO Y PAISAJISMO</strong> desarrollamos proyectos integrales de paisajismo residencial, desde la primera idea hasta la selección de plantas, la instalación y la consolidación del jardín.</p>
         </header>
 
+        <!-- Etiquetas ARTICLE para cada bloque informativo. Favorece el SEO semántico. -->
         <article class="content-card">
             <h2>Tu jardín, diseñado como un proyecto</h2>
             <p>Un buen jardín no consiste simplemente en colocar plantas. Primero entendemos el espacio, la arquitectura y la forma en que querés utilizarlo. Después diseñamos una composición que tenga sentido hoy y que también funcione cuando la vegetación crezca.</p>
@@ -254,6 +297,7 @@
             </div>
         </article>
 
+        <!-- Bloque de pasos ordenados numéricamente -->
         <article class="content-card">
             <h2>Un proceso simple</h2>
             <ul class="step-list">
@@ -288,6 +332,7 @@
             </ul>
         </article>
 
+        <!-- Sección de empatía previa al botón de llamado a la acción (CTA) -->
         <div class="cta-text-box">
             <h3>¿Tenés un espacio que querés transformar?</h3>
             <p>No necesitás saber qué plantas comprar.</p>
@@ -296,7 +341,9 @@
             <p style="color: white; font-weight: bold; margin-top: 15px;">Contanos qué espacio tenés, qué querés lograr y qué necesitás del jardín. Nosotros te ayudamos a convertir esa idea en un proyecto.</p>
         </div>
 
+        <!-- Etiqueta MAIN para englobar interacciones principales -->
         <main class="links-container">
+            
             <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="link-btn">
                 <span class="btn-icon">🏡</span>
                 <div class="btn-text">
@@ -306,6 +353,7 @@
                 <span class="btn-arrow">→</span>
             </a>
             
+            <!-- Botón destacado con color de fondo invertido -->
             <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="link-btn" style="background-color: #2c4c3b; color: white;">
                 <span class="btn-icon">📋</span>
                 <div class="btn-text">
@@ -314,13 +362,15 @@
                 </div>
                 <span class="btn-arrow" style="color: #d6e2cf;">→</span>
             </a>
+            
         </main>
 
+        <!-- Etiqueta FOOTER para cierre corporativo y redes -->
         <footer>
             <div class="social-icons">
                 <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/GranPalmera/" target="_blank" class="social-btn" title="Seguinos en Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.tiktok.com/@granpalmera" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="social-btn" title="plantas, Ideas y proyectos de jardín" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                 <a href="https://www.youtube.com/@GranPalmera" target="_blank" class="social-btn" title="Videos y tutoriales" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>

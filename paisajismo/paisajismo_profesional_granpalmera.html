@@ -1,58 +1,95 @@
 <!DOCTYPE html>
+<!-- Declaración del tipo de documento. Le indica al navegador que estamos usando el estándar moderno HTML5. -->
 <html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW5425W71"></script>
+    <!-- ========================================== -->
+    <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
+    <!-- ========================================== -->
+    
+    <!-- Define la codificación de caracteres. Evita que las tildes y las "ñ" se muestren como símbolos raros. -->
+    <meta charset="UTF-8">
+    
+    <!-- Etiqueta vital para el diseño Responsive. Permite que la web se adapte perfectamente a las pantallas de los celulares. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título de la pestaña del navegador y título principal en los resultados de Google. -->
+    <title>Paisajismo para Profesionales | B2B | Gran Palmera</title>
+    
+    <!-- Descripción corta para SEO. Es el texto que aparece debajo del título en Google. -->
+    <meta name="description" content="Partner técnico en paisajismo para arquitectos, constructoras y desarrolladores. Diseño, documentación, visualización 3D y provisión vegetal a gran escala.">
+    
+    <!-- ========================================== -->
+    <!-- 1. GOOGLE ANALYTICS (MEDICIÓN DE TRÁFICO)  -->
+    <!-- ========================================== -->
+    <!-- Script de seguimiento (GA4) para trackear visitas, comportamiento y clics. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW542SW71"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-LWW5425W71');
+      
+      /* Configuración de tu propiedad exacta */
+      gtag('config', 'G-LWW542SW71');
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paisajismo para Profesionales | B2B | Gran Palmera</title>
-    <meta name="description" content="Partner técnico en paisajismo para arquitectos, constructoras y desarrolladores. Diseño, documentación, visualización 3D y provisión vegetal a gran escala.">
-    
     <!-- ========================================== -->
-    <!-- METADATOS PARA WHATSAPP Y REDES (OPEN GRAPH) -->
+    <!-- 2. METADATOS OPEN GRAPH (VISTAS PREVIAS)   -->
     <!-- ========================================== -->
+    <!-- Estas etiquetas son leídas por WhatsApp, Facebook y LinkedIn para generar la tarjeta visual al compartir el link. -->
     <meta property="og:title" content="Gran Palmera | Paisajismo para Profesionales">
     <meta property="og:description" content="Partner técnico en paisajismo para arquitectura, construcción y desarrollos inmobiliarios.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/">
+    
+    <!-- RUTAS ABSOLUTAS: WhatsApp exige la URL completa (https://...) para que la imagen de vista previa funcione. -->
+    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/paisajismo/paisajismo_profesional_granpalmera.html">
     <meta property="og:image" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
     <meta property="og:image:secure_url" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    
+    <!-- Dimensiones explícitas (500x500) para forzar a las apps a cargar la imagen sin demoras. -->
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="600">
-    <meta property="og:image:height" content="600">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
     
     <!-- ========================================== -->
-    <!-- FAVICON (ICONO DEL NAVEGADOR)              -->
+    <!-- 3. FAVICON (ICONO DEL NAVEGADOR)           -->
     <!-- ========================================== -->
+    <!-- Icono de la pestaña. Usamos ruta relativa (../) para subir un nivel y buscar en la carpeta /img/ -->
     <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
 
+    <!-- ========================================== -->
+    <!-- 4. LIBRERÍAS EXTERNAS                      -->
+    <!-- ========================================== -->
+    <!-- Importamos FontAwesome desde un CDN para usar los iconos vectoriales de las redes sociales. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- ========================================== -->
+    <!-- 5. HOJA DE ESTILOS CSS (DISEÑO VISUAL)     -->
+    <!-- ========================================== -->
     <style>
+        /* Variables globales CSS: Definen la paleta de colores. Si cambiás un color acá, cambia en toda la página. */
         :root {
-            --bg-color: #0b3b24; 
-            --btn-bg: #f5eedc; 
+            --bg-color: #0b3b24; /* Fondo verde oscuro */
+            --btn-bg: #f5eedc;   /* Color hueso/crema para tarjetas */
             --text-dark: #1f2924;
             --text-white: #ffffff;
             --accent-color: #a4b39e;
         }
+
+        /* Reseteo CSS: Quita márgenes por defecto y aplica tipografía nativa para que cargue ultra rápido. */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        
+        /* Layout principal: Flexbox centra el contenido horizontalmente y le da alto mínimo de toda la pantalla (100vh). */
         body { background-color: var(--bg-color); color: var(--text-white); display: flex; justify-content: center; min-height: 100vh; padding: 2rem 1rem; }
+        
+        /* Contenedor central: Limita el ancho a 600px para mantener formato vertical (tipo móvil) incluso en PC. */
         .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; }
         
-        /* Navegación superior */
+        /* ==================== Navegación Superior ==================== */
         .nav-links { width: 100%; display: flex; justify-content: space-between; margin-bottom: 20px; }
         .home-btn { color: var(--accent-color); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
         .home-btn:hover { text-decoration: underline; }
 
+        /* ==================== Encabezado y Logo ==================== */
         header { text-align: center; margin-bottom: 2rem; }
         .logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-color); overflow: hidden; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; background-color: white; }
         .logo-image { width: 100%; height: 100%; object-fit: cover; }
@@ -60,18 +97,17 @@
         .subtitle { font-size: 1.1rem; color: var(--accent-color); font-weight: 600; margin-bottom: 15px; }
         .description { font-size: 0.95rem; line-height: 1.5; color: #b0beb5; margin: 0 auto; max-width: 95%; }
 
-        /* Estilos para contenido de texto */
+        /* ==================== Tarjetas de Contenido ==================== */
         .content-card { background-color: var(--btn-bg); color: var(--text-dark); padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; width: 100%; text-align: left; }
         
-        /* Encabezados de tarjeta especiales para B2B */
+        /* Tipografías específicas para jerarquía B2B (más sobrias y corporativas) */
         .card-number { font-size: 0.9rem; font-weight: 800; color: #5a665f; display: block; margin-bottom: 5px; }
         .content-card h2 { font-size: 1.3rem; color: #1a2f24; margin-bottom: 5px; text-transform: uppercase; font-weight: 800;}
         .card-tagline { font-size: 1rem; color: #2c4c3b; margin-bottom: 15px; font-weight: 600; border-bottom: 2px solid #d4cca9; padding-bottom: 8px; }
-        
         .content-card h3 { font-size: 1.1rem; color: #2c4c3b; margin-top: 20px; margin-bottom: 10px; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; }
         .content-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
         
-        /* Estilos de listas */
+        /* ==================== Estilos de Listas ==================== */
         .bullet-list { padding-left: 20px; margin-bottom: 15px; }
         .bullet-list li { margin-bottom: 8px; font-size: 0.95rem; line-height: 1.5; }
         
@@ -79,28 +115,28 @@
         .feature-list li { margin-bottom: 15px; font-size: 0.95rem; line-height: 1.5; }
         .feature-list span { font-weight: bold; color: #2c4c3b; display: block; margin-bottom: 2px;}
 
-        /* Grid para listas cortas (ej. consideraciones) */
+        /* Grid list: Crea dos columnas para listas cortas ahorrando espacio vertical */
         .grid-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px 15px; list-style-type: none; margin-bottom: 15px; padding-left: 0; }
         .grid-list li { font-size: 0.9rem; position: relative; padding-left: 12px; }
         .grid-list li::before { content: "•"; position: absolute; left: 0; color: #2c4c3b; font-weight: bold; }
 
-        /* Cajas de servicios/roles (B2B) */
+        /* ==================== Cajas de Roles (B2B) ==================== */
         .role-box { background-color: #e5dac1; padding: 15px; border-radius: 8px; margin-bottom: 12px; border-left: 4px solid #2c4c3b; display: flex; align-items: flex-start; }
         .role-icon { font-size: 1.2rem; margin-right: 12px; min-width: 25px; }
         .role-content strong { display: block; color: #1a2f24; margin-bottom: 4px; font-size: 1rem; text-transform: uppercase;}
         .role-content p { margin-bottom: 0; font-size: 0.9rem; }
 
-        /* Bloque final destacado */
+        /* Caja de Destacado (Fondo oscuro) */
         .highlight-box { background-color: #1a2f24; color: white; padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
         .highlight-box h2 { color: #d6e2cf; border-bottom: none; margin-bottom: 10px; }
         .highlight-box p { margin-bottom: 0; color: #b0beb5; }
 
-        /* Call To Action Text */
-        .cta-text-box { margin: 2rem 0 1.5rem 0; padding: 0 10px; }
+        /* Textos previos al llamado a la acción (CTA) */
+        .cta-text-box { margin: 2rem 0 1.5rem 0; padding: 0 10px; text-align: left; }
         .cta-text-box h3 { color: #d6e2cf; font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; }
         .cta-text-box p { color: #b0beb5; font-size: 0.95rem; line-height: 1.6; margin-bottom: 8px; }
 
-        /* Estilos de botones */
+        /* ==================== Botones de Acción Principales ==================== */
         .links-container { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; }
         .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 16px 20px; border-radius: 12px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
@@ -110,6 +146,7 @@
         .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 600; }
         .btn-arrow { font-size: 1.2rem; color: #5a665f; font-weight: bold; }
 
+        /* ==================== Footer y Redes Sociales ==================== */
         footer { text-align: center; width: 100%; }
         .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
         .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
@@ -118,13 +155,18 @@
     </style>
 </head>
 <body>
+    <!-- ========================================== -->
+    <!-- CUERPO DEL DOCUMENTO (Lo que ve el usuario)-->
+    <!-- ========================================== -->
     <div class="container">
         
+        <!-- Navegación superior: Rutas relativas para volver al menú de paisajismo o al inicio -->
         <div class="nav-links">
             <a href="paisajismo_granpalmera.html" class="home-btn">← Volver a Servicios</a>
             <a href="../index.html" class="home-btn"><i class="fa-solid fa-house"></i> Inicio</a>
         </div>
 
+        <!-- Etiqueta semántica HEADER para cabecera -->
         <header>
             <div class="logo-circle">
                 <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image">
@@ -134,6 +176,7 @@
             <p class="description"><strong>Partner técnico para arquitectura, construcción y desarrollos.</strong><br><br>En GRANPALMERA colaboramos con arquitectos, estudios, constructoras, desarrolladores inmobiliarios, hoteles e instituciones para incorporar el paisaje a proyectos de distintas escalas.<br><br>Integramos diseño paisajístico, documentación, visualización 3D, curaduría vegetal, provisión de plantas, logística y asistencia en obra.</p>
         </header>
 
+        <!-- Etiquetas ARTICLE para cada sección de contenido (Favorece el SEO semántico) -->
         <article class="content-card">
             <h2>Del proyecto arquitectónico al paisaje</h2>
             <p class="card-tagline">El paisaje no debería ser un agregado de último momento.</p>
@@ -210,10 +253,12 @@
             </ul>
         </article>
 
+        <!-- Separador visual para las etapas -->
         <div style="text-align: center; margin: 2rem 0 1rem 0;">
             <h2 style="color: #d6e2cf; font-size: 1.4rem; text-transform: uppercase;">Metodología de Trabajo</h2>
         </div>
 
+        <!-- Numeración de procesos B2B -->
         <article class="content-card">
             <span class="card-number">01</span>
             <h2>Estrategia y Diseño</h2>
@@ -268,6 +313,7 @@
             <p>Controlamos la correcta ubicación, distancias, niveles y calidad de ejemplares mediante visitas periódicas o supervisión por hitos.</p>
         </article>
 
+        <!-- Bloque de diferenciación competitiva -->
         <div class="highlight-box">
             <h2>¿Por qué Gran Palmera?</h2>
             <p>Integramos capacidades que habitualmente se encuentran separadas: <strong>Diseño + Conocimiento Vegetal + Vivero + Logística + Ejecución.</strong></p>
@@ -287,13 +333,17 @@
             </div>
         </article>
 
+        <!-- Textos previos a los botones CTA -->
         <div class="cta-text-box">
             <h3>¿Tenés un proyecto?</h3>
             <p>Puede estar en etapa de idea, anteproyecto, ejecución o comercialización.</p>
             <p>Contanos qué tipo de desarrollo es y qué necesitás resolver o documentar. Evaluamos rápidamente cómo podemos incorporarnos al equipo.</p>
         </div>
 
+        <!-- Etiqueta MAIN para englobar interacciones principales -->
         <main class="links-container">
+            
+            <!-- Botón principal de contacto vía WhatsApp (Diseño invertido con color oscuro) -->
             <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="link-btn" style="background-color: #2c4c3b; color: white;">
                 <span class="btn-icon">👷🏻‍♂️</span>
                 <div class="btn-text">
@@ -303,6 +353,7 @@
                 <span class="btn-arrow" style="color: #d6e2cf;">→</span>
             </a>
             
+            <!-- Botón secundario para volver al menú de paisajismo -->
             <a href="paisajismo_granpalmera.html" class="link-btn">
                 <span class="btn-icon">🌿</span>
                 <div class="btn-text">
@@ -313,16 +364,18 @@
             </a>
         </main>
 
+        <!-- Etiqueta FOOTER para cierre, redes sociales e info corporativa -->
         <footer>
             <div class="social-icons">
                 <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/GranPalmera/" target="_blank" class="social-btn" title="Seguinos en Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.tiktok.com/@granpalmera" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="social-btn" title="plantas, Ideas y proyectos de jardín" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                 <a href="https://www.youtube.com/@GranPalmera" target="_blank" class="social-btn" title="Videos y tutoriales" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="../whatsapp/whatsapp_granpalmera.html" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
+            
             <p class="footer-text"><strong>GRANPALMERA</strong><br>PAISAJE · VEGETACIÓN · PROYECTOS<br>Posadas, Misiones, Argentina</p>
         </footer>
     </div>
