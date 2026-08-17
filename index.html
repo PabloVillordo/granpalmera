@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Title: El título principal de tu web. Es lo que se ve en la pestaña del navegador y en Google. -->
-    <title>Gran Palmera | Vivero y Paisajismo</title>
+    <title>Granpalmera | Vivero y Paisajismo</title>
     
     <!-- Description: Resumen clave para el SEO. Aparece debajo del título en los resultados de búsqueda. -->
     <meta name="description" content="🌴 GRANPALMERA | Vivero y Paisajismo. Especialistas en palmeras, plantas tropicales y diseño paisajístico.">
@@ -34,8 +34,8 @@
     <!-- 2. METADATOS OPEN GRAPH (VISTAS PREVIAS)   -->
     <!-- ========================================== -->
     <!-- Estas etiquetas son leídas por WhatsApp, Facebook y Telegram para generar la tarjeta cuando pasás el link. -->
-    <meta property="og:title" content="Gran Palmera | Vivero y Paisajismo">
-    <meta property="og:description" content="Palmeras y plantas tropicales enviadas a todo el país + diseño de espacios verdes a medida.">
+    <meta property="og:title" content="Granpalmera | Vivero y Paisajismo">
+    <meta property="og:description" content="🌴 GRANPALMERA | Vivero y Paisajismo. Especialistas en palmeras, plantas tropicales y diseño paisajístico.">
     <meta property="og:type" content="website">
     
     <!-- URL y Rutas Absolutas: Vitales para WhatsApp. Tienen que apuntar a tu dominio de Vercel (https://...) -->
@@ -95,7 +95,8 @@
         
         /* Diseño base de cada botón */
         .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 14px 20px; border-radius: 12px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        /* Efecto al pasar el mouse por encima (hover) */
+        
+        /* Efecto al pasar el mouse por encima de botones genéricos (hover) */
         .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
         
         /* Secciones internas del botón (icono, bloque de texto, flecha) */
@@ -104,6 +105,25 @@
         .btn-title { font-weight: 600; font-size: 1rem; margin-bottom: 3px; }
         .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 500; }
         .btn-arrow { font-size: 1.2rem; color: #5a665f; }
+
+        /* === NUEVO: Animación y estilos para botón destacado (Sorteo) === */
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0 rgba(164, 179, 158, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(164, 179, 158, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(164, 179, 158, 0); }
+        }
+        
+        .btn-highlight {
+            background-color: #1a2f24; /* Fondo oscuro contrastante */
+            border: 2px solid var(--accent-color);
+            padding: 16px 20px; /* Ligeramente más grande que los normales */
+            animation: pulse-animation 2s infinite; /* Aplica la animación de latido constante */
+        }
+        
+        .btn-highlight .btn-title { color: var(--text-white); font-size: 1.1rem; font-weight: 800; }
+        .btn-highlight .btn-subtitle { color: #d6e2cf; }
+        .btn-highlight .btn-arrow { color: var(--accent-color); }
+        /* ================================================================ */
 
         /* Estilos del pie de página y botones circulares de redes sociales */
         footer { text-align: center; width: 100%; }
@@ -132,7 +152,17 @@
         <!-- MAIN: Contenedor principal de los botones de interacción -->
         <main class="links-container">
             
-            <!-- Botón hacia Subpágina (Ruta relativa a la carpeta 'whatsapp') -->
+            <!-- NUEVO: Botón Destacado del Sorteo UNE 2026 -->
+            <a href="sorteo/granpalmera.sorteo.html" class="link-btn btn-highlight">
+                <span class="btn-icon">🎁</span>
+                <div class="btn-text">
+                    <span class="btn-title">Sorteo Gran Palmera | UNE 2026</span>
+                    <span class="btn-subtitle">PARTICIPÁ Y GANÁ UNA PALMERA BISMARCKIA</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+
+            <!-- Botón hacia Subpágina de WhatsApp -->
             <a href="whatsapp/whatsapp_granpalmera.html" class="link-btn">
                 <span class="btn-icon">📲</span>
                 <div class="btn-text">
@@ -142,7 +172,7 @@
                 <span class="btn-arrow">→</span>
             </a>
 
-            <!-- Botón Externo (Tienda Nube). target="_blank" abre en nueva pestaña -->
+            <!-- Botón Externo (Tienda Nube) -->
             <a href="https://granpalmera.mitiendanube.com/" target="_blank" class="link-btn">
                 <span class="btn-icon">🛒</span>
                 <div class="btn-text">
@@ -162,7 +192,7 @@
                 <span class="btn-arrow">→</span>
             </a>
 
-            <!-- Botón hacia Subpágina (Ruta relativa a la carpeta 'paisajismo') -->
+            <!-- Botón hacia Subpágina de Paisajismo -->
             <a href="paisajismo/paisajismo_granpalmera.html" class="link-btn">
                 <span class="btn-icon">🏡</span>
                 <div class="btn-text">
@@ -182,8 +212,8 @@
                 <span class="btn-arrow">→</span>
             </a>
 
-            <!-- Botón hacia Subpágina (Ruta relativa a la carpeta 'envios') -->
-            <a href="envios/envios_granpalmera.html" class="link-btn">
+            <!-- Botón hacia Subpágina de Envíos -->
+            <a href="envios/envíos_granpalmera.html" class="link-btn">
                 <span class="btn-icon">🚚</span>
                 <div class="btn-text">
                     <span class="btn-title">Envíos a todo el país</span>
@@ -192,7 +222,7 @@
                 <span class="btn-arrow">→</span>
             </a>
 
-            <!-- Botón hacia Subpágina (Ruta relativa a la carpeta 'direccion') -->
+            <!-- Botón hacia Subpágina del Vivero (Dirección) -->
             <a href="direccion/direccion_granpalmera.html" class="link-btn">
                 <span class="btn-icon">📍</span>
                 <div class="btn-text">
@@ -207,7 +237,6 @@
         <!-- FOOTER: Etiqueta semántica para el pie de página -->
         <footer>
             <div class="social-icons">
-                <!-- Iconos de Redes Sociales. 'aria-label' ayuda a los lectores de pantalla (bueno para accesibilidad) -->
                 <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 
                 <a href="https://www.facebook.com/GranPalmera/" target="_blank" class="social-btn" title="Seguinos en Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -220,11 +249,9 @@
                 
                 <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 
-                <!-- Link a la subpágina de WhatsApp -->
                 <a href="whatsapp/whatsapp_granpalmera.html" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
             
-            <!-- Footer de derechos/ubicación -->
             <p class="footer-text">GRANPALMERA VIVERO Y PAISAJISMO · Posadas, Misiones, Argentina</p>
         </footer>
         
