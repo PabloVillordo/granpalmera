@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!-- Declaración del tipo de documento para indicar el uso de HTML5 -->
+<html lang="es">
+<head>
+    <!-- ========================================== -->
+    <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
+    <!-- ========================================== -->
+    
+    <!-- Charset: Codificación de caracteres. Asegura que los acentos y símbolos (como el emoji 🌿) se vean correctamente. -->
+    <meta charset="UTF-8">
+    
+    <!-- Viewport: Obligatorio para el diseño Responsive. Escala la página perfectamente en dispositivos móviles. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title: El título de la pestaña del navegador y de los resultados de búsqueda. -->
+    <title>Bases y Condiciones – Gran Sorteo | Granpalmera</title>
+    
+    <!-- Description: Resumen del contenido para SEO. -->
+    <meta name="description" content="Participá de nuestro sorteo por una Palmera Bismarckia nobilis. Bases y condiciones del Gran Sorteo Gran Palmera.">
+    
+    <!-- ========================================== -->
+    <!-- 1. GOOGLE ANALYTICS (MEDICIÓN DE TRÁFICO)  -->
+    <!-- ========================================== -->
+    <!-- Script de seguimiento (GA4) con tu ID exacto: G-LWW542SW71 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW542SW71"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      /* Inicialización de tu propiedad específica de Analytics */
+      gtag('config', 'G-LWW542SW71');
+    </script>
+
+    <!-- ========================================== -->
+    <!-- 2. METADATOS OPEN GRAPH (VISTAS PREVIAS)   -->
+    <!-- ========================================== -->
+    <!-- Etiquetas leídas por WhatsApp, Instagram, Facebook para generar la vista previa del enlace. -->
+    <meta property="og:title" content="Bases y Condiciones – Gran Sorteo Gran Palmera">
+    <meta property="og:description" content="Participá de nuestro sorteo por una Palmera Bismarckia nobilis. ¡Conocé los pasos para ganar!">
+    <meta property="og:type" content="website">
+    
+    <!-- RUTAS ABSOLUTAS: Exigidas por WhatsApp para que la previsualización de la imagen cargue. -->
+    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/sorteo/granpalmera.sorteo.html">
+    <meta property="og:image" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    <meta property="og:image:secure_url" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    
+    <!-- Dimensiones explícitas (500x500) para forzar la carga rápida de la imagen en redes. -->
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    
+    <!-- ========================================== -->
+    <!-- 3. FAVICON (ICONO DEL NAVEGADOR)           -->
+    <!-- ========================================== -->
+    <!-- Icono de la pestaña. Usamos ruta relativa (../) para subir una carpeta y entrar a /img/ -->
+    <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
+
+    <!-- ========================================== -->
+    <!-- 4. LIBRERÍAS EXTERNAS                      -->
+    <!-- ========================================== -->
+    <!-- FontAwesome vía CDN para cargar los iconos de redes sociales y de botones de forma ligera. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ========================================== -->
+    <!-- 5. HOJA DE ESTILOS CSS (DISEÑO VISUAL)     -->
+    <!-- ========================================== -->
+    <style>
+        /* Variables globales CSS: Mantienen la coherencia de marca en todas las subpáginas. */
+        :root { 
+            --bg-color: #0b3b24; /* Verde oscuro principal */
+            --btn-bg: #f5eedc;   /* Color crema para las tarjetas de contenido */
+            --text-dark: #1f2924; 
+            --text-white: #ffffff; 
+            --accent-color: #a4b39e; 
+        }
+
+        /* Reseteo: Elimina márgenes y aplica la tipografía del sistema del dispositivo del usuario. */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        
+        /* Layout principal: Centra los elementos horizontalmente y asegura ocupar toda la pantalla en alto. */
+        body { background-color: var(--bg-color); color: var(--text-white); display: flex; justify-content: center; min-height: 100vh; padding: 2rem 1rem; }
+        
+        /* Contenedor central: Límite de 600px para simular vista móvil tipo 'Linktree' en monitores de PC. */
+        .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; }
+        
+        /* ==================== Navegación y Encabezado ==================== */
+        .nav-links { width: 100%; display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .home-btn { color: var(--accent-color); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .home-btn:hover { text-decoration: underline; }
+
+        header { text-align: center; margin-bottom: 2rem; }
+        .logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-color); overflow: hidden; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; background-color: white; }
+        .logo-image { width: 100%; height: 100%; object-fit: cover; }
+        h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; color: #d6e2cf; line-height: 1.2;}
+        .description { font-size: 0.95rem; line-height: 1.5; color: #b0beb5; margin: 0 auto; max-width: 95%; text-align: center;}
+
+        /* ==================== Tarjetas de Contenido y Textos ==================== */
+        .content-card { background-color: var(--btn-bg); color: var(--text-dark); padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; width: 100%; text-align: left; }
+        .content-card h2 { font-size: 1.2rem; color: #1a2f24; margin-bottom: 12px; border-bottom: 2px solid #d4cca9; padding-bottom: 6px; text-transform: uppercase; font-weight: 800;}
+        .content-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
+        
+        /* Estilos específicos para listas dentro de las bases y condiciones */
+        .bullet-list { padding-left: 20px; margin-bottom: 15px; }
+        .bullet-list li { margin-bottom: 8px; font-size: 0.95rem; line-height: 1.5; }
+        .bullet-list li strong { color: #2c4c3b; }
+
+        /* ==================== Botones de Acción ==================== */
+        .links-container { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; margin-top: 1.5rem;}
+        
+        /* Contenedor flexible para alinear iconos y texto */
+        .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 14px 20px; border-radius: 12px; transition: transform 0.2s; }
+        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        
+        .btn-icon { font-size: 1.5rem; margin-right: 15px; min-width: 30px; text-align: center; }
+        .btn-text { flex-grow: 1; display: flex; flex-direction: column; }
+        .btn-title { font-weight: 600; font-size: 1rem; margin-bottom: 3px; }
+        .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 500; }
+        .btn-arrow { font-size: 1.2rem; color: #5a665f; font-weight: bold; }
+
+        /* ==================== Footer y Redes Sociales ==================== */
+        footer { text-align: center; width: 100%; }
+        .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
+        .social-btn:hover { background-color: rgba(255,255,255,0.1); border-color: var(--text-white); }
+        .footer-text { font-size: 0.8rem; color: #8c9b91; margin-bottom: 2rem; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <!-- ========================================== -->
+    <!-- CUERPO DEL DOCUMENTO (Lo que ve el usuario)-->
+    <!-- ========================================== -->
+    <div class="container">
+        
+        <!-- Navegación de regreso: Usa "../" para ir a la raíz del sitio -->
+        <div class="nav-links">
+            <a href="../index.html" class="home-btn">← Volver al inicio</a>
+        </div>
+        
+        <!-- Etiqueta HEADER para el título y descripción inicial -->
+        <header>
+            <div class="logo-circle">
+                <!-- Imagen del logo (apunta a la carpeta img un nivel arriba) -->
+                <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image">
+            </div>
+            <h1>Bases y Condiciones<br>Gran Sorteo 🌿</h1>
+            <p class="description">¡Gracias por visitar nuestras intervenciones verdes en la sede de UNE 2026 y formar parte de nuestra comunidad!</p>
+        </header>
+
+        <!-- Etiqueta ARTICLE: Agrupa los bloques de texto legal y explicativo de manera semántica -->
+        <article class="content-card">
+            <p style="margin-bottom: 25px; font-weight: 500; color: #2c4c3b; text-align: center;">A continuación, detallamos las bases y términos legales para participar de nuestro sorteo.</p>
+
+            <h2>1. Organizador</h2>
+            <p>El presente sorteo es organizado por la marca Gran Palmera (junto a sus canales oficiales @granpalmera y @granpalmera.paisajismo). La acción no está patrocinada, avalada, administrada ni asociada de forma alguna con la organización del evento UNE, Meta (Instagram/Facebook) ni WhatsApp.</p>
+
+            <h2>2. Ámbito Geográfico y Vigencia</h2>
+            <p>La promoción es válida para todo el territorio de la República Argentina.</p>
+            <ul class="bullet-list">
+                <li><strong>Inicio:</strong> 14 de Agosto de 2026.</li>
+                <li><strong>Cierre de participación:</strong> 24 de Agosto de 2026 a las 00 hs.</li>
+            </ul>
+
+            <h2>3. Requisitos de Participación</h2>
+            <p>Podrán participar personas físicas mayores de 18 años residentes en Argentina que cumplan con los siguientes pasos en Instagram:</p>
+            <ul class="bullet-list">
+                <li>Seguir a las cuentas oficiales @granpalmera y @granpalmera.paisajismo.</li>
+                <li>Dar "Me gusta" (❤️) a la publicación oficial del sorteo (publicación en colaboración).</li>
+                <li>Etiquetar a al menos tres (3) amigos en los comentarios de dicha publicación. No se permiten comentarios que etiqueten cuentas de famosos, marcas, empresas ni perfiles falsos.</li>
+            </ul>
+
+            <h2>4. El Premio</h2>
+            <p>Se sorteará un (1) ejemplar de Palmera de Bismark (<em>Bismarckia nobilis</em>).</p>
+            <p>El premio es intransferible y no podrá ser canjeado por dinero en efectivo ni por otros productos de nuestro catálogo.</p>
+
+            <h2>5. Selección y Anuncio del Ganador</h2>
+            <ul class="bullet-list">
+                <li><strong>Fecha de sorteo:</strong> El ganador se elegirá de forma aleatoria el día 25 de Agosto de 2026 mediante la plataforma digital AppSorteos.</li>
+                
+                <!-- Enlaces añadidos con atributos de apertura en nueva pestaña (target="_blank") y estilos visuales para que destaquen -->
+                <li><strong>Anuncio oficial:</strong> Se publicará en nuestro <a href="https://www.whatsapp.com/channel/0029VbDNEdM6rsR2btM00y2Z" target="_blank" style="color: var(--accent-color); font-weight: bold; text-decoration: underline;">Canal Público de WhatsApp</a> y en las historias de <a href="https://www.instagram.com/granpalmera/" target="_blank" style="color: var(--accent-color); font-weight: bold; text-decoration: underline;">Instagram</a> de ambas cuentas.</li>
+                
+                <li><strong>Notificación:</strong> El ganador será contactado por mensaje directo en <a href="https://www.instagram.com/granpalmera/" target="_blank" style="color: var(--accent-color); font-weight: bold; text-decoration: underline;">Instagram</a>. Si no responde dentro de las 48 horas posteriores al envío del mensaje, perderá la condición de ganador y se procederá a contactar a un suplente.</li>
+            </ul>
+
+            <h2>6. Logística y Envíos</h2>
+            <ul class="bullet-list">
+                <li><strong>Posadas (Misiones) y alrededores:</strong> El ganador podrá retirar el premio presencialmente o solicitar entrega a domicilio sin cargo.</li>
+                <li><strong>Resto del país:</strong> Gran Palmera realizará el envío del ejemplar mediante encomienda a la sucursal de correo o transporte más cercana al domicilio del ganador. El costo del envío será abonado en destino por el ganador.</li>
+                <li><strong>Responsabilidad de traslado:</strong> Gran Palmera se compromete a acondicionar y embalar profesionalmente la planta para proteger su estructura y humedad durante el viaje. La marca no se responsabiliza por demoras o incidentes imputables a la empresa de transporte de terceros.</li>
+            </ul>
+
+            <h2>7. Aceptación de las Bases</h2>
+            <p style="margin-bottom: 0;">La sola participación en esta promoción implica la aceptación total e incondicional de estas Bases y Condiciones. Cualquier situación no prevista en las mismas será resuelta por la organización.</p>
+        </article>
+
+        <!-- Etiqueta MAIN: Contiene los botones de acción principal solicitados -->
+        <main class="links-container">
+            
+            <!-- Botón 1: Redirección a Instagram para participar -->
+            <a href="https://www.instagram.com/granpalmera/" target="_blank" class="link-btn">
+                <span class="btn-icon">👉</span>
+                <div class="btn-text">
+                    <span class="btn-title">Ir a Instagram para participar</span>
+                    <span class="btn-subtitle">CUMPLÍ LOS PASOS EN LA PUBLICACIÓN</span>
+                </div>
+                <span class="btn-arrow">→</span>
+            </a>
+
+            <!-- Botón 2: Redirección al Canal de WhatsApp. Destacado con color de marca inverso -->
+            <a href="https://whatsapp.com/channel/0029VbDNEdM6rsR2btM00y2Z" target="_blank" class="link-btn" style="background-color: #2c4c3b; color: white;">
+                <span class="btn-icon">💚</span>
+                <div class="btn-text">
+                    <span class="btn-title" style="color: white;">Unirme al Canal de WhatsApp</span>
+                    <span class="btn-subtitle" style="color: #d6e2cf;">AHÍ SE ANUNCIARÁ EL GANADOR</span>
+                </div>
+                <span class="btn-arrow" style="color: #d6e2cf;">→</span>
+            </a>
+
+        </main>
+
+        <!-- Etiqueta FOOTER para cierre, redes sociales corporativas y copy -->
+        <footer>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/GranPalmera/" target="_blank" class="social-btn" title="Seguinos en Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                
+                <!-- Enlace oficial de TikTok -->
+                <a href="https://www.tiktok.com/@granpalmera" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                
+                <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="social-btn" title="plantas, Ideas y proyectos de jardín" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.youtube.com/@GranPalmera" target="_blank" class="social-btn" title="Videos y tutoriales" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                
+                <!-- Ruta relativa a la landing de WhatsApp -->
+                <a href="../whatsapp/whatsapp_granpalmera.html" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <p class="footer-text"><strong>GRANPALMERA</strong><br>PAISAJE · VEGETACIÓN · PROYECTOS<br>Posadas, Misiones, Argentina</p>
+        </footer>
+    </div>
+</body>
+</html>
