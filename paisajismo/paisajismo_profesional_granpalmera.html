@@ -1,383 +1,351 @@
 <!DOCTYPE html>
-<!-- Declaración del tipo de documento. Le indica al navegador que estamos usando el estándar moderno HTML5. -->
-<html lang="es">
+<html lang="es-AR" class="preload">
 <head>
-    <!-- ========================================== -->
-    <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
-    <!-- ========================================== -->
-    
-    <!-- Define la codificación de caracteres. Evita que las tildes y las "ñ" se muestren como símbolos raros. -->
-    <meta charset="UTF-8">
-    
-    <!-- Etiqueta vital para el diseño Responsive. Permite que la web se adapte perfectamente a las pantallas de los celulares. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Título de la pestaña del navegador y título principal en los resultados de Google. -->
-    <title>Paisajismo para Profesionales | B2B | Gran Palmera</title>
-    
-    <!-- Descripción corta para SEO. Es el texto que aparece debajo del título en Google. -->
-    <meta name="description" content="Partner técnico en paisajismo para arquitectos, constructoras y desarrolladores. Diseño, documentación, visualización 3D y provisión vegetal a gran escala.">
-    
-    <!-- ========================================== -->
-    <!-- 1. GOOGLE ANALYTICS (MEDICIÓN DE TRÁFICO)  -->
-    <!-- ========================================== -->
-    <!-- Script de seguimiento (GA4) para trackear visitas, comportamiento y clics. -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW542SW71"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      /* Configuración de tu propiedad exacta */
-      gtag('config', 'G-LWW542SW71');
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paisajismo Residencial | Gran Palmera</title>
+<meta name="description" content="Diseñamos jardines para vivirlos. Proyectos integrales de paisajismo residencial, desde la idea hasta la instalación. Presupuesto sin cargo.">
 
-    <!-- ========================================== -->
-    <!-- 2. METADATOS OPEN GRAPH (VISTAS PREVIAS)   -->
-    <!-- ========================================== -->
-    <!-- Estas etiquetas son leídas por WhatsApp, Facebook y LinkedIn para generar la tarjeta visual al compartir el link. -->
-    <meta property="og:title" content="Gran Palmera | Paisajismo para Profesionales">
-    <meta property="og:description" content="Partner técnico en paisajismo para arquitectura, construcción y desarrollos inmobiliarios.">
-    <meta property="og:type" content="website">
-    
-    <!-- RUTAS ABSOLUTAS: WhatsApp exige la URL completa (https://...) para que la imagen de vista previa funcione. -->
-    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/paisajismo/paisajismo_profesional_granpalmera.html">
-    <meta property="og:image" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
-    <meta property="og:image:secure_url" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
-    
-    <!-- Dimensiones explícitas (500x500) para forzar a las apps a cargar la imagen sin demoras. -->
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="500">
-    <meta property="og:image:height" content="500">
-    
-    <!-- ========================================== -->
-    <!-- 3. FAVICON (ICONO DEL NAVEGADOR)           -->
-    <!-- ========================================== -->
-    <!-- Icono de la pestaña. Usamos ruta relativa (../) para subir un nivel y buscar en la carpeta /img/ -->
-    <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
+<!-- Tipografías -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- ========================================== -->
-    <!-- 4. LIBRERÍAS EXTERNAS                      -->
-    <!-- ========================================== -->
-    <!-- Importamos FontAwesome desde un CDN para usar los iconos vectoriales de las redes sociales. -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- ========================================== -->
-    <!-- 5. HOJA DE ESTILOS CSS (DISEÑO VISUAL)     -->
-    <!-- ========================================== -->
-    <style>
-        /* Variables globales CSS: Definen la paleta de colores. Si cambiás un color acá, cambia en toda la página. */
-        :root {
-            --bg-color: #0b3b24; /* Fondo verde oscuro */
-            --btn-bg: #f5eedc;   /* Color hueso/crema para tarjetas */
-            --text-dark: #1f2924;
-            --text-white: #ffffff;
-            --accent-color: #a4b39e;
-        }
+<style>
+/* ════ PALETA Y DISEÑO BASE ════ */
+:root{
+  --lino:#FAF7F2; --crema:#EDE3D5; --rosa:#C9A89A; --tierra:#8B6F5E;
+  --tierra-deep:#5b4638; --salvia:#8A9E87; --grafito:#4A4040;
+  --verde-atardecer:#3a4a3f; --burdeos:#6e3b3b;
+  --e-out:cubic-bezier(0.22,1,0.36,1); --e-out-lg:cubic-bezier(0.16,1,0.30,1);
+  --e-soft:cubic-bezier(0.33,0,0.20,1);
+  --d-comp:0.6s; --pad:clamp(1.25rem,5vw,6rem);
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ background:var(--lino); color:var(--grafito); font-family:'Lato',system-ui,sans-serif; line-height:1.65; overflow-x:hidden; }
+h1,h2,h3,.display{ font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; line-height:1.06; letter-spacing:-0.01em; }
+.accent{ font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:400; }
+.eyebrow{ font-family:'Lato',sans-serif; font-size:0.72rem; letter-spacing:0.26em; text-transform:uppercase; font-weight:700; }
+a{ color:inherit; text-decoration:none; }
+img{ display:block; max-width:100%; }
 
-        /* Reseteo CSS: Quita márgenes por defecto y aplica tipografía nativa para que cargue ultra rápido. */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        
-        /* Layout principal: Flexbox centra el contenido horizontalmente y le da alto mínimo de toda la pantalla (100vh). */
-        body { background-color: var(--bg-color); color: var(--text-white); display: flex; justify-content: center; min-height: 100vh; padding: 2rem 1rem; }
-        
-        /* Contenedor central: Limita el ancho a 600px para mantener formato vertical (tipo móvil) incluso en PC. */
-        .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; }
-        
-        /* ==================== Navegación Superior ==================== */
-        .nav-links { width: 100%; display: flex; justify-content: space-between; margin-bottom: 20px; }
-        .home-btn { color: var(--accent-color); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
-        .home-btn:hover { text-decoration: underline; }
+#bgwash{ position:fixed; inset:0; z-index:0; background:var(--lino); pointer-events:none; }
+#petals{ position:fixed; inset:0; z-index:0; pointer-events:none; }
+main{ position:relative; z-index:2; }
+html.preload *{ transition:none!important; }
 
-        /* ==================== Encabezado y Logo ==================== */
-        header { text-align: center; margin-bottom: 2rem; }
-        .logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-color); overflow: hidden; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; background-color: white; }
-        .logo-image { width: 100%; height: 100%; object-fit: cover; }
-        h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; color: #d6e2cf; line-height: 1.2; }
-        .subtitle { font-size: 1.1rem; color: var(--accent-color); font-weight: 600; margin-bottom: 15px; }
-        .description { font-size: 0.95rem; line-height: 1.5; color: #b0beb5; margin: 0 auto; max-width: 95%; }
+/* ════ NAVEGACIÓN ════ */
+.nav{ position:fixed; top:0; left:0; right:0; z-index:60; display:flex; align-items:center; justify-content:space-between; padding:1rem var(--pad); height:74px; color:var(--lino); transition:background var(--d-comp) var(--e-soft); }
+.nav.is-scrolled{ background:rgba(250,247,242,0.9); backdrop-filter:blur(10px); color:var(--grafito); box-shadow:0 1px 0 rgba(74,64,64,0.08); }
+.nav__brand{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.5rem; font-weight:600; }
+.nav__links{ display:flex; gap:1.8rem; font-size:0.78rem; text-transform:uppercase; align-items:center; }
+.nav__cta{ display:inline-flex; border:1px solid currentColor; border-radius:100px; padding:0.62rem 1.25rem; }
 
-        /* ==================== Tarjetas de Contenido ==================== */
-        .content-card { background-color: var(--btn-bg); color: var(--text-dark); padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; width: 100%; text-align: left; }
-        
-        /* Tipografías específicas para jerarquía B2B (más sobrias y corporativas) */
-        .card-number { font-size: 0.9rem; font-weight: 800; color: #5a665f; display: block; margin-bottom: 5px; }
-        .content-card h2 { font-size: 1.3rem; color: #1a2f24; margin-bottom: 5px; text-transform: uppercase; font-weight: 800;}
-        .card-tagline { font-size: 1rem; color: #2c4c3b; margin-bottom: 15px; font-weight: 600; border-bottom: 2px solid #d4cca9; padding-bottom: 8px; }
-        .content-card h3 { font-size: 1.1rem; color: #2c4c3b; margin-top: 20px; margin-bottom: 10px; font-weight: 700; text-transform: uppercase; font-size: 0.95rem; }
-        .content-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
-        
-        /* ==================== Estilos de Listas ==================== */
-        .bullet-list { padding-left: 20px; margin-bottom: 15px; }
-        .bullet-list li { margin-bottom: 8px; font-size: 0.95rem; line-height: 1.5; }
-        
-        .feature-list { list-style: none; margin-bottom: 15px; }
-        .feature-list li { margin-bottom: 15px; font-size: 0.95rem; line-height: 1.5; }
-        .feature-list span { font-weight: bold; color: #2c4c3b; display: block; margin-bottom: 2px;}
+/* ════ LOGO CIRCULAR EN EL HERO ════ */
+.logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--salvia); overflow: hidden; margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; background-color: white; box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+.logo-image { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Grid list: Crea dos columnas para listas cortas ahorrando espacio vertical */
-        .grid-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px 15px; list-style-type: none; margin-bottom: 15px; padding-left: 0; }
-        .grid-list li { font-size: 0.9rem; position: relative; padding-left: 12px; }
-        .grid-list li::before { content: "•"; position: absolute; left: 0; color: #2c4c3b; font-weight: bold; }
+/* ════ BOTONES ════ */
+.btn{ display:inline-flex; align-items:center; gap:0.55rem; padding:0.95rem 1.9rem; border-radius:100px; font-size:0.9rem; transition:0.3s; }
+.btn--solid{ background-color:var(--verde-atardecer)!important; color:var(--lino); border:1px solid var(--verde-atardecer); }
+.btn--ghost{ border:1.5px solid rgba(250,247,242,0.55); color:var(--lino); }
 
-        /* ==================== Cajas de Roles (B2B) ==================== */
-        .role-box { background-color: #e5dac1; padding: 15px; border-radius: 8px; margin-bottom: 12px; border-left: 4px solid #2c4c3b; display: flex; align-items: flex-start; }
-        .role-icon { font-size: 1.2rem; margin-right: 12px; min-width: 25px; }
-        .role-content strong { display: block; color: #1a2f24; margin-bottom: 4px; font-size: 1rem; text-transform: uppercase;}
-        .role-content p { margin-bottom: 0; font-size: 0.9rem; }
+/* ════ HERO ════ */
+.hero{ position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:7rem var(--pad) 5rem; background:var(--verde-atardecer); color:var(--lino); }
+.hero h1{ font-size:clamp(2.6rem,6.4vw,5.4rem); max-width:22ch; margin-inline:auto; }
+.hero__sub{ margin-top:1.8rem; font-size:clamp(1.02rem,1.5vw,1.28rem); max-width:54ch; margin-inline:auto; color:rgba(250,247,242,0.9); }
+.hero__actions{ margin-top:2.4rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+.scrollcue{ position:absolute; bottom:1.8rem; display:flex; flex-direction:column; align-items:center; gap:0.6rem; font-size:0.66rem; text-transform:uppercase; color:rgba(250,247,242,0.7); }
+.scrollcue__line{ width:1px; height:42px; background:linear-gradient(rgba(250,247,242,0.8),transparent); }
 
-        /* Caja de Destacado (Fondo oscuro) */
-        .highlight-box { background-color: #1a2f24; color: white; padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
-        .highlight-box h2 { color: #d6e2cf; border-bottom: none; margin-bottom: 10px; }
-        .highlight-box p { margin-bottom: 0; color: #b0beb5; }
+/* ════ SECCIONES ════ */
+.section{ padding:clamp(5.5rem,13vh,11rem) var(--pad); position:relative; }
+.section--crema{ background:transparent; }
+.section-head{ margin-bottom:clamp(2.5rem,6vh,4.5rem); max-width:54rem; }
+.section-head h2{ font-size:clamp(2rem,4.4vw,3.5rem); }
 
-        /* Textos previos al llamado a la acción (CTA) */
-        .cta-text-box { margin: 2rem 0 1.5rem 0; padding: 0 10px; text-align: left; }
-        .cta-text-box h3 { color: #d6e2cf; font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; }
-        .cta-text-box p { color: #b0beb5; font-size: 0.95rem; line-height: 1.6; margin-bottom: 8px; }
+/* ════ MANIFIESTO ════ */
+.manifesto{ max-width:min(92vw,48rem); margin-inline:auto; text-align:center; display:flex; flex-direction:column; gap:1.9rem; }
+.manifesto__line{ font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,4.6vw,3.5rem); line-height:1.16; }
+.manifesto .w{ color:rgba(74,64,64,0.15); transition:color 0.6s; }
 
-        /* ==================== Botones de Acción Principales ==================== */
-        .links-container { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; }
-        .link-btn { display: flex; align-items: center; background-color: var(--btn-bg); color: var(--text-dark); text-decoration: none; padding: 16px 20px; border-radius: 12px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .link-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
-        .btn-icon { font-size: 1.5rem; margin-right: 15px; min-width: 30px; text-align: center; }
-        .btn-text { flex-grow: 1; display: flex; flex-direction: column; text-align: left; }
-        .btn-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 3px; color: #1a2f24; }
-        .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 600; }
-        .btn-arrow { font-size: 1.2rem; color: #5a665f; font-weight: bold; }
+/* ════ PÁGINA 03: ESCENARIO GSAP DE PAISAJISMO ════ */
+.stage { position: relative; width: 100%; height: 100vh; background-color: var(--lino); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.copy { position: relative; z-index: 10; text-align: center; width: 100%; max-width: 48rem; padding: 0 var(--pad); }
+.texto-1, .texto-2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; }
+.texto-2 { opacity: 0; }
+.stage p.display { font-size: clamp(2.4rem, 6.4vw, 4.8rem); margin-bottom: 0.5rem; }
 
-        /* ==================== Footer y Redes Sociales ==================== */
-        footer { text-align: center; width: 100%; }
-        .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
-        .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
-        .social-btn:hover { background-color: rgba(255,255,255,0.1); border-color: var(--text-white); }
-        .footer-text { font-size: 0.8rem; color: #8c9b91; margin-bottom: 2rem; line-height: 1.5; }
-    </style>
+/* Formas Geométricas del Jardín */
+.elemento-jardin { position: absolute; pointer-events: none; }
+.cubresuelos { bottom: -10vh; left: -5%; width: 110%; height: 35vh; background: #2d4231; border-radius: 50% 50% 0 0; z-index: 1; }
+
+.arbusto { border-radius: 50%; z-index: 3; box-shadow: inset -10px -10px 20px rgba(0,0,0,0.1); }
+.arbusto-1 { bottom: 10vh; left: 15%; width: 180px; height: 140px; background: #5b7553; }
+.arbusto-2 { bottom: 5vh; right: 20%; width: 220px; height: 160px; background: #718f65; }
+.arbusto-3 { bottom: 15vh; right: 10%; width: 120px; height: 100px; background: #8A9E87; }
+
+/* Palmera Principal (Azul plateada) */
+.palmera-principal { bottom: 15vh; left: 30%; z-index: 2; }
+.tronco-principal { width: 24px; height: 55vh; background: #8B6F5E; border-radius: 12px; position: absolute; bottom: 0; left: -12px; }
+.copa-principal { width: 280px; height: 280px; background: #8da3a6; border-radius: 50%; position: absolute; bottom: 50vh; left: -140px; box-shadow: inset -20px -20px 40px rgba(0,0,0,0.15); }
+
+/* Palmera Secundaria (Multitronco) */
+.palmera-secundaria { bottom: 20vh; right: 35%; z-index: 2; }
+.tronco-sec { width: 16px; background: #a39c76; border-radius: 8px; position: absolute; bottom: 0; }
+.tronco-sec.t1 { height: 45vh; left: -25px; transform: rotate(-5deg); }
+.tronco-sec.t2 { height: 40vh; left: 10px; transform: rotate(8deg); }
+.copa-sec { background: #4a6b46; border-radius: 50%; position: absolute; }
+.copa-sec.c1 { width: 180px; height: 150px; bottom: 40vh; left: -110px; }
+.copa-sec.c2 { width: 160px; height: 130px; bottom: 35vh; left: -40px; }
+
+/* ════ TARJETAS (CARDS) ════ */
+.cards{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:2.2rem; }
+.card{ background:#fff; border-radius:3px; padding:2.2rem 1.8rem; display:flex; flex-direction:column; gap:0.7rem; transition:transform 0.4s; }
+.card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(74,64,64,0.09); }
+.card h3{ font-size:1.8rem; color:var(--verde-atardecer); }
+
+/* ════ PROCESOS (STEPS) ════ */
+.steps{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:3rem; }
+.step{ border-top:1px solid rgba(139,111,94,0.3); padding-top:1.1rem; }
+.step__n{ font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--rosa); }
+.step h3{ font-size:1.6rem; margin:0.3rem 0; }
+
+/* ════ ACORDEÓN (FAQ STYLE) ════ */
+.faq{ max-width:64rem; margin:0 auto;}
+.faq__item{ border-bottom:1px solid rgba(139,111,94,0.26); }
+.faq__q{ width:100%; text-align:left; padding:1.4rem 0; display:flex; justify-content:space-between; font-family:'Cormorant Garamond',serif; font-size:1.7rem; cursor:pointer; list-style:none; border:none; background:none; }
+.faq__q::-webkit-details-marker{ display:none; }
+
+/* ════ CTA FINAL ════ */
+.cta{ background:var(--tierra-deep); color:var(--lino); text-align:center; }
+.cta h2{ font-size:clamp(2.4rem,6vw,4.6rem); }
+.cta p{ margin:1.4rem auto 2.4rem; max-width:48ch; }
+
+@media (max-width:760px){
+    .nav__links{ display:none; }
+    .hero{ padding:6rem 2rem 4rem; }
+}
+</style>
 </head>
 <body>
-    <!-- ========================================== -->
-    <!-- CUERPO DEL DOCUMENTO (Lo que ve el usuario)-->
-    <!-- ========================================== -->
-    <div class="container">
-        
-        <!-- Navegación superior: Rutas relativas para volver al menú de paisajismo o al inicio -->
-        <div class="nav-links">
-            <a href="paisajismo_granpalmera.html" class="home-btn">← Volver a Servicios</a>
-            <a href="../index.html" class="home-btn"><i class="fa-solid fa-house"></i> Inicio</a>
-        </div>
 
-        <!-- Etiqueta semántica HEADER para cabecera -->
-        <header>
-            <div class="logo-circle">
-                <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image">
-            </div>
-            <h1>Paisajismo para Profesionales</h1>
-            <p class="subtitle">El paisaje como parte del proyecto</p>
-            <p class="description"><strong>Partner técnico para arquitectura, construcción y desarrollos.</strong><br><br>En GRANPALMERA colaboramos con arquitectos, estudios, constructoras, desarrolladores inmobiliarios, hoteles e instituciones para incorporar el paisaje a proyectos de distintas escalas.<br><br>Integramos diseño paisajístico, documentación, visualización 3D, curaduría vegetal, provisión de plantas, logística y asistencia en obra.</p>
-        </header>
+<div id="bgwash" aria-hidden="true"></div>
+<canvas id="petals" aria-hidden="true"></canvas>
 
-        <!-- Etiquetas ARTICLE para cada sección de contenido (Favorece el SEO semántico) -->
-        <article class="content-card">
-            <h2>Del proyecto arquitectónico al paisaje</h2>
-            <p class="card-tagline">El paisaje no debería ser un agregado de último momento.</p>
-            <p>Cuando el paisaje se incorpora desde las primeras etapas, puede integrarse mejor con:</p>
-            <ul class="grid-list">
-                <li>Arquitectura</li>
-                <li>Topografía</li>
-                <li>Circulaciones</li>
-                <li>Espacios exteriores</li>
-                <li>Infraestructura</li>
-                <li>Iluminación</li>
-                <li>Riego y drenaje</li>
-                <li>Materialidad</li>
-                <li>Experiencia del usuario</li>
-            </ul>
-            <p>Trabajamos para que la vegetación y los espacios exteriores sean considerados parte de la concepción integral del proyecto.</p>
-        </article>
+<!-- BARRA DE NAVEGACIÓN -->
+<nav class="nav" id="nav">
+  <a class="nav__brand" href="../index.html">Gran Palmera</a>
+  <div class="nav__links">
+    <a href="#manifiesto">Filosofía</a>
+    <a href="#jardinStage">El Paisaje</a>
+    <a href="#servicios">Etapas</a>
+    <a href="#opciones">Servicios</a>
+    <a class="nav__cta" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank">WhatsApp</a>
+  </div>
+</nav>
 
-        <article class="content-card">
-            <h2>¿Con quién trabajamos?</h2>
-            
-            <div class="role-box">
-                <div class="role-icon">🏛️</div>
-                <div class="role-content">
-                    <strong>Arquitectos y estudios</strong>
-                    <p>Desarrollo del componente paisajístico de proyectos arquitectónicos.</p>
-                </div>
-            </div>
-            
-            <div class="role-box">
-                <div class="role-icon">🏗️</div>
-                <div class="role-content">
-                    <strong>Constructoras</strong>
-                    <p>Documentación, provisión vegetal y asistencia durante la ejecución.</p>
-                </div>
-            </div>
-            
-            <div class="role-box">
-                <div class="role-icon">🏢</div>
-                <div class="role-content">
-                    <strong>Desarrolladores inmobiliarios</strong>
-                    <p>Diseño de espacios exteriores, amenities y áreas comunes.</p>
-                </div>
-            </div>
-            
-            <div class="role-box">
-                <div class="role-icon">🏨</div>
-                <div class="role-content">
-                    <strong>Hoteles e instituciones</strong>
-                    <p>Paisajes orientados a experiencia, identidad y funcionamiento (sanitarios, educativos, corporativos).</p>
-                </div>
-            </div>
-            
-            <div class="role-box">
-                <div class="role-icon">🌳</div>
-                <div class="role-content">
-                    <strong>Profesionales independientes</strong>
-                    <p>Apoyo especializado en diseño, documentación y vegetación.</p>
-                </div>
-            </div>
-        </article>
-
-        <article class="content-card">
-            <h2>¿En qué etapa podemos incorporarnos?</h2>
-            <p class="card-tagline">No necesitás comenzar un proyecto desde cero.</p>
-            <ul class="feature-list">
-                <li><span>Concepto</span>Definimos la estrategia general del paisaje.</li>
-                <li><span>Anteproyecto</span>Desarrollamos la organización espacial y la propuesta vegetal.</li>
-                <li><span>Proyecto</span>Desarrollamos el diseño paisajístico con mayor precisión.</li>
-                <li><span>Documentación</span>Generamos planos, detalles, cuadros y especificaciones.</li>
-                <li><span>Presupuesto</span>Desarrollamos cómputos y criterios para presupuestar.</li>
-                <li><span>Ejecución / Provisión</span>Acompañamos la implantación y suministramos ejemplares.</li>
-                <li><span>Supervisión / Post-obra</span>Controlamos la ejecución y acompañamos la evolución.</li>
-            </ul>
-        </article>
-
-        <!-- Separador visual para las etapas -->
-        <div style="text-align: center; margin: 2rem 0 1rem 0;">
-            <h2 style="color: #d6e2cf; font-size: 1.4rem; text-transform: uppercase;">Metodología de Trabajo</h2>
-        </div>
-
-        <!-- Numeración de procesos B2B -->
-        <article class="content-card">
-            <span class="card-number">01</span>
-            <h2>Estrategia y Diseño</h2>
-            <p class="card-tagline">Integramos paisaje y arquitectura</p>
-            <p>Comenzamos entendiendo el proyecto y sus objetivos analizando implantación, orientación, topografía, clima, suelo, vegetación, accesos, visuales y relaciones interior-exterior.</p>
-            <h3>Concepto Paisajístico</h3>
-            <p>Definimos el lenguaje (geometría, escala, ritmo, textura, volumen) para construir una identidad que acompañe y potencie la arquitectura.</p>
-        </article>
-
-        <article class="content-card">
-            <span class="card-number">02 & 03</span>
-            <h2>Anteproyecto y Proyecto</h2>
-            <p class="card-tagline">Convertimos la estrategia en espacio</p>
-            <p>Desarrollamos la organización general: accesos, plazas, áreas sociales, puntos focales e iluminación.</p>
-            <p>El proyecto alcanza el nivel de precisión requerido, incluyendo zonificación, niveles, sectores vegetales, cuadros de especies y detalles constructivos listos para avanzar hacia la obra.</p>
-        </article>
-
-        <article class="content-card">
-            <span class="card-number">04 & 05</span>
-            <h2>Documentación y Cómputos</h2>
-            <p class="card-tagline">Lo que se diseña debe poder construirse y presupuestarse</p>
-            <ul class="bullet-list">
-                <li><strong>Planos:</strong> General, implantación, plantación, niveles.</li>
-                <li><strong>Cuadros & Detalles:</strong> Especies, canteros, encuentros, especificaciones técnicas.</li>
-                <li><strong>Cómputos:</strong> Especies, sustratos, insumos, riego, superficies.</li>
-            </ul>
-            <p>Base fundamental para presupuestos, licitaciones y compras.</p>
-        </article>
-
-        <article class="content-card">
-            <span class="card-number">06</span>
-            <h2>Modelado 3D y Visualización</h2>
-            <p class="card-tagline">El paisaje en tres dimensiones</p>
-            <p>Estudiamos la relación Arquitectura + Paisaje + Topografía. Analizamos volúmenes, escalas y crecimiento futuro.</p>
-            <p>Generamos <strong>Renders fotorrealistas</strong> ideales para concursos, aprobación de proyectos, comercialización inmobiliaria y marketing institucional.</p>
-        </article>
-
-        <article class="content-card">
-            <span class="card-number">07, 08 & 09</span>
-            <h2>La Vegetación: Curaduría, Provisión y Logística</h2>
-            <p class="card-tagline">La planta como material de proyecto</p>
-            <p>Especificamos detalladamente: especie, variedad, calibre, formato y estado sanitario.</p>
-            <p>Al integrar <strong>Paisajismo + Vivero</strong>, proveemos palmeras, ejemplares especiales y especies tropicales que actúan como hitos visuales.</p>
-            <p><strong>Logística Vegetal:</strong> Coordinamos disponibilidad, transporte, acopio y momento exacto de plantación. En la gran escala, la logística se planifica, no se improvisa.</p>
-        </article>
-
-        <article class="content-card">
-            <span class="card-number">10, 11 & 12</span>
-            <h2>Ejecución, Coordinación y Supervisión</h2>
-            <p class="card-tagline">Del proyecto al terreno de forma articulada</p>
-            <p>Participamos en la preparación de suelo, plantación y terminaciones, coordinando interdisciplinariamente con hidráulica, iluminación y estructura para evitar conflictos en obra.</p>
-            <p>Controlamos la correcta ubicación, distancias, niveles y calidad de ejemplares mediante visitas periódicas o supervisión por hitos.</p>
-        </article>
-
-        <!-- Bloque de diferenciación competitiva -->
-        <div class="highlight-box">
-            <h2>¿Por qué Gran Palmera?</h2>
-            <p>Integramos capacidades que habitualmente se encuentran separadas: <strong>Diseño + Conocimiento Vegetal + Vivero + Logística + Ejecución.</strong></p>
-        </div>
-
-        <article class="content-card">
-            <h2>Un servicio modular</h2>
-            <p class="card-tagline">Contratá solamente lo que necesitás</p>
-            <div class="grid-list" style="grid-template-columns: 1fr; gap: 10px;">
-                <li><strong>Consultor:</strong> Asesoramiento y estrategia.</li>
-                <li><strong>Diseñador:</strong> Anteproyecto y proyecto.</li>
-                <li><strong>Documentador:</strong> Planos y especificaciones.</li>
-                <li><strong>Especialista vegetal:</strong> Curaduría de especies.</li>
-                <li><strong>Proveedor:</strong> Suministro de plantas.</li>
-                <li><strong>Supervisor / Asistencia:</strong> Apoyo técnico en ejecución.</li>
-                <li><strong>Partner Integral:</strong> Desde el concepto a la entrega.</li>
-            </div>
-        </article>
-
-        <!-- Textos previos a los botones CTA -->
-        <div class="cta-text-box">
-            <h3>¿Tenés un proyecto?</h3>
-            <p>Puede estar en etapa de idea, anteproyecto, ejecución o comercialización.</p>
-            <p>Contanos qué tipo de desarrollo es y qué necesitás resolver o documentar. Evaluamos rápidamente cómo podemos incorporarnos al equipo.</p>
-        </div>
-
-        <!-- Etiqueta MAIN para englobar interacciones principales -->
-        <main class="links-container">
-            
-            <!-- Botón principal de contacto vía WhatsApp (Diseño invertido con color oscuro) -->
-            <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="link-btn" style="background-color: #2c4c3b; color: white;">
-                <span class="btn-icon">👷🏻‍♂️</span>
-                <div class="btn-text">
-                    <span class="btn-title" style="color: white;">Tengo un proyecto</span>
-                    <span class="btn-subtitle" style="color: #d6e2cf;">TRABAJEMOS JUNTOS - CONTACTAR</span>
-                </div>
-                <span class="btn-arrow" style="color: #d6e2cf;">→</span>
-            </a>
-            
-            <!-- Botón secundario para volver al menú de paisajismo -->
-            <a href="paisajismo_granpalmera.html" class="link-btn">
-                <span class="btn-icon">🌿</span>
-                <div class="btn-text">
-                    <span class="btn-title">Ver más servicios</span>
-                    <span class="btn-subtitle">VOLVER AL MENÚ DE PAISAJISMO</span>
-                </div>
-                <span class="btn-arrow">→</span>
-            </a>
-        </main>
-
-        <!-- Etiqueta FOOTER para cierre, redes sociales e info corporativa -->
-        <footer>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/GranPalmera/" target="_blank" class="social-btn" title="Seguinos en Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.tiktok.com/@granpalmera" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="social-btn" title="plantas, Ideas y proyectos de jardín" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                <a href="https://www.youtube.com/@GranPalmera" target="_blank" class="social-btn" title="Videos y tutoriales" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="../whatsapp/whatsapp_granpalmera.html" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            
-            <p class="footer-text"><strong>GRANPALMERA</strong><br>PAISAJE · VEGETACIÓN · PROYECTOS<br>Posadas, Misiones, Argentina</p>
-        </footer>
+<main>
+  <!-- PÁGINA 01: HERO (CON LOGOTIPO INCORPORADO) -->
+  <header class="hero">
+    <div class="logo-circle">
+        <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image">
     </div>
+    <p class="hero__eyebrow"><span class="eyebrow accent" style="font-size:1rem; text-transform:none">Diseñamos jardines para vivirlos</span></p>
+    <h1><span class="accent">Paisajismo Residencial</span></h1>
+    <p class="hero__sub">Transformamos patios, jardines y espacios exteriores en ambientes pensados para disfrutar, conectar con la naturaleza y valorizar tu propiedad.</p>
+    <div class="hero__actions">
+      <a class="btn btn--solid" href="#jardinStage">Ver concepto</a>
+      <a class="btn btn--ghost" href="https://wa.me/message/3R4CL2MTGO4VC1">Solicitar presupuesto</a>
+    </div>
+    <div class="scrollcue"><span>Deslizá</span><span class="scrollcue__line"></span></div>
+  </header>
+
+  <!-- PÁGINA 02: MANIFIESTO -->
+  <section class="section" id="manifiesto">
+    <p class="eyebrow" style="color:var(--tierra); margin-bottom:1.6rem; text-align:center">Nuestra visión</p>
+    <div class="manifesto" id="text-reveal">
+      <p class="manifesto__line">En Gran Palmera Vivero y Paisajismo desarrollamos proyectos integrales de paisajismo residencial.</p>
+      <p class="manifesto__line">Desde la primera idea hasta la selección de plantas.</p>
+      <p class="manifesto__line">Un buen jardín no consiste simplemente en colocar plantas.</p>
+    </div>
+  </section>
+
+  <!-- PÁGINA 03: EL MONTAJE GSAP MEJORADO -->
+  <section class="stage" id="jardinStage">
+    <!-- Textos superpuestos -->
+    <div class="copy">
+      <div class="texto-1">
+        <span class="eyebrow">Tu jardín, como proyecto</span>
+        <p class="display">El espacio vacío</p>
+        <p>Primero entendemos el espacio, la arquitectura<br>y la forma en que querés utilizarlo.</p>
+      </div>
+      <div class="texto-2">
+        <span class="eyebrow">El paisaje consolidado</span>
+        <p class="display">Toma forma</p>
+        <p>Crear un paisaje que funcione, tenga identidad<br>y evolucione correctamente con el tiempo.</p>
+      </div>
+    </div>
+
+    <!-- Formas (Jardín) -->
+    <div class="elemento-jardin cubresuelos" id="cubresuelos"></div>
+    
+    <div class="elemento-jardin palmera-principal">
+      <div class="tronco-principal" id="tronco1"></div>
+      <div class="copa-principal" id="copa1"></div>
+    </div>
+
+    <div class="elemento-jardin palmera-secundaria">
+      <div class="tronco-sec t1" id="tronco2"></div>
+      <div class="copa-sec c1" id="copa2"></div>
+      <div class="tronco-sec t2" id="tronco3"></div>
+      <div class="copa-sec c2" id="copa3"></div>
+    </div>
+
+    <div class="elemento-jardin arbusto arbusto-1" id="arbusto1"></div>
+    <div class="elemento-jardin arbusto arbusto-2" id="arbusto2"></div>
+    <div class="elemento-jardin arbusto arbusto-3" id="arbusto3"></div>
+  </section>
+
+  <!-- PÁGINA 04: TARJETAS DE SERVICIOS -->
+  <section class="section section--crema" id="servicios">
+    <div class="section-head">
+      <span class="eyebrow">Etapas del Proyecto</span>
+      <h2>El jardín como un sistema integral</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <h3>01 · Diseño</h3>
+        <p>Del espacio existente al proyecto de jardín. Analizamos la orientación, drenaje, arquitectura y recorridos. Convertimos la idea en una propuesta concreta con planos, áreas verdes e iluminación.</p>
+      </article>
+      <article class="card">
+        <h3>02 · Visualización</h3>
+        <p>Antes de plantar, podés verlo. Modelamos representaciones tridimensionales y renders fotorrealistas para estudiar proporciones y tomar decisiones antes de la obra.</p>
+      </article>
+      <article class="card">
+        <h3>03 · Vegetación</h3>
+        <p>La planta correcta en el lugar correcto. Seleccionamos y proveemos palmeras, árboles y masas vegetales considerando el clima, crecimiento y composición estética.</p>
+      </article>
+      <article class="card">
+        <h3>04 · Ejecución</h3>
+        <p>Del plano al jardín. Acompañamos la preparación del terreno, implantación, sistemas de riego, iluminación paisajística y supervisión para garantizar el resultado.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PÁGINA 05: PROCESOS -->
+  <section class="section">
+    <div class="section-head">
+      <span class="eyebrow">Metodología</span>
+      <h2>Un proceso simple</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step__n">01</div><h3>Conocemos tu espacio</h3><p>Analizamos el lugar y escuchamos tus necesidades.</p></div>
+      <div class="step"><div class="step__n">02</div><h3>Diseñamos</h3><p>Desarrollamos el concepto y el proyecto.</p></div>
+      <div class="step"><div class="step__n">03</div><h3>Visualizamos</h3><p>Podés ver cómo será el resultado en 3D.</p></div>
+      <div class="step"><div class="step__n">04</div><h3>Seleccionamos</h3><p>Definimos las especies y ejemplares exactos.</p></div>
+      <div class="step"><div class="step__n">05</div><h3>Presupuestamos</h3><p>Determinamos materiales y plantas.</p></div>
+      <div class="step"><div class="step__n">06</div><h3>Ejecutamos</h3><p>Llevamos el proyecto al terreno profesionalmente.</p></div>
+    </div>
+  </section>
+
+  <!-- PÁGINA 06: ACORDEÓN DE MÓDULOS -->
+  <section class="section section--crema" id="opciones">
+    <div class="section-head" style="text-align:center; margin: 0 auto 3rem auto;">
+      <span class="eyebrow">Soluciones modulares</span>
+      <h2>¿Qué podemos hacer por vos?</h2>
+      <p style="margin: 0 auto;">Podés contratar solamente la etapa que necesitás o el proyecto completo.</p>
+    </div>
+    <div class="faq">
+      <details class="faq__item"><summary class="faq__q">Consultoría<span class="ic"></span></summary><p>Tenés un espacio y necesitás saber qué hacer.</p></details>
+      <details class="faq__item"><summary class="faq__q">Diseño<span class="ic"></span></summary><p>Querés un proyecto profesional para tu jardín.</p></details>
+      <details class="faq__item"><summary class="faq__q">Diseño + Visualización<span class="ic"></span></summary><p>Querés ver el resultado en 3D antes de construir.</p></details>
+      <details class="faq__item"><summary class="faq__q">Diseño + Vegetación<span class="ic"></span></summary><p>Querés que seleccionemos y proveamos las plantas.</p></details>
+      <details class="faq__item"><summary class="faq__q">Proyecto + Ejecución<span class="ic"></span></summary><p>Querés acompañamiento desde el diseño a la instalación.</p></details>
+      <details class="faq__item" open><summary class="faq__q" style="color:var(--rosa);">Proyecto Integral<span class="ic"></span></summary><p>Querés delegar el proceso completo en nuestro equipo.</p></details>
+    </div>
+  </section>
+
+  <!-- PÁGINA 07: CTA FINAL -->
+  <section class="section cta">
+    <h2>¿Tenés un espacio que querés transformar?</h2>
+    <p>No necesitás saber qué plantas comprar. No necesitás tener el diseño resuelto. No necesitás saber por dónde empezar. Contanos qué espacio tenés y qué querés lograr.</p>
+    <div class="cta__actions">
+      <a class="btn btn--solid" href="https://wa.me/message/3R4CL2MTGO4VC1" style="background-color:#fff!important; color:var(--tierra-deep)!important;">Escribinos por WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<!-- LIBRERÍAS DE ANIMACIÓN -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Efecto de barra de navegación
+    const nav = document.getElementById('nav');
+    ScrollTrigger.create({
+        start: 'top -50',
+        onUpdate: self => nav.classList.toggle('is-scrolled', self.scroll() > 50)
+    });
+
+    // 2. Efecto de texto oscuro (Manifiesto)
+    const lines = document.querySelectorAll('#text-reveal .manifesto__line');
+    lines.forEach(p => {
+        const words = p.textContent.split(' ');
+        p.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
+    });
+    gsap.to('#text-reveal .w', {
+        color: '#4A4040', stagger: 0.2, ease: 'none',
+        scrollTrigger: { trigger: '#text-reveal', start: 'top 75%', end: 'bottom 60%', scrub: 0.5 }
+    });
+
+    // 3. COREOGRAFÍA DEL PAISAJISMO (GSAP TIMELINE)
+    // Estado inicial de las plantas
+    gsap.set("#cubresuelos", { scaleY: 0, opacity: 0, transformOrigin: "bottom center" });
+    gsap.set("[id^=tronco]", { scaleY: 0, transformOrigin: "bottom center" });
+    gsap.set("[id^=copa]", { scale: 0, opacity: 0, transformOrigin: "center center" });
+    gsap.set("[id^=arbusto]", { scale: 0, opacity: 0, transformOrigin: "center bottom" });
+
+    // Línea de tiempo atada al Scroll
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#jardinStage",
+            start: "top top",
+            end: "+=250%",
+            pin: true,
+            scrub: 1,
+        }
+    });
+
+    // Paso A: Aparece el cubresuelos
+    tl.to("#cubresuelos", { scaleY: 1, opacity: 1, duration: 2, ease: "power2.out" }, 0);
+    // Paso B: Crecen los troncos
+    tl.to("[id^=tronco]", { scaleY: 1, duration: 3, stagger: 0.5, ease: "power1.inOut" }, 1);
+    // Paso C: "Pop" elástico de las copas
+    tl.to("[id^=copa]", { scale: 1, opacity: 1, duration: 2.5, stagger: 0.5, ease: "back.out(1.5)" }, 3);
+    // Paso D: Intercambio del texto (Crossfade)
+    tl.to(".texto-1", { y: -30, opacity: 0, duration: 1.5 }, 3.5);
+    tl.to(".texto-2", { y: 0, opacity: 1, duration: 1.5 }, 4.5);
+    // Paso E: Relleno final con los arbustos
+    tl.to("[id^=arbusto]", { scale: 1, opacity: 1, duration: 2, stagger: 0.4, ease: "back.out(1.2)" }, 4);
+
+    // 4. Efecto de partículas de fondo (Pétalos/Hojas)
+    const canvas = document.getElementById('petals');
+    const ctx = canvas.getContext('2d');
+    let W, H, bits = [];
+    function initCanvas() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; bits = Array.from({length: 15}, () => ({ x: Math.random()*W, y: Math.random()*H, r: Math.random()*10+5, vy: Math.random()*1+0.5, c: 'rgba(138,158,135,0.2)' })); }
+    function draw() {
+        ctx.clearRect(0,0,W,H);
+        bits.forEach(p => { p.y += p.vy; if(p.y > H) p.y = -20; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fillStyle = p.c; ctx.fill(); });
+        requestAnimationFrame(draw);
+    }
+    initCanvas(); draw();
+    window.addEventListener('resize', initCanvas);
+});
+</script>
 </body>
 </html>
