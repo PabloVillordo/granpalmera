@@ -1,259 +1,377 @@
 <!DOCTYPE html>
-<!-- Declaración del estándar HTML5. Ayuda a los navegadores a procesar el código correctamente. -->
-<html lang="es">
+<!-- Declaración HTML5. La clase "preload" previene parpadeos de transición CSS durante la carga inicial[cite: 11] -->
+<html lang="es-AR" class="preload">
 <head>
-    <!-- ========================================== -->
-    <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
-    <!-- ========================================== -->
-    
-    <!-- Charset: Codificación de caracteres. Imprescindible para que las tildes y las "ñ" no se rompan. -->
-    <meta charset="UTF-8">
-    
-    <!-- Viewport: Obligatorio para que la web sea "Responsive" (se adapte a la pantalla del celular sin hacer zoom). -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Title: Título de la pestaña y texto azul en los resultados de Google. -->
-    <title>Servicio de Paisajismo y Diseño de Jardines | Gran Palmera</title>
-    
-    <!-- Description: Resumen clave para el SEO. Aparece debajo del título en las búsquedas. -->
-    <meta name="description" content="Desarrollamos proyectos de paisajismo desde la concepción hasta la ejecución para propietarios, arquitectos y desarrolladores. Presupuesto sin cargo.">
-    
-    <!-- ========================================== -->
-    <!-- 1. GOOGLE ANALYTICS (MEDICIÓN DE TRÁFICO)  -->
-    <!-- ========================================== -->
-    <!-- Script de seguimiento (GA4) para trackear visitas y comportamiento de usuarios -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW542SW71"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-LWW542SW71');
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicio de Paisajismo | GRANPALMERA</title>
+<meta name="description" content="Servicio de paisajismo integral de GRANPALMERA. Del diseño a la instalación. Integramos arquitectura y naturaleza para propietarios, arquitectos, constructoras, desarrolladores e instituciones.">
 
-    <!-- ========================================== -->
-    <!-- 2. METADATOS OPEN GRAPH (VISTAS PREVIAS)   -->
-    <!-- ========================================== -->
-    <!-- Etiquetas leídas por WhatsApp, Facebook y Telegram para generar la tarjeta cuando pasás el link. -->
-    <meta property="og:title" content="Gran Palmera | Vivero y Paisajismo">
-    <meta property="og:description" content="Palmeras y plantas tropicales enviadas a todo el país + diseño de espacios verdes a medida.">
-    <meta property="og:type" content="website">
-    
-    <!-- WhatsApp exige RUTAS ABSOLUTAS (https://...) para mostrar la imagen correctamente. -->
-    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/paisajismo/paisajismo_granpalmera.html">
-    <meta property="og:image" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
-    <meta property="og:image:secure_url" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
-    
-    <!-- Dimensiones explícitas (500x500) para forzar a las apps a cargar la imagen sin demoras. -->
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="500">
-    <meta property="og:image:height" content="500">
-    
-    <!-- ========================================== -->
-    <!-- 3. FAVICON (ICONO DEL NAVEGADOR)           -->
-    <!-- ========================================== -->
-    <!-- Iconito de la pestaña. Usa ruta relativa (../) para buscar en la carpeta de imágenes. -->
-    <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
+<!-- Optimización de carga de fuentes e iconos externos[cite: 11] -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- ========================================== -->
-    <!-- 4. LIBRERÍAS EXTERNAS                      -->
-    <!-- ========================================== -->
-    <!-- Traemos FontAwesome por CDN para los iconos vectoriales de las redes sociales. -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- ========================================== -->
-    <!-- 5. HOJA DE ESTILOS CSS (DISEÑO VISUAL)     -->
-    <!-- ========================================== -->
-    <style>
-        /* Variables globales CSS: Definen la paleta de colores del proyecto. */
-        :root {
-            --bg-color: #0b3b24; /* Verde oscuro principal */
-            --btn-bg: #f5eedc;   /* Crema/Hueso para tarjetas */
-            --text-dark: #1f2924;
-            --text-light: #949a96;
-            --text-white: #ffffff;
-            --accent-color: #a4b39e;
-        }
+<style>
+/* ════════════════════════════════════════════════════════════════
+   1. VARIABLES GLOBALES Y TOKENS DE DISEÑO
+   ════════════════════════════════════════════════════════════════[cite: 11] */
+:root {
+  /* Paleta cromática corporativa Gran Palmera[cite: 11] */
+  --lino: #FAF7F2;
+  --crema: #EDE3D5;
+  --rosa: #C9A89A;
+  --tierra: #8B6F5E;
+  --tierra-deep: #5B4638;
+  --salvia: #8A9E87;
+  --grafito: #4A4040;
+  --verde: #3A4A3F;
+  
+  /* Curvas bézier orgánicas para animaciones suaves[cite: 11] */
+  --e-out: cubic-bezier(.22, 1, .36, 1);
+  --e-soft: cubic-bezier(.33, 0, .2, 1);
+  
+  /* Espaciado responsivo fluido según el ancho de pantalla[cite: 11] */
+  --pad: clamp(1.25rem, 5vw, 6rem);
+}
 
-        /* Reseteo: Borra márgenes por defecto y aplica tipografía nativa del sistema. */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        
-        /* Layout principal: Flexbox para centrar horizontalmente y ocupar alto completo (min-height: 100vh). */
-        body { background-color: var(--bg-color); color: var(--text-white); display: flex; justify-content: center; min-height: 100vh; padding: 2rem 1rem; }
-        
-        /* Contenedor principal: Limita el ancho a 600px para simular la vista móvil en PC. */
-        .container { width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; }
-        
-        /* Estilos del encabezado (logo, título y bajada) */
-        header { text-align: center; margin-bottom: 2rem; }
-        .logo-circle { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-color); overflow: hidden; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; background-color: white; }
-        .logo-image { width: 100%; height: 100%; object-fit: cover; }
-        h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; color: #d6e2cf; }
-        .description { font-size: 1rem; line-height: 1.4; color: #b0beb5; margin: 0 auto; }
+/* Reset de márgenes y desplazamiento suave[cite: 11] */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--lino); color: var(--grafito); font-family: Lato, system-ui, sans-serif; line-height: 1.65; overflow-x: hidden; }
 
-        /* Estilos de las tarjetas de contenido (texto informativo general) */
-        .content-card { background-color: var(--btn-bg); color: var(--text-dark); padding: 25px 20px; border-radius: 12px; margin-bottom: 20px; width: 100%; text-align: left; }
-        .content-card h2 { font-size: 1.2rem; color: #2c4c3b; margin-bottom: 15px; border-bottom: 1px solid #d4cca9; padding-bottom: 8px; text-transform: uppercase; }
-        .content-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
-        
-        /* Listas dentro del texto */
-        .target-list { list-style: none; margin-bottom: 15px; }
-        .target-list li { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.4; }
-        .target-list span { font-weight: bold; color: #2c4c3b; display: block; margin-bottom: 2px; }
+/* Tipografías de jerarquía visual[cite: 11] */
+h1, h2, h3, .display { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; line-height: 1.06; }
+.accent { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400; }
+.eyebrow { font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 700; }
+a { color: inherit; text-decoration: none; }
 
-        /* ========================================================= */
-        /* BOTONES DE ACCIÓN: TARJETAS DE SERVICIO (NUEVO DISEÑO UI) */
-        /* ========================================================= */
-        .links-container { width: 100%; display: flex; flex-direction: column; gap: 15px; margin-bottom: 3rem; }
-        
-        .service-card-btn {
-            display: flex;
-            flex-direction: column;
-            background-color: var(--btn-bg);
-            color: var(--text-dark);
-            text-decoration: none;
-            padding: 20px;
-            border-radius: 12px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-align: left;
-        }
-        
-        /* Efecto de elevación al hacer hover en la tarjeta */
-        .service-card-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
+/* Inhabilitación temporal de transiciones mientras carga la página[cite: 11] */
+html.preload * { transition: none !important; }
 
-        /* Título superior enfocado en la necesidad del cliente */
-        .sc-header { display: flex; align-items: center; margin-bottom: 10px; font-weight: 800; font-size: 1.1rem; color: #1a2f24; }
-        .sc-icon { font-size: 1.4rem; margin-right: 12px; }
+/* Canvas fijo para el fondo de partículas[cite: 11] */
+#petals { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 
-        /* Descripción técnica del servicio */
-        .sc-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 2px; color: #2c4c3b; }
-        .sc-subtitle { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 500; margin-bottom: 16px; }
+/* ════════════════════════════════════════════════════════════════
+   2. CABECERA Y NAVEGACIÓN (NAV)
+   ════════════════════════════════════════════════════════════════[cite: 11] */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: 74px; padding: 1rem var(--pad); display: flex; justify-content: space-between; align-items: center; color: var(--lino); transition: .6s var(--e-soft); }
+/* Estilo compacto activo al hacer scroll (efecto glassmorphism)[cite: 11] */
+.nav.is-scrolled { background: rgba(250,247,242,.9); backdrop-filter: blur(10px); color: var(--grafito); box-shadow: 0 1px 0 rgba(74,64,64,.08); }
+.nav__brand { font: italic 600 1.5rem "Cormorant Garamond", serif; }
+.nav__links { display: flex; gap: 1.8rem; align-items: center; font-size: .78rem; text-transform: uppercase; }
+.nav__cta { border: 1px solid currentColor; border-radius: 100px; padding: .6rem 1.2rem; }
 
-        /* Pie de la tarjeta (Call To Action con flecha) */
-        .sc-action { font-size: 0.85rem; font-weight: 700; color: #2c4c3b; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #d4cca9; padding-top: 12px; }
-        .sc-action span:last-child { font-size: 1.2rem; color: #5a665f; }
+/* ════════════════════════════════════════════════════════════════
+   3. SECCIÓN HERO (PORTADA PRINCIPAL)
+   ════════════════════════════════════════════════════════════════[cite: 11] */
+.hero { position: relative; z-index: 1; min-height: 100svh; padding: 5rem var(--pad) 4rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--lino); overflow: hidden; background: radial-gradient(circle at 50% 38%, #6B7067 0%, #465448 46%, #3A4A3F 100%); }
+.logo-circle { width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--salvia); overflow: hidden; background: #fff; display: grid; place-items: center; box-shadow: 0 10px 20px rgba(0,0,0,.16); margin-bottom: 1rem; }
+.logo-image { width: 100%; height: 100%; object-fit: cover; }
+.hero h1 { font-size: clamp(3rem, 7vw, 6rem); max-width: 14ch; color: #E6CDBF; }
+.hero__sub { margin-top: 1.6rem; max-width: 56ch; font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: rgba(250,247,242,.9); }
+.hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2.3rem; }
 
-        /* ========================================================= */
-        /* PIE DE PÁGINA, NAVEGACIÓN Y REDES                         */
-        /* ========================================================= */
-        footer { text-align: center; width: 100%; }
-        .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
-        .social-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: var(--text-white); text-decoration: none; font-size: 1.2rem; transition: 0.2s; }
-        .social-btn:hover { background-color: rgba(255,255,255,0.1); border-color: var(--text-white); }
-        .footer-text { font-size: 0.8rem; color: #8c9b91; margin-bottom: 2rem; line-height: 1.5; }
-        
-        /* Botón para regresar a la página principal */
-        .home-btn { display: inline-block; margin-bottom: 20px; color: var(--accent-color); text-decoration: none; font-weight: bold; align-self: flex-start; }
-    </style>
+/* Botones genéricos de acción[cite: 11] */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; border-radius: 100px; padding: .95rem 1.8rem; font-size: .9rem; transition: .3s; }
+.btn--solid { background: var(--rosa); color: #38291d; }
+.btn--solid:hover { background: var(--tierra-deep); color: var(--lino); }
+.btn--ghost { border: 1.5px solid rgba(250,247,242,.55); color: var(--lino); }
+
+/* Indicador animado de desplazamiento inferior[cite: 11] */
+.scrollcue { position: absolute; bottom: 1.8rem; display: flex; flex-direction: column; align-items: center; gap: .6rem; font-size: .66rem; text-transform: uppercase; color: rgba(250,247,242,.7); }
+.scrollcue__line { width: 1px; height: 42px; background: linear-gradient(rgba(250,247,242,.8), transparent); }
+
+/* ════════════════════════════════════════════════════════════════
+   4. ESTRUCTURA DE SECCIONES, MANIFIESTO Y GRILLAS
+   ════════════════════════════════════════════════════════════════[cite: 11] */
+.section { position: relative; z-index: 1; padding: clamp(5.5rem, 13vh, 10rem) var(--pad); }
+.section--crema { background: var(--crema); }
+.section-head { max-width: 56rem; margin-bottom: clamp(2.5rem, 6vh, 4.5rem); }
+.section-head.center { text-align: center; margin-inline: auto; }
+.section-head h2 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); margin-top: .5rem; }
+.lead { max-width: 66ch; font-size: 1.08rem; }
+
+/* Manifiesto con revelado de texto sincronizado con el scroll[cite: 11] */
+.manifesto { max-width: 52rem; margin: auto; text-align: center; display: flex; flex-direction: column; gap: 1.8rem; }
+.manifesto__line { font: 500 clamp(2rem, 4.8vw, 3.7rem)/1.13 "Cormorant Garamond", serif; }
+.manifesto .w { color: rgba(74,64,64,.15); transition: color .6s; }
+
+/* Grilla de clientes y audiencias (3 columnas)[cite: 11] */
+.audience { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(139,111,94,.22); }
+.audience article { background: var(--lino); padding: 2.3rem 1.8rem; min-height: 210px; }
+.audience .icon { font-size: 1.6rem; margin-bottom: 1rem; }
+.audience h3 { font-size: 1.65rem; color: var(--verde); margin-bottom: .45rem; }
+.audience p { font-size: .95rem; }
+
+/* Grilla de servicios (3 columnas)[cite: 11] */
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.service { background: #fff; padding: 2.2rem 1.8rem; min-height: 250px; display: flex; flex-direction: column; justify-content: space-between; transition: .6s var(--e-soft); }
+.service:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(74,64,64,.09); }
+.service__n { color: var(--rosa); font: 500 1.5rem "Cormorant Garamond", serif; }
+.service h3 { font-size: 1.9rem; color: var(--verde); margin: .7rem 0; }
+.service a { margin-top: 1.5rem; color: var(--tierra); font-size: .78rem; text-transform: uppercase; letter-spacing: .14em; }
+
+/* ════════════════════════════════════════════════════════════════
+   5. TARJETAS DE ENRUTAMIENTO / ELECCIÓN DE CAMINO
+   ════════════════════════════════════════════════════════════════[cite: 11] */
+.choice { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(139,111,94,.25); }
+.choice__card { background: var(--lino); padding: clamp(2.5rem, 5vw, 4rem); min-height: 380px; display: flex; flex-direction: column; justify-content: space-between; transition: .6s var(--e-soft); }
+.choice__card:hover { background: #fff; }
+.choice__icon { font-size: 2rem; margin-bottom: 1rem; }
+.choice h3 { font-size: clamp(2rem, 3.8vw, 3.2rem); color: var(--verde); }
+.choice p { max-width: 45ch; margin-top: 1rem; }
+.choice__actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
+.choice__actions .btn { font-size: .78rem; padding: .8rem 1.25rem; }
+
+/* Tarjeta destacada para contacto rápido vía WhatsApp[cite: 11] */
+.wa-card { background: var(--tierra-deep); color: var(--lino); }
+.wa-card h3 { color: #E6CDBF; }
+.wa-card:hover { background: #4a392f; }
+.wa-card .btn { background: #fff; color: var(--tierra-deep); }
+
+/* Banner final y botón flotante[cite: 11] */
+.final { background: var(--tierra-deep); color: var(--lino); text-align: center; }
+.final h2 { font-size: clamp(2.6rem, 6vw, 4.8rem); color: #E6CDBF; }
+.final p { max-width: 56ch; margin: 1.4rem auto 2.4rem; }
+.final__actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+.wa-float { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 55; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--tierra-deep); color: var(--lino); box-shadow: 0 10px 26px rgba(74,64,64,.32); border: 1px solid rgba(250,247,242,.3); transition: .4s var(--e-soft); }
+.wa-float:hover { transform: scale(1.06); }
+.wa-float svg { width: 26px; height: 26px; }
+
+/* ════════════════════════════════════════════════════════════════
+   6. REGLAS RESPONSIVAS (MEDIA QUERIES)
+   ════════════════════════════════════════════════════════════════[cite: 11] */
+@media(max-width: 850px) {
+ .nav__links { display: none; }
+ .audience, .services { grid-template-columns: 1fr 1fr; }
+ .choice { grid-template-columns: 1fr; }
+}
+@media(max-width: 560px) {
+ .logo-circle { width: 100px; height: 100px; }
+ .audience, .services { grid-template-columns: 1fr; }
+ .hero__actions { flex-direction: column; width: min(100%, 320px); }
+ .hero__actions .btn { width: 100%; }
+}
+</style>
 </head>
+
 <body>
-    <!-- ========================================== -->
-    <!-- CUERPO DEL DOCUMENTO (Lo que ve el usuario)-->
-    <!-- ========================================== -->
-    <div class="container">
-        
-        <!-- Enlace de retroceso. Usa '../' para ir al directorio raíz donde está index.html -->
-        <a href="../index.html" class="home-btn">← Volver al inicio</a>
-        
-        <!-- HEADER: Etiqueta semántica para la cabecera -->
-        <header>
-            <div class="logo-circle">
-                <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image">
-            </div>
-            <h1>Servicio de Paisajismo</h1>
-            <p class="description">Del diseño a la instalación. Integramos arquitectura y naturaleza.</p>
-        </header>
+<!-- Canvas para la animación de hojas/pétalos flotantes[cite: 11] -->
+<canvas id="petals" aria-hidden="true"></canvas>
 
-        <!-- Bloque informativo 1: Qué hacemos -->
-        <article class="content-card">
-            <h2>Paisajismo Integral</h2>
-            <p>En <strong>GRAN PALMERA VIVERO Y PAISAJISMO</strong> desarrollamos proyectos de paisajismo desde la concepción hasta la ejecución, integrando diseño, visualización, selección vegetal, provisión de plantas e instalación.</p>
-            <p>Trabajamos tanto con propietarios que buscan transformar sus espacios exteriores como con arquitectos, constructoras, desarrolladores e instituciones que necesitan incorporar el paisaje a proyectos de mayor escala.</p>
-        </article>
+<!-- Barra de navegación fija[cite: 11] -->
+<nav class="nav" id="nav">
+ <a class="nav__brand" href="../index.html">Gran Palmera</a>
+ <div class="nav__links">
+  <a href="#integral">Paisajismo</a>
+  <a href="#quienes">Clientes</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#elegir">Elegí</a>
+  <a class="nav__cta" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp</a>
+ </div>
+</nav>
 
-        <!-- Bloque informativo 2: Target/Público -->
-        <article class="content-card">
-            <h2>¿Para quién trabajamos?</h2>
-            <ul class="target-list">
-                <li><span>🏡 Propietarios y particulares</span> Diseñamos y transformamos jardines, patios y espacios exteriores.</li>
-                <li><span>🏛️ Arquitectos y estudios</span> Integramos el paisaje a tu proyecto arquitectónico.</li>
-                <li><span>🏗️ Constructoras</span> Documentación, provisión y asistencia para la ejecución.</li>
-                <li><span>🏢 Desarrolladores inmobiliarios</span> Paisaje diseñado para aumentar la calidad y el valor percibido del proyecto.</li>
-                <li><span>🏨 Hotelería e instituciones</span> Espacios exteriores diseñados para mejorar experiencia, identidad y funcionamiento.</li>
-                <li><span>🌳 Profesionales independientes</span> Apoyo especializado en vegetación, diseño y documentación.</li>
-            </ul>
-        </article>
+<main>
+<!-- Portada / Hero[cite: 11] -->
+<header class="hero">
+ <div class="logo-circle"><img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image"></div>
+ <span class="eyebrow accent" style="font-size:1rem;text-transform:none">Servicio de Paisajismo</span>
+ <h1><span class="accent">Del diseño a la instalación</span></h1>
+ <p class="hero__sub">Integramos arquitectura y naturaleza para crear espacios exteriores pensados, diseñados y ejecutados con criterio.</p>
+ <div class="hero__actions">
+  <a class="btn btn--solid" href="#elegir">Elegí cómo podemos ayudarte</a>
+  <a class="btn btn--ghost" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Quiero consultar</a>
+ </div>
+ <div class="scrollcue"><span>Deslizá</span><span class="scrollcue__line"></span></div>
+</header>
 
-        <!-- Título separador para el menú de opciones -->
-        <h2 style="color: #d6e2cf; margin: 1rem 0; font-size: 1.2rem; text-align: center;">ELEGÍ CÓMO PODEMOS AYUDARTE</h2>
+<!-- Manifiesto revelado por scroll[cite: 11] -->
+<section class="section" id="integral">
+ <div class="manifesto" id="text-reveal">
+  <p class="manifesto__line">El paisaje transforma la forma en que habitamos un espacio.</p>
+  <p class="manifesto__line">Por eso lo pensamos como parte de la arquitectura.</p>
+  <p class="manifesto__line">Diseño, vegetación y ejecución como una sola propuesta.</p>
+ </div>
+</section>
 
-        <!-- MAIN: Contenedor de las tarjetas interactivas de servicio -->
-        <main class="links-container">
-            
-            <!-- Tarjeta 1: Enlace a la subpágina Residencial (Misma carpeta) -->
-            <a href="paisajismo_residencial_granpalmera.html" class="service-card-btn">
-                <div class="sc-header">
-                    <span class="sc-icon">🏡</span> QUIERO DISEÑAR MI JARDÍN
-                </div>
-                <div class="sc-title">Paisajismo residencial</div>
-                <div class="sc-subtitle">PRESUPUESTO SIN CARGO</div>
-                <div class="sc-action">
-                    <span>CONOCER EL SERVICIO</span>
-                    <span>→</span>
-                </div>
-            </a>
+<!-- Catálogo de 6 Pilares de Servicio con enlaces internos a #elegir -->
+<section class="section section--crema" id="servicios">
+ <div class="section-head">
+  <span class="eyebrow">Paisajismo integral</span>
+  <h2>Del concepto al jardín construido</h2>
+  <p class="lead" style="margin-top:1.2rem">En <strong>GRAN PALMERA VIVERO Y PAISAJISMO</strong> desarrollamos proyectos de paisajismo desde la concepción hasta la ejecución, integrando diseño, visualización, selección vegetal, provisión de plantas e instalación.</p>
+ </div>
+ <div class="services stagger">
+  <article class="service"><div><span class="service__n">01</span><h3>Diseño</h3><p>Concepto, anteproyecto y proyecto paisajístico adaptado al espacio y sus necesidades.</p></div><a href="#elegir">Conocer →</a></article>
+  <article class="service"><div><span class="service__n">02</span><h3>Visualización</h3><p>Modelado 3D y renders para anticipar la relación entre arquitectura, espacio y vegetación.</p></div><a href="#elegir">Conocer →</a></article>
+  <article class="service"><div><span class="service__n">03</span><h3>Vegetación</h3><p>Curaduría y selección de especies y ejemplares según clima, escala, composición y crecimiento.</p></div><a href="#elegir">Conocer →</a></article>
+  <article class="service"><div><span class="service__n">04</span><h3>Provisión</h3><p>Provisión de plantas y ejemplares seleccionados para que el proyecto llegue al terreno.</p></div><a href="#elegir">Conocer →</a></article>
+  <article class="service"><div><span class="service__n">05</span><h3>Instalación</h3><p>Implantación del paisaje y coordinación de los componentes necesarios para su ejecución.</p></div><a href="#elegir">Conocer →</a></article>
+  <article class="service"><div><span class="service__n">06</span><h3>Supervisión</h3><p>Acompañamiento y control de los componentes paisajísticos durante la obra.</p></div><a href="#elegir">Conocer →</a></article>
+ </div>
+</section>
 
-            <!-- Tarjeta 2: Enlace a la subpágina Profesional (Misma carpeta) -->
-            <a href="paisajismo_profesional_granpalmera.html" class="service-card-btn">
-                <div class="sc-header">
-                    <span class="sc-icon">👷🏻‍♂️</span> TENGO UN PROYECTO
-                </div>
-                <div class="sc-title">Paisajismo para profesionales</div>
-                <div class="sc-subtitle">TRABAJEMOS JUNTOS</div>
-                <div class="sc-action">
-                    <span>CONOCER EL SERVICIO</span>
-                    <span>→</span>
-                </div>
-            </a>
+<!-- Sección Audiencias/Clientes[cite: 11] -->
+<section class="section" id="quienes">
+ <div class="section-head center">
+  <span class="eyebrow">¿Para quién trabajamos?</span>
+  <h2>Un mismo lenguaje de paisaje. Diferentes proyectos.</h2>
+ </div>
+ <div class="audience stagger">
+  <article><div class="icon">🏡</div><h3>Propietarios y particulares</h3><p>Diseñamos y transformamos jardines, patios y espacios exteriores.</p></article>
+  <article><div class="icon">🏛️</div><h3>Arquitectos y estudios</h3><p>Integramos el paisaje a tu proyecto arquitectónico.</p></article>
+  <article><div class="icon">🏗️</div><h3>Constructoras</h3><p>Documentación, provisión y asistencia para la ejecución.</p></article>
+  <article><div class="icon">🏢</div><h3>Desarrolladores inmobiliarios</h3><p>Paisaje diseñado para aumentar la calidad y el valor percibido del proyecto.</p></article>
+  <article><div class="icon">🏨</div><h3>Hotelería e instituciones</h3><p>Espacios exteriores diseñados para mejorar experiencia, identidad y funcionamiento.</p></article>
+  <article><div class="icon">🌳</div><h3>Profesionales independientes</h3><p>Apoyo especializado en vegetación, diseño y documentación.</p></article>
+ </div>
+</section>
 
-            <!-- Tarjeta 3: Enlace directo a WhatsApp -->
-            <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" class="service-card-btn">
-                <div class="sc-header">
-                    <span class="sc-icon">📲</span> QUIERO CONSULTAR
-                </div>
-                <div class="sc-title">Chat de WhatsApp</div>
-                <div class="sc-subtitle">CONSULTAS Y ASESORAMIENTO</div>
-                <div class="sc-action">
-                    <span>ABRIR WHATSAPP</span>
-                    <span>→</span>
-                </div>
-            </a>
+<!-- Decision Path: Enrutamiento B2C vs B2B[cite: 11] -->
+<section class="section section--crema" id="elegir">
+ <div class="section-head center">
+  <span class="eyebrow">Elegí cómo podemos ayudarte</span>
+  <h2>Dos caminos. Un mismo objetivo: un mejor paisaje.</h2>
+ </div>
+ <div class="choice">
+  <!-- Opción B2C (Residencial)[cite: 11] -->
+  <article class="choice__card">
+   <div>
+    <div class="choice__icon">🏡</div>
+    <h3>Quiero diseñar mi jardín</h3>
+    <p><strong>Paisajismo residencial</strong><br>Del diseño a la instalación. Diseñamos y transformamos jardines, patios y espacios exteriores.</p>
+   </div>
+   <div class="choice__actions">
+    <a class="btn btn--solid" href="paisajismo_residencial_granpalmera.html">Presupuesto sin cargo</a>
+    <a class="btn" style="border:1px solid var(--tierra);color:var(--tierra)" href="paisajismo_residencial_granpalmera.html">Conocer el servicio →</a>
+   </div>
+  </article>
 
-        </main>
+  <!-- Opción B2B (Profesional / Desarrollos)[cite: 11] -->
+  <article class="choice__card">
+   <div>
+    <div class="choice__icon">👷🏻‍♂️</div>
+    <h3>Tengo un proyecto</h3>
+    <p><strong>Paisajismo para profesionales</strong><br>Partner técnico para arquitectura, construcción y desarrollos.</p>
+   </div>
+   <div class="choice__actions">
+    <a class="btn btn--solid" href="paisajismo_profesional_granpalmera.html">Trabajemos juntos</a>
+    <a class="btn" style="border:1px solid var(--tierra);color:var(--tierra)" href="paisajismo_profesional_granpalmera.html">Conocer el servicio →</a>
+   </div>
+  </article>
+ </div>
 
-        <!-- FOOTER: Pie de página y Redes Sociales -->
-        <footer>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/granpalmera/" target="_blank" class="social-btn" title="Seguinos en Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                
-                <a href="https://www.facebook.com/GranPalmera/" target="_blank" class="social-btn" title="Seguinos en Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                
-                <a href="https://www.tiktok.com/@granpalmera" target="_blank" class="social-btn" title="Seguinos en TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                
-                <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" class="social-btn" title="plantas, Ideas y proyectos de jardín" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                
-                <a href="https://www.youtube.com/@GranPalmera" target="_blank" class="social-btn" title="Videos y tutoriales" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                
-                <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" class="social-btn" title="Seguinos en Linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                
-                <!-- Enlace relativo a la Landing Page de WhatsApp -->
-                <a href="../whatsapp/whatsapp_granpalmera.html" class="social-btn" title="Chat - Canal - Catálogo" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            
-            <p class="footer-text">GRANPALMERA VIVERO Y PAISAJISMO · Posadas, Misiones, Argentina</p>
-        </footer>
-    </div>
+ <!-- Opción de contacto directo por WhatsApp[cite: 11] -->
+ <article class="choice__card wa-card" style="margin-top:1px">
+  <div>
+   <div class="choice__icon">📲</div>
+   <h3>Quiero consultar</h3>
+   <p>Consultas, asesoramiento o pedidos. Hablemos directamente por WhatsApp.</p>
+  </div>
+  <div class="choice__actions">
+   <a class="btn" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Abrir WhatsApp →</a>
+  </div>
+ </article>
+</section>
+
+<!-- Banner Final[cite: 11] -->
+<section class="section final">
+ <span class="eyebrow">GRAN PALMERA</span>
+ <h2>El paisaje como parte de la arquitectura.</h2>
+ <p>Diseñamos espacios exteriores que conectan naturaleza, arquitectura y experiencia.</p>
+ <div class="final__actions">
+  <a class="btn btn--solid" style="background:#fff;color:var(--tierra-deep)" href="#elegir">Elegí tu servicio</a>
+  <a class="btn btn--ghost" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp</a>
+ </div>
+</section>
+
+<!-- Botón Flotante de WhatsApp[cite: 11] -->
+<a class="wa-float" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-1.9-.2l-1.4-.6c-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
+</a>
+</main>
+
+<!-- ════════════════════════════════════════════════════════════════
+   7. SCRIPTS JS (GSAP + SCROLLTRIGGER + CANVAS 2D)
+   ════════════════════════════════════════════════════════════════[cite: 11] -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+ // Activa transiciones quitando la clase de precarga[cite: 11]
+ document.documentElement.classList.remove("preload");
+ gsap.registerPlugin(ScrollTrigger);
+
+ // 1. Cambia el estado de la barra de navegación al scrollear[cite: 11]
+ const nav = document.getElementById("nav");
+ ScrollTrigger.create({
+   start: "top -50",
+   onUpdate: self => nav.classList.toggle("is-scrolled", self.scroll() > 50)
+ });
+
+ // 2. Divide el texto del manifiesto en spans e intensifica el color con el scroll[cite: 11]
+ const lines = document.querySelectorAll("#text-reveal .manifesto__line");
+ lines.forEach(p => {
+  p.innerHTML = p.textContent.split(" ").map(w => `<span class="w">${w}</span>`).join(" ");
+ });
+ gsap.to("#text-reveal .w", {
+  color: "#4A4040",
+  stagger: .18,
+  ease: "none",
+  scrollTrigger: { trigger: "#text-reveal", start: "top 78%", end: "bottom 58%", scrub: .5 }
+ });
+
+ // 3. Animación de revelado vertical para contenedores con clase .stagger[cite: 11]
+ gsap.utils.toArray(".stagger").forEach(el => {
+  gsap.fromTo(el.children, { opacity: 0, y: 60 }, {
+   opacity: 1, y: 0, ease: "none", stagger: .12,
+   scrollTrigger: { trigger: el, start: "top 92%", end: "top 58%", scrub: .7 }
+  });
+ });
+
+ // 4. Animación de entrada para las tarjetas de decisión (.choice__card)[cite: 11]
+ gsap.utils.toArray(".choice__card").forEach((el, i) => {
+  gsap.fromTo(el, { opacity: 0, y: 80 }, {
+   opacity: 1, y: 0, ease: "none",
+   scrollTrigger: { trigger: el, start: "top 92%", end: "top 62%", scrub: .7 }
+  });
+ });
+
+ // 5. Bucle continuo de renderizado de partículas en Canvas 2D[cite: 11]
+ const canvas = document.getElementById("petals"), ctx = canvas.getContext("2d");
+ let W, H, bits = [];
+
+ function init() {
+  W = canvas.width = innerWidth;
+  H = canvas.height = innerHeight;
+  bits = Array.from({ length: 15 }, () => ({
+    x: Math.random() * W,
+    y: Math.random() * H,
+    r: Math.random() * 10 + 5,
+    vy: Math.random() + .5
+  }));
+ }
+
+ function draw() {
+  ctx.clearRect(0, 0, W, H);
+  bits.forEach(p => {
+    p.y += p.vy;
+    if (p.y > H) p.y = -20;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(138,158,135,.18)";
+    ctx.fill();
+  });
+  requestAnimationFrame(draw);
+ }
+
+ init();
+ draw();
+ addEventListener("resize", init);
+});
+</script>
 </body>
 </html>
