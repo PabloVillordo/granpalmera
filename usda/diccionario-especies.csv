@@ -2,9 +2,10 @@
 dypsis_lutescens,Areca,Dypsis lutescens,"10a, 10b"
 bismarckia_nobilis,Bismarck,Bismarckia nobilis,"9b, 10a, 10b"
 sabal_palmetto,Sabal,Sabal palmetto,"9a, 9b, 10a, 10b"
-usda8a,-12.2°C a -9.4°C,Zona USDA 8a,8a
-usda8b,-9.4°C a -6.7°C,Zona USDA 8b,8b
-usda9a,-6.7°C a -3.9°C,Zona USDA 9a,9a
-usda9b,-3.9°C a -1.1°C,Zona USDA 9b,9b
-usda10a,-1.1°C a 1.7°C,Zona USDA 10a,10a
-usda10b,1.7°C a 4.4°C,Zona USDA 10b,10b
+usda_8a,-12.2°C a -9.4°C,Zona USDA 8a,8a
+usda_8b,-9.4°C a -6.7°C,Zona USDA 8b,8b
+usda_9a,-6.7°C a -3.9°C,Zona USDA 9a,9a
+usda_9b,-3.9°C a -1.1°C,Zona USDA 9b,9b
+usda_10a,-1.1°C a 1.7°C,Zona USDA 10a,10a
+usda_10b,1.7°C a 4.4°C,Zona USDA 10b,10b
+usda_todas,-12.2°C a 1.7°C,Zona USDA TODAS,8a,8b,9a,9b,10a,10b
