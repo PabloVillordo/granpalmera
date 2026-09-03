@@ -458,7 +458,8 @@
           const zonasRaw = filaLimpia["zonas usda"] ? filaLimpia["zonas usda"] : "";
 
           if (zonasRaw && (nombreCientifico || nombreComun)) {
-            const zonasArray = zonasRaw.split(',').map(z => z.trim().toLowerCase());
+            // Acepta comas, guiones o espacios como separadores de zonas
+            const zonasArray = zonasRaw.split(/[, -]+/).map(z => z.trim().toLowerCase()).filter(z => z.length > 0);
             const etiqueta = nombreComun ? `${nombreCientifico} (${nombreComun})` : nombreCientifico;
 
             baseDatos[etiqueta] = zonasArray;
@@ -480,7 +481,7 @@
     });
 
     // --------------------------------------------------------------------------
-    // E. GESTIÓN DE EVENTOS Y DESCARGA VECTORIAL
+    // E. GESTIÓN DE EVENTOS Y DESCARGA VECTORIAL (SOPORTE MULTIZONA)
     // --------------------------------------------------------------------------
     document.getElementById('buscador').addEventListener('input', function(e) {
       const seleccion = e.target.value.trim();
@@ -489,7 +490,7 @@
         capasActivas.clearLayers(); 
         const zonas = baseDatos[seleccion];
 
-        // Mapeamos cada zona a una petición asíncrona (Promise)
+        // Mapea cada zona a una petición asíncrona independiente (Promise)
         const peticiones = zonas.map(zona => {
           const urlGeoJSON = `https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${zona}.geojson`;
           return fetch(urlGeoJSON)
@@ -510,7 +511,7 @@
             });
         });
 
-        // Promise.all dibuja todas las capas en simultáneo cuando terminan de descargar
+        // Promise.all descarga todas las capas concurrentemente y las dibuja juntas
         Promise.all(peticiones)
           .then(capasObtenidas => {
             capasObtenidas.forEach(capa => capasActivas.addLayer(capa));
