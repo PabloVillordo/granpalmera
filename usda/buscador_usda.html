@@ -237,6 +237,14 @@
         color: white;
       }
 
+      .modal-content ul {
+        padding-left: 20px;
+      }
+
+      .modal-content li {
+        margin-bottom: 8px;
+      }
+
       .fuente-link {
         font-size: 12px;
         color: #7f8c8d;
@@ -259,11 +267,15 @@
       Determina qué plantas perennes tienen mayor probabilidad de prosperar según la temperatura mínima invernal promedio. Basado en el <strong>USDA Plant Hardiness Zone Map</strong>, muestra la <strong>Resistencia Térmica</strong> de cada especie y las <strong>Isotermas USDA</strong> sobre Argentina.
     </p>
 
-    <!-- Botones interactivos tipo chip -->
+    <!-- Botones interactivos tipo chip de navegación rápida -->
     <div class="info-links">
       <span class="info-btn" onclick="abrirModal('usda')"><i class="fa-solid fa-circle-info"></i> USDA Plant Map</span>
       <span class="info-btn" onclick="abrirModal('resistencia')"><i class="fa-solid fa-temperature-arrow-down"></i> Resistencia Térmica</span>
       <span class="info-btn" onclick="abrirModal('isotermas')"><i class="fa-solid fa-map-location-dot"></i> Isotermas USDA</span>
+      <span class="info-btn" onclick="abrirModal('estructura')"><i class="fa-solid fa-layer-group"></i> Estructura Zonas</span>
+      <span class="info-btn" onclick="abrirModal('tabla')"><i class="fa-solid fa-table-list"></i> Tabla Comparativa</span>
+      <span class="info-btn" onclick="abrirModal('aplicacion')"><i class="fa-solid fa-seedling"></i> Aplicación Práctica</span>
+      <span class="info-btn" onclick="abrirModal('advertencias')"><i class="fa-solid fa-triangle-exclamation"></i> Advertencias</span>
     </div>
 
     <!-- Input vinculado al datalist -->
@@ -289,8 +301,8 @@
       
       <section id="sec-usda">
         <h2>1. ¿Qué es el USDA Plant Hardiness Zone Map?</h2>
-        <p>Es un mapa desarrollado por el Departamento de Agricultura de los Estados Unidos (USDA), basado en datos de temperaturas mínimas registradas durante un período de 30 años. Es decir que una zona 10a puede registrar una temperatura mínima de -2 ºC en un año puntual, pero si el promedio de los últimos 30 años es de -1,1 ºC, seguirá catalogada como zona 10a. Por ello, estos mapas sirven como una guía orientativa muy precisa, pero no infalible.</p>
-        <p>Asimismo, en áreas urbanas puede suceder que un sector con clasificación 9b eleve su valor a 10a (o hasta 10b en el centro de una ciudad) debido al efecto de <em>isla de calor</em> generado por la densidad de construcciones, asfalto y vehículos. Las plantas ubicadas en estas zonas urbanas resguardadas pueden tolerar temperaturas invernales ligeramente más exigentes que las cultivadas en zonas rurales circundantes.</p>
+        <p>Es un mapa desarrollado por el Departamento de Agricultura de los Estados Unidos (USDA), basado en datos de temperaturas mínimas registradas durante un período de 30 años. Es decir, una zona 10a puede registrar una temperatura mínima de -2 °C en un año puntual, pero si el promedio de los últimos 30 años es de -1.1 °C, seguirá catalogada como zona 10a. Por ello, estos mapas sirven como una guía orientativa muy precisa, pero no infalible.</p>
+        <p>Asimismo, en áreas urbanas puede suceder que un sector con clasificación 9b eleve su valor a 10a (o hasta 10b en el centro de una ciudad) debido al efecto de isla de calor generado por la densidad de construcciones, asfalto y vehículos. Las plantas ubicadas en estas zonas urbanas resguardadas pueden tolerar temperaturas invernales ligeramente más exigentes que las cultivadas en zonas rurales circundantes.</p>
       </section>
 
       <section id="sec-resistencia">
@@ -305,11 +317,15 @@
       <section id="sec-isotermas">
         <h2>3. ¿Qué son las Isotermas USDA y cómo funciona el sistema?</h2>
         <p>Las isotermas son líneas que unen puntos geográficos con la misma temperatura promedio. El USDA trazó estas franjas térmicas en base a los promedios de mínimas anuales durante tres décadas. Cada franja constituye una zona de cultivo de referencia a nivel mundial.</p>
-        
-        <h3>Estructura de las Zonas USDA</h3>
-        <p>El sistema abarca 13 zonas (del 1 al 13). A menor número, más frío es el clima (Zona 1 es el Ártico); a mayor número, más cálido (Zona 13 representa el trópico absoluto). Cada zona se subdivide en letras "a" y "b" para aportar mayor nivel de detalle (siendo "a" ligeramente más fría que "b").</p>
+      </section>
 
-        <h3>Tabla comparativa de referencias</h3>
+      <section id="sec-estructura">
+        <h2>4. Estructura de las Zonas USDA</h2>
+        <p>El sistema abarca 13 zonas (del 1 al 13). A menor número, más frío es el clima (la Zona 1 es el Ártico); a mayor número, más cálido (la Zona 13 representa el trópico absoluto). Cada zona se subdivide en letras "a" y "b" para aportar mayor nivel de detalle (siendo "a" ligeramente más fría que "b").</p>
+      </section>
+
+      <section id="sec-tabla">
+        <h2>5. Tabla comparativa de referencias</h2>
         <table>
           <thead>
             <tr>
@@ -319,16 +335,28 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Zona 1 a 4</td><td>Menos de -28,9 °C</td><td>Climas polares/alta montaña. Coníferas muy resistentes.</td></tr>
+            <tr><td>Zona 1 a 4</td><td>Menos de -28,9 °C</td><td>Climas polares / alta montaña. Coníferas muy resistentes.</td></tr>
             <tr><td>Zona 5</td><td>-28,8 °C a -23,3 °C</td><td>Inviernos muy fríos. Manzanos y bulbos.</td></tr>
             <tr><td>Zona 7</td><td>-17,8 °C a -12,2 °C</td><td>Inviernos fríos moderados. Pinos, lavandas, perales.</td></tr>
             <tr><td>Zona 9</td><td>-6,6 °C a -1,2 °C</td><td>Inviernos suaves / heladas breves. Cítricos, olivos, buganvillas.</td></tr>
             <tr><td>Zona 11 a 13</td><td>Más de 4,4 °C</td><td>Climas tropicales sin heladas. Palmeras tropicales, plátanos.</td></tr>
           </tbody>
         </table>
+      </section>
 
-        <h3>Aplicación práctica</h3>
-        <p>Al adquirir un ejemplar o consultar su ficha técnica (ej. "Zona USDA: 8 a 10"), debes cotejarla con la zona de tu localidad. Si tu región es Zona 7 y la especie seleccionada es Zona 10, no logrará desarrollarse al aire libre en invierno sin la protección de una estructura cubierta o invernadero.</p>
+      <section id="sec-aplicacion">
+        <h2>6. Aplicación práctica</h2>
+        <p>Al adquirir un ejemplar o consultar su ficha técnica (ej. Zona USDA: 8 a 10), debes cotejarla con la zona de tu localidad. Si tu región es Zona 7 y la especie seleccionada es Zona 10, no logrará desarrollarse al aire libre en invierno sin la protección de una estructura cubierta o invernadero.</p>
+      </section>
+
+      <section id="sec-advertencias">
+        <h2>7. Advertencias importantes sobre el uso de las Zonas de Rusticidad</h2>
+        <ul>
+          <li><strong>Miden únicamente la temperatura mínima extrema:</strong> El sistema está diseñado exclusivamente en función del promedio de las mínimas invernales anuales, por lo que no contempla otros factores determinantes para la vida vegetal.</li>
+          <li><strong>No consideran la duración del frío:</strong> Una planta puede tolerar una helada puntual de corta duración, pero verse gravemente afectada (o morir) si las temperaturas se mantienen bajas de forma continua durante semanas.</li>
+          <li><strong>Ignoran el calor acumulado y la luz:</strong> Especies de climas tropicales o subtropicales requieren umbrales térmicos diurnos altos y constantes para desarrollar sus procesos metabólicos básicos, algo que una zona fría o templada no garantiza por sí sola a pesar de no registrar inviernos extremos.</li>
+          <li><strong>Varían según el microclima:</strong> Las condiciones locales de tu terreno —como la cercanía a cuerpos de agua, la protección contra vientos, la exposición solar o la presencia de un dosel de árboles— pueden crear microclimas que difieran sustancialmente de la clasificación general de tu ciudad.</li>
+        </ul>
       </section>
 
       <div class="fuente-link">
@@ -409,9 +437,8 @@
     let capasActivas = L.layerGroup().addTo(map);
 
     // --------------------------------------------------------------------------
-    // D. CARGA Y PROCESAMIENTO DE DICCIONARIO-ESPECIES.CSV (MISMO NIVEL)
+    // D. CARGA Y PROCESAMIENTO DE DICCIONARIO-ESPECIES.CSV
     // --------------------------------------------------------------------------
-    // Se lee directamente el archivo 'diccionario-especies.csv' al estar en el mismo directorio '/usda/'
     Papa.parse('diccionario-especies.csv', {
       download: true,
       header: true,
