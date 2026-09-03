@@ -489,30 +489,34 @@
         capasActivas.clearLayers(); 
         const zonas = baseDatos[seleccion];
 
-        zonas.forEach(zona => {
+        // Mapeamos cada zona a una petición asíncrona (Promise)
+        const peticiones = zonas.map(zona => {
           const urlGeoJSON = `https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${zona}.geojson`;
-          
-          fetch(urlGeoJSON)
-            .then(res => res.json())
+          return fetch(urlGeoJSON)
+            .then(res => {
+              if (!res.ok) throw new Error("Error en la descarga de la zona " + zona);
+              return res.json();
+            })
             .then(data => {
-              const capaZona = L.geoJson(data, {
+              const tempRango = temperaturasUSDA[zona] || 'Rango no disponible';
+              return L.geoJson(data, {
                 style: {
                   fillColor: coloresUSDA[zona] || '#cccccc',
                   weight: 1,
                   color: '#333333',
                   fillOpacity: 0.65
                 }
-              });
-
-              const tempRango = temperaturasUSDA[zona] || 'Rango no disponible';
-              capaZona.bindPopup(`Zona USDA: ${zona.toUpperCase()}<br>Temp: ${tempRango}`);
-              
-              capasActivas.addLayer(capaZona);
-            })
-            .catch(err => console.error("Error cargando zona: " + zona, err));
+              }).bindPopup(`Zona USDA: ${zona.toUpperCase()}<br>Temp: ${tempRango}`);
+            });
         });
 
-        map.setView([-34.0, -64.0], 4);
+        // Promise.all dibuja todas las capas en simultáneo cuando terminan de descargar
+        Promise.all(peticiones)
+          .then(capasObtenidas => {
+            capasObtenidas.forEach(capa => capasActivas.addLayer(capa));
+            map.setView([-34.0, -64.0], 4);
+          })
+          .catch(err => console.error("Error al cargar zonas vectoriales:", err));
       }
     });
   </script>
