@@ -409,10 +409,10 @@
     let capasActivas = L.layerGroup().addTo(map);
 
     // --------------------------------------------------------------------------
-    // D. CARGA Y PROCESAMIENTO DE PALMERAS.CSV
+    // D. CARGA Y PROCESAMIENTO DE DICCIONARIO-ESPECIES.CSV
     // --------------------------------------------------------------------------
-    // Se apunta a 'data/palmeras.csv' relativo a la carpeta /usda/
-    Papa.parse('data/palmeras.csv', {
+    // Se lee directamente 'data/diccionario-especies.csv' dentro de la carpeta /usda/
+    Papa.parse('data/diccionario-especies.csv', {
       download: true,
       header: true,
       skipEmptyLines: true,
@@ -446,8 +446,8 @@
         document.getElementById('mensaje-status').style.color = "#a3e635";
       },
       error: function(err) {
-        console.error("Error al cargar data/palmeras.csv:", err);
-        document.getElementById('mensaje-status').innerText = "Error al cargar data/palmeras.csv";
+        console.error("Error al cargar data/diccionario-especies.csv:", err);
+        document.getElementById('mensaje-status').innerText = "Error al cargar data/diccionario-especies.csv";
         document.getElementById('mensaje-status').style.color = "#ff6b6b";
       }
     });
