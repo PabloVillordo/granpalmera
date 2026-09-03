@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<!-- Declaración del estándar HTML5. Ayuda a los navegadores a renderizar el código correctamente. -->
+<html lang="es">
+<head>
+    <!-- ========================================== -->
+    <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
+    <!-- ========================================== -->
+    
+    <!-- Charset: Codificación de caracteres. Evita que las tildes y las "ñ" se rompan. -->
+    <meta charset="UTF-8">
+    
+    <!-- Viewport: Obligatorio para que la web sea "Responsive" y se adapte a las pantallas de celulares. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title: Título optimizado para el dominio Granpalmera -->
+    <title>Mapa de Zonas de Resistencia de plantas de Argentina por especie | Granpalmera</title>
+    
+    <!-- Description: Resumen enfocado en SEO con las palabras clave requeridas. -->
+    <meta name="description" content="🌴 Utiliza nuestro buscador basado en el &quot;USDA Plant Hardiness Zone Map&quot; para consultar la resistencia al frío de tu planta (&quot;Resistencia Térmica&quot;) y las zonas en Argentina en las que podría ser cultivada en exterior (&quot;Isotermas USDA&quot;). Herramienta técnica interactiva desarrollada por Granpalmera.">
+    
+    <!-- URL Canónica para consolidar la autoridad SEO -->
+    <link rel="canonical" href="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html" />
+
+    <!-- ========================================== -->
+    <!-- 1. GOOGLE ANALYTICS (MEDICIÓN DE TRÁFICO)  -->
+    <!-- ========================================== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW542SW71"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LWW542SW71');
+    </script>
+
+    <!-- ========================================== -->
+    <!-- 2. METADATOS OPEN GRAPH (VISTAS PREVIAS)   -->
+    <!-- ========================================== -->
+    <meta property="og:title" content="Mapa de Zonas de Resistencia de plantas de Argentina por especie | Granpalmera">
+    <meta property="og:description" content="🌴 Consulta la resistencia térmica al frío de tu planta e isotermas USDA en Argentina. Herramienta interactiva de Granpalmera.">
+    <meta property="og:type" content="website">
+    
+    <!-- URL e Imágenes Absolutas para WhatsApp y Redes Sociales -->
+    <meta property="og:url" content="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html">
+    <meta property="og:image" itemprop="image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
+    <meta property="og:image:secure_url" itemprop="image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
+    
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    
+    <!-- ========================================== -->
+    <!-- 3. FAVICON (ICONO DEL NAVEGADOR)           -->
+    <!-- ========================================== -->
+    <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
+
+    <!-- ========================================== -->
+    <!-- 4. LIBRERÍAS EXTERNAS                      -->
+    <!-- ========================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- ========================================== -->
+    <!-- 5. HOJA DE ESTILOS CSS (DISEÑO VISUAL)     -->
+    <!-- ========================================== -->
+    <style>
+      /* Reset de estilos base */
+      body { 
+        font-family: Arial, sans-serif; 
+        margin: 0; 
+        padding: 0; 
+        color: #333333;
+        background-color: #f8f9fa;
+      }
+
+      /* Contenedor del encabezado principal y buscador */
+      #buscador-container { 
+        padding: 18px 15px; 
+        background: #2c3e50; 
+        color: white; 
+        text-align: center; 
+      }
+
+      /* H1 principal alineado para SEO */
+      #buscador-container h1 {
+        font-size: 20px;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      /* Bajada descriptiva formateada */
+      .bajada-seo {
+        font-size: 13px;
+        color: #ecf0f1;
+        margin: 0 auto 12px auto;
+        max-width: 750px;
+        line-height: 1.4;
+      }
+
+      /* Botones/chips de ayuda rápida */
+      .info-links {
+        margin-bottom: 14px;
+        font-size: 13px;
+      }
+
+      .info-btn {
+        background: rgba(255, 255, 255, 0.12);
+        color: #64b5f6;
+        padding: 4px 10px;
+        border-radius: 15px;
+        text-decoration: none;
+        cursor: pointer;
+        margin: 3px;
+        display: inline-block;
+        transition: all 0.2s ease;
+        border: 1px solid rgba(100, 181, 246, 0.3);
+      }
+
+      .info-btn:hover {
+        background: #64b5f6;
+        color: #2c3e50;
+      }
+
+      /* Campo de texto (Input) */
+      input { 
+        padding: 10px 14px; 
+        width: 360px; 
+        max-width: 90%;
+        font-size: 15px; 
+        border-radius: 5px; 
+        border: 1px solid #ccc; 
+        outline: none;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      }
+
+      /* Dimensiones del visor del mapa */
+      #map { 
+        height: 72vh; 
+        width: 100%; 
+      }
+
+      /* Cartel emergente en el mapa (Popup) */
+      .leaflet-popup-content {
+        font-size: 14px;
+        font-weight: normal;
+        text-align: center;
+        margin: 8px 12px;
+        line-height: 1.4;
+      }
+
+      #mensaje-status {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #bdc3c7;
+      }
+
+      /* ========================================== */
+      /* MODAL INFORMATIVO (VENTANA EMERGENTE)     */
+      /* ========================================== */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.65);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+
+      .modal-content {
+        background: #ffffff;
+        color: #2c3e50;
+        max-width: 800px;
+        width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
+        border-radius: 8px;
+        padding: 25px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        position: relative;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #7f8c8d;
+        transition: color 0.2s;
+      }
+
+      .modal-close:hover {
+        color: #e74c3c;
+      }
+
+      .modal-content h2 {
+        color: #16a085;
+        margin-top: 25px;
+        font-size: 18px;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 6px;
+      }
+
+      .modal-content h2:first-of-type {
+        margin-top: 0;
+      }
+
+      .modal-content h3 {
+        color: #2c3e50;
+        font-size: 15px;
+        margin-top: 18px;
+      }
+
+      .modal-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        font-size: 13px;
+      }
+
+      .modal-content th, .modal-content td {
+        border: 1px solid #ddd;
+        padding: 8px 10px;
+        text-align: left;
+      }
+
+      .modal-content th {
+        background-color: #2c3e50;
+        color: white;
+      }
+
+      .fuente-link {
+        font-size: 12px;
+        color: #7f8c8d;
+        margin-top: 25px;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+        word-break: break-all;
+      }
+    </style>
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- 6. ESTRUCTURA INTERFAZ DEL BUSCADOR        -->
+  <!-- ========================================== -->
+  <div id="buscador-container">
+    <h1>Buscador de Zonas de Resistencia USDA por Especie</h1>
+    
+    <p class="bajada-seo">
+      Determina qué plantas perennes tienen mayor probabilidad de prosperar según la temperatura mínima invernal promedio. Basado en el <strong>USDA Plant Hardiness Zone Map</strong>, muestra la <strong>Resistencia Térmica</strong> de cada especie y las <strong>Isotermas USDA</strong> sobre Argentina.
+    </p>
+
+    <!-- Botones interactivos tipo chip -->
+    <div class="info-links">
+      <span class="info-btn" onclick="abrirModal('usda')"><i class="fa-solid fa-circle-info"></i> USDA Plant Map</span>
+      <span class="info-btn" onclick="abrirModal('resistencia')"><i class="fa-solid fa-temperature-arrow-down"></i> Resistencia Térmica</span>
+      <span class="info-btn" onclick="abrirModal('isotermas')"><i class="fa-solid fa-map-location-dot"></i> Isotermas USDA</span>
+    </div>
+
+    <!-- Input vinculado al datalist -->
+    <input type="text" id="buscador" list="palmeras-list" placeholder="Escribe el nombre de la palmera o especie...">
+    
+    <!-- Opciones autocompletadas desde el CSV -->
+    <datalist id="palmeras-list"></datalist>
+
+    <div id="mensaje-status">Cargando base de datos de especies...</div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 7. LIENZO DEL MAPA INTERACTIVO (LEAFLET)   -->
+  <!-- ========================================== -->
+  <div id="map"></div>
+
+  <!-- ========================================== -->
+  <!-- 8. VENTANA MODAL DE INFORMACIÓN TÉCNICA    -->
+  <!-- ========================================== -->
+  <div id="modalInfo" class="modal-overlay">
+    <div class="modal-content">
+      <span class="modal-close" onclick="cerrarModal()">&times;</span>
+      
+      <section id="sec-usda">
+        <h2>1. ¿Qué es el USDA Plant Hardiness Zone Map?</h2>
+        <p>Es un mapa desarrollado por el Departamento de Agricultura de los Estados Unidos (USDA), basado en datos de temperaturas mínimas registradas durante un período de 30 años. Es decir que una zona 10a puede registrar una temperatura mínima de -2 ºC en un año puntual, pero si el promedio de los últimos 30 años es de -1,1 ºC, seguirá catalogada como zona 10a. Por ello, estos mapas sirven como una guía orientativa muy precisa, pero no infalible.</p>
+        <p>Asimismo, en áreas urbanas puede suceder que un sector con clasificación 9b eleve su valor a 10a (o hasta 10b en el centro de una ciudad) debido al efecto de <em>isla de calor</em> generado por la densidad de construcciones, asfalto y vehículos. Las plantas ubicadas en estas zonas urbanas resguardadas pueden tolerar temperaturas invernales ligeramente más exigentes que las cultivadas en zonas rurales circundantes.</p>
+      </section>
+
+      <section id="sec-resistencia">
+        <h2>2. ¿Qué es la Resistencia Térmica de una planta?</h2>
+        <p>También conocida como rusticidad (o <em>hardiness</em> en inglés), hace referencia a la capacidad biológica de una especie para tolerar condiciones climáticas adversas, enfocándose en la temperatura mínima extrema que puede soportar en invierno sin sufrir daños permanentes o perecer.</p>
+        <ul>
+          <li><strong>Múltiples factores:</strong> La tolerancia depende de la duración del evento de frío (horas vs. días continuos), la humedad presente en el sustrato y la madurez del ejemplar.</li>
+          <li><strong>Zonas de calor:</strong> Paralelamente, existe una escala de la <em>American Horticultural Society</em> que mide la tolerancia al estrés térmico por días acumulados con temperaturas superiores a 30 °C.</li>
+        </ul>
+      </section>
+
+      <section id="sec-isotermas">
+        <h2>3. ¿Qué son las Isotermas USDA y cómo funciona el sistema?</h2>
+        <p>Las isotermas son líneas que unen puntos geográficos con la misma temperatura promedio. El USDA trazó estas franjas térmicas en base a los promedios de mínimas anuales durante tres décadas. Cada franja constituye una zona de cultivo de referencia a nivel mundial.</p>
+        
+        <h3>Estructura de las Zonas USDA</h3>
+        <p>El sistema abarca 13 zonas (del 1 al 13). A menor número, más frío es el clima (Zona 1 es el Ártico); a mayor número, más cálido (Zona 13 representa el trópico absoluto). Cada zona se subdivide en letras "a" y "b" para aportar mayor nivel de detalle (siendo "a" ligeramente más fría que "b").</p>
+
+        <h3>Tabla comparativa de referencias</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Zona USDA</th>
+              <th>Mínima Promedio Anual</th>
+              <th>Ejemplo de Clima y Especies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Zona 1 a 4</td><td>Menos de -28,9 °C</td><td>Climas polares/alta montaña. Coníferas muy resistentes.</td></tr>
+            <tr><td>Zona 5</td><td>-28,8 °C a -23,3 °C</td><td>Inviernos muy fríos. Manzanos y bulbos.</td></tr>
+            <tr><td>Zona 7</td><td>-17,8 °C a -12,2 °C</td><td>Inviernos fríos moderados. Pinos, lavandas, perales.</td></tr>
+            <tr><td>Zona 9</td><td>-6,6 °C a -1,2 °C</td><td>Inviernos suaves / heladas breves. Cítricos, olivos, buganvillas.</td></tr>
+            <tr><td>Zona 11 a 13</td><td>Más de 4,4 °C</td><td>Climas tropicales sin heladas. Palmeras tropicales, plátanos.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Aplicación práctica</h3>
+        <p>Al adquirir un ejemplar o consultar su ficha técnica (ej. "Zona USDA: 8 a 10"), debes cotejarla con la zona de tu localidad. Si tu región es Zona 7 y la especie seleccionada es Zona 10, no logrará desarrollarse al aire libre en invierno sin la protección de una estructura cubierta o invernadero.</p>
+      </section>
+
+      <div class="fuente-link">
+        <strong>FUENTE DE DATOS:</strong> <a href="https://www.plantmaps.com/interactive-argentina-plant-hardiness-zone-map-celsius.php" target="_blank" rel="noopener">Plantmaps - Argentina Interactive Plant Hardiness Zone Map</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 9. LIBRERÍAS DE JAVASCRIPT EXTERNAS        -->
+  <!-- ========================================== -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <!-- ========================================== -->
+  <!-- 10. LÓGICA Y ALGORITMOS DE LA APLICACIÓN    -->
+  <!-- ========================================== -->
+  <script>
+    // --------------------------------------------------------------------------
+    // A. CONTROL DEL MODAL EXPLICATIVO
+    // --------------------------------------------------------------------------
+    function abrirModal(seccion) {
+      const modal = document.getElementById('modalInfo');
+      modal.style.display = 'flex';
+
+      setTimeout(() => {
+        const objetivo = document.getElementById('sec-' + seccion);
+        if (objetivo) {
+          objetivo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 50);
+    }
+
+    function cerrarModal() {
+      document.getElementById('modalInfo').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('modalInfo');
+      if (event.target === modal) {
+        cerrarModal();
+      }
+    }
+
+    // --------------------------------------------------------------------------
+    // B. INICIALIZACIÓN DE LA CARTOGRAFÍA
+    // --------------------------------------------------------------------------
+    const map = L.map('map').setView([-27.367, -55.896], 6);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { 
+      maxZoom: 13, 
+      attribution: '© OpenStreetMap' 
+    }).addTo(map);
+
+    // --------------------------------------------------------------------------
+    // C. DICCIONARIOS DE DATOS
+    // --------------------------------------------------------------------------
+    const baseDatos = {};
+
+    const coloresUSDA = {
+      '8a': '#F7F97D', 
+      '8b': '#F7CE7D', 
+      '9a': '#B19F7D', 
+      '9b': '#CB797D',
+      '10a': '#F7B9BD', 
+      '10b': '#F7797D'
+    };
+
+    const temperaturasUSDA = {
+      '8a': '-12.2°C a -9.4°C',
+      '8b': '-9.4°C a -6.7°C',
+      '9a': '-6.7°C a -3.9°C',
+      '9b': '-3.9°C a -1.1°C',
+      '10a': '-1.1°C a 1.7°C',
+      '10b': '1.7°C a 4.4°C'
+    };
+
+    let capasActivas = L.layerGroup().addTo(map);
+
+    // --------------------------------------------------------------------------
+    // D. CARGA Y PROCESAMIENTO DE PALMERAS.CSV
+    // --------------------------------------------------------------------------
+    // Se apunta a 'data/palmeras.csv' relativo a la carpeta /usda/
+    Papa.parse('data/palmeras.csv', {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: function(results) {
+        const datalist = document.getElementById('palmeras-list');
+        datalist.innerHTML = ''; 
+
+        results.data.forEach(fila => {
+          const filaLimpia = {};
+          Object.keys(fila).forEach(key => {
+            filaLimpia[key.trim().toLowerCase()] = fila[key];
+          });
+
+          const nombreCientifico = filaLimpia["nombre científico"] ? filaLimpia["nombre científico"].trim() : "";
+          const nombreComun = filaLimpia["nombre común"] ? filaLimpia["nombre común"].trim() : "";
+          const zonasRaw = filaLimpia["zonas usda"] ? filaLimpia["zonas usda"] : "";
+
+          if (zonasRaw && (nombreCientifico || nombreComun)) {
+            const zonasArray = zonasRaw.split(',').map(z => z.trim().toLowerCase());
+            const etiqueta = nombreComun ? `${nombreCientifico} (${nombreComun})` : nombreCientifico;
+
+            baseDatos[etiqueta] = zonasArray;
+
+            const option = document.createElement('option');
+            option.value = etiqueta;
+            datalist.appendChild(option);
+          }
+        });
+
+        document.getElementById('mensaje-status').innerText = "Base de datos cargada correctamente.";
+        document.getElementById('mensaje-status').style.color = "#a3e635";
+      },
+      error: function(err) {
+        console.error("Error al cargar data/palmeras.csv:", err);
+        document.getElementById('mensaje-status').innerText = "Error al cargar data/palmeras.csv";
+        document.getElementById('mensaje-status').style.color = "#ff6b6b";
+      }
+    });
+
+    // --------------------------------------------------------------------------
+    // E. GESTIÓN DE EVENTOS Y DESCARGA VECTORIAL
+    // --------------------------------------------------------------------------
+    document.getElementById('buscador').addEventListener('input', function(e) {
+      const seleccion = e.target.value.trim();
+      
+      if (baseDatos[seleccion]) {
+        capasActivas.clearLayers(); 
+        const zonas = baseDatos[seleccion];
+
+        zonas.forEach(zona => {
+          const urlGeoJSON = `https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${zona}.geojson`;
+          
+          fetch(urlGeoJSON)
+            .then(res => res.json())
+            .then(data => {
+              const capaZona = L.geoJson(data, {
+                style: {
+                  fillColor: coloresUSDA[zona] || '#cccccc',
+                  weight: 1,
+                  color: '#333333',
+                  fillOpacity: 0.65
+                }
+              });
+
+              const tempRango = temperaturasUSDA[zona] || 'Rango no disponible';
+              capaZona.bindPopup(`Zona USDA: ${zona.toUpperCase()}<br>Temp: ${tempRango}`);
+              
+              capasActivas.addLayer(capaZona);
+            })
+            .catch(err => console.error("Error cargando zona: " + zona, err));
+        });
+
+        map.setView([-34.0, -64.0], 4);
+      }
+    });
+  </script>
+</body>
+</html>
