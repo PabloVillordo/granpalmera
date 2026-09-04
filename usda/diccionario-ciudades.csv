@@ -1,0 +1,96 @@
+﻿id,ciudad,provincia,zonas USDA
+alvear,Alvear (Corrientes),-1.1°C a 1.7°C,10a
+bahia_blanca,Bahía Blanca (Buenos Aires),-6.7°C a -3.9°C,9a
+banfield,Banfield (Buenos Aires),-1.1°C a 1.7°C,10a
+berazategui,Berazategui (Buenos Aires),-1.1°C a 1.7°C,10a
+berisso,Berisso (Buenos Aires),-3.9°C a -1.1°C,9b
+bernal,Bernal (Buenos Aires),-1.1°C a 1.7°C,10a
+burzaco,Burzaco (Buenos Aires),-3.9°C a -1.1°C,9b
+caleta_olivia,Caleta Olivia (Santa Cruz),-6.7°C a -3.9°C,9a
+caseros,Caseros (Buenos Aires),-1.1°C a 1.7°C,10a
+castelar,Castelar (Buenos Aires),-1.1°C a 1.7°C,10a
+chilecito,Chilecito (La Rioja),-9.4°C a -6.7°C,8b
+ciudad_autonoma_de_buenos_aires,CABA (Ciudad Autónoma de Bs As),1.7°C a 4.4°C,10b
+ciudadela,Ciudadela (Buenos Aires),-1.1°C a 1.7°C,10a
+comodoro_rivadavia,Comodoro Rivadavia (Chubut),-6.7°C a -3.9°C,9a
+concordia,Concordia (Entre Ríos),-3.9°C a -1.1°C,9b
+cordoba,Córdoba (Córdoba),-3.9°C a -1.1°C,9b
+corrientes,Corrientes (Corrientes),1.7°C a 4.4°C,10b
+dolores,Dolores (Buenos Aires),-3.9°C a -1.1°C,9b
+federacion,Federación (Entre Ríos),-3.9°C a -1.1°C,9b
+florencio_varela,Florencio Varela (Buenos Aires),-1.1°C a 1.7°C,10a
+formosa,Formosa (Formosa),1.7°C a 4.4°C,10b
+general_roca,General Roca (Río Negro),-6.7°C a -3.9°C,9a
+general_san_martin,General San Martín (Buenos Aires),-1.1°C a 1.7°C,10a
+gonzalez_catan,González Catán (Buenos Aires),-3.9°C a -1.1°C,9b
+gregorio_de_laferrere,Gregorio de Laferrere (Buenos Aires),-3.9°C a -1.1°C,9b
+gualeguaychu,Gualeguaychú (Entre Ríos),-3.9°C a -1.1°C,9b
+isidro_casanova,Isidro Casanova (Buenos Aires),-1.1°C a 1.7°C,10a
+ituzaingo,Ituzaingó (Buenos Aires),-1.1°C a 1.7°C,10a
+jose_c_paz,José C. Paz (Buenos Aires),-3.9°C a -1.1°C,9b
+junin,Junín (Buenos Aires),-6.7°C a -3.9°C,9a
+la_plata,La Plata (Buenos Aires),-3.9°C a -1.1°C,9b
+la_rioja,La Rioja (La Rioja),-3.9°C a -1.1°C,9b
+lanus,Lanús (Buenos Aires),-1.1°C a 1.7°C,10a
+libertad,Libertad (Buenos Aires),-1.1°C a 1.7°C,10a
+lomas_de_zamora,Lomas de Zamora (Buenos Aires),-1.1°C a 1.7°C,10a
+lujan,Luján (Buenos Aires),-1.1°C a 1.7°C,10a
+maipu,Maipú (Mendoza),-3.9°C a -1.1°C,9b
+mar_del_plata,Mar del Plata (Buenos Aires),-6.7°C a -3.9°C,9a
+mendoza,Mendoza (Mendoza),-6.7°C a -3.9°C,9a
+mercedes,Mercedes (Buenos Aires),-3.9°C a -1.1°C,9b
+merlo,Merlo (Buenos Aires),-1.1°C a 1.7°C,10a
+miramar,Miramar (Buenos Aires),-6.7°C a -3.9°C,9a
+monte_grande,Monte Grande (Buenos Aires),-3.9°C a -1.1°C,9b
+moreno,Moreno (Buenos Aires),-1.1°C a 1.7°C,10a
+moron,Morón (Buenos Aires),-1.1°C a 1.7°C,10a
+necochea,Necochea (Buenos Aires),-3.9°C a -1.1°C,9b
+neuquen,Neuquén (Neuquén),-6.7°C a -3.9°C,9a
+olavarria,Olavarría (Buenos Aires),-6.7°C a -3.9°C,9a
+parana,Paraná (Entre Ríos),-1.1°C a 1.7°C,10a
+pergamino,Pergamino (Buenos Aires),-3.9°C a -1.1°C,9b
+pilar,Pilar (Buenos Aires),-1.1°C a 1.7°C,10a
+pinamar,Pinamar (Buenos Aires),-3.9°C a -1.1°C,9b
+posadas,Posadas (Misiones),-1.1°C a 1.7°C,10a
+presidencia_roque_saenz_peña,Presidencia Roque Sáenz Peña (Chaco),-1.1°C a 1.7°C,10a
+puerto_madryn,Puerto Madryn (Chubut),-9.4°C a -6.7°C,8b
+quilmes,Quilmes (Buenos Aires),-1.1°C a 1.7°C,10a
+rafael_castillo,Rafael Castillo (Buenos Aires),-1.1°C a 1.7°C,10a
+rafaela,Rafaela (Santa Fe),-3.9°C a -1.1°C,9b
+ramos_mejia,Ramos Mejía (Buenos Aires),-1.1°C a 1.7°C,10a
+rawson,Rawson (Chubut),-9.4°C a -6.7°C,8b
+resistencia,Resistencia (Chaco),-1.1°C a 1.7°C,10a
+rio_cuarto,Río Cuarto (Córdoba),-3.9°C a -1.1°C,9b
+rio_gallegos,Río Gallegos (Santa Cruz),-12.2°C a -9.4°C,8a
+rosario,Rosario (Santa Fe),-3.9°C a -1.1°C,9b
+salta,Salta (Salta),-3.9°C a -1.1°C,9b
+san_carlos_de_bariloche,San Carlos de Bariloche (Río Negro),-9.4°C a -6.7°C,8b
+san_fernando_del_valle_de_catamarca,San Fernando del Valle de Catamarca (Catamarca),-3.9°C a -1.1°C,9b
+san_juan,San Juan (San Juan),-6.7°C a -3.9°C,9a
+san_justo,San Justo (Buenos Aires),-1.1°C a 1.7°C,10a
+san_luis,San Luis (San Luis),-3.9°C a -1.1°C,9b
+san_miguel,San Miguel (Buenos Aires),-3.9°C a -1.1°C,9b
+san_miguel_de_tucuman,San Miguel de Tucumán (Tucumán),-1.1°C a 1.7°C,10a
+san_pedro,San Pedro (Buenos Aires),-3.9°C a -1.1°C,9b
+san_rafael,San Rafael (Mendoza),-6.7°C a -3.9°C,9a
+san_salvador_de_jujuy,San Salvador de Jujuy (Jujuy),-3.9°C a -1.1°C,9b
+santa_fe,Santa Fe (Santa Fe),-3.9°C a -1.1°C,9b
+santa_maria,Santa María (Buenos Aires),-3.9°C a -1.1°C,9b
+santa_rosa,Santa Rosa (La Pampa),-6.7°C a -3.9°C,9a
+santiago_del_estero,Santiago del Estero (Santiago del Estero),-6.7°C a -3.9°C,9a
+tandil,Tandil (Buenos Aires),-6.7°C a -3.9°C,9a
+tartagal,Tartagal (Salta),1.7°C a 4.4°C,10b
+temperley,Temperley (Buenos Aires),-1.1°C a 1.7°C,10a
+tigre,Tigre (Buenos Aires),-3.9°C a -1.1°C,9b
+trelew,Trelew (Chubut),-9.4°C a -6.7°C,8b
+trujui,Trujui (Buenos Aires),-1.1°C a 1.7°C,10a
+unquillo,Unquillo (Córdoba),-3.9°C a -1.1°C,9b
+ushuaia,Ushuaia (Tierra del Fuego),-6.7°C a -3.9°C,9a
+venado_tuerto,Venado Tuerto (Santa Fe),-6.7°C a -3.9°C,9a
+vicente_lopez,Vicente López (Buenos Aires),-1.1°C a 1.7°C,10a
+viedma,Viedma (Río Negro),-6.7°C a -3.9°C,9a
+villa_ballester,Villa Ballester (Buenos Aires),-1.1°C a 1.7°C,10a
+villa_gesell,Villa Gesell (Buenos Aires),-3.9°C a -1.1°C,9b
+villa_maria,Villa María (Córdoba),-3.9°C a -1.1°C,9b
+villa_mercedes,Villa Mercedes (San Luis),-9.4°C a -6.7°C,8b
+virrey_del_pino,Virrey del Pino (Buenos Aires),-3.9°C a -1.1°C,9b
