@@ -1,4 +1,4 @@
-﻿id,ciudad,provincia,zonas USDA
+﻿id,ciudad (provincia),rango,zonas USDA
 alvear,Alvear (Corrientes),-1.1°C a 1.7°C,10a
 bahia_blanca,Bahía Blanca (Buenos Aires),-6.7°C a -3.9°C,9a
 banfield,Banfield (Buenos Aires),-1.1°C a 1.7°C,10a
