@@ -48,6 +48,7 @@
         padding: 0; 
         color: #333333;
         background-color: #f8f9fa;
+        scroll-behavior: smooth;
       }
 
       /* Contenedor Superior */
@@ -73,20 +74,26 @@
         line-height: 1.4;
       }
 
-      /* Botones de ayuda modal */
+      /* Botones de navegación interna */
       .info-links {
         margin-bottom: 20px;
-        font-size: 13px;
+        font-size: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        max-width: 950px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .info-btn {
         background: rgba(255, 255, 255, 0.12);
         color: #64b5f6;
-        padding: 4px 10px;
+        padding: 5px 10px;
         border-radius: 15px;
         text-decoration: none;
         cursor: pointer;
-        margin: 3px;
         display: inline-block;
         transition: all 0.2s ease;
         border: 1px solid rgba(100, 181, 246, 0.3);
@@ -141,8 +148,9 @@
 
       #mensaje-status {
         margin-top: 15px;
-        font-size: 12px;
-        color: #bdc3c7;
+        font-size: 13px;
+        font-weight: bold;
+        color: #f39c12;
       }
 
       /* Visor del Mapa */
@@ -209,60 +217,57 @@
       .hz10b { background-color: #F7797D; color: #000000; }
 
       /* ========================================== */
-      /* MODAL INFORMATIVO                          */
+      /* CONTENIDO INFORMATIVO EXPUESTO             */
       /* ========================================== */
-      .modal-overlay {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 9999;
-        justify-content: center;
-        align-items: center;
-        padding: 15px;
-        box-sizing: border-box;
-      }
-
-      .modal-content {
+      .info-sections-container {
+        max-width: 1000px;
+        margin: 30px auto;
         background: #ffffff;
-        color: #2c3e50;
-        max-width: 850px;
-        width: 100%;
-        max-height: 85vh;
-        overflow-y: auto;
+        padding: 30px;
         border-radius: 8px;
-        padding: 25px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        position: relative;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        color: #2c3e50;
         line-height: 1.6;
-        scroll-behavior: smooth;
+        font-size: 14px;
       }
 
-      .modal-close {
-        position: absolute;
-        top: 15px; right: 20px;
-        font-size: 24px;
-        cursor: pointer;
-        color: #7f8c8d;
-      }
-
-      .modal-close:hover { color: #e74c3c; }
-      
-      .modal-content h2 {
+      .info-sections-container h2 {
         color: #16a085;
-        margin-top: 25px;
+        margin-top: 30px;
         font-size: 18px;
         border-bottom: 2px solid #ecf0f1;
         padding-bottom: 6px;
       }
-      .modal-content h2:first-of-type { margin-top: 0; }
-      .modal-content ul { padding-left: 20px; }
-      .modal-content li { margin-bottom: 8px; }
+      .info-sections-container h2:first-of-type { margin-top: 0; }
+      .info-sections-container h3 {
+        color: #2980b9;
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 8px;
+      }
+      .info-sections-container ul { padding-left: 20px; }
+      .info-sections-container li { margin-bottom: 8px; }
+
+      /* Tabla comparativa estilizada */
+      .tabla-comparativa {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        font-size: 13px;
+      }
+      .tabla-comparativa th, .tabla-comparativa td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      .tabla-comparativa th {
+        background-color: #2c3e50;
+        color: white;
+      }
 
       .fuente-link {
-        font-size: 12px; color: #7f8c8d; margin-top: 25px;
-        padding-top: 10px; border-top: 1px solid #eee; word-break: break-all;
+        font-size: 12px; color: #7f8c8d; margin-top: 30px;
+        padding-top: 15px; border-top: 1px solid #eee; word-break: break-all;
       }
     </style>
 </head>
@@ -272,15 +277,21 @@
   <!-- ESTRUCTURA INTERFAZ DEL BUSCADOR           -->
   <!-- ========================================== -->
   <div id="buscador-container">
-    <h1>Buscador de Zonas de Resistencia USDA</h1>
+    <h1>Buscador de Zonas de Resistencia USDA por Especie</h1>
     <p class="bajada-seo">
-      Determina qué plantas perennes tienen mayor probabilidad de prosperar según la temperatura mínima invernal promedio. Muestra la <strong>Resistencia Térmica</strong> de especies y las <strong>Isotermas USDA</strong> de Argentina (Zonas 1a a 10b).
+      Determina qué plantas perennes tienen mayor probabilidad de prosperar según la temperatura mínima invernal promedio. Basado en el USDA Plant Hardiness Zone Map, muestra la Resistencia Térmica de cada especie y las Isotermas USDA sobre Argentina.
     </p>
 
+    <!-- Enlaces de navegación rápida con anclajes -->
     <div class="info-links">
-      <span class="info-btn" onclick="abrirModal('usda')"><i class="fa-solid fa-circle-info"></i> USDA Plant Map</span>
-      <span class="info-btn" onclick="abrirModal('resistencia')"><i class="fa-solid fa-temperature-arrow-down"></i> Resistencia Térmica</span>
-      <span class="info-btn" onclick="abrirModal('advertencias')"><i class="fa-solid fa-triangle-exclamation"></i> Advertencias</span>
+      <a href="#sec-usda" class="info-btn"><i class="fa-solid fa-circle-info"></i> USDA Plant Map</a>
+      <a href="#sec-resistencia" class="info-btn"><i class="fa-solid fa-temperature-arrow-down"></i> Resistencia Térmica</a>
+      <a href="#sec-isotermas" class="info-btn"><i class="fa-solid fa-chart-line"></i> Isotermas USDA</a>
+      <a href="#sec-estructura" class="info-btn"><i class="fa-solid fa-layer-group"></i> Estructura de las Zonas USDA</a>
+      <a href="#sec-tabla" class="info-btn"><i class="fa-solid fa-table-list"></i> Tabla comparativa</a>
+      <a href="#sec-practica" class="info-btn"><i class="fa-solid fa-seedling"></i> Aplicación práctica</a>
+      <a href="#sec-agroclimaticos" class="info-btn"><i class="fa-solid fa-sun"></i> Requerimientos Agroclimáticos</a>
+      <a href="#sec-advertencias" class="info-btn"><i class="fa-solid fa-triangle-exclamation"></i> Advertencias</a>
     </div>
 
     <!-- Panel de los 4 Buscadores (Apilados y Anchos) -->
@@ -311,7 +322,7 @@
       </div>
     </div>
 
-    <div id="mensaje-status">Inicializando bases de datos...</div>
+    <div id="mensaje-status">Cargando bases de datos...</div>
   </div>
 
   <!-- ========================================== -->
@@ -369,40 +380,126 @@
   </div>
 
   <!-- ========================================== -->
-  <!-- VENTANA MODAL (INFORMACIÓN SECUNDARIA)     -->
+  <!-- CONTENIDO INFORMATIVO TÉCNICO AMPLIADO     -->
   <!-- ========================================== -->
-  <div id="modalInfo" class="modal-overlay">
-    <div class="modal-content">
-      <span class="modal-close" onclick="cerrarModal()">&times;</span>
+  <div class="info-sections-container">
+    
+    <section id="sec-usda">
+      <h2>1. ¿Qué es el USDA Plant Hardiness Zone Map?</h2>
+      <p>Es un mapa desarrollado por el Departamento de Agricultura de los Estados Unidos (USDA), basado en datos de temperaturas mínimas registradas durante un período de 30 años. Es decir, una zona 10a puede registrar una temperatura mínima de -2 °C en un año puntual, pero si el promedio de los últimos 30 años es de -1,1 °C, seguirá catalogada como zona 10a. Por ello, estos mapas sirven como una guía orientativa muy precisa, pero no infalible.</p>
+      <p>Asimismo, en áreas urbanas puede suceder que un sector con clasificación 9b eleve su valor a 10a (o hasta 10b en el centro de una ciudad) debido al efecto de isla de calor generado por la densidad de construcciones, asfalto y vehículos. Las plantas ubicadas en estas zonas urbanas resguardadas pueden tolerar temperaturas invernales ligeramente más exigentes que las cultivadas en zonas rurales circundantes.</p>
+    </section>
+
+    <section id="sec-resistencia">
+      <h2>2. ¿Qué es la Resistencia Térmica de una planta?</h2>
+      <p>También conocida como rusticidad (o <em>hardiness</em> en inglés), hace referencia a la capacidad biológica de una especie para tolerar condiciones climáticas adversas, enfocándose en la temperatura mínima extrema que puede soportar en invierno sin sufrir daños permanentes o perecer.</p>
+      <ul>
+        <li><strong>Múltiples factores:</strong> La tolerancia depende de la duración del evento de frío (horas vs. días continuos), la humedad presente en el sustrato y la madurez del ejemplar.</li>
+        <li><strong>Zonas de calor:</strong> Paralelamente, existe una escala de la American Horticultural Society que mide la tolerancia al estrés térmico por días acumulados con temperaturas superiores a 30 °C.</li>
+      </ul>
+    </section>
+
+    <section id="sec-isotermas">
+      <h2>3. ¿Qué son las Isotermas USDA y cómo funciona el sistema?</h2>
+      <p>Las isotermas son líneas que unen puntos geográficos con la misma temperatura promedio. El USDA trazó estas franjas térmicas en base a los promedios de mínimas anuales durante tres décadas. Cada franja constituye una zona de cultivo de referencia a nivel mundial.</p>
+    </section>
+
+    <section id="sec-estructura">
+      <h2>4. Estructura de las Zonas USDA</h2>
+      <p>El sistema abarca 13 zonas (del 1 al 13). A menor número, más frío es el clima (la Zona 1 es el Ártico); a mayor número, más cálido (la Zona 13 representa el trópico absoluto). Cada zona se subdivide en letras "a" y "b" para aportar mayor nivel de detalle (siendo "a" ligeramente más fría que "b").</p>
+    </section>
+
+    <section id="sec-tabla">
+      <h2>5. Tabla comparativa de referencias</h2>
+      <table class="tabla-comparativa">
+        <thead>
+          <tr>
+            <th>Zona USDA</th>
+            <th>Mínima Promedio Anual</th>
+            <th>Ejemplo de Clima y Especies</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Zona 1 a 4</td>
+            <td>Menos de -28,9 °C</td>
+            <td>Climas polares / alta montaña. Coníferas muy resistentes.</td>
+          </tr>
+          <tr>
+            <td>Zona 5</td>
+            <td>-28,8 °C a -23,3 °C</td>
+            <td>Inviernos muy fríos. Manzanos y bulbos.</td>
+          </tr>
+          <tr>
+            <td>Zona 7</td>
+            <td>-17,8 °C a -12,2 °C</td>
+            <td>Inviernos fríos moderados. Pinos, lavandas, perales.</td>
+          </tr>
+          <tr>
+            <td>Zona 9</td>
+            <td>-6,6 °C a -1,2 °C</td>
+            <td>Inviernos suaves / heladas breves. Cítricos, olivos, buganvillas.</td>
+          </tr>
+          <tr>
+            <td>Zona 11 a 13</td>
+            <td>Más de 4,4 °C</td>
+            <td>Climas tropicales sin heladas. Palmeras tropicales, plátanos.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="sec-practica">
+      <h2>6. Aplicación práctica</h2>
+      <p>Al adquirir un ejemplar o consultar su ficha técnica (ej. Zona USDA: 8 a 10), debes cotejarla con la zona de tu localidad. Si tu región es Zona 7 y la especie seleccionada es Zona 10, no logrará desarrollarse al aire libre en invierno sin la protección de una estructura cubierta o invernadero.</p>
+    </section>
+
+    <section id="sec-agroclimaticos">
+      <h2>7. Requerimientos Agroclimáticos, Adaptabilidad Térmica y Zonificación</h2>
+      <p>Las Zonas USDA constituyen uno de los parámetros de clasificación climática y zonificación más utilizados internacionalmente para determinar la viabilidad de una planta. Sin embargo, el frío mínimo no es el único parámetro que define el éxito de un cultivo. Para evaluar la adaptabilidad real de una especie se deben integrar diversas variables agronómicas y ecofisiológicas:</p>
       
-      <section id="sec-usda">
-        <h2>1. ¿Qué es el USDA Plant Hardiness Zone Map?</h2>
-        <p>Es un mapa desarrollado por el Departamento de Agricultura de los Estados Unidos (USDA), basado en datos de temperaturas mínimas registradas durante un período de 30 años. Por ello, estos mapas sirven como una guía orientativa muy precisa, pero no infalible.</p>
-        <p>En áreas urbanas puede suceder que un sector eleve su valor (ej. de 9b a 10a) debido al efecto de <em>isla de calor</em> generado por la densidad de construcciones y asfalto. Las plantas ubicadas en estas zonas urbanas resguardadas pueden tolerar temperaturas invernales ligeramente más exigentes.</p>
-      </section>
+      <h3>7.1. Parámetros Ecofisiológicos de Crecimiento</h3>
+      <ul>
+        <li><strong>Temperatura Base ($T_{\text{base}}$):</strong> Umbral térmico mínimo a partir del cual la planta activa su metabolismo y comienza a vegetar.</li>
+        <li><strong>Grados Día de Crecimiento (GDD):</strong> Acumulación de unidades de calor requeridas durante la temporada para completar etapas de desarrollo (brote, floración, maduración).</li>
+        <li><strong>Temperatura Óptima de Crecimiento:</strong> Rango térmico diurno y nocturno en el que la planta realiza la fotosíntesis con máxima eficiencia.</li>
+      </ul>
 
-      <section id="sec-resistencia">
-        <h2>2. ¿Qué es la Resistencia Térmica de una planta?</h2>
-        <p>Conocida como rusticidad, es la capacidad biológica de una especie para tolerar condiciones climáticas adversas, enfocándose en la temperatura mínima extrema que puede soportar en invierno sin morir.</p>
-        <ul>
-          <li><strong>Múltiples factores:</strong> La tolerancia depende de la duración del evento de frío (horas vs. días continuos), la humedad presente en el sustrato y la madurez del ejemplar.</li>
-        </ul>
-      </section>
+      <h3>7.2. Sistemas de Clasificación Climática y Zonificación</h3>
+      <ul>
+        <li><strong>Clasificación Köppen-Geiger:</strong> Evalúa patrones macroclimáticos generales (precipitaciones, estacionalidad y temperaturas medias).</li>
+        <li><strong>Clasificación USDA (Cultivo en Suelo vs. Maceta Móvil):</strong> La resistencia varía si la planta está establecida en suelo pleno o si se cultiva en contenedor, donde las raíces sufren mayor estrés térmico.</li>
+        <li><strong>AHS Heat Zones:</strong> Clasifica las regiones según el número de días al año que superan los 30 °C.</li>
+        <li><strong>Sunset Climate Zones:</strong> Sistema integral que combina frío, calor, humedad, altitud y duración de la temporada de crecimiento.</li>
+        <li><strong>RHS Hardiness Rating / European Garden Flora:</strong> Escalas de rusticidad europeas ajustadas a climas oceánicos y templados-húmedos.</li>
+      </ul>
 
-      <section id="sec-advertencias">
-        <h2>3. Advertencias importantes sobre el uso</h2>
-        <ul>
-          <li><strong>Miden únicamente la temperatura mínima extrema:</strong> No contemplan otros factores determinantes para la vida vegetal.</li>
-          <li><strong>No consideran la duración del frío:</strong> Una planta puede tolerar una helada puntual, pero verse gravemente afectada si las bajas temperaturas son continuas.</li>
-          <li><strong>Ignoran el calor acumulado y la luz:</strong> Las especies tropicales requieren umbrales térmicos diurnos altos para su metabolismo.</li>
-          <li><strong>Varían según el microclima:</strong> Cuerpos de agua, vientos y sol alteran radicalmente la zona real de tu jardín frente al promedio de tu ciudad.</li>
-        </ul>
-      </section>
+      <h3>7.3. Tolerancias Ambientales y Respuesta al Estrés</h3>
+      <ul>
+        <li><strong>Tolerancia al Frío y Comportamiento Invernal:</strong> Respuesta biológica ante bajas temperaturas (latencia, defoliación preventiva o tolerancia en tejidos persistentes).</li>
+        <li><strong>Tolerancia al Calor y Estrés Hídrico:</strong> Capacidad de transpiración y resistencia a la deshidratación por radiación solar intensa.</li>
+      </ul>
 
-      <div class="fuente-link">
-        <strong>FUENTE DE DATOS:</strong> <a href="https://www.plantmaps.com/interactive-argentina-plant-hardiness-zone-map-celsius.php" target="_blank" rel="noopener">Plantmaps - Argentina Interactive Plant Hardiness Zone Map</a>
-      </div>
+      <h3>7.4. Estrategias de Manejo y Protección</h3>
+      <p>Técnicas agronómicas aplicadas para expandir la zona de cultivo, tales como creación de microclimas protegidos, acolchados (mulch), cubiertas térmicas pasivas o ubicación estratégica junto a muros refractarios de calor.</p>
+    </section>
+
+    <section id="sec-advertencias">
+      <h2>8. ⚠️ Advertencias importantes sobre el uso de las Zonas de Rusticidad</h2>
+      <ul>
+        <li><strong>Miden únicamente la temperatura mínima extrema:</strong> El sistema está diseñado exclusivamente en función del promedio de las mínimas invernales anuales, por lo que no contempla otros factores determinantes para la vida vegetal.</li>
+        <li><strong>No consideran la duración del frío:</strong> Una planta puede tolerar una helada puntual de corta duración, pero verse gravemente afectada (o morir) si las temperaturas se mantienen bajas de forma continua durante semanas.</li>
+        <li><strong>Ignoran el calor acumulado y la luz:</strong> Especies de climas tropicales o subtropicales requieren umbrales térmicos diurnos altos y constantes para desarrollar sus procesos metabólicos básicos, algo que una zona fría o templada no garantiza por sí sola a pesar de no registrar inviernos extremos.</li>
+        <li><strong>Varían según el microclima:</strong> Las condiciones locales de tu terreno —como la cercanía a cuerpos de agua, la protección contra vientos, la exposición solar o la presencia de un dosel de árboles— pueden crear microclimas que difieran sustancialmente de la clasificación general de tu ciudad.</li>
+      </ul>
+    </section>
+
+    <div class="fuente-link">
+      <strong>FUENTE DE DATOS:</strong><br>
+      Isotermas: Plantmaps - Argentina Interactive Plant Hardiness Zone Map<br>
+      Zonas Usda: <a href="https://www.trebrown.com/" target="_blank" rel="noopener">Trebrown Nurseries</a>
     </div>
+
   </div>
 
   <!-- ========================================== -->
@@ -416,20 +513,7 @@
   <!-- ========================================== -->
   <script>
     // ---------------------------------------------------------
-    // 1. Control de Modal Interactivo
-    // ---------------------------------------------------------
-    function abrirModal(seccion) {
-      document.getElementById('modalInfo').style.display = 'flex';
-      setTimeout(() => {
-        const objetivo = document.getElementById('sec-' + seccion);
-        if (objetivo) objetivo.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
-    }
-    function cerrarModal() { document.getElementById('modalInfo').style.display = 'none'; }
-    window.onclick = function(e) { if (e.target === document.getElementById('modalInfo')) cerrarModal(); }
-
-    // ---------------------------------------------------------
-    // 2. Inicialización del Mapa
+    // 1. Inicialización del Mapa
     // ---------------------------------------------------------
     const map = L.map('map').setView([-34.0, -64.0], 4);
     L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { 
@@ -438,7 +522,7 @@
     let capasActivas = L.layerGroup().addTo(map);
 
     // ---------------------------------------------------------
-    // 3. Diccionarios Térmicos Extendidos (1a a 10b)
+    // 2. Diccionarios Térmicos Extendidos (1a a 10b)
     // ---------------------------------------------------------
     const coloresUSDA = {
       '1a': '#3c3c3c', '1b': '#FFFFFF', '2a': '#DDDFE3', '2b': '#B8BABE',
@@ -463,15 +547,26 @@
     const dbCiudades = {};
 
     // ---------------------------------------------------------
-    // 4. Motor de Carga Multi-CSV con Formatos Personalizados
+    // 3. Sistema de Control Individual de Carga de Archivos
     // ---------------------------------------------------------
-    function cargarBaseDatos(archivo, datalistId, dbTarget, nombreVisible) {
-      Papa.parse(archivo, {
+    const basesACargar = [
+      { archivo: 'diccionario-plantas.csv', datalistId: 'list-plantas', dbTarget: dbPlantas, nombre: 'Plantas' },
+      { archivo: 'diccionario-palmeras.csv', datalistId: 'list-palmeras', dbTarget: dbPalmeras, nombre: 'Palmeras' },
+      { archivo: 'diccionario-zonas.csv', datalistId: 'list-zonas', dbTarget: dbZonas, nombre: 'Zonas' },
+      { archivo: 'diccionario-ciudades.csv', datalistId: 'list-ciudades', dbTarget: dbCiudades, nombre: 'Ciudades' }
+    ];
+
+    let archivosFallidos = [];
+    let completadosCount = 0;
+    const statusEl = document.getElementById('mensaje-status');
+
+    function cargarBaseDatos(item) {
+      Papa.parse(item.archivo, {
         download: true,
         header: true,
         skipEmptyLines: true,
         complete: function(results) {
-          const datalist = document.getElementById(datalistId);
+          const datalist = document.getElementById(item.datalistId);
           datalist.innerHTML = ''; 
 
           results.data.forEach(fila => {
@@ -484,33 +579,25 @@
             const zonasRaw = f["zonas usda"] || f["zonas"] || "";
             let etiqueta = "";
 
-            // 1. Buscador de Zonas USDA
-            if (archivo.includes("diccionario-zonas.csv")) {
+            if (item.archivo.includes("diccionario-zonas.csv")) {
               const zonaVal = zonasRaw ? zonasRaw.trim().toLowerCase() : "";
               const rangoTemp = temperaturasUSDA[zonaVal] || f["rango"] || "";
-              
               if (zonaVal) {
                 etiqueta = `Zona USDA ${zonaVal} - Temp mínima extrema promedio ${rangoTemp}`;
               }
-            }
-            // 2. Buscador de Ciudades (Argentina)
-            else if (archivo.includes("diccionario-ciudades.csv") || f.hasOwnProperty("ciudad (provincia)")) {
+            } else if (item.archivo.includes("diccionario-ciudades.csv") || f.hasOwnProperty("ciudad (provincia)")) {
               const ciudadProv = f["ciudad (provincia)"] || f["ciudad"] || "";
               const zona = f["zonas usda"] ? f["zonas usda"].trim() : "";
               const zonaLower = zona.toLowerCase();
               const rango = (f["rango"] && f["rango"].trim() !== "") ? f["rango"].trim() : (temperaturasUSDA[zonaLower] || "");
-              
               if (ciudadProv && zona) {
                 etiqueta = `${ciudadProv.trim()} - Zona USDA: ${zona.toUpperCase()} - Temp: ${rango}`;
               }
-            } 
-            // 3. Buscador de Plantas y Palmeras
-            else if (f.hasOwnProperty("nombre común") && f.hasOwnProperty("nombre científico")) {
+            } else if (f.hasOwnProperty("nombre común") && f.hasOwnProperty("nombre científico")) {
               const comun = f["nombre común"] ? f["nombre común"].trim() : "";
               const cient = f["nombre científico"] ? f["nombre científico"].trim() : "";
               const rango = f["rango"] ? f["rango"].trim() : "";
               const zona = f["zonas usda"] ? f["zonas usda"].trim().toUpperCase() : "";
-
               if (comun && cient && zona) {
                 etiqueta = `${comun} (${cient}) - Zona USDA: ${zona} - Temp: ${rango}`;
               }
@@ -519,38 +606,48 @@
             if (zonasRaw && etiqueta) {
               const zonasArray = zonasRaw.split(/[, -]+/).map(z => z.trim().toLowerCase()).filter(z => z.length > 0);
               
-              // Indexación múltiple tolerante
-              dbTarget[etiqueta.toLowerCase()] = zonasArray;
-              if (f["nombre común"]) dbTarget[f["nombre común"].trim().toLowerCase()] = zonasArray;
-              if (f["nombre científico"]) dbTarget[f["nombre científico"].trim().toLowerCase()] = zonasArray;
-              if (f["ciudad (provincia)"]) dbTarget[f["ciudad (provincia)"].trim().toLowerCase()] = zonasArray;
-              if (f["ciudad"]) dbTarget[f["ciudad"].trim().toLowerCase()] = zonasArray;
-              if (zonasRaw) dbTarget[zonasRaw.trim().toLowerCase()] = zonasArray;
+              item.dbTarget[etiqueta.toLowerCase()] = zonasArray;
+              if (f["nombre común"]) item.dbTarget[f["nombre común"].trim().toLowerCase()] = zonasArray;
+              if (f["nombre científico"]) item.dbTarget[f["nombre científico"].trim().toLowerCase()] = zonasArray;
+              if (f["ciudad (provincia)"]) item.dbTarget[f["ciudad (provincia)"].trim().toLowerCase()] = zonasArray;
+              if (f["ciudad"]) item.dbTarget[f["ciudad"].trim().toLowerCase()] = zonasArray;
+              if (zonasRaw) item.dbTarget[zonasRaw.trim().toLowerCase()] = zonasArray;
 
               const option = document.createElement('option');
               option.value = etiqueta;
               datalist.appendChild(option);
             }
           });
-          console.log(`Base cargada: ${nombreVisible}`);
+
+          completadosCount++;
+          verificarEstadoFinal();
         },
         error: function(err) {
-          console.warn(`Aviso: No se pudo cargar el archivo ${archivo}`, err);
+          archivosFallidos.push(item.archivo);
+          completadosCount++;
+          verificarEstadoFinal();
+          console.error(`Error al cargar ${item.archivo}`, err);
         }
       });
     }
 
-    // Ejecución de la carga de diccionarios
-    cargarBaseDatos('diccionario-plantas.csv', 'list-plantas', dbPlantas, 'Plantas');
-    cargarBaseDatos('diccionario-palmeras.csv', 'list-palmeras', dbPalmeras, 'Palmeras');
-    cargarBaseDatos('diccionario-zonas.csv', 'list-zonas', dbZonas, 'Zonas');
-    cargarBaseDatos('diccionario-ciudades.csv', 'list-ciudades', dbCiudades, 'Ciudades');
+    function verificarEstadoFinal() {
+      if (completadosCount === basesACargar.length) {
+        if (archivosFallidos.length > 0) {
+          statusEl.innerText = `Error al cargar: ${archivosFallidos.join(', ')}`;
+          statusEl.style.color = "#e74c3c"; // Rojo de error
+        } else {
+          statusEl.innerText = "Bases de datos cargadas y listas.";
+          statusEl.style.color = "#a3e635"; // Verde de éxito
+        }
+      }
+    }
 
-    document.getElementById('mensaje-status').innerText = "Bases de datos cargadas y listas.";
-    document.getElementById('mensaje-status').style.color = "#a3e635";
+    // Disparar la carga de todas las bases
+    basesACargar.forEach(b => cargarBaseDatos(b));
 
     // ---------------------------------------------------------
-    // 5. Gestión Unificada de Buscadores y Map Render
+    // 4. Gestión Unificada de Buscadores y Map Render
     // ---------------------------------------------------------
     function configurarBuscador(inputId, dbTarget) {
       document.getElementById(inputId).addEventListener('input', function(e) {
