@@ -177,6 +177,7 @@
         width: 100%;
         max-width: 100%;
         text-align: left;
+        position: relative;
       }
 
       .arbolado-buscador-wrapper label {
@@ -197,6 +198,48 @@
         color: #2c3e50;
         width: 100%;
         box-sizing: border-box;
+      }
+
+      /* Lista desplegable personalizada de sugerencias */
+      #lista-sugerencias {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        display: none;
+        background: #ffffff;
+        list-style: none;
+        padding: 0;
+        margin: 2px 0 0 0;
+        border: 1px solid #81c784;
+        max-height: 200px;
+        overflow-y: auto;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+
+      #lista-sugerencias li {
+        padding: 10px 12px;
+        cursor: pointer;
+        border-bottom: 1px solid #edf2f7;
+        color: #2c3e50;
+        font-size: 13px;
+      }
+
+      #lista-sugerencias li:hover {
+        background-color: #f1f8f5;
+      }
+
+      /* Campo de estado de conexión */
+      #arbolado-conexion-status {
+        font-size: 12px;
+        font-weight: bold;
+        margin-top: 4px;
+        padding: 6px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        width: fit-content;
       }
 
       /* Visor del Mapa (Limitado al ancho del contenido y centrado) */
@@ -384,9 +427,10 @@
   <div class="arbolado-panel">
     <div class="arbolado-buscador-wrapper">
       <label for="input-arbolado-especie"><i class="fa-solid fa-magnifying-glass"></i> Buscar Especie en Arbolado Urbano (Mapa):</label>
-      <input type="text" id="input-arbolado-especie" list="list-arbolado-especies" placeholder="Escriba o seleccione una especie para ubicarla en el mapa...">
-      <datalist id="list-arbolado-especies"></datalist>
+      <input type="text" id="input-arbolado-especie" placeholder="Buscar especie (ej. Ceibo, Tipa...)" autocomplete="off">
+      <ul id="lista-sugerencias"></ul>
     </div>
+    <div id="arbolado-conexion-status">Intentando conectar con la API de Arbolado Urbano</div>
   </div>
 
   <!-- ========================================== -->
@@ -767,72 +811,122 @@
     configurarBuscador('input-ciudades', dbCiudades);
 
     // ---------------------------------------------------------
-    // 5. INTEGRACIÓN: API REAL DE ARBOLADO URBANO
+    // 5. INTEGRACIÓN: AUTOCOMPLETADO Y API DE ARBOLADO URBANO
     // ---------------------------------------------------------
     
+    let todasLasEspecies = [];
+    let cacheArboles = [];
     let capaArbolesUrbano = L.layerGroup().addTo(map);
-    let cacheArbolesUrbano = [];
-    
-    const inputArbolEspecie = document.getElementById('input-arbolado-especie');
-    const datalistArbolEspecies = document.getElementById('list-arbolado-especies');
 
-    // Cargar datos de la API en segundo plano para poblar el buscador
+    const inputEspecie = document.getElementById('input-arbolado-especie');
+    const listaSugerencias = document.getElementById('lista-sugerencias');
+    const conexionStatusEl = document.getElementById('arbolado-conexion-status');
+
+    // Inicializar cargando el catálogo de especies y árboles desde la API
     async function inicializarArboladoAPI() {
-      try {
-        const response = await fetch('https://arboladourbano.com/api/arboles');
-        if (!response.ok) throw new Error('Error al conectar con la API de Arbolado Urbano');
-        
-        cacheArbolesUrbano = await response.json();
-        poblarDatalistArboles(cacheArbolesUrbano);
+      conexionStatusEl.innerText = 'Intentando conectar con la API de Arbolado Urbano';
+      conexionStatusEl.style.color = '#d35400';
+      conexionStatusEl.style.background = '#fdebd0';
 
+      try {
+        const resEspecies = await fetch('https://arboladourbano.com/api/especies');
+        if (!resEspecies.ok) throw new Error('Error al conectar con especies');
+        todasLasEspecies = await resEspecies.json();
+
+        const resArboles = await fetch('https://arboladourbano.com/api/arboles');
+        if (!resArboles.ok) throw new Error('Error al conectar con árboles');
+        cacheArboles = await resArboles.json();
+
+        conexionStatusEl.innerText = 'Conectado a API de Arbolado Urbano';
+        conexionStatusEl.style.color = '#27ae60';
+        conexionStatusEl.style.background = '#e8f5e9';
       } catch (error) {
-        console.error("Error al obtener datos de Arbolado Urbano:", error);
+        console.error('Error al conectar con la API:', error);
+        conexionStatusEl.innerText = 'No se pudo conectar con la API de Arbolado Urbano';
+        conexionStatusEl.style.color = '#c0392b';
+        conexionStatusEl.style.background = '#fadbd8';
       }
     }
 
     inicializarArboladoAPI();
 
-    // Escuchar cambios en el buscador específico de arbolado
-    inputArbolEspecie.addEventListener('input', (e) => {
-      const valor = e.target.value.trim();
-      filtrarYRenderizarArboles(valor);
-    });
-
-    inputArbolEspecie.addEventListener('change', (e) => {
-      const valor = e.target.value.trim();
-      filtrarYRenderizarArboles(valor);
-    });
-
     function extraerNombreEspecie(speciesUrl) {
-      if (!speciesUrl) return "Especie no especificada";
+      if (!speciesUrl) return "Especie";
       const partes = speciesUrl.split('/').filter(Boolean);
       const slug = partes[partes.length - 1];
       return slug ? slug.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase()) : "Especie";
     }
 
-    function poblarDatalistArboles(arboles) {
-      datalistArbolEspecies.innerHTML = '';
-      const unicas = new Set();
-      arboles.forEach(a => {
-        const nombreEspecie = extraerNombreEspecie(a.species);
-        if (!unicas.has(nombreEspecie)) {
-          unicas.add(nombreEspecie);
-          const option = document.createElement('option');
-          option.value = nombreEspecie;
-          datalistArbolEspecies.appendChild(option);
-        }
-      });
-    }
+    // Filtrar y mostrar sugerencias al escribir
+    inputEspecie.addEventListener('input', (e) => {
+      const texto = e.target.value.trim().toLowerCase();
+      
+      if (texto.length < 2) {
+        listaSugerencias.style.display = 'none';
+        capaArbolesUrbano.clearLayers();
+        return;
+      }
 
-    function filtrarYRenderizarArboles(filtro) {
+      const filtradas = todasLasEspecies.filter(esp => {
+        const nombre = (esp.nombre || esp.slug || extraerNombreEspecie(esp.url)).toLowerCase();
+        const cientifico = (esp.nombre_cientifico || '').toLowerCase();
+        return nombre.includes(texto) || cientifico.includes(texto);
+      }).slice(0, 5);
+
+      if (filtradas.length === 0) {
+        listaSugerencias.style.display = 'none';
+        return;
+      }
+
+      listaSugerencias.innerHTML = filtradas.map(esp => {
+        const nombreMostrar = esp.nombre || esp.slug || extraerNombreEspecie(esp.url);
+        const cientificoMostrar = esp.nombre_cientifico ? `(${esp.nombre_cientifico})` : '';
+        return `
+          <li data-url="${esp.url || ''}" data-nombre="${nombreMostrar}">
+            <strong>${nombreMostrar}</strong> <small>${cientificoMostrar}</small>
+          </li>
+        `;
+      }).join('');
+
+      listaSugerencias.style.display = 'block';
+    });
+
+    // Manejar la selección de un elemento de la lista desplegable
+    listaSugerencias.addEventListener('click', (e) => {
+      const item = e.target.closest('li');
+      if (item) {
+        const nombreEspecie = item.getAttribute('data-nombre');
+        const urlEspecie = item.getAttribute('data-url');
+        
+        inputEspecie.value = nombreEspecie;
+        listaSugerencias.style.display = 'none';
+
+        filtrarYRenderizarArboles(nombreEspecie, urlEspecie);
+      }
+    });
+
+    // Ocultar sugerencias al hacer clic fuera del buscador
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.arbolado-buscador-wrapper')) {
+        listaSugerencias.style.display = 'none';
+      }
+    });
+
+    function filtrarYRenderizarArboles(nombreSeleccionado, urlEspecie) {
       capaArbolesUrbano.clearLayers();
-      if (!filtro || filtro.trim() === '') return;
+      if (cacheArboles.length === 0) return;
 
-      const query = filtro.toLowerCase();
-      const arbolesFiltrados = cacheArbolesUrbano.filter(a => {
-        const nombreEspecie = extraerNombreEspecie(a.species).toLowerCase();
-        return nombreEspecie.includes(query) || nombreEspecie === query;
-      });
+      const query = nombreSeleccionado.toLowerCase();
+      let arbolesFiltrados = [];
+
+      if (urlEspecie) {
+        arbolesFiltrados = cacheArboles.filter(a => a.species === urlEspecie);
+      } else {
+        arbolesFiltrados = cacheArboles.filter(a => {
+          const nombreUrl = extraerNombreEspecie(a.species).toLowerCase();
+          return nombreUrl.includes(query);
+        });
+      }
 
       renderizarArboles(arbolesFiltrados);
     }
