@@ -811,7 +811,7 @@
     configurarBuscador('input-ciudades', dbCiudades);
 
     // ---------------------------------------------------------
-    // 5. INTEGRACIÓN: AUTOCOMPLETADO Y API DE ARBOLADO URBANO
+    // 5. INTEGRACIÓN: API DE ARBOLADO URBANO CON PROXY CORS
     // ---------------------------------------------------------
     
     let todasLasEspecies = [];
@@ -822,18 +822,20 @@
     const listaSugerencias = document.getElementById('lista-sugerencias');
     const conexionStatusEl = document.getElementById('arbolado-conexion-status');
 
-    // Inicializar cargando el catálogo de especies y árboles desde la API
     async function inicializarArboladoAPI() {
       conexionStatusEl.innerText = 'Intentando conectar con la API de Arbolado Urbano';
       conexionStatusEl.style.color = '#d35400';
       conexionStatusEl.style.background = '#fdebd0';
 
       try {
-        const resEspecies = await fetch('https://arboladourbano.com/api/especies');
+        // Enrutamos las peticiones a través de un proxy CORS público
+        const proxyUrl = 'https://corsproxy.io/?';
+
+        const resEspecies = await fetch(proxyUrl + encodeURIComponent('https://arboladourbano.com/api/especies'));
         if (!resEspecies.ok) throw new Error('Error al conectar con especies');
         todasLasEspecies = await resEspecies.json();
 
-        const resArboles = await fetch('https://arboladourbano.com/api/arboles');
+        const resArboles = await fetch(proxyUrl + encodeURIComponent('https://arboladourbano.com/api/arboles'));
         if (!resArboles.ok) throw new Error('Error al conectar con árboles');
         cacheArboles = await resArboles.json();
 
@@ -841,7 +843,7 @@
         conexionStatusEl.style.color = '#27ae60';
         conexionStatusEl.style.background = '#e8f5e9';
       } catch (error) {
-        console.error('Error al conectar con la API:', error);
+        console.error('Error al conectar con la API mediante Proxy:', error);
         conexionStatusEl.innerText = 'No se pudo conectar con la API de Arbolado Urbano';
         conexionStatusEl.style.color = '#c0392b';
         conexionStatusEl.style.background = '#fadbd8';
