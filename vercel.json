@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api-arbolado/:path*",
+      "destination": "https://api.arboladourbano.com/:path*"
+    }
+  ]
+}

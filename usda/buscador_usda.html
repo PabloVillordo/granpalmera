@@ -430,7 +430,7 @@
       <input type="text" id="input-arbolado-especie" placeholder="Buscar especie (ej. Ceibo, Tipa...)" autocomplete="off">
       <ul id="lista-sugerencias"></ul>
     </div>
-    <div id="arbolado-conexion-status">Intentando conectar con la API de Arbolado Urbano</div>
+    <div id="arbolado-conexion-status">Conectando con la API de Arbolado Urbano...</div>
   </div>
 
   <!-- ========================================== -->
@@ -811,7 +811,7 @@
     configurarBuscador('input-ciudades', dbCiudades);
 
     // ---------------------------------------------------------
-    // 5. INTEGRACIÓN: API DE ARBOLADO URBANO CON PROXY CORS
+    // 5. INTEGRACIÓN: API DE ARBOLADO URBANO CON VERCEL REWRITE
     // ---------------------------------------------------------
     
     let todasLasEspecies = [];
@@ -823,19 +823,17 @@
     const conexionStatusEl = document.getElementById('arbolado-conexion-status');
 
     async function inicializarArboladoAPI() {
-      conexionStatusEl.innerText = 'Intentando conectar con la API de Arbolado Urbano';
+      conexionStatusEl.innerText = 'Conectando con la API de Arbolado Urbano via Vercel...';
       conexionStatusEl.style.color = '#d35400';
       conexionStatusEl.style.background = '#fdebd0';
 
       try {
-        // Enrutamos las peticiones a través de un proxy CORS público
-        const proxyUrl = 'https://corsproxy.io/?';
-
-        const resEspecies = await fetch(proxyUrl + encodeURIComponent('https://arboladourbano.com/api/especies'));
+        // Peticiones usando la ruta de reescritura de vercel.json
+        const resEspecies = await fetch('/api-arbolado/especies');
         if (!resEspecies.ok) throw new Error('Error al conectar con especies');
         todasLasEspecies = await resEspecies.json();
 
-        const resArboles = await fetch(proxyUrl + encodeURIComponent('https://arboladourbano.com/api/arboles'));
+        const resArboles = await fetch('/api-arbolado/arboles');
         if (!resArboles.ok) throw new Error('Error al conectar con árboles');
         cacheArboles = await resArboles.json();
 
@@ -843,7 +841,7 @@
         conexionStatusEl.style.color = '#27ae60';
         conexionStatusEl.style.background = '#e8f5e9';
       } catch (error) {
-        console.error('Error al conectar con la API mediante Proxy:', error);
+        console.error('Error al conectar con la API mediante Vercel Rewrite:', error);
         conexionStatusEl.innerText = 'No se pudo conectar con la API de Arbolado Urbano';
         conexionStatusEl.style.color = '#c0392b';
         conexionStatusEl.style.background = '#fadbd8';
@@ -859,7 +857,7 @@
       return slug ? slug.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase()) : "Especie";
     }
 
-    // Filtrar y mostrar sugerencias al escribir
+    // Filtrar y mostrar sugerencias al escribir (usando nombre_comun o nombre_cientifico)
     inputEspecie.addEventListener('input', (e) => {
       const texto = e.target.value.trim().toLowerCase();
       
@@ -870,9 +868,9 @@
       }
 
       const filtradas = todasLasEspecies.filter(esp => {
-        const nombre = (esp.nombre || esp.slug || extraerNombreEspecie(esp.url)).toLowerCase();
-        const cientifico = (esp.nombre_cientifico || '').toLowerCase();
-        return nombre.includes(texto) || cientifico.includes(texto);
+        const comun = (esp.nombre_comun || '').toLowerCase();
+        const cientifico = (esp.nombre_científico || esp.nombre_cientifico || '').toLowerCase();
+        return comun.includes(texto) || cientifico.includes(texto);
       }).slice(0, 5);
 
       if (filtradas.length === 0) {
@@ -881,11 +879,11 @@
       }
 
       listaSugerencias.innerHTML = filtradas.map(esp => {
-        const nombreMostrar = esp.nombre || esp.slug || extraerNombreEspecie(esp.url);
-        const cientificoMostrar = esp.nombre_cientifico ? `(${esp.nombre_cientifico})` : '';
+        const comunMostrar = esp.nombre_comun || esp.slug || 'Especie';
+        const cientificoMostrar = esp.nombre_científico || esp.nombre_cientifico ? `(${esp.nombre_científico || esp.nombre_cientifico})` : '';
         return `
-          <li data-url="${esp.url || ''}" data-nombre="${nombreMostrar}">
-            <strong>${nombreMostrar}</strong> <small>${cientificoMostrar}</small>
+          <li data-url="${esp.url || ''}" data-nombre="${comunMostrar}">
+            <strong>${comunMostrar}</strong> <small>${cientificoMostrar}</small>
           </li>
         `;
       }).join('');
@@ -922,7 +920,7 @@
       let arbolesFiltrados = [];
 
       if (urlEspecie) {
-        arbolesFiltrados = cacheArboles.filter(a => a.species === urlEspecie);
+        arbolesFiltrados = cacheArboles.filter(a => a.species === urlEspecie || (a.species && a.species.includes(urlEspecie)));
       } else {
         arbolesFiltrados = cacheArboles.filter(a => {
           const nombreUrl = extraerNombreEspecie(a.species).toLowerCase();
