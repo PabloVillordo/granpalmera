@@ -688,11 +688,11 @@
             const zonasRaw = f["zonas usda"] || f["zonas"] || "";
             let etiqueta = "";
 
-            if (item.archivo.includes("diccionario-zonas.csv")) {
-              const zonaVal = zonasRaw ? zonasRaw.trim().toLowerCase() : "";
-              const rangoTemp = temperaturasUSDA[zonaVal] || f["rango"] || "";
-              if (zonaVal) {
-                etiqueta = `Zona USDA ${zonaVal} - Temp mínima extrema promedio ${rangoTemp}`;
+            if (item.archivo.includes("diccionario-zonas")) {
+              const nombreZona = f["nombre zona"] || f["nombre común"] || "";
+              const rango = f["rango"] || "";
+              if (nombreZona) {
+                etiqueta = `${nombreZona.trim()} - Temp mínima extrema promedio ${rango.trim()}`;
               }
             } else if (item.archivo.includes("diccionario-ciudades.csv") || f.hasOwnProperty("ciudad (provincia)")) {
               const ciudadProv = f["ciudad (provincia)"] || f["ciudad"] || "";
@@ -718,6 +718,7 @@
               item.dbTarget[etiqueta.toLowerCase()] = zonasArray;
               if (f["nombre común"]) item.dbTarget[f["nombre común"].trim().toLowerCase()] = zonasArray;
               if (f["nombre científico"]) item.dbTarget[f["nombre científico"].trim().toLowerCase()] = zonasArray;
+              if (f["nombre zona"]) item.dbTarget[f["nombre zona"].trim().toLowerCase()] = zonasArray; 
               if (f["ciudad (provincia)"]) item.dbTarget[f["ciudad (provincia)"].trim().toLowerCase()] = zonasArray;
               if (f["ciudad"]) item.dbTarget[f["ciudad"].trim().toLowerCase()] = zonasArray;
               if (zonasRaw) item.dbTarget[zonasRaw.trim().toLowerCase()] = zonasArray;
@@ -789,7 +790,6 @@
                 return res.json();
               })
               .then(data => {
-                // Fallback dinámico por si la zona > 10b se llegara a descargar
                 const tempRango = temperaturasUSDA[zona] || 'Rango mayor a 4.4°C';
                 const colorCapa = coloresUSDA[zona] || '#e74c3c'; 
                 
@@ -799,7 +799,6 @@
               });
           });
 
-          // CORRECCIÓN: Promise.allSettled previene que un archivo inexistente (ej. zona 11b) aborte el renderizado del resto.
           Promise.allSettled(peticiones)
             .then(resultados => {
               let seAgregoCapa = false;
@@ -813,7 +812,6 @@
                 }
               });
               
-              // Solo enfocar el mapa si logramos cargar al menos una capa válida
               if (seAgregoCapa) {
                 map.setView([-34.0, -64.0], 4);
               }
@@ -873,7 +871,6 @@
       return slug ? slug.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase()) : "Especie";
     }
 
-    // Filtrar y mostrar sugerencias al escribir (usando nombre_comun o nombre_cientifico)
     inputEspecie.addEventListener('input', (e) => {
       const texto = e.target.value.trim().toLowerCase();
       
@@ -907,7 +904,6 @@
       listaSugerencias.style.display = 'block';
     });
 
-    // Manejar la selección de un elemento de la lista desplegable
     listaSugerencias.addEventListener('click', (e) => {
       const item = e.target.closest('li');
       if (item) {
@@ -921,7 +917,6 @@
       }
     });
 
-    // Ocultar sugerencias al hacer clic fuera del buscador
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.arbolado-buscador-wrapper')) {
         listaSugerencias.style.display = 'none';
