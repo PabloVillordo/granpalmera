@@ -1,499 +1,497 @@
 ﻿id,nombre científico,nombre común,rango,zonas USDA
-"id","id","nombre científico","N/A",""
-"nombre_cientifico","""nombre_cientifico""","""Nombre científico""","N/A",""
-"abies_nordmanniana","""abies_nordmanniana""","""Abies nordmanniana""-""Abeto del Cáucaso-abeto de Normandía""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"abutilon_grandifolium","""abutilon_grandifolium""","""Abutilon grandifolium""-""Abutilo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"abutilon_pauciflorum","""abutilon_pauciflorum""","""Abutilon pauciflorum""-""Malvavisco""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"acacia_aroma","""acacia_aroma""","""Acacia aroma""-""Aromo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"acacia_baileyana","""acacia_baileyana""","""Acacia baileyana""-""Acacia de Baile-Mimosa de Baile""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"acacia_bonariensis","""acacia_bonariensis""","""Acacia bonariensis""-""Cari cari-uña de gato-ñapinday""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"acacia_dealbata","""acacia_dealbata""","""Acacia dealbata""-""Mimosa-Aromo francés""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"acacia_melanoxylon","""acacia_melanoxylon""","""Acacia melanoxylon""-""Acacia negra""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"acacia_retinoides","""acacia_retinoides""","""Acacia retinoides""-""Acacia verde""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"acacia_sp","""acacia_sp""","""Acacia sp.""-""Acacia""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"acanthosyris_spinescens","""acanthosyris_spinescens""","""Acanthosyris spinescens""-""Quebrachillo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"acca_sellowiana","""acca_sellowiana""","""Acca sellowiana""-""Falso Guayabo-Guayaba del Brasil""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"acer_buergerianum","""acer_buergerianum""","""Acer buergerianum""-""Arce tridente""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"acer_campestre","""acer_campestre""","""Acer campestre""-""Arce campestre. Arce común-Arce menor""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"acer_negundo","""acer_negundo""","""Acer negundo""-""Arce negundo""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"acer_palmatum","""acer_palmatum""","""Acer palmatum""-""Arce japones""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"acer_platanoides","""acer_platanoides""","""Acer platanoides""-""Arce real""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"acer_pseudoplatanus","""acer_pseudoplatanus""","""Acer pseudoplatanus""-""Arce blanco""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"acer_saccharinum","""acer_saccharinum""","""Acer saccharinum""-""Arce plateado-Arce blanco""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"acer_sp","""acer_sp""","""Acer sp.""-""Arce""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"aesculus_sp","""aesculus_sp""","""Aesculus sp.""-""Aesculus""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"aesculus_hippocastanum","""aesculus_hippocastanum""","""Aesculus hippocastanum""-""Castaño de Indias común""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"agathis_alba","""agathis_alba""","""Agathis alba""-""Agatis blanco""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"agathis_robusta","""agathis_robusta""","""Agathis robusta""-""Kauri de corteza lisa""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"agave_angustifolia","""agave_angustifolia""","""Agave angustifolia""-""Agave vivipara""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"ailanthus_altissima","""ailanthus_altissima""","""Ailanthus altissima""-""Árbol del cielo-Ailanto-Árbol de los dioses""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ailanthus_sp","""ailanthus_sp""","""Ailanthus sp.""-""Ailanthus""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"albizia_julibrissin","""albizia_julibrissin""","""Albizia julibrissin""-""Acacia de constantinopla""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"aleurites_sp","""aleurites_sp""","""Aleurites sp.""-""Aleurites""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"allophylus_edulis","""allophylus_edulis""","""Allophylus edulis""-""Chal Chal""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"anadenanthera_colubrina","""anadenanthera_colubrina""","""Anadenanthera colubrina""-""Cebil-Vilca""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"annona_cherimola","""annona_cherimola""","""Annona cherimola""-""Chirimoya""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"annona_squamosa","""annona_squamosa""","""Annona squamosa""-""Chirimoya-Anón""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"araucaria_angustifolia","""araucaria_angustifolia""","""Araucaria angustifolia""-""Pino del Paraná-Pino de Misiones-Pino de Brasil""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"araucaria_araucana","""araucaria_araucana""","""Araucaria araucana""-""Pehuén""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"araucaria_bidwillii","""araucaria_bidwillii""","""Araucaria bidwillii""-""Bunya-bunya""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"araucaria_columnaris","""araucaria_columnaris""","""Araucaria columnaris""-""Araucaria columnar""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"araucaria_heterophylla","""araucaria_heterophylla""","""Araucaria heterophylla""-""Araucaria-Araucaria de pisos""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"araucaria_sp","""araucaria_sp""","""Araucaria sp.""-""Araucaria""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"arbustus_andrache","""arbustus_andrache""","""Arbustus andrache""-""Madroño oriental""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"archontophoenix_alexandrae","""archontophoenix_alexandrae""","""Archontophoenix alexandrae""-""Palmera real australiana-seafortia""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"archontophoenix_alexandrae_a_cunninghamiana","""archontophoenix_alexandrae_a_cunninghamiana""","""Archontophoenix alexandrae × A. cunninghamiana""-""Palmera Archontophoenix Albang""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"archontophoenix_cunninghamiana","""archontophoenix_cunninghamiana""","""Archontophoenix cunninghamiana""-""Palma Bangalow-Palma Rey""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"aspidosperma_australe","""aspidosperma_australe""","""Aspidosperma australe""-""Guatambu amarillo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"aspidosperma_quebrachoblanco","""aspidosperma_quebrachoblanco""","""Aspidosperma quebracho-blanco""-""Quebracho blanco""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"baccharis_punctulata","""baccharis_punctulata""","""Baccharis punctulata""-""Chilca""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"baccharis_salicifolia","""baccharis_salicifolia""","""Baccharis salicifolia""-""Chilca dulce""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"bauhinia_forficata","""bauhinia_forficata""","""Bauhinia forficata""-""Pezuña de vaca""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"bauhinia_variegata","""bauhinia_variegata""","""Bauhinia variegata""-""Árbol de las orquídeas-Pezuña de vaca""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"beaucarnea_recurvata","""beaucarnea_recurvata""","""Beaucarnea recurvata""-""Pata de elefante-Nolina""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"betula_alba","""betula_alba""","""Betula alba""-""Abedul común-abedul blanco""-""-45.6°C a-42.8°C""-""","-45.6°C a -42.8°C","2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"betula_pendula","""betula_pendula""","""Betula pendula""-""Abedul pendulo""-""-45.6°C a-42.8°C""-""","-45.6°C a -42.8°C","2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"betula_sp","""betula_sp""","""Betula sp.""-""Abedul""-""-45.6°C a-42.8°C""-""","-45.6°C a -42.8°C","2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"bismarckia_nobilis","""bismarckia_nobilis""","""Bismarckia nobilis""-""Palmera bisrmackia""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"bixa_orellana","""bixa_orellana""","""Bixa orellana""-""Anatto-Urucú-Achiote""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"blepharocalyx_salicifolius","""blepharocalyx_salicifolius""","""Blepharocalyx salicifolius""-""Anacahuita-Horco Molle""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"boungavillea_sp","""boungavillea_sp""","""Boungavillea sp.""-""Santa Rita""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"brachychiton_sp","""brachychiton_sp""","""Brachychiton sp.""-""Braquiquito""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"brachychiton_discolor","""brachychiton_discolor""","""Brachychiton discolor""-""Árbol de la llama-Braquiquito rosa""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"brachychiton_populneus","""brachychiton_populneus""","""Brachychiton populneus""-""Braquiquito""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"broussonetia_papyrifera","""broussonetia_papyrifera""","""Broussonetia papyrifera""-""Morera de papel""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"brugmansia_arborea","""brugmansia_arborea""","""Brugmansia arborea""-""Floripondio""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"brunfelsia_australis","""brunfelsia_australis""","""Brunfelsia australis""-""Jazmín del Paraguay""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"butia_capitata","""butia_capitata""","""Butia capitata""-""Butiá-Palma de la jalea""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"butia_yatay","""butia_yatay""","""Butia yatay""-""Yatay""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"buxus_sempervirens","""buxus_sempervirens""","""Buxus sempervirens""-""Boj""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"caesalpinia_gilliesii","""caesalpinia_gilliesii""","""Caesalpinia gilliesii""-""Barba de chivo""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"caesalpinia_paraguariensis","""caesalpinia_paraguariensis""","""Caesalpinia paraguariensis""-""Guayacán""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"caesalpinia_sp","""caesalpinia_sp""","""Caesalpinia sp.""-""Guayacan-Barba de Chivo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"calliandra_parvifolia","""calliandra_parvifolia""","""Calliandra parvifolia""-""Flor de seda-plumerillo rosado""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"calliandra_tweedii","""calliandra_tweedii""","""Calliandra tweedii""-""Plumerillo rojo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"callistemon_citrinus","""callistemon_citrinus""","""Callistemon citrinus""-""Limpialimpia-limpiatubos""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"camellia_japonica","""camellia_japonica""","""Camellia japonica""-""Camelia""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"camellia_sp","""camellia_sp""","""Camellia sp.""-""Camelia""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"capparis_sp","""capparis_sp""","""Capparis sp.""-""Alcaparra""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"carica_papaya","""carica_papaya""","""Carica papaya""-""Papaya-Mamón""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"carpinus_betulus","""carpinus_betulus""","""Carpinus betulus""-""Carpe""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"carya_illinoinensis","""carya_illinoinensis""","""Carya illinoinensis""-""Nogal pecán""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"caryota_urens","""caryota_urens""","""Caryota urens""-""Palmera cola de pescado""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"cascabela_thevetia","""cascabela_thevetia""","""Cascabela thevetia""-""Ayoyote-Hueso de fraile""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"casimiroa_edulis","""casimiroa_edulis""","""Casimiroa edulis""-""Zapote blanco""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"cassia_fistula","""cassia_fistula""","""Cassia fistula""-""Lluvia de oro-Cañafístula""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"cassia_sp","""cassia_sp""","""Cassia sp.""-""Cassia""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"castanea_sativa","""castanea_sativa""","""Castanea sativa""-""Castaño común""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"casuarina_cunninghamiana","""casuarina_cunninghamiana""","""Casuarina cunninghamiana""-""Casuarina""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"catalpa_bignonioides","""catalpa_bignonioides""","""Catalpa bignonioides""-""Catalpa""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"catalpa_sp","""catalpa_sp""","""Catalpa sp.""-""Catalpa""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cecropia_concolor","""cecropia_concolor""","""Cecropia concolor""-""Ambay""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"cedrela_angustifolia","""cedrela_angustifolia""","""Cedrela angustifolia""-""Cedro colla-cedro salteño""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"cedrela_fissilis","""cedrela_fissilis""","""Cedrela fissilis""-""Cedro misionero""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"cedrela_sp","""cedrela_sp""","""Cedrela sp.""-""Cedro""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"cedrus_sp","""cedrus_sp""","""Cedrus sp.""-""Cedro""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cedrus_atlantica","""cedrus_atlantica""","""Cedrus atlantica""-""Cedro del Atlas""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cedrus_atlantica_f_glauca","""cedrus_atlantica_f_glauca""","""Cedrus atlantica f. glauca""-""Cedro azul""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cedrus_deodara","""cedrus_deodara""","""Cedrus deodara""-""Cedro del Himalaya""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cedrus_deodara_f_aurea","""cedrus_deodara_f_aurea""","""Cedrus deodara f. aurea""-""Cedro dorado del Himalaya""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cedrus_libani","""cedrus_libani""","""Cedrus libani""-""Cedro del Líbano""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ceiba_chodatii","""ceiba_chodatii""","""Ceiba chodatii""-""Palo borracho flor blanca-Yuchán""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"ceiba_sp","""ceiba_sp""","""Ceiba sp.""-""Palo borracho""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"ceiba_speciosa","""ceiba_speciosa""","""Ceiba speciosa""-""Palo borracho-Samohú""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"celtis_australis","""celtis_australis""","""Celtis australis""-""Almez""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"celtis_iguanea","""celtis_iguanea""","""Celtis iguanea""-""Tala gateador""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"celtis_laevigata","""celtis_laevigata""","""Celtis laevigata""-""Almez del sur""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"celtis_sinensis","""celtis_sinensis""","""Celtis sinensis""-""Almez chino""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"celtis_tala","""celtis_tala""","""Celtis tala""-""Tala""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"cephalotaxus_sp","""cephalotaxus_sp""","""Cephalotaxus sp.""-""Cefalotaxo""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ceratonia_siliqua","""ceratonia_siliqua""","""Ceratonia siliqua""-""Algarrobo europeo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"cercis_siliquastrum","""cercis_siliquastrum""","""Cercis siliquastrum""-""Árbol del amor-Árbol de Judas""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"chaenomeles_sp","""chaenomeles_sp""","""Chaenomeles sp.""-""Membrillero de Japón""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"chamaecyparis_funebris","""chamaecyparis_funebris""","""Chamaecyparis funebris""-""Ciprés llorón chino""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"chamaecyparis_lawsoniana","""chamaecyparis_lawsoniana""","""Chamaecyparis lawsoniana""-""Ciprés de Lawson""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"chamaecyparis_sp","""chamaecyparis_sp""","""Chamaecyparis sp.""-""Falso ciprés""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"chamaerops_humilis","""chamaerops_humilis""","""Chamaerops humilis""-""Palmito-Margallón""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"chrysalidocarpus_lutescens","""chrysalidocarpus_lutescens""","""Chrysalidocarpus lutescens""-""Palmera areca""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"cinnamomum_camphora","""cinnamomum_camphora""","""Cinnamomum camphora""-""Alcanforero""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"cinnamomum_glanduliferum","""cinnamomum_glanduliferum""","""Cinnamomum glanduliferum""-""Falso alcanforero""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"cinnamomun_sp","""cinnamomun_sp""","""Cinnamomun sp.""-""Alcanforero""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"citharexylum_montevidense","""citharexylum_montevidense""","""Citharexylum montevidense""-""Tarumá""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"citronella_mucronata","""citronella_mucronata""","""Citronella mucronata""-""Huillipatagua-Naranjillo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"citrus_aurantifolia","""citrus_aurantifolia""","""Citrus × aurantifolia""-""Lima""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"citrus_aurantium","""citrus_aurantium""","""Citrus × aurantium""-""Naranjo amargo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"citrus_limon","""citrus_limon""","""Citrus × limon""-""Limonero""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"citrus_paradisi","""citrus_paradisi""","""Citrus × paradisi""-""Pomelo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"citrus_reticulata","""citrus_reticulata""","""Citrus × reticulata""-""Mandarino""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"citrus_sinensis","""citrus_sinensis""","""Citrus × sinensis""-""Naranjo dulce""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"citrus_tangerina","""citrus_tangerina""","""Citrus × tangerina""-""Tangerina""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"citrus_sp","""citrus_sp""","""Citrus sp.""-""Cítricos""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"cocculus_laurifolius","""cocculus_laurifolius""","""Cocculus laurifolius""-""Cóculo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"cocos_nucifera","""cocos_nucifera""","""Cocos nucifera""-""Cocotero""-""1.7°C a 4.4°C""-""","1.7°C a 4.4°C","10b"
-"cordia_myxa","""cordia_myxa""","""Cordia myxa""-""Sebesten""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"cordyline_australis","""cordyline_australis""","""Cordyline australis""-""Drácena-Cordiline""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"corylus_avellana","""corylus_avellana""","""Corylus avellana""-""Avellano""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cotinus_obovatus","""cotinus_obovatus""","""Cotinus obovatus""-""Árbol del humo americano""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cotoneaster_franchetti","""cotoneaster_franchetti""","""Cotoneaster franchetti""-""Cotoneaster""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cotoneaster_glaucophyllus_var_serotinus","""cotoneaster_glaucophyllus_var_serotinus""","""Cotoneaster glaucophyllus var. serotinus""-""Cotoneaster serotino""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cotoneaster_sp","""cotoneaster_sp""","""Cotoneaster sp.""-""Cotoneaster""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"crataegus_sp","""crataegus_sp""","""Crataegus sp.""-""Espino""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"croton_urucurana","""croton_urucurana""","""Croton urucurana""-""Sangre de drago""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"cryptomeria_japonica","""cryptomeria_japonica""","""Cryptomeria japonica""-""Criptomeria-Cedro de Japón""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cupressocyparis_leylandii","""cupressocyparis_leylandii""","""Cupressocyparis leylandii""-""Ciprés de Leyland""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cupressus_arizonica","""cupressus_arizonica""","""Cupressus arizonica""-""Ciprés de Arizona""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cupressus_arizonica_f_conica_glauca","""cupressus_arizonica_f_conica_glauca""","""Cupressus arizonica f. conica glauca""-""Ciprés de Arizona azul""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cupressus_funebris","""cupressus_funebris""","""Cupressus funebris""-""Ciprés llorón""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cupressus_lusitanica","""cupressus_lusitanica""","""Cupressus lusitanica""-""Ciprés de Portugal""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"cupressus_macrocarpa","""cupressus_macrocarpa""","""Cupressus macrocarpa""-""Ciprés de Monterrey""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cupressus_sempervirens","""cupressus_sempervirens""","""Cupressus sempervirens""-""Ciprés italiano-Ciprés común""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cupressus_sempervirens_f_horizontalis","""cupressus_sempervirens_f_horizontalis""","""Cupressus sempervirens f. horizontalis""-""Ciprés horizontal""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cupressus_sempervirens_var_pyramidalis","""cupressus_sempervirens_var_pyramidalis""","""Cupressus sempervirens var. pyramidalis""-""Ciprés piramidal""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cupressus_sp","""cupressus_sp""","""Cupressus sp.""-""Ciprés""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"cycas_revoluta","""cycas_revoluta""","""Cycas revoluta""-""Cica-Palma sagú""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"cydonia_oblonga","""cydonia_oblonga""","""Cydonia oblonga""-""Membrillero""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"daphnopsis_racemosa","""daphnopsis_racemosa""","""Daphnopsis racemosa""-""Envira-Envira del campo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"delonix_regia","""delonix_regia""","""Delonix regia""-""Chivato-Flamboyán""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"dietes_bicolor","""dietes_bicolor""","""Dietes bicolor""-""Lirio quincunce""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"dietes_vegeta","""dietes_vegeta""","""Dietes vegeta""-""Lirio quincunce blanco""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"dimocarpus_longan","""dimocarpus_longan""","""Dimocarpus longan""-""Longan-Ojo de dragón""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"diospyros_kaki","""diospyros_kaki""","""Diospyros kaki""-""Caqui""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"dovyalis_caffra","""dovyalis_caffra""","""Dovyalis caffra""-""Manzana de Kei""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"dracaena_draco","""dracaena_draco""","""Dracaena draco""-""Drago""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"dracaena_indivisa","""dracaena_indivisa""","""Dracaena indivisa""-""Drácena indivisa""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"dracaena_marginata","""dracaena_marginata""","""Dracaena marginata""-""Drácena marginata""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"dracaena_sp","""dracaena_sp""","""Dracaena sp.""-""Drácena""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"duranta_erecta","""duranta_erecta""","""Duranta erecta""-""Duranta-Coralillo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"duranta_repens_aurea_duranta_erecta","""duranta_repens_aurea_duranta_erecta""","""Duranta repens 'aurea' = Duranta erecta""-""Duranta dorada""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"duranta_sp","""duranta_sp""","""Duranta sp.""-""Duranta""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"dypsis_decaryi","""dypsis_decaryi""","""Dypsis decaryi""-""Palmera triangular""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"dypsis_lutescens","""dypsis_lutescens""","""Dypsis lutescens""-""Palmera areca""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"eleagnus_pungens","""eleagnus_pungens""","""Eleagnus pungens""-""Eleagno""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"eleagnus_sp","""eleagnus_sp""","""Eleagnus sp.""-""Eleagno""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"enterolobium_contortisiliquum","""enterolobium_contortisiliquum""","""Enterolobium contortisiliquum""-""Timbó-Oreja de negro""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"enterolobium_cyclocarpum","""enterolobium_cyclocarpum""","""Enterolobium cyclocarpum""-""Guanacaste-Parota""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"enterolobium_sp","""enterolobium_sp""","""Enterolobium sp.""-""Timbó""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"eriobotrya_japonica","""eriobotrya_japonica""","""Eriobotrya japonica""-""Níspero japonés""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"erythrina_sp","""erythrina_sp""","""Erythrina sp.""-""Ceibo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"erythrina_cristagalli","""erythrina_cristagalli""","""Erythrina crista-galli""-""Ceibo-Flor de ceibo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"erythrina_falcata","""erythrina_falcata""","""Erythrina falcata""-""Ceibo de monte""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"erythrina_poeppigiana","""erythrina_poeppigiana""","""Erythrina poeppigiana""-""Bucare""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"erythrina_speciosa","""erythrina_speciosa""","""Erythrina speciosa""-""Ceibo candelabro""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"erythrina_variegata","""erythrina_variegata""","""Erythrina variegata""-""Ceibo variegado""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"eucalyptus_botryoides","""eucalyptus_botryoides""","""Eucalyptus botryoides""-""Eucalipto bangalay""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"eucalyptus_camaldulensis","""eucalyptus_camaldulensis""","""Eucalyptus camaldulensis""-""Eucalipto rojo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"eucalyptus_cinerea","""eucalyptus_cinerea""","""Eucalyptus cinerea""-""Eucalipto medicinal-Eucalipto plateado""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"eucalyptus_globulus","""eucalyptus_globulus""","""Eucalyptus globulus""-""Eucalipto blanco-Eucalipto común""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"eucalyptus_populnea","""eucalyptus_populnea""","""Eucalyptus populnea""-""Eucalipto álamo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"eucalyptus_robusta","""eucalyptus_robusta""","""Eucalyptus robusta""-""Eucalipto pantanoso""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"eucalyptus_saligna","""eucalyptus_saligna""","""Eucalyptus saligna""-""Eucalipto saligna""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"eucalyptus_sideroxylon","""eucalyptus_sideroxylon""","""Eucalyptus sideroxylon""-""Eucalipto de corteza de hierro""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"eucalyptus_sp","""eucalyptus_sp""","""Eucalyptus sp.""-""Eucalipto""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"eucalyptus_strzeleckii","""eucalyptus_strzeleckii""","""Eucalyptus strzeleckii""-""Eucalipto de Strzelecki""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"eucalyptus_tereticornis","""eucalyptus_tereticornis""","""Eucalyptus tereticornis""-""Eucalipto rojo de bosque""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"eugenia_involucrata","""eugenia_involucrata""","""Eugenia involucrata""-""Cereza del monte-Ubajay""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"eugenia_myrcianthes","""eugenia_myrcianthes""","""Eugenia myrcianthes""-""Ubajay""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"eugenia_pungens","""eugenia_pungens""","""Eugenia pungens""-""Guabiyú""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"eugenia_uniflora","""eugenia_uniflora""","""Eugenia uniflora""-""Pitanga-Ñangapirí""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"euphorbia_cotinifolia","""euphorbia_cotinifolia""","""Euphorbia cotinifolia""-""Lechero rojo""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"euphorbia_pulcherrima","""euphorbia_pulcherrima""","""Euphorbia pulcherrima""-""Estrella federal-Flor de pascua""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"euphorbia_sp","""euphorbia_sp""","""Euphorbia sp.""-""Euforbia""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"euphorbia_trigona_var_rubra","""euphorbia_trigona_var_rubra""","""Euphorbia trigona var. rubra""-""Árbol africano de la leche""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"euterpe_edulis","""euterpe_edulis""","""Euterpe edulis""-""Palmito-Juçara""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_aspera","""ficus_aspera""","""Ficus aspera""-""Higuera mosaico""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_aurea","""ficus_aurea""","""Ficus aurea""-""Higuera estranguladora""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_auriculata","""ficus_auriculata""","""Ficus auriculata""-""Higuera de hoja de oreja de elefante""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"ficus_benghalensis","""ficus_benghalensis""","""Ficus benghalensis""-""Banyan-Higuera de Bengala""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_benjamina","""ficus_benjamina""","""Ficus benjamina""-""Ficus benjamina-Gomero llorón""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_benjamina_variegata","""ficus_benjamina_variegata""","""Ficus benjamina variegata""-""Ficus variegado""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_carica","""ficus_carica""","""Ficus carica""-""Higuera común""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ficus_elastica","""ficus_elastica""","""Ficus elastica""-""Gomero-Árbol del caucho""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_longifolia","""ficus_longifolia""","""Ficus longifolia""-""Ficus de hoja larga""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_luschnathiana","""ficus_luschnathiana""","""Ficus luschnathiana""-""Higuerón-Ibapoy""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"ficus_lyrata","""ficus_lyrata""","""Ficus lyrata""-""Ficus pandurata-Higuera hoja de violín""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_macrophylla","""ficus_macrophylla""","""Ficus macrophylla""-""Higuera de la bahía de Moreton""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"ficus_religiosa","""ficus_religiosa""","""Ficus religiosa""-""Higuera sagrada-Árbol Bo""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_retusa","""ficus_retusa""","""Ficus retusa""-""Ficus nítida""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ficus_rubiginosa","""ficus_rubiginosa""","""Ficus rubiginosa""-""Higuera oxidada""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"ficus_sp","""ficus_sp""","""Ficus sp.""-""Ficus""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"ficus_thonningii","""ficus_thonningii""","""Ficus thonningii""-""Higuera salvaje de África""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"firmiana_simplex","""firmiana_simplex""","""Firmiana simplex""-""Parasol chino""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"firmiana_sp","""firmiana_sp""","""Firmiana sp.""-""Firmiana""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"fortunella_margarita","""fortunella_margarita""","""Fortunella margarita""-""Kumquat-Naranjo enano""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"fraxinus_americana","""fraxinus_americana""","""Fraxinus americana""-""Fresno blanco americano""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"fraxinus_excelsior","""fraxinus_excelsior""","""Fraxinus excelsior""-""Fresno común-Fresno europeo""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"fraxinus_pennsylvanica","""fraxinus_pennsylvanica""","""Fraxinus pennsylvanica""-""Fresno verde-Fresno rojo americano""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"fraxinus_sp","""fraxinus_sp""","""Fraxinus sp.""-""Fresno""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"gardenia_sp","""gardenia_sp""","""Gardenia sp.""-""Jazmín del Cabo-Gardenia""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"geoffroea_decorticans","""geoffroea_decorticans""","""Geoffroea decorticans""-""Chañar""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"ginkgo_biloba","""ginkgo_biloba""","""Ginkgo biloba""-""Ginkgo-Árbol de los cuarenta escudos""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"gleditsia_amorphoides","""gleditsia_amorphoides""","""Gleditsia amorphoides""-""Espina de corona-Coronillo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"gleditsia_triacanthos","""gleditsia_triacanthos""","""Gleditsia triacanthos""-""Acacia de tres espinas-Acacia negra""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"grevillea_robusta","""grevillea_robusta""","""Grevillea robusta""-""Roble sedoso-Grevillea""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"grevillea_sp","""grevillea_sp""","""Grevillea sp.""-""Grevillea""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"handroanthus_albus","""handroanthus_albus""","""Handroanthus albus""-""Lapacho amarillo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"handroanthus_chrysanthus","""handroanthus_chrysanthus""","""Handroanthus chrysanthus""-""Guayacán amarillo""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"handroanthus_chrysotrichus","""handroanthus_chrysotrichus""","""Handroanthus chrysotrichus""-""Lapacho amarillo de jardín""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"handroanthus_heptaphyllus","""handroanthus_heptaphyllus""","""Handroanthus heptaphyllus""-""Lapacho negro-Lapacho rosado""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"handroanthus_impetiginosus","""handroanthus_impetiginosus""","""Handroanthus impetiginosus""-""Lapacho rosado-Lapacho morado""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"handroanthus_ochraceus","""handroanthus_ochraceus""","""Handroanthus ochraceus""-""Lapacho amarillo del cerrado""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"handroanthus_pulcherrimus","""handroanthus_pulcherrimus""","""Handroanthus pulcherrimus""-""Lapacho amarillo vistoso""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"helietta_apiculata","""helietta_apiculata""","""Helietta apiculata""-""Yvyrá ovi-Canelón""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"hibiscus_sp","""hibiscus_sp""","""Hibiscus sp.""-""Hibisco-Rosa de China""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"hibiscus_mutabilis","""hibiscus_mutabilis""","""Hibiscus mutabilis""-""Rosa mutable""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"hibiscus_rosasinensis","""hibiscus_rosasinensis""","""Hibiscus rosa-sinensis""-""Rosa de China-Hibisco""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"hibiscus_syriacus","""hibiscus_syriacus""","""Hibiscus syriacus""-""Rosa de Siria-Altea""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"hibiscus_tiliaceus","""hibiscus_tiliaceus""","""Hibiscus tiliaceus""-""Hibisco marino-Majagua""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"hovenia_dulcis","""hovenia_dulcis""","""Hovenia dulcis""-""Árbol de las pasas-Árbol del carao""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"howea_forsteriana","""howea_forsteriana""","""Howea forsteriana""-""Palmera kentia""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"ilex","""ilex""","""Ilex""-""Acebo""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"inga_uraguensis","""inga_uraguensis""","""Inga uraguensis""-""Ingá""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"jacaranda_mimosifolia","""jacaranda_mimosifolia""","""Jacaranda mimosifolia""-""Jacarandá-Tarco""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"jodina_rhombifolia","""jodina_rhombifolia""","""Jodina rhombifolia""-""Sombra de toro""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"juglans_australis","""juglans_australis""","""Juglans australis""-""Nogal criollo-Nogal tucumano""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"juglans_nigra","""juglans_nigra""","""Juglans nigra""-""Nogal negro americano""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"juglans_regia","""juglans_regia""","""Juglans regia""-""Nogal común-Nogal europeo""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"juglans_sp","""juglans_sp""","""Juglans sp.""-""Nogal""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"juniperus_communis","""juniperus_communis""","""Juniperus communis""-""Enebro común""-""-45.6°C a-42.8°C""-""","-45.6°C a -42.8°C","2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"juniperus_sp","""juniperus_sp""","""Juniperus sp.""-""Enebro-Junípero""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"juniperus_virginiana","""juniperus_virginiana""","""Juniperus virginiana""-""Enebro de Virginia-Cedro rojo""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"juniperus_virginiana_var_silicicola","""juniperus_virginiana_var_silicicola""","""Juniperus virginiana var. silicicola""-""Enebro de las costas""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"khaya_senegalensis","""khaya_senegalensis""","""Khaya senegalensis""-""Caoba de Senegal""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"lagerstroemia_indica","""lagerstroemia_indica""","""Lagerstroemia indica""-""Crespón-Júpiter""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"lagunaria_patersonii","""lagunaria_patersonii""","""Lagunaria patersonii""-""Pica-pica-Árbol pica-pica""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"laurus_nobilis","""laurus_nobilis""","""Laurus nobilis""-""Laurel común-Laurel de cocina""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"laurus_sp","""laurus_sp""","""Laurus sp.""-""Laurel""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"leucaena_leucocephala","""leucaena_leucocephala""","""Leucaena leucocephala""-""Leucaena-Peladera""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"libocedrus_sp","""libocedrus_sp""","""Libocedrus sp.""-""Calocedro""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"libocedrus_decurrens","""libocedrus_decurrens""","""Libocedrus decurrens""-""Calocedro-Cedro de incienso""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"libocedrus_decurrens_f_aureovariegata","""libocedrus_decurrens_f_aureovariegata""","""Libocedrus decurrens f. aureo-variegata""-""Calocedro dorado""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ligustrum_lucidum","""ligustrum_lucidum""","""Ligustrum lucidum""-""Ligustro-Cerco de ligustro""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ligustrum_lucidum_var_aureovariegatum","""ligustrum_lucidum_var_aureovariegatum""","""Ligustrum lucidum var. aureovariegatum""-""Ligustro disciplinado""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ligustrum_ovalifolium","""ligustrum_ovalifolium""","""Ligustrum ovalifolium""-""Ligustrina""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ligustrum_sinense","""ligustrum_sinense""","""Ligustrum sinense""-""Ligustro chino""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ligustrum_sp","""ligustrum_sp""","""Ligustrum sp.""-""Ligustro-Ligustrina""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"liquidambar_styraciflua","""liquidambar_styraciflua""","""Liquidambar styraciflua""-""Liquidámbar""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"liriodendron_tulipifera","""liriodendron_tulipifera""","""Liriodendron tulipifera""-""Tulipán africano-Tulipándro""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"lithraea_molleoides","""lithraea_molleoides""","""Lithraea molleoides""-""Molle de beber-Molle de Córdoba""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"livistona_chinensis","""livistona_chinensis""","""Livistona chinensis""-""Palmera de abanico china""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"lonchocarpus_nitidus","""lonchocarpus_nitidus""","""Lonchocarpus nitidus""-""Yerba de bugre""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"luehea_divaricata","""luehea_divaricata""","""Luehea divaricata""-""Azote de caballo-Francisco Álvarez""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"lycium_cestroides","""lycium_cestroides""","""Lycium cestroides""-""Tabaquillo-Tala de san luis""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"lycium_glomeratum","""lycium_glomeratum""","""Lycium glomeratum""-""Cambrón""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"maclura_pomifera","""maclura_pomifera""","""Maclura pomifera""-""Naranjo de osage""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"magnolia_grandiflora","""magnolia_grandiflora""","""Magnolia grandiflora""-""Magnolia-Magnolio""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"magnolia_sp","""magnolia_sp""","""Magnolia sp.""-""Magnolia""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"malus_domestica","""malus_domestica""","""Malus domestica""-""Manzano""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"malus_sp","""malus_sp""","""Malus sp.""-""Manzano de flor-Manzano""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"mangifera_indica","""mangifera_indica""","""Mangifera indica""-""Mango""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"mangifera_sp","""mangifera_sp""","""Mangifera sp.""-""Mango""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"manihot_grahamii","""manihot_grahamii""","""Manihot grahamii""-""Yuca de jardín-Mandioca brava""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"melia_azedarach","""melia_azedarach""","""Melia azedarach""-""Paraíso""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"melia_azedarach_var_umbraculifera","""melia_azedarach_var_umbraculifera""","""Melia azedarach var. umbraculifera""-""Paraíso sombrilla""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"metasequoia_glyptostroboides","""metasequoia_glyptostroboides""","""Metasequoia glyptostroboides""-""Metasecuoya""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"morus_alba","""morus_alba""","""Morus alba""-""Morera blanca""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"morus_alba_var_pendula","""morus_alba_var_pendula""","""Morus alba var. pendula""-""Morera péndula""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"morus_nigra","""morus_nigra""","""Morus nigra""-""Morera negra-Moral""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"morus_sp","""morus_sp""","""Morus sp.""-""Morera""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"murraya_paniculata","""murraya_paniculata""","""Murraya paniculata""-""Mirto de Holanda-Azahar de la India""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"musa_paradisiaca","""musa_paradisiaca""","""Musa × paradisiaca""-""Banano-Plátano""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"myoporum_laetum","""myoporum_laetum""","""Myoporum laetum""-""Mioporo-Transparente""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"myrceugenia_glaucescens","""myrceugenia_glaucescens""","""Myrceugenia glaucescens""-""Murta-Pitanguillo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"myrsine_laetevirens","""myrsine_laetevirens""","""Myrsine laetevirens""-""Canelón""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"myrtus_communis","""myrtus_communis""","""Myrtus communis""-""Mirto-Arrayán""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"nectandra_angustifolia","""nectandra_angustifolia""","""Nectandra angustifolia""-""Laurel amarillo-Laurel de río""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"neltuma_alba","""neltuma_alba""","""Neltuma alba""-""Algarrobo blanco""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"neltuma_chilensis","""neltuma_chilensis""","""Neltuma chilensis""-""Algarrobo chileno""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"neltuma_juliflora","""neltuma_juliflora""","""Neltuma juliflora""-""Mezquite""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"nerium_oleander","""nerium_oleander""","""Nerium oleander""-""Oleandro-Laurel de jardín-Adelfa""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"nerium_sp","""nerium_sp""","""Nerium sp.""-""Laurel de jardín""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"nicotiana_glauca","""nicotiana_glauca""","""Nicotiana glauca""-""Palán palán""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"no_determinable","""no_determinable""","""No determinable""-""Especie no determinada""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"no_determinado","""no_determinado""","""No determinado""-""Especie no determinada""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"ocotea_acutifolia","""ocotea_acutifolia""","""Ocotea acutifolia""-""Laurel negro-Laurel criollo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"olea_europaea","""olea_europaea""","""Olea europaea""-""Olivo""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"olea_sp","""olea_sp""","""Olea sp.""-""Olivo""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"osmanthus_fragrans","""osmanthus_fragrans""","""Osmanthus fragrans""-""Osmantho-Olivo fragante""-""-15°C a-12.2°C""-""","-15°C a -12.2°C","7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"pandanus_utilis","""pandanus_utilis""","""Pandanus utilis""-""Pandano""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"parapiptadenia_excelsa","""parapiptadenia_excelsa""","""Parapiptadenia excelsa""-""Horco cebil""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"parapiptadenia_rigida","""parapiptadenia_rigida""","""Parapiptadenia rigida""-""Angico-Anico""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"parasenegalia_visco","""parasenegalia_visco""","""Parasenegalia visco""-""Visco-Viscote""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"parkinsonia_aculeata","""parkinsonia_aculeata""","""Parkinsonia aculeata""-""Cina-cina""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"patagonula_americana","""patagonula_americana""","""Patagonula americana""-""Guayaibí""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"paulownia_tomentosa","""paulownia_tomentosa""","""Paulownia tomentosa""-""Kiri-Paulownia""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"peltophorum_dubium","""peltophorum_dubium""","""Peltophorum dubium""-""Ibirá pitá-Cañafístula""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"peltophorum_sp","""peltophorum_sp""","""Peltophorum sp.""-""Ibirá pitá""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"pereskia_bahiensis","""pereskia_bahiensis""","""Pereskia bahiensis""-""Pereskia-Cacto de hojas""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"persea_americana","""persea_americana""","""Persea americana""-""Palto-Aguacate""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"phoenix_canariensis","""phoenix_canariensis""","""Phoenix canariensis""-""Palmera canaria""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"phoenix_paludosa","""phoenix_paludosa""","""Phoenix paludosa""-""Palmera de los manglares""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"phoenix_reclinata","""phoenix_reclinata""","""Phoenix reclinata""-""Palmera del Senegal""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"phoenix_roebelenii","""phoenix_roebelenii""","""Phoenix roebelenii""-""Palmera enana""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"phoenix_sp","""phoenix_sp""","""Phoenix sp.""-""Palmera Phoenix""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"photinia_serrulata","""photinia_serrulata""","""Photinia serrulata""-""Fotinia""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"photinia_sp","""photinia_sp""","""Photinia sp.""-""Fotinia""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"photinia_x_fraseri","""photinia_x_fraseri""","""Photinia x fraseri""-""Fotinia Fraser""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"phyllanthus_sp","""phyllanthus_sp""","""Phyllanthus sp.""-""Filanto""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"phytolacca_dioica","""phytolacca_dioica""","""Phytolacca dioica""-""Ombú""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"phytolacca_tetramera","""phytolacca_tetramera""","""Phytolacca tetramera""-""Ombücillo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"picea_pungens","""picea_pungens""","""Picea pungens""-""Pícea azul""-""-45.6°C a-42.8°C""-""","-45.6°C a -42.8°C","2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"picea_sp","""picea_sp""","""Picea sp.""-""Pícea""-""-45.6°C a-42.8°C""-""","-45.6°C a -42.8°C","2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"pinus_canariensis","""pinus_canariensis""","""Pinus canariensis""-""Pino de Canarias""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"pinus_elliottii","""pinus_elliottii""","""Pinus elliottii""-""Pino elliottis""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"pinus_halepensis","""pinus_halepensis""","""Pinus halepensis""-""Pino carrasco""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"pinus_patula","""pinus_patula""","""Pinus patula""-""Pino pátula-Pino llorón""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"pinus_pinaster","""pinus_pinaster""","""Pinus pinaster""-""Pino marítimo-Pino rodeno""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"pinus_pinea","""pinus_pinea""","""Pinus pinea""-""Pino piñonero""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"pinus_roxburghii","""pinus_roxburghii""","""Pinus roxburghii""-""Pino de la India-Pino chir""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"pinus_sp","""pinus_sp""","""Pinus sp.""-""Pino""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"pittosporum_sp","""pittosporum_sp""","""Pittosporum sp.""-""Pitosporo""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"pittosporum_tobira","""pittosporum_tobira""","""Pittosporum tobira""-""Pitosporo de Japón-Azahar de la China""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"platanus_acerifolia","""platanus_acerifolia""","""Platanus × acerifolia""-""Plátano de sombra""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"platanus_orientalis","""platanus_orientalis""","""Platanus orientalis""-""Plátano oriental""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"platycladus_occidentalis","""platycladus_occidentalis""","""Platycladus occidentalis""-""Tuya occidental""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"platycladus_orientalis","""platycladus_orientalis""","""Platycladus orientalis""-""Tuya oriental-Ciprés de abanico""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"platycladus_sp","""platycladus_sp""","""Platycladus sp.""-""Tuya""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"plinia_cauliflora","""plinia_cauliflora""","""Plinia cauliflora""-""Jaboticaba""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"plumeria_alba","""plumeria_alba""","""Plumeria alba""-""Alhelí blanco""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"plumeria_pudica","""plumeria_pudica""","""Plumeria pudica""-""Amapola blanca-Plumeria""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"plumeria_rubra","""plumeria_rubra""","""Plumeria rubra""-""Frangipani-Alhelí rojo""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"podocarpus_falcatus","""podocarpus_falcatus""","""Podocarpus falcatus""-""Podocarpo africano""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"podocarpus_macrophylla","""podocarpus_macrophylla""","""Podocarpus macrophylla""-""Podocarpo-Pino de buda""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"podocarpus_sp","""podocarpus_sp""","""Podocarpus sp.""-""Podocarpo""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"poecilanthe_parviflora","""poecilanthe_parviflora""","""Poecilanthe parviflora""-""Lapachillo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"populus_canadensis","""populus_canadensis""","""Populus × canadensis""-""Álamo canadiense""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"populus_canescens","""populus_canescens""","""Populus × canescens""-""Álamo cano""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"populus_alba","""populus_alba""","""Populus alba""-""Álamo blanco""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"populus_alba_var_pyramidalis","""populus_alba_var_pyramidalis""","""Populus alba var. pyramidalis""-""Álamo plateado piramidal""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"populus_deltoides","""populus_deltoides""","""Populus deltoides""-""Álamo carolina""-""-45.6°C a-42.8°C""-""","-45.6°C a -42.8°C","2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"populus_nigra","""populus_nigra""","""Populus nigra""-""Álamo negro""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"populus_nigra_cv_italica","""populus_nigra_cv_italica""","""Populus nigra cv. italica""-""Álamo de Italia-Álamo piramidal""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"populus_sp","""populus_sp""","""Populus sp.""-""Álamo""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"pouteria_salicifolia","""pouteria_salicifolia""","""Pouteria salicifolia""-""Mataojo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"prosopis_sp","""prosopis_sp""","""Prosopis sp.""-""Algarrobo""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"prunus_armeniaca","""prunus_armeniaca""","""Prunus armeniaca""-""Damasco-Albaricoque""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"prunus_avium","""prunus_avium""","""Prunus avium""-""Cerezo dulce""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"prunus_cerasifera","""prunus_cerasifera""","""Prunus cerasifera""-""Ciruelo de jardín-Ciruelo mirobálano""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"prunus_cerasifera_for_atropurpurea","""prunus_cerasifera_for_atropurpurea""","""Prunus cerasifera for. atropurpurea""-""Ciruelo de hoja roja""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"prunus_cerasus","""prunus_cerasus""","""Prunus cerasus""-""Guindo""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"prunus_domestica","""prunus_domestica""","""Prunus domestica""-""Ciruelo común""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"prunus_laurocerasus","""prunus_laurocerasus""","""Prunus laurocerasus""-""Laurel cerezo-Laurel real""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"prunus_persica","""prunus_persica""","""Prunus persica""-""Duraznero""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"prunus_serrulata","""prunus_serrulata""","""Prunus serrulata""-""Cerezo de flor japonés-Sakura""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"prunus_sp","""prunus_sp""","""Prunus sp.""-""Prunus""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"psidium_cattleianum","""psidium_cattleianum""","""Psidium cattleianum""-""Guayabo fresa-Arazá rojo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"psidium_guajava","""psidium_guajava""","""Psidium guajava""-""Guayabo-Guayaba""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"pterogyne_nitens","""pterogyne_nitens""","""Pterogyne nitens""-""Tipa colorada-Viraró""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"punica_granatum","""punica_granatum""","""Punica granatum""-""Granado""-""-15°C a-12.2°C""-""","-15°C a -12.2°C","7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"pyracantha_coccinea","""pyracantha_coccinea""","""Pyracantha coccinea""-""Piracanta-Espino albar""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"pyracantha_crenulata","""pyracantha_crenulata""","""Pyracantha crenulata""-""Piracanta del Himalaya""-""-20.6°C a-17.8°C""-""","-20.6°C a -17.8°C","6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"pyracantha_sp","""pyracantha_sp""","""Pyracantha sp.""-""Piracanta""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"pyrus_communis","""pyrus_communis""","""Pyrus communis""-""Peral""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"quercus_ilex","""quercus_ilex""","""Quercus ilex""-""Encina""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"quercus_imbricaria","""quercus_imbricaria""","""Quercus imbricaria""-""Roble teja""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"quercus_palustris","""quercus_palustris""","""Quercus palustris""-""Roble de los pantanos""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"quercus_robur","""quercus_robur""","""Quercus robur""-""Roble carballo-Roble europeo""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"quercus_rubra","""quercus_rubra""","""Quercus rubra""-""Roble rojo americano""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"quercus_sp","""quercus_sp""","""Quercus sp.""-""Roble""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"quercus_suber","""quercus_suber""","""Quercus suber""-""Alcornoque""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"raphis_excelsa","""raphis_excelsa""","""Raphis excelsa""-""Rapis-Palmera bambú""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"ravenala_madagascariensis","""ravenala_madagascariensis""","""Ravenala madagascariensis""-""Árbol del viajero""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ravenea_rivularis","""ravenea_rivularis""","""Ravenea rivularis""-""Palmera majestad""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"rhus_succedanea","""rhus_succedanea""","""Rhus succedanea""-""Árbol de la cera""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"rhus_typhina","""rhus_typhina""","""Rhus typhina""-""Zumaque de Virginia""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"robina_pseudoacacia_var_aurea","""robina_pseudoacacia_var_aurea""","""Robina pseudoacacia var. aurea""-""Acacia blanca dorada""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"robinia_hispida","""robinia_hispida""","""Robinia hispida""-""Acacia erizada-Acacia rosa""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"robinia_pseudoacacia","""robinia_pseudoacacia""","""Robinia pseudoacacia""-""Acacia blanca-Falsa acacia""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"robinia_pseudoacacia_f_umbraculifera","""robinia_pseudoacacia_f_umbraculifera""","""Robinia pseudoacacia f. umbraculifera""-""Acacia bola""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"robinia_pseudoacacia_var_aurea_frisia","""robinia_pseudoacacia_var_aurea_frisia""","""Robinia pseudoacacia var. aurea 'Frisia'""-""Acacia blanca Frisia""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"robinia_sp","""robinia_sp""","""Robinia sp.""-""Acacia blanca""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"roseodendron_donnellsmithii","""roseodendron_donnellsmithii""","""Roseodendron donnell-smithii""-""Primavera-Cortés amarillo""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"roystonea_regia","""roystonea_regia""","""Roystonea regia""-""Palma real cubana""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"ruprechtia_apetala","""ruprechtia_apetala""","""Ruprechtia apetala""-""Manzanillo del campo-Higuerón""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"ruprechtia_laxiflora","""ruprechtia_laxiflora""","""Ruprechtia laxiflora""-""Viraró""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"ruprechtia_sp","""ruprechtia_sp""","""Ruprechtia sp.""-""Viraró-Manzanillo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"sabal_palmetto","""sabal_palmetto""","""Sabal palmetto""-""Sabal-Palmetto""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"salix_alba","""salix_alba""","""Salix alba""-""Sauce blanco""-""-45.6°C a-42.8°C""-""","-45.6°C a -42.8°C","2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"salix_alba_var_tristis","""salix_alba_var_tristis""","""Salix alba var. tristis""-""Sauce llorón dorado""-""-45.6°C a-42.8°C""-""","-45.6°C a -42.8°C","2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"salix_babylonica","""salix_babylonica""","""Salix babylonica""-""Sauce llorón""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"salix_fragilis","""salix_fragilis""","""Salix fragilis""-""Sauce mimbre""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"salix_humboldtiana","""salix_humboldtiana""","""Salix humboldtiana""-""Sauce criollo-Sauce colorado""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"salix_sp","""salix_sp""","""Salix sp.""-""Sauce""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"salix_x_erythroflexuosa","""salix_x_erythroflexuosa""","""Salix x erythroflexuosa""-""Sauce eléctrico-Sauce tortuoso""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"sambucus_australis","""sambucus_australis""","""Sambucus australis""-""Saúco criollo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"sambucus_nigra","""sambucus_nigra""","""Sambucus nigra""-""Saúco negro-Saúco común""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"sambucus_sp","""sambucus_sp""","""Sambucus sp.""-""Saúco""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"sapium_haematospermum","""sapium_haematospermum""","""Sapium haematospermum""-""Kurupí-Lecherón""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"schefflera_actinophylla","""schefflera_actinophylla""","""Schefflera actinophylla""-""Escheflera árbol-Árbol pulpo""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"schefflera_digitata","""schefflera_digitata""","""Schefflera digitata""-""Escheflera de siete dedos""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"schefflera_elegantissima","""schefflera_elegantissima""","""Schefflera elegantissima""-""Falsa aralia""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"schefflera_sp","""schefflera_sp""","""Schefflera sp.""-""Escheflera""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"schinopsis_balansae","""schinopsis_balansae""","""Schinopsis balansae""-""Quebracho colorado chaqueño""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"schinus_areira","""schinus_areira""","""Schinus areira""-""Aguaribay-Pimentero sabana""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"schinus_longifolius","""schinus_longifolius""","""Schinus longifolius""-""Molle de curtir-Corona de inca""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"schinus_sp","""schinus_sp""","""Schinus sp.""-""Aguaribay-Molle""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"schotia_latifolia","""schotia_latifolia""","""Schotia latifolia""-""Árbol de las nueces de monte""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"scutia_buxifolia","""scutia_buxifolia""","""Scutia buxifolia""-""Coronillo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"sebastiania_commersoniana","""sebastiania_commersoniana""","""Sebastiania commersoniana""-""Blanquillo-Camboatá""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"senegalia_bonariensis","""senegalia_bonariensis""","""Senegalia bonariensis""-""Uña de gato-Ñapindá""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"senna_corymbosa","""senna_corymbosa""","""Senna corymbosa""-""Sen del campo-Sen""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"senna_siamea","""senna_siamea""","""Senna siamea""-""Cassia siamesa""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"senna_spectabilis","""senna_spectabilis""","""Senna spectabilis""-""Sen espectacular-Cassia amarilla""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"sequoia_sempervirens","""sequoia_sempervirens""","""Sequoia sempervirens""-""Secuoya roja-Secuoya de California""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"sesbania_punicea","""sesbania_punicea""","""Sesbania punicea""-""Acacia de café-Acacia roja""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"sesbania_virgata","""sesbania_virgata""","""Sesbania virgata""-""Acacia de cañada""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"solanum_granulosoleprosum","""solanum_granulosoleprosum""","""Solanum granuloso-leprosum""-""Fumo bravo-Tabaquillo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"spathodea_campanulata","""spathodea_campanulata""","""Spathodea campanulata""-""Tulipán africano-Árbol de la fontana""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"spiraea_cantoniensis","""spiraea_cantoniensis""","""Spiraea cantoniensis""-""Espirea de Cantón-Corona de novia""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"sterculia_coccinea","""sterculia_coccinea""","""Sterculia coccinea""-""Esterculia roja""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"sterculia_monosperma","""sterculia_monosperma""","""Sterculia monosperma""-""Castaño de China""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"strelitzia_nicolai","""strelitzia_nicolai""","""Strelitzia nicolai""-""Estrelitzia gigante-Ave del paraíso blanca""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"styphnolobium_japonicum","""styphnolobium_japonicum""","""Styphnolobium japonicum""-""Sófora de Japón-Árbol de las pagodas""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"styphnolobium_japonicum_var_pendula","""styphnolobium_japonicum_var_pendula""","""Styphnolobium japonicum var. pendula""-""Sófora péndula""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"syagrus_romanzoffiana","""syagrus_romanzoffiana""","""Syagrus romanzoffiana""-""Pindó-Palma Pindó""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"syzygium_paniculatum","""syzygium_paniculatum""","""Syzygium paniculatum""-""Cereza cepillo-Eugenia de jardín""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"tabebuia_aurea","""tabebuia_aurea""","""Tabebuia aurea""-""Lapacho amarillo del pantano""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"tabebuia_rosea","""tabebuia_rosea""","""Tabebuia rosea""-""Guayacán rosado-Apamate""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"tabebuia_roseoalba","""tabebuia_roseoalba""","""Tabebuia roseo-alba""-""Lapacho blanco""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"tabebuia_sp","""tabebuia_sp""","""Tabebuia sp.""-""Lapacho""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"taxodium_distichum","""taxodium_distichum""","""Taxodium distichum""-""Ciprés de los pantanos""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"taxodium_mucronatum","""taxodium_mucronatum""","""Taxodium mucronatum""-""Ahuehuete-Ciprés de Moctezuma""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"taxodium_sp","""taxodium_sp""","""Taxodium sp.""-""Ciprés de los pantanos""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"taxus_sp","""taxus_sp""","""Taxus sp.""-""Tejo""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"tecoma_stans","""tecoma_stans""","""Tecoma stans""-""Guarán amarillo-Esperanza""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"terminalia_australis","""terminalia_australis""","""Terminalia australis""-""Palo amarillo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"terminalia_catappa","""terminalia_catappa""","""Terminalia catappa""-""Almendro de la India""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"tessaria_integrifolia","""tessaria_integrifolia""","""Tessaria integrifolia""-""Aliso del río-Palo bobo""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"tetraclinis_articulata","""tetraclinis_articulata""","""Tetraclinis articulata""-""Ciprés de Cartagena-Arar""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"thevetia_sp","""thevetia_sp""","""Thevetia sp.""-""Ayoyote""-""-3.9°C a-1.1°C""-""","-3.9°C a -1.1°C","9b, 10a, 10b"
-"tilia_americana_f_moltkei","""tilia_americana_f_moltkei""","""Tilia americana f. moltkei""-""Tilo híbrido Moltke""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"tilia_platyphyllos","""tilia_platyphyllos""","""Tilia platyphyllos""-""Tilo de hoja ancha-Tilo común""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"tilia_sp","""tilia_sp""","""Tilia sp.""-""Tilo""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"tipuana_tipu","""tipuana_tipu""","""Tipuana tipu""-""Tipa-Tipuana""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"trachycarpus_fortunei","""trachycarpus_fortunei""","""Trachycarpus fortunei""-""Palmera excelsa-Palmera de molino de viento""-""-15°C a-12.2°C""-""","-15°C a -12.2°C","7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"trachycarpus_sp","""trachycarpus_sp""","""Trachycarpus sp.""-""Palmera Trachycarpus""-""-15°C a-12.2°C""-""","-15°C a -12.2°C","7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"trichilia_glabra","""trichilia_glabra""","""Trichilia glabra""-""Catiguá amarillo""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"tristania_conferta","""tristania_conferta""","""Tristania conferta""-""Árbol del cepillo de cerdas-Lophostemon""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"trithrinax_campestris","""trithrinax_campestris""","""Trithrinax campestris""-""Caranday-Carandá""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"ulmus_minor","""ulmus_minor""","""Ulmus minor""-""Olmo común-Olmo negrillo""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ulmus_montana","""ulmus_montana""","""Ulmus montana""-""Olmo de montaña""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ulmus_parvifolia","""ulmus_parvifolia""","""Ulmus parvifolia""-""Olmo chino""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ulmus_procera","""ulmus_procera""","""Ulmus procera""-""Olmo inglés""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ulmus_pumila","""ulmus_pumila""","""Ulmus pumila""-""Olmo siberiano""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ulmus_sp","""ulmus_sp""","""Ulmus sp.""-""Olmo""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"vachellia_caven","""vachellia_caven""","""Vachellia caven""-""Espinillo-Espino-Caven""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"viburnum_henryi","""viburnum_henryi""","""Viburnum henryi""-""Viburno de Henry""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"viburnum_odoratissimum","""viburnum_odoratissimum""","""Viburnum odoratissimum""-""Viburno dulce""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"viburnum_opulus","""viburnum_opulus""","""Viburnum opulus""-""Bola de nieve-Viburno""-""-40°C a-37.2°C""-""","-40°C a -37.2°C","3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"viburnum_sp","""viburnum_sp""","""Viburnum sp.""-""Viburno""-""-34.4°C a-31.7°C""-""","-34.4°C a -31.7°C","4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"vitex_agnuscastus","""vitex_agnuscastus""","""Vitex agnus-castus""-""Pimiento de los monjes-Sauzgatillo""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"washingtonia_filifera","""washingtonia_filifera""","""Washingtonia filifera""-""Palmera de abanico de California""-""-12.2°C a-9.4°C""-""","-12.2°C a -9.4°C","8a, 8b, 9a, 9b, 10a, 10b"
-"washingtonia_robusta","""washingtonia_robusta""","""Washingtonia robusta""-""Palmera de abanico mexicana""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"washingtonia_sp","""washingtonia_sp""","""Washingtonia sp.""-""Washingtonia""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"wodyetia_bifurcata","""wodyetia_bifurcata""","""Wodyetia bifurcata""-""Palmera cola de zorro""-""-1.1°C a 1.7°C""-""","-1.1°C a 1.7°C","10a, 10b"
-"yucca_gigantea","""yucca_gigantea""","""Yucca gigantea""-""Yuca pie de elefante-Izote""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"yucca_sp","""yucca_sp""","""Yucca sp.""-""Yuca""-""-17.8°C a-15°C""-""","-17.8°C a -15°C","7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"zanthoxylum_fagara","""zanthoxylum_fagara""","""Zanthoxylum fagara""-""Colima-Mamón de perro""-""-9.4°C a-6.7°C""-""","-9.4°C a -6.7°C","8b, 9a, 9b, 10a, 10b"
-"zanthoxylum_rhoifolium","""zanthoxylum_rhoifolium""","""Zanthoxylum rhoifolium""-""Tembetarí""-""-6.7°C a-3.9°C""-""","-6.7°C a -3.9°C","9a, 9b, 10a, 10b"
-"zelkova_sp","""zelkova_sp""","""Zelkova sp""-""Zelkova""-""-28.9°C a-26.1°C""-""","-28.9°C a -26.1°C","5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
-"ziziphus_jujuba","""ziziphus_jujuba""","""Ziziphus jujuba""-""Azufaifo-Jujube""-""-23.3°C a-20.6°C""-""","-23.3°C a -20.6°C","6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
+abies_nordmanniana,Abies nordmanniana,Abeto del Cáucaso-abeto de Normandía,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b
+abutilon_grandifolium,Abutilon grandifolium,Abutilo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+abutilon_pauciflorum,Abutilon pauciflorum,Malvavisco,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+acacia_aroma,Acacia aroma,Aromo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+acacia_baileyana,Acacia baileyana,Acacia de Baile-Mimosa de Baile,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+acacia_bonariensis,Acacia bonariensis,Cari cari-uña de gato-ñapinday,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+acacia_dealbata,Acacia dealbata,Mimosa-Aromo francés,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+acacia_melanoxylon,Acacia melanoxylon,Acacia negra,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+acacia_retinoides,Acacia retinoides,Acacia verde,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+acacia_sp,Acacia sp.,Acacia,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a-11b
+acanthosyris_spinescens,Acanthosyris spinescens,Quebrachillo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+acca_sellowiana,Acca sellowiana,Falso Guayabo-Guayaba del Brasil,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+acer_buergerianum,Acer buergerianum,Arce tridente,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+acer_campestre,Acer campestre,Arce campestre. Arce común-Arce menor,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b
+acer_negundo,Acer negundo,Arce negundo,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+acer_palmatum,Acer palmatum,Arce japones,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+acer_platanoides,Acer platanoides,Arce real,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b
+acer_pseudoplatanus,Acer pseudoplatanus,Arce blanco,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b
+acer_saccharinum,Acer saccharinum,Arce plateado-Arce blanco,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+acer_sp,Acer sp.,Arce,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+aesculus_sp,Aesculus sp.,Aesculus,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+aesculus_hippocastanum,Aesculus hippocastanum,Castaño de Indias común,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b
+agathis_alba,Agathis alba,Agatis blanco,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+agathis_robusta,Agathis robusta,Kauri de corteza lisa,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+agave_angustifolia,Agave angustifolia,Agave vivipara,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+ailanthus_altissima,Ailanthus altissima,Árbol del cielo-Ailanto-Árbol de los dioses,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+ailanthus_sp,Ailanthus sp.,Ailanthus,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+albizia_julibrissin,Albizia julibrissin,Acacia de constantinopla,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+aleurites_sp,Aleurites sp.,Aleurites,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+allophylus_edulis,Allophylus edulis,Chal Chal,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+anadenanthera_colubrina,Anadenanthera colubrina,Cebil-Vilca,-3.9°C a -1.1°C,9b-10a-10b-11a-11b-12a
+annona_cherimola,Annona cherimola,Chirimoya,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+annona_squamosa,Annona squamosa,Chirimoya-Anón,-1.1°C a 1.7°C,10a-10b-11a-11b
+araucaria_angustifolia,Araucaria angustifolia,Pino del Paraná-Pino de Misiones-Pino de Brasil,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+araucaria_araucana,Araucaria araucana,Pehuén,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a
+araucaria_bidwillii,Araucaria bidwillii,Bunya-bunya,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+araucaria_columnaris,Araucaria columnaris,Araucaria columnar,-1.1°C a 1.7°C,10a-10b-11a-11b
+araucaria_heterophylla,Araucaria heterophylla,Araucaria-Araucaria de pisos,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+araucaria_sp,Araucaria sp.,Araucaria,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a-11b
+arbustus_andrache,Arbustus andrache,Madroño oriental,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+archontophoenix_alexandrae,Archontophoenix alexandrae,Palmera real australiana-seafortia,-1.1°C a 1.7°C,10a-10b-11a-11b
+archontophoenix_alexandrae_a_cunninghamiana,Archontophoenix alexandrae × A. cunninghamiana,Palmera Archontophoenix Albang,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+archontophoenix_cunninghamiana,Archontophoenix cunninghamiana,Palma Bangalow-Palma Rey,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+aspidosperma_australe,Aspidosperma australe,Guatambu amarillo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+aspidosperma_quebrachoblanco,Aspidosperma quebracho-blanco,Quebracho blanco,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+baccharis_punctulata,Baccharis punctulata,Chilca,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+baccharis_salicifolia,Baccharis salicifolia,Chilca dulce,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+bauhinia_forficata,Bauhinia forficata,Pezuña de vaca,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+bauhinia_variegata,Bauhinia variegata,Árbol de las orquídeas-Pezuña de vaca,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+beaucarnea_recurvata,Beaucarnea recurvata,Pata de elefante-Nolina,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+betula_alba,Betula alba,Abedul común-abedul blanco,-45.6°C a -42.8°C,2a-2b-3a-3b-4a-4b-5a-5b-6a-6b-7a-7b
+betula_pendula,Betula pendula,Abedul pendulo,-45.6°C a -42.8°C,2a-2b-3a-3b-4a-4b-5a-5b-6a-6b-7a-7b
+betula_sp,Betula sp.,Abedul,-45.6°C a -42.8°C,2a-2b-3a-3b-4a-4b-5a-5b-6a-6b-7a-7b
+bismarckia_nobilis,Bismarckia nobilis,Palmera bisrmackia,-1.1°C a 1.7°C,10a-10b-11a-11b
+bixa_orellana,Bixa orellana,Anatto-Urucú-Achiote,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+blepharocalyx_salicifolius,Blepharocalyx salicifolius,Anacahuita-Horco Molle,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+boungavillea_sp,Boungavillea sp.,Santa Rita,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+brachychiton_sp,Brachychiton sp.,Braquiquito,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+brachychiton_discolor,Brachychiton discolor,Árbol de la llama-Braquiquito rosa,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+brachychiton_populneus,Brachychiton populneus,Braquiquito,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+broussonetia_papyrifera,Broussonetia papyrifera,Morera de papel,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+brugmansia_arborea,Brugmansia arborea,Floripondio,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+brunfelsia_australis,Brunfelsia australis,Jazmín del Paraguay,-6.7°C a -3.9°C,9a-9b-10a-10b-11a
+butia_capitata,Butia capitata,Butiá-Palma de la jalea,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+butia_yatay,Butia yatay,Yatay,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+buxus_sempervirens,Buxus sempervirens,Boj,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+caesalpinia_gilliesii,Caesalpinia gilliesii,Barba de chivo,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+caesalpinia_paraguariensis,Caesalpinia paraguariensis,Guayacán,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+caesalpinia_sp,Caesalpinia sp.,Guayacan-Barba de Chivo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+calliandra_parvifolia,Calliandra parvifolia,Flor de seda-plumerillo rosado,-6.7°C a -3.9°C,9a-9b-10a-10b-11a
+calliandra_tweedii,Calliandra tweedii,Plumerillo rojo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+callistemon_citrinus,Callistemon citrinus,Limpialimpia-limpiatubos,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+camellia_japonica,Camellia japonica,Camelia,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+camellia_sp,Camellia sp.,Camelia,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+capparis_sp,Capparis sp.,Alcaparra,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+carica_papaya,Carica papaya,Papaya-Mamón,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+carpinus_betulus,Carpinus betulus,Carpe,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+carya_illinoinensis,Carya illinoinensis,Nogal pecán,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+caryota_urens,Caryota urens,Palmera cola de pescado,-1.1°C a 1.7°C,10a-10b-11a-11b
+cascabela_thevetia,Cascabela thevetia,Ayoyote-Hueso de fraile,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+casimiroa_edulis,Casimiroa edulis,Zapote blanco,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+cassia_fistula,Cassia fistula,Lluvia de oro-Cañafístula,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+cassia_sp,Cassia sp.,Cassia,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+castanea_sativa,Castanea sativa,Castaño común,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b
+casuarina_cunninghamiana,Casuarina cunninghamiana,Casuarina,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+catalpa_bignonioides,Catalpa bignonioides,Catalpa,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+catalpa_sp,Catalpa sp.,Catalpa,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+cecropia_concolor,Cecropia concolor,Ambay,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+cedrela_angustifolia,Cedrela angustifolia,Cedro colla-cedro salteño,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+cedrela_fissilis,Cedrela fissilis,Cedro misionero,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+cedrela_sp,Cedrela sp.,Cedro,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+cedrus_sp,Cedrus sp.,Cedro,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+cedrus_atlantica,Cedrus atlantica,Cedro del Atlas,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+cedrus_atlantica_f_glauca,Cedrus atlantica f. glauca,Cedro azul,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+cedrus_deodara,Cedrus deodara,Cedro del Himalaya,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+cedrus_deodara_f_aurea,Cedrus deodara f. aurea,Cedro dorado del Himalaya,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+cedrus_libani,Cedrus libani,Cedro del Líbano,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+ceiba_chodatii,Ceiba chodatii,Palo borracho flor blanca-Yuchán,-3.9°C a -1.1°C,9b-10a-10b-11a-11b-12a
+ceiba_sp,Ceiba sp.,Palo borracho,-3.9°C a -1.1°C,9b-10a-10b-11a-11b-12a
+ceiba_speciosa,Ceiba speciosa,Palo borracho-Samohú,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+celtis_australis,Celtis australis,Almez,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+celtis_iguanea,Celtis iguanea,Tala gateador,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+celtis_laevigata,Celtis laevigata,Almez del sur,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+celtis_sinensis,Celtis sinensis,Almez chino,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+celtis_tala,Celtis tala,Tala,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+cephalotaxus_sp,Cephalotaxus sp.,Cefalotaxo,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+ceratonia_siliqua,Ceratonia siliqua,Algarrobo europeo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a
+cercis_siliquastrum,Cercis siliquastrum,Árbol del amor-Árbol de Judas,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+chaenomeles_sp,Chaenomeles sp.,Membrillero de Japón,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+chamaecyparis_funebris,Chamaecyparis funebris,Ciprés llorón chino,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+chamaecyparis_lawsoniana,Chamaecyparis lawsoniana,Ciprés de Lawson,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+chamaecyparis_sp,Chamaecyparis sp.,Falso ciprés,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+chamaerops_humilis,Chamaerops humilis,Palmito-Margallón,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+chrysalidocarpus_lutescens,Chrysalidocarpus lutescens,Palmera areca,-1.1°C a 1.7°C,10a-10b-11a-11b
+cinnamomum_camphora,Cinnamomum camphora,Alcanforero,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+cinnamomum_glanduliferum,Cinnamomum glanduliferum,Falso alcanforero,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+cinnamomun_sp,Cinnamomun sp.,Alcanforero,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+citharexylum_montevidense,Citharexylum montevidense,Tarumá,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+citronella_mucronata,Citronella mucronata,Huillipatagua-Naranjillo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a
+citrus_aurantifolia,Citrus × aurantifolia,Lima,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+citrus_aurantium,Citrus × aurantium,Naranjo amargo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+citrus_limon,Citrus × limon,Limonero,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+citrus_paradisi,Citrus × paradisi,Pomelo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+citrus_reticulata,Citrus × reticulata,Mandarino,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+citrus_sinensis,Citrus × sinensis,Naranjo dulce,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+citrus_tangerina,Citrus × tangerina,Tangerina,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+citrus_sp,Citrus sp.,Cítricos,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+cocculus_laurifolius,Cocculus laurifolius,Cóculo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+cocos_nucifera,Cocos nucifera,Cocotero,1.7°C a 4.4°C,10b-11a-11b-12a-12b
+cordia_myxa,Cordia myxa,Sebesten,-3.9°C a -1.1°C,9b-10a-10b-11a-11b-12a
+cordyline_australis,Cordyline australis,Drácena-Cordiline,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+corylus_avellana,Corylus avellana,Avellano,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+cotinus_obovatus,Cotinus obovatus,Árbol del humo americano,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+cotoneaster_franchetti,Cotoneaster franchetti,Cotoneaster,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+cotoneaster_glaucophyllus_var_serotinus,Cotoneaster glaucophyllus var. serotinus,Cotoneaster serotino,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+cotoneaster_sp,Cotoneaster sp.,Cotoneaster,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+crataegus_sp,Crataegus sp.,Espino,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+croton_urucurana,Croton urucurana,Sangre de drago,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+cryptomeria_japonica,Cryptomeria japonica,Criptomeria-Cedro de Japón,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+cupressocyparis_leylandii,Cupressocyparis leylandii,Ciprés de Leyland,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+cupressus_arizonica,Cupressus arizonica,Ciprés de Arizona,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+cupressus_arizonica_f_conica_glauca,Cupressus arizonica f. conica glauca,Ciprés de Arizona azul,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+cupressus_funebris,Cupressus funebris,Ciprés llorón,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+cupressus_lusitanica,Cupressus lusitanica,Ciprés de Portugal,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+cupressus_macrocarpa,Cupressus macrocarpa,Ciprés de Monterrey,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a
+cupressus_sempervirens,Cupressus sempervirens,Ciprés italiano-Ciprés común,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a
+cupressus_sempervirens_f_horizontalis,Cupressus sempervirens f. horizontalis,Ciprés horizontal,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a
+cupressus_sempervirens_var_pyramidalis,Cupressus sempervirens var. pyramidalis,Ciprés piramidal,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a
+cupressus_sp,Cupressus sp.,Ciprés,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a
+cycas_revoluta,Cycas revoluta,Cica-Palma sagú,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+cydonia_oblonga,Cydonia oblonga,Membrillero,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+daphnopsis_racemosa,Daphnopsis racemosa,Envira-Envira del campo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+delonix_regia,Delonix regia,Chivato-Flamboyán,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+dietes_bicolor,Dietes bicolor,Lirio quincunce,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+dietes_vegeta,Dietes vegeta,Lirio quincunce blanco,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+dimocarpus_longan,Dimocarpus longan,Longan-Ojo de dragón,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+diospyros_kaki,Diospyros kaki,Caqui,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+dovyalis_caffra,Dovyalis caffra,Manzana de Kei,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+dracaena_draco,Dracaena draco,Drago,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+dracaena_indivisa,Dracaena indivisa,Drácena indivisa,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+dracaena_marginata,Dracaena marginata,Drácena marginata,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+dracaena_sp,Dracaena sp.,Drácena,-3.9°C a -1.1°C,9b-10a-10b-11a-11b-12a-12b
+duranta_erecta,Duranta erecta,Duranta-Coralillo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+duranta_repens_aurea_duranta_erecta,Duranta repens 'aurea' = Duranta erecta,Duranta dorada,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+duranta_sp,Duranta sp.,Duranta,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+dypsis_decaryi,Dypsis decaryi,Palmera triangular,-1.1°C a 1.7°C,10a-10b-11a-11b
+dypsis_lutescens,Dypsis lutescens,Palmera areca,-1.1°C a 1.7°C,10a-10b-11a-11b
+eleagnus_pungens,Eleagnus pungens,Eleagno,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+eleagnus_sp,Eleagnus sp.,Eleagno,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+enterolobium_contortisiliquum,Enterolobium contortisiliquum,Timbó-Oreja de negro,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+enterolobium_cyclocarpum,Enterolobium cyclocarpum,Guanacaste-Parota,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+enterolobium_sp,Enterolobium sp.,Timbó,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b-12a
+eriobotrya_japonica,Eriobotrya japonica,Níspero japonés,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+erythrina_sp,Erythrina sp.,Ceibo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+erythrina_cristagalli,Erythrina crista-galli,Ceibo-Flor de ceibo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+erythrina_falcata,Erythrina falcata,Ceibo de monte,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+erythrina_poeppigiana,Erythrina poeppigiana,Bucare,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+erythrina_speciosa,Erythrina speciosa,Ceibo candelabro,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+erythrina_variegata,Erythrina variegata,Ceibo variegado,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+eucalyptus_botryoides,Eucalyptus botryoides,Eucalipto bangalay,-6.7°C a -3.9°C,9a-9b-10a-10b-11a
+eucalyptus_camaldulensis,Eucalyptus camaldulensis,Eucalipto rojo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+eucalyptus_cinerea,Eucalyptus cinerea,Eucalipto medicinal-Eucalipto plateado,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+eucalyptus_globulus,Eucalyptus globulus,Eucalipto blanco-Eucalipto común,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+eucalyptus_populnea,Eucalyptus populnea,Eucalipto álamo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a
+eucalyptus_robusta,Eucalyptus robusta,Eucalipto pantanoso,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+eucalyptus_saligna,Eucalyptus saligna,Eucalipto saligna,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+eucalyptus_sideroxylon,Eucalyptus sideroxylon,Eucalipto de corteza de hierro,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+eucalyptus_sp,Eucalyptus sp.,Eucalipto,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+eucalyptus_strzeleckii,Eucalyptus strzeleckii,Eucalipto de Strzelecki,-9.4°C a -6.7°C,8b-9a-9b-10a-10b
+eucalyptus_tereticornis,Eucalyptus tereticornis,Eucalipto rojo de bosque,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+eugenia_involucrata,Eugenia involucrata,Cereza del monte-Ubajay,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+eugenia_myrcianthes,Eugenia myrcianthes,Ubajay,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+eugenia_pungens,Eugenia pungens,Guabiyú,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+eugenia_uniflora,Eugenia uniflora,Pitanga-Ñangapirí,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+euphorbia_cotinifolia,Euphorbia cotinifolia,Lechero rojo,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+euphorbia_pulcherrima,Euphorbia pulcherrima,Estrella federal-Flor de pascua,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+euphorbia_sp,Euphorbia sp.,Euforbia,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+euphorbia_trigona_var_rubra,Euphorbia trigona var. rubra,Árbol africano de la leche,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+euterpe_edulis,Euterpe edulis,Palmito-Juçara,-1.1°C a 1.7°C,10a-10b-11a-11b
+ficus_aspera,Ficus aspera,Higuera mosaico,-1.1°C a 1.7°C,10a-10b-11a-11b
+ficus_aurea,Ficus aurea,Higuera estranguladora,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+ficus_auriculata,Ficus auriculata,Higuera de hoja de oreja de elefante,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+ficus_benghalensis,Ficus benghalensis,Banyan-Higuera de Bengala,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+ficus_benjamina,Ficus benjamina,Ficus benjamina-Gomero llorón,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+ficus_benjamina_variegata,Ficus benjamina variegata,Ficus variegado,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+ficus_carica,Ficus carica,Higuera común,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+ficus_elastica,Ficus elastica,Gomero-Árbol del caucho,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+ficus_longifolia,Ficus longifolia,Ficus de hoja larga,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+ficus_luschnathiana,Ficus luschnathiana,Higuerón-Ibapoy,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+ficus_lyrata,Ficus lyrata,Ficus pandurata-Higuera hoja de violín,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+ficus_macrophylla,Ficus macrophylla,Higuera de la bahía de Moreton,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+ficus_religiosa,Ficus religiosa,Higuera sagrada-Árbol Bo,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+ficus_retusa,Ficus retusa,Ficus nítida,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+ficus_rubiginosa,Ficus rubiginosa,Higuera oxidada,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+ficus_sp,Ficus sp.,Ficus,-3.9°C a -1.1°C,9b-10a-10b-11a-11b-12a-12b
+ficus_thonningii,Ficus thonningii,Higuera salvaje de África,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+firmiana_simplex,Firmiana simplex,Parasol chino,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+firmiana_sp,Firmiana sp.,Firmiana,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+fortunella_margarita,Fortunella margarita,Kumquat-Naranjo enano,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+fraxinus_americana,Fraxinus americana,Fresno blanco americano,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+fraxinus_excelsior,Fraxinus excelsior,Fresno común-Fresno europeo,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+fraxinus_pennsylvanica,Fraxinus pennsylvanica,Fresno verde-Fresno rojo americano,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+fraxinus_sp,Fraxinus sp.,Fresno,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+gardenia_sp,Gardenia sp.,Jazmín del Cabo-Gardenia,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+geoffroea_decorticans,Geoffroea decorticans,Chañar,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+ginkgo_biloba,Ginkgo biloba,Ginkgo-Árbol de los cuarenta escudos,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+gleditsia_amorphoides,Gleditsia amorphoides,Espina de corona-Coronillo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+gleditsia_triacanthos,Gleditsia triacanthos,Acacia de tres espinas-Acacia negra,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+grevillea_robusta,Grevillea robusta,Roble sedoso-Grevillea,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+grevillea_sp,Grevillea sp.,Grevillea,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+handroanthus_albus,Handroanthus albus,Lapacho amarillo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+handroanthus_chrysanthus,Handroanthus chrysanthus,Guayacán amarillo,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+handroanthus_chrysotrichus,Handroanthus chrysotrichus,Lapacho amarillo de jardín,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+handroanthus_heptaphyllus,Handroanthus heptaphyllus,Lapacho negro-Lapacho rosado,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+handroanthus_impetiginosus,Handroanthus impetiginosus,Lapacho rosado-Lapacho morado,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+handroanthus_ochraceus,Handroanthus ochraceus,Lapacho amarillo del cerrado,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+handroanthus_pulcherrimus,Handroanthus pulcherrimus,Lapacho amarillo vistoso,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+helietta_apiculata,Helietta apiculata,Yvyrá ovi-Canelón,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+hibiscus_sp,Hibiscus sp.,Hibisco-Rosa de China,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+hibiscus_mutabilis,Hibiscus mutabilis,Rosa mutable,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b-11a
+hibiscus_rosasinensis,Hibiscus rosa-sinensis,Rosa de China-Hibisco,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+hibiscus_syriacus,Hibiscus syriacus,Rosa de Siria-Altea,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+hibiscus_tiliaceus,Hibiscus tiliaceus,Hibisco marino-Majagua,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+hovenia_dulcis,Hovenia dulcis,Árbol de las pasas-Árbol del carao,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+howea_forsteriana,Howea forsteriana,Palmera kentia,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+ilex,Ilex,Acebo,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+inga_uraguensis,Inga uraguensis,Ingá,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+jacaranda_mimosifolia,Jacaranda mimosifolia,Jacarandá-Tarco,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+jodina_rhombifolia,Jodina rhombifolia,Sombra de toro,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+juglans_australis,Juglans australis,Nogal criollo-Nogal tucumano,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+juglans_nigra,Juglans nigra,Nogal negro americano,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+juglans_regia,Juglans regia,Nogal común-Nogal europeo,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+juglans_sp,Juglans sp.,Nogal,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+juniperus_communis,Juniperus communis,Enebro común,-45.6°C a -42.8°C,2a-2b-3a-3b-4a-4b-5a-5b-6a-6b
+juniperus_sp,Juniperus sp.,Enebro-Junípero,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+juniperus_virginiana,Juniperus virginiana,Enebro de Virginia-Cedro rojo,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+juniperus_virginiana_var_silicicola,Juniperus virginiana var. silicicola,Enebro de las costas,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+khaya_senegalensis,Khaya senegalensis,Caoba de Senegal,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+lagerstroemia_indica,Lagerstroemia indica,Crespón-Júpiter,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+lagunaria_patersonii,Lagunaria patersonii,Pica-pica-Árbol pica-pica,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+laurus_nobilis,Laurus nobilis,Laurel común-Laurel de cocina,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+laurus_sp,Laurus sp.,Laurel,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+leucaena_leucocephala,Leucaena leucocephala,Leucaena-Peladera,-3.9°C a -1.1°C,9b-10a-10b-11a-11b-12a
+libocedrus_sp,Libocedrus sp.,Calocedro,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+libocedrus_decurrens,Libocedrus decurrens,Calocedro-Cedro de incienso,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b
+libocedrus_decurrens_f_aureovariegata,Libocedrus decurrens f. aureo-variegata,Calocedro dorado,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b
+ligustrum_lucidum,Ligustrum lucidum,Ligustro-Cerco de ligustro,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+ligustrum_lucidum_var_aureovariegatum,Ligustrum lucidum var. aureovariegatum,Ligustro disciplinado,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+ligustrum_ovalifolium,Ligustrum ovalifolium,Ligustrina,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+ligustrum_sinense,Ligustrum sinense,Ligustro chino,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+ligustrum_sp,Ligustrum sp.,Ligustro-Ligustrina,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+liquidambar_styraciflua,Liquidambar styraciflua,Liquidámbar,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+liriodendron_tulipifera,Liriodendron tulipifera,Tulipán africano-Tulipándro,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+lithraea_molleoides,Lithraea molleoides,Molle de beber-Molle de Córdoba,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+livistona_chinensis,Livistona chinensis,Palmera de abanico china,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+lonchocarpus_nitidus,Lonchocarpus nitidus,Yerba de bugre,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+luehea_divaricata,Luehea divaricata,Azote de caballo-Francisco Álvarez,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+lycium_cestroides,Lycium cestroides,Tabaquillo-Tala de san luis,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+lycium_glomeratum,Lycium glomeratum,Cambrón,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+maclura_pomifera,Maclura pomifera,Naranjo de osage,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+magnolia_grandiflora,Magnolia grandiflora,Magnolia-Magnolio,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+magnolia_sp,Magnolia sp.,Magnolia,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+malus_domestica,Malus domestica,Manzano,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+malus_sp,Malus sp.,Manzano de flor-Manzano,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+mangifera_indica,Mangifera indica,Mango,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+mangifera_sp,Mangifera sp.,Mango,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+manihot_grahamii,Manihot grahamii,Yuca de jardín-Mandioca brava,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+melia_azedarach,Melia azedarach,Paraíso,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+melia_azedarach_var_umbraculifera,Melia azedarach var. umbraculifera,Paraíso sombrilla,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+metasequoia_glyptostroboides,Metasequoia glyptostroboides,Metasecuoya,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+morus_alba,Morus alba,Morera blanca,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+morus_alba_var_pendula,Morus alba var. pendula,Morera péndula,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+morus_nigra,Morus nigra,Morera negra-Moral,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+morus_sp,Morus sp.,Morera,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+murraya_paniculata,Murraya paniculata,Mirto de Holanda-Azahar de la India,-3.9°C a -1.1°C,9b-10a-10b-11a-11b-12a
+musa_paradisiaca,Musa × paradisiaca,Banano-Plátano,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+myoporum_laetum,Myoporum laetum,Mioporo-Transparente,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+myrceugenia_glaucescens,Myrceugenia glaucescens,Murta-Pitanguillo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+myrsine_laetevirens,Myrsine laetevirens,Canelón,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+myrtus_communis,Myrtus communis,Mirto-Arrayán,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+nectandra_angustifolia,Nectandra angustifolia,Laurel amarillo-Laurel de río,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+neltuma_alba,Neltuma alba,Algarrobo blanco,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+neltuma_chilensis,Neltuma chilensis,Algarrobo chileno,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+neltuma_juliflora,Neltuma juliflora,Mezquite,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+nerium_oleander,Nerium oleander,Oleandro-Laurel de jardín-Adelfa,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+nerium_sp,Nerium sp.,Laurel de jardín,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+nicotiana_glauca,Nicotiana glauca,Palán palán,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+no_determinable,No determinable,Especie no determinada,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a-11b
+no_determinado,No determinado,Especie no determinada,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a-11b
+ocotea_acutifolia,Ocotea acutifolia,Laurel negro-Laurel criollo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+olea_europaea,Olea europaea,Olivo,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+olea_sp,Olea sp.,Olivo,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+osmanthus_fragrans,Osmanthus fragrans,Osmantho-Olivo fragante,-15°C a -12.2°C,7b-8a-8b-9a-9b-10a-10b
+pandanus_utilis,Pandanus utilis,Pandano,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+parapiptadenia_excelsa,Parapiptadenia excelsa,Horco cebil,-3.9°C a -1.1°C,9b-10a-10b-11a-11b-12a
+parapiptadenia_rigida,Parapiptadenia rigida,Angico-Anico,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+parasenegalia_visco,Parasenegalia visco,Visco-Viscote,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+parkinsonia_aculeata,Parkinsonia aculeata,Cina-cina,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+patagonula_americana,Patagonula americana,Guayaibí,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+paulownia_tomentosa,Paulownia tomentosa,Kiri-Paulownia,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+peltophorum_dubium,Peltophorum dubium,Ibirá pitá-Cañafístula,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+peltophorum_sp,Peltophorum sp.,Ibirá pitá,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+pereskia_bahiensis,Pereskia bahiensis,Pereskia-Cacto de hojas,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+persea_americana,Persea americana,Palto-Aguacate,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+phoenix_canariensis,Phoenix canariensis,Palmera canaria,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+phoenix_paludosa,Phoenix paludosa,Palmera de los manglares,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+phoenix_reclinata,Phoenix reclinata,Palmera del Senegal,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+phoenix_roebelenii,Phoenix roebelenii,Palmera enana,-1.1°C a 1.7°C,10a-10b-11a-11b
+phoenix_sp,Phoenix sp.,Palmera Phoenix,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+photinia_serrulata,Photinia serrulata,Fotinia,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+photinia_sp,Photinia sp.,Fotinia,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+photinia_x_fraseri,Photinia x fraseri,Fotinia Fraser,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+phyllanthus_sp,Phyllanthus sp.,Filanto,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+phytolacca_dioica,Phytolacca dioica,Ombú,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+phytolacca_tetramera,Phytolacca tetramera,Ombücillo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+picea_pungens,Picea pungens,Pícea azul,-45.6°C a -42.8°C,2a-2b-3a-3b-4a-4b-5a-5b-6a-6b-7a-7b
+picea_sp,Picea sp.,Pícea,-45.6°C a -42.8°C,2a-2b-3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+pinus_canariensis,Pinus canariensis,Pino de Canarias,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+pinus_elliottii,Pinus elliottii,Pino elliottis,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+pinus_halepensis,Pinus halepensis,Pino carrasco,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+pinus_patula,Pinus patula,Pino pátula-Pino llorón,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+pinus_pinaster,Pinus pinaster,Pino marítimo-Pino rodeno,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a
+pinus_pinea,Pinus pinea,Pino piñonero,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+pinus_roxburghii,Pinus roxburghii,Pino de la India-Pino chir,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+pinus_sp,Pinus sp.,Pino,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+pittosporum_sp,Pittosporum sp.,Pitosporo,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+pittosporum_tobira,Pittosporum tobira,Pitosporo de Japón-Azahar de la China,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+platanus_acerifolia,Platanus × acerifolia,Plátano de sombra,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+platanus_orientalis,Platanus orientalis,Plátano oriental,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+platycladus_occidentalis,Platycladus occidentalis,Tuya occidental,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+platycladus_orientalis,Platycladus orientalis,Tuya oriental-Ciprés de abanico,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+platycladus_sp,Platycladus sp.,Tuya,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+plinia_cauliflora,Plinia cauliflora,Jaboticaba,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+plumeria_alba,Plumeria alba,Alhelí blanco,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+plumeria_pudica,Plumeria pudica,Amapola blanca-Plumeria,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+plumeria_rubra,Plumeria rubra,Frangipani-Alhelí rojo,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+podocarpus_falcatus,Podocarpus falcatus,Podocarpo africano,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+podocarpus_macrophylla,Podocarpus macrophylla,Podocarpo-Pino de buda,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+podocarpus_sp,Podocarpus sp.,Podocarpo,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b
+poecilanthe_parviflora,Poecilanthe parviflora,Lapachillo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+populus_canadensis,Populus × canadensis,Álamo canadiense,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+populus_canescens,Populus × canescens,Álamo cano,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+populus_alba,Populus alba,Álamo blanco,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+populus_alba_var_pyramidalis,Populus alba var. pyramidalis,Álamo plateado piramidal,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+populus_deltoides,Populus deltoides,Álamo carolina,-45.6°C a -42.8°C,2a-2b-3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+populus_nigra,Populus nigra,Álamo negro,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+populus_nigra_cv_italica,Populus nigra cv. italica,Álamo de Italia-Álamo piramidal,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+populus_sp,Populus sp.,Álamo,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+pouteria_salicifolia,Pouteria salicifolia,Mataojo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+prosopis_sp,Prosopis sp.,Algarrobo,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+prunus_armeniaca,Prunus armeniaca,Damasco-Albaricoque,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b
+prunus_avium,Prunus avium,Cerezo dulce,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+prunus_cerasifera,Prunus cerasifera,Ciruelo de jardín-Ciruelo mirobálano,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+prunus_cerasifera_for_atropurpurea,Prunus cerasifera for. atropurpurea,Ciruelo de hoja roja,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+prunus_cerasus,Prunus cerasus,Guindo,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+prunus_domestica,Prunus domestica,Ciruelo común,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+prunus_laurocerasus,Prunus laurocerasus,Laurel cerezo-Laurel real,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+prunus_persica,Prunus persica,Duraznero,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+prunus_serrulata,Prunus serrulata,Cerezo de flor japonés-Sakura,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b
+prunus_sp,Prunus sp.,Prunus,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+psidium_cattleianum,Psidium cattleianum,Guayabo fresa-Arazá rojo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+psidium_guajava,Psidium guajava,Guayabo-Guayaba,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+pterogyne_nitens,Pterogyne nitens,Tipa colorada-Viraró,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+punica_granatum,Punica granatum,Granado,-15°C a -12.2°C,7b-8a-8b-9a-9b-10a-10b-11a
+pyracantha_coccinea,Pyracantha coccinea,Piracanta-Espino albar,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+pyracantha_crenulata,Pyracantha crenulata,Piracanta del Himalaya,-20.6°C a -17.8°C,6b-7a-7b-8a-8b-9a-9b
+pyracantha_sp,Pyracantha sp.,Piracanta,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+pyrus_communis,Pyrus communis,Peral,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+quercus_ilex,Quercus ilex,Encina,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a
+quercus_imbricaria,Quercus imbricaria,Roble teja,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+quercus_palustris,Quercus palustris,Roble de los pantanos,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+quercus_robur,Quercus robur,Roble carballo-Roble europeo,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+quercus_rubra,Quercus rubra,Roble rojo americano,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+quercus_sp,Quercus sp.,Roble,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+quercus_suber,Quercus suber,Alcornoque,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+raphis_excelsa,Raphis excelsa,Rapis-Palmera bambú,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+ravenala_madagascariensis,Ravenala madagascariensis,Árbol del viajero,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+ravenea_rivularis,Ravenea rivularis,Palmera majestad,-1.1°C a 1.7°C,10a-10b-11a-11b
+rhus_succedanea,Rhus succedanea,Árbol de la cera,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+rhus_typhina,Rhus typhina,Zumaque de Virginia,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+robina_pseudoacacia_var_aurea,Robina pseudoacacia var. aurea,Acacia blanca dorada,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+robinia_hispida,Robinia hispida,Acacia erizada-Acacia rosa,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b
+robinia_pseudoacacia,Robinia pseudoacacia,Acacia blanca-Falsa acacia,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+robinia_pseudoacacia_f_umbraculifera,Robinia pseudoacacia f. umbraculifera,Acacia bola,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+robinia_pseudoacacia_var_aurea_frisia,Robinia pseudoacacia var. aurea 'Frisia',Acacia blanca Frisia,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+robinia_sp,Robinia sp.,Acacia blanca,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+roseodendron_donnellsmithii,Roseodendron donnell-smithii,Primavera-Cortés amarillo,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+roystonea_regia,Roystonea regia,Palma real cubana,-1.1°C a 1.7°C,10a-10b-11a-11b
+ruprechtia_apetala,Ruprechtia apetala,Manzanillo del campo-Higuerón,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+ruprechtia_laxiflora,Ruprechtia laxiflora,Viraró,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+ruprechtia_sp,Ruprechtia sp.,Viraró-Manzanillo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+sabal_palmetto,Sabal palmetto,Sabal-Palmetto,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a-11b
+salix_alba,Salix alba,Sauce blanco,-45.6°C a -42.8°C,2a-2b-3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+salix_alba_var_tristis,Salix alba var. tristis,Sauce llorón dorado,-45.6°C a -42.8°C,2a-2b-3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+salix_babylonica,Salix babylonica,Sauce llorón,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+salix_fragilis,Salix fragilis,Sauce mimbre,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+salix_humboldtiana,Salix humboldtiana,Sauce criollo-Sauce colorado,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+salix_sp,Salix sp.,Sauce,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+salix_x_erythroflexuosa,Salix x erythroflexuosa,Sauce eléctrico-Sauce tortuoso,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+sambucus_australis,Sambucus australis,Saúco criollo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+sambucus_nigra,Sambucus nigra,Saúco negro-Saúco común,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+sambucus_sp,Sambucus sp.,Saúco,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+sapium_haematospermum,Sapium haematospermum,Kurupí-Lecherón,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+schefflera_actinophylla,Schefflera actinophylla,Escheflera árbol-Árbol pulpo,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+schefflera_digitata,Schefflera digitata,Escheflera de siete dedos,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+schefflera_elegantissima,Schefflera elegantissima,Falsa aralia,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+schefflera_sp,Schefflera sp.,Escheflera,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+schinopsis_balansae,Schinopsis balansae,Quebracho colorado chaqueño,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+schinus_areira,Schinus areira,Aguaribay-Pimentero sabana,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+schinus_longifolius,Schinus longifolius,Molle de curtir-Corona de inca,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+schinus_sp,Schinus sp.,Aguaribay-Molle,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+schotia_latifolia,Schotia latifolia,Árbol de las nueces de monte,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+scutia_buxifolia,Scutia buxifolia,Coronillo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+sebastiania_commersoniana,Sebastiania commersoniana,Blanquillo-Camboatá,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+senegalia_bonariensis,Senegalia bonariensis,Uña de gato-Ñapindá,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+senna_corymbosa,Senna corymbosa,Sen del campo-Sen,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+senna_siamea,Senna siamea,Cassia siamesa,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+senna_spectabilis,Senna spectabilis,Sen espectacular-Cassia amarilla,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+sequoia_sempervirens,Sequoia sempervirens,Secuoya roja-Secuoya de California,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a
+sesbania_punicea,Sesbania punicea,Acacia de café-Acacia roja,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+sesbania_virgata,Sesbania virgata,Acacia de cañada,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+solanum_granulosoleprosum,Solanum granuloso-leprosum,Fumo bravo-Tabaquillo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+spathodea_campanulata,Spathodea campanulata,Tulipán africano-Árbol de la fontana,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+spiraea_cantoniensis,Spiraea cantoniensis,Espirea de Cantón-Corona de novia,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+sterculia_coccinea,Sterculia coccinea,Esterculia roja,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+sterculia_monosperma,Sterculia monosperma,Castaño de China,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+strelitzia_nicolai,Strelitzia nicolai,Estrelitzia gigante-Ave del paraíso blanca,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+styphnolobium_japonicum,Styphnolobium japonicum,Sófora de Japón-Árbol de las pagodas,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+styphnolobium_japonicum_var_pendula,Styphnolobium japonicum var. pendula,Sófora péndula,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+syagrus_romanzoffiana,Syagrus romanzoffiana,Pindó-Palma Pindó,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+syzygium_paniculatum,Syzygium paniculatum,Cereza cepillo-Eugenia de jardín,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+tabebuia_aurea,Tabebuia aurea,Lapacho amarillo del pantano,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+tabebuia_rosea,Tabebuia rosea,Guayacán rosado-Apamate,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+tabebuia_roseoalba,Tabebuia roseo-alba,Lapacho blanco,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+tabebuia_sp,Tabebuia sp.,Lapacho,-3.9°C a -1.1°C,9b-10a-10b-11a-11b-12b
+taxodium_distichum,Taxodium distichum,Ciprés de los pantanos,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+taxodium_mucronatum,Taxodium mucronatum,Ahuehuete-Ciprés de Moctezuma,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+taxodium_sp,Taxodium sp.,Ciprés de los pantanos,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+taxus_sp,Taxus sp.,Tejo,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b
+tecoma_stans,Tecoma stans,Guarán amarillo-Esperanza,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+terminalia_australis,Terminalia australis,Palo amarillo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+terminalia_catappa,Terminalia catappa,Almendro de la India,-1.1°C a 1.7°C,10a-10b-11a-11b-12a-12b
+tessaria_integrifolia,Tessaria integrifolia,Aliso del río-Palo bobo,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+tetraclinis_articulata,Tetraclinis articulata,Ciprés de Cartagena-Arar,-6.7°C a -3.9°C,9a-9b-10a-10b-11a
+thevetia_sp,Thevetia sp.,Ayoyote,-3.9°C a -1.1°C,9b-10a-10b-11a-11b
+tilia_americana_f_moltkei,Tilia americana f. moltkei,Tilo híbrido Moltke,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+tilia_platyphyllos,Tilia platyphyllos,Tilo de hoja ancha-Tilo común,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+tilia_sp,Tilia sp.,Tilo,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+tipuana_tipu,Tipuana tipu,Tipa-Tipuana,-6.7°C a -3.9°C,9a-9b-10a-10b-11a
+trachycarpus_fortunei,Trachycarpus fortunei,Palmera excelsa-Palmera de molino de viento,-15°C a -12.2°C,7b-8a-8b-9a-9b-10a-10b-11a
+trachycarpus_sp,Trachycarpus sp.,Palmera Trachycarpus,-15°C a -12.2°C,7b-8a-8b-9a-9b-10a-10b-11a
+trichilia_glabra,Trichilia glabra,Catiguá amarillo,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+tristania_conferta,Tristania conferta,Árbol del cepillo de cerdas-Lophostemon,-6.7°C a -3.9°C,9a-9b-10a-10b-11a
+trithrinax_campestris,Trithrinax campestris,Caranday-Carandá,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+ulmus_minor,Ulmus minor,Olmo común-Olmo negrillo,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+ulmus_montana,Ulmus montana,Olmo de montaña,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+ulmus_parvifolia,Ulmus parvifolia,Olmo chino,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+ulmus_procera,Ulmus procera,Olmo inglés,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+ulmus_pumila,Ulmus pumila,Olmo siberiano,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+ulmus_sp,Ulmus sp.,Olmo,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+vachellia_caven,Vachellia caven,Espinillo-Espino-Caven,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+viburnum_henryi,Viburnum henryi,Viburno de Henry,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b
+viburnum_odoratissimum,Viburnum odoratissimum,Viburno dulce,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b
+viburnum_opulus,Viburnum opulus,Bola de nieve-Viburno,-40°C a -37.2°C,3a-3b-4a-4b-5a-5b-6a-6b-7a-7b-8a-8b
+viburnum_sp,Viburnum sp.,Viburno,-34.4°C a -31.7°C,4a-4b-5a-5b-6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
+vitex_agnuscastus,Vitex agnus-castus,Pimiento de los monjes-Sauzgatillo,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b
+washingtonia_filifera,Washingtonia filifera,Palmera de abanico de California,-12.2°C a -9.4°C,8a-8b-9a-9b-10a-10b-11a
+washingtonia_robusta,Washingtonia robusta,Palmera de abanico mexicana,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+washingtonia_sp,Washingtonia sp.,Washingtonia,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a-11b
+wodyetia_bifurcata,Wodyetia bifurcata,Palmera cola de zorro,-1.1°C a 1.7°C,10a-10b-11a-11b
+yucca_gigantea,Yucca gigantea,Yuca pie de elefante-Izote,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+yucca_sp,Yucca sp.,Yuca,-17.8°C a -15°C,7a-7b-8a-8b-9a-9b-10a-10b-11a-11b
+zanthoxylum_fagara,Zanthoxylum fagara,Colima-Mamón de perro,-9.4°C a -6.7°C,8b-9a-9b-10a-10b-11a
+zanthoxylum_rhoifolium,Zanthoxylum rhoifolium,Tembetarí,-6.7°C a -3.9°C,9a-9b-10a-10b-11a-11b
+zelkova_sp,Zelkova sp,Zelkova,-28.9°C a -26.1°C,5a-5b-6a-6b-7a-7b-8a-8b-9a-9b
+ziziphus_jujuba,Ziziphus jujuba,Azufaifo-Jujube,-23.3°C a -20.6°C,6a-6b-7a-7b-8a-8b-9a-9b-10a-10b
