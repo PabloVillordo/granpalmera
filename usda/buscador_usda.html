@@ -568,7 +568,7 @@
       
       <h3>7.1. Parámetros Ecofisiológicos de Crecimiento</h3>
       <ul>
-        <li><strong>Temperatura Base ($T_{\text{base}}$):</strong> Umbral térmico mínimo a partir del cual la planta activa su metabolismo y comienza a vegetar.</li>
+        <li><strong>Temperatura Base (T base):</strong> Umbral térmico mínimo a partir del cual la planta activa su metabolismo y comienza a vegetar.</li>
         <li><strong>Grados Día de Crecimiento (GDD):</strong> Acumulación de unidades de calor requeridas durante la temporada para completar etapas de desarrollo (brote, floración, maduración).</li>
         <li><strong>Temperatura Óptima de Crecimiento:</strong> Rango térmico diurno y nocturno en el que la planta realiza la fotosíntesis con máxima eficiencia.</li>
       </ul>
@@ -603,9 +603,10 @@
     </section>
 
     <div class="fuente-link">
-      <strong>FUENTE DE DATOS:</strong><br>
+      <strong>FUENTES Y HERRAMIENTAS:</strong><br>
       Isotermas: <a href="https://www.plantmaps.com/interactive-argentina-plant-hardiness-zone-map-celsius.php" target="_blank" rel="noopener">Plantmaps Argentina</a><br>
-      Zonas Usda: <a href="https://www.trebrown.com/" target="_blank" rel="noopener">Trebrown Nurseries</a>
+      Zonas USDA: <a href="https://www.trebrown.com/" target="_blank" rel="noopener">Trebrown Nurseries</a><br>
+      Arbolado Urbano: <a href="https://arboladourbano.com/" target="_blank" rel="noopener">Arbolado Urbano (Buscador de ejemplares geolocalizados)</a>
     </div>
 
   </div>
@@ -784,23 +785,39 @@
             const urlGeoJSON = `https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${zona}.geojson`;
             return fetch(urlGeoJSON)
               .then(res => {
-                if (!res.ok) throw new Error("Sin datos vectoriales para: " + zona);
+                if (!res.ok) throw new Error(`Sin datos vectoriales para: ${zona}`);
                 return res.json();
               })
               .then(data => {
-                const tempRango = temperaturasUSDA[zona] || 'Rango no disponible';
+                // Fallback dinámico por si la zona > 10b se llegara a descargar
+                const tempRango = temperaturasUSDA[zona] || 'Rango mayor a 4.4°C';
+                const colorCapa = coloresUSDA[zona] || '#e74c3c'; 
+                
                 return L.geoJson(data, {
-                  style: { fillColor: coloresUSDA[zona] || '#ccc', weight: 1, color: '#333', fillOpacity: 0.65 }
+                  style: { fillColor: colorCapa, weight: 1, color: '#333', fillOpacity: 0.65 }
                 }).bindPopup(`Zona USDA: ${zona.toUpperCase()}<br>Temp: ${tempRango}`);
               });
           });
 
-          Promise.all(peticiones)
-            .then(capasObtenidas => {
-              capasObtenidas.forEach(capa => capasActivas.addLayer(capa));
-              map.setView([-34.0, -64.0], 4);
-            })
-            .catch(err => console.error("Aviso Geometría:", err));
+          // CORRECCIÓN: Promise.allSettled previene que un archivo inexistente (ej. zona 11b) aborte el renderizado del resto.
+          Promise.allSettled(peticiones)
+            .then(resultados => {
+              let seAgregoCapa = false;
+              
+              resultados.forEach(resultado => {
+                if (resultado.status === 'fulfilled') {
+                  capasActivas.addLayer(resultado.value);
+                  seAgregoCapa = true;
+                } else {
+                  console.warn("Isoterma omitida en mapa:", resultado.reason.message);
+                }
+              });
+              
+              // Solo enfocar el mapa si logramos cargar al menos una capa válida
+              if (seAgregoCapa) {
+                map.setView([-34.0, -64.0], 4);
+              }
+            });
         }
       });
     }
@@ -828,7 +845,6 @@
       conexionStatusEl.style.background = '#fdebd0';
 
       try {
-        // Peticiones usando la ruta de reescritura de vercel.json
         const resEspecies = await fetch('/api-arbolado/especies');
         if (!resEspecies.ok) throw new Error('Error al conectar con especies');
         todasLasEspecies = await resEspecies.json();
