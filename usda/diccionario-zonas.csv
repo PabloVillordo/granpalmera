@@ -1,7 +1,27 @@
-﻿id,nombre común,nombre científico,zonas USDA
+id,nombre común,nombre científico,zonas USDA
+usda1a,-51.1°C a -48.3°C,Zona USDA 1a,1a
+usda1b,-48.3°C a -45.6°C,Zona USDA 1b,1b
+usda2a,-45.6°C a -42.8°C,Zona USDA 2a,2a
+usda2b,-42.8°C a -40.0°C,Zona USDA 2b,2b
+usda3a,-40.0°C a -37.2°C,Zona USDA 3a,3a
+usda3b,-37.2°C a -34.4°C,Zona USDA 3b,3b
+usda4a,-34.4°C a -31.7°C,Zona USDA 4a,4a
+usda4b,-31.7°C a -28.9°C,Zona USDA 4b,4b
+usda5a,-28.9°C a -26.1°C,Zona USDA 5a,5a
+usda5b,-26.1°C a -23.3°C,Zona USDA 5b,5b
+usda6a,-23.3°C a -20.6°C,Zona USDA 6a,6a
+usda6b,-20.6°C a -17.8°C,Zona USDA 6b,6b
+usda7a,-17.8°C a -15.0°C,Zona USDA 7a,7a
+usda7b,-15.0°C a -12.2°C,Zona USDA 7b,7b
 usda8a,-12.2°C a -9.4°C,Zona USDA 8a,8a
 usda8b,-9.4°C a -6.7°C,Zona USDA 8b,8b
 usda9a,-6.7°C a -3.9°C,Zona USDA 9a,9a
 usda9b,-3.9°C a -1.1°C,Zona USDA 9b,9b
 usda10a,-1.1°C a 1.7°C,Zona USDA 10a,10a
 usda10b,1.7°C a 4.4°C,Zona USDA 10b,10b
+usda1a-3b,-51.1°C a -34.4°C,Polar / Extremo Frío (1a a 3b),"1a, 1b, 2a, 2b, 3a, 3b"
+usda4a-5b,-34.4°C a -23.3°C,Frío Continental (4a a 5b),"4a, 4b, 5a, 5b"
+usda6a-7b,-23.3°C a -12.2°C,Templado Frío (6a a 7b),"6a, 6b, 7a, 7b"
+usda8a-8b,-12.2°C a -6.7°C,Templado Cálido / Oceánico (8a a 8b),"8a, 8b"
+usda9a-10b,-6.7°C a 4.4°C,Subtropical / Cálido (9a a 10b),"9a, 9b, 10a, 10b"
+usda_ar,-51.1°C a 4.4°C,Todas las Zonas de Argentina (1a a 10b),"1a, 1b, 2a, 2b, 3a, 3b, 4a, 4b, 5a, 5b, 6a, 6b, 7a, 7b, 8a, 8b, 9a, 9b, 10a, 10b"
