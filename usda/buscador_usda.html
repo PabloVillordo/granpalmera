@@ -1,110 +1,265 @@
-<!DOCTYPE html>
-<!-- Declaración del estándar HTML5 -->
+<!DOCTYPE html><!-- Declaración del tipo de documento para indicar el uso del estándar HTML5 -->
 <html lang="es">
 <head>
     <!-- ========================================== -->
     <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
     <!-- ========================================== -->
+    
+    <!-- Charset: Codificación de caracteres. Asegura que los acentos, caracteres especiales y emojis (como 🌴 o ⚠️) se rendericen correctamente. -->
     <meta charset="UTF-8">
+    
+    <!-- Viewport: Obligatorio para el diseño Responsive. Escala y adapta automáticamente la interfaz a dispositivos móviles, tablets y computadoras. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa de Zonas de Resistencia de plantas de Argentina por especie | Granpalmera</title>
+    
+    <!-- Title: El título de la pestaña del navegador y el encabezado principal que indexarán los motores de búsqueda (SEO). -->
+    <title>Buscador de Resistencia al Frío y Zonas USDA para Plantas en Argentina | Granpalmera</title>
+    
+    <!-- Description: Resumen técnico optimizado para los resultados de búsqueda en Google (SERP) para atraer tráfico orgánico. -->
     <meta name="description" content="🌴 Utiliza nuestro buscador basado en el &quot;USDA Plant Hardiness Zone Map&quot; para consultar la resistencia al frío de tu planta (&quot;Resistencia Térmica&quot;) y las zonas en Argentina en las que podría ser cultivada en exterior (&quot;Isotermas USDA&quot;). Herramienta técnica interactiva desarrollada por Granpalmera.">
+    
+    <!-- Canonical: Evita penalizaciones por contenido duplicado indicando a los buscadores la URL preferente y oficial de la herramienta. -->
     <link rel="canonical" href="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html" />
 
-    <!-- Google Analytics (GA4) -->
+    <!-- ========================================== -->
+    <!-- 1. GOOGLE ANALYTICS (MEDICIÓN DE TRÁFICO)  -->
+    <!-- ========================================== -->
+    <!-- Script asíncrono de seguimiento (GA4) vinculado a la propiedad específica: G-LWW542SW71 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW542SW71"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      
+      /* Inicialización y envío de métricas a la consola de Google Analytics */
       gtag('config', 'G-LWW542SW71');
     </script>
 
-    <!-- Metadatos Open Graph (Redes Sociales) -->
-    <meta property="og:title" content="Mapa de Zonas de Resistencia de plantas de Argentina por especie | Granpalmera">
+    <!-- ========================================== -->
+    <!-- 2. TIPOGRAFÍAS WEB (GOOGLE FONTS)          -->
+    <!-- ========================================== -->
+    <!-- Preconexión a los servidores de Google Fonts para optimizar los tiempos de carga de la tipografía de marca -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Cargamos 'Cormorant Garamond' (para títulos de paisajismo) y 'Lato' (para cuerpo de texto y controles UI) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- ========================================== -->
+    <!-- 3. METADATOS OPEN GRAPH (VISTAS PREVIAS)   -->
+    <!-- ========================================== -->
+    <!-- Etiquetas utilizadas por WhatsApp, Facebook, LinkedIn e Instagram para generar la tarjeta de vista previa al compartir el enlace. -->
+    <meta property="og:title" content="Buscador de Resistencia al Frío y Zonas USDA para Plantas en Argentina | Granpalmera">
     <meta property="og:description" content="🌴 Consulta la resistencia térmica al frío de tu planta e isotermas USDA en Argentina. Herramienta interactiva de Granpalmera.">
     <meta property="og:type" content="website">
+    
+    <!-- RUTAS ABSOLUTAS: Exigidas por aplicaciones de mensajería para asegurar la carga completa de la vista previa -->
     <meta property="og:url" content="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html">
     <meta property="og:image" itemprop="image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
     <meta property="og:image:secure_url" itemprop="image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
+    
+    <!-- Dimensiones explícitas (500x500px) para acelerar el renderizado visual del logo en redes sociales -->
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="500">
     <meta property="og:image:height" content="500">
     
-    <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
-
-    <!-- Librerías Externas (Íconos y Cartografía) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- ========================================== -->
+    <!-- 4. FAVICON (IDENTIDAD EN EL NAVEGADOR)     -->
+    <!-- ========================================== -->
+    <!-- Icono de la pestaña del navegador. Ruta absoluta desde la raíz (/img/) para evitar fallos en subdirectorios -->
+    <link rel="icon" type="image/png" href="/img/logo_granpalmera.png">
 
     <!-- ========================================== -->
-    <!-- HOJA DE ESTILOS CSS (DISEÑO VISUAL)        -->
+    <!-- 5. LIBRERÍAS EXTERNAS (ÍCONOS Y MAPAS)     -->
+    <!-- ========================================== -->
+    <!-- FontAwesome vía CDN para cargar íconos UI de forma rápida e independiente -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Leaflet CSS: Hoja de estilos obligatoria para la renderización visual del visor del mapa interactivo -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Leaflet MarkerCluster: Estilos visuales para la agrupación eficiente de marcadores de arbolado urbano -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+    <!-- ========================================== -->
+    <!-- HOJA DE ESTILOS CSS (DISEÑO Y PALETA)      -->
     <!-- ========================================== -->
     <style>
-      /* Reset y fondo */
-      body { 
-        font-family: Arial, sans-serif; 
-        margin: 0; 
-        padding: 0; 
-        color: #333333;
-        background-color: #f8f9fa;
-        scroll-behavior: smooth;
+      /* Variables Globales de CSS (Paleta de Colores de Gran Palmera y Curvas de Transición) */
+      :root {
+        --lino: #FAF7F2;               /* Fondo claro y natural */
+        --crema: #EDE3D5;              /* Tono neutro secundario para bordes */
+        --rosa: #C9A89A;               /* Color de acento cálido */
+        --tierra: #8B6F5E;             /* Tono terroso para elementos de marca */
+        --tierra-deep: #5b4638;        /* Tono tierra oscuro para textos y contrastes */
+        --salvia: #8A9E87;             /* Verde suave botánico */
+        --grafito: #4A4040;            /* Color de texto principal de alta legibilidad */
+        --verde-atardecer: #3a4a3f;   /* Verde institucional profundo para headers */
+        --burdeos: #6e3b3b;            /* Color alternativo de alerta o contraste */
+        --e-inout: cubic-bezier(0.76, 0, 0.24, 1); /* Curva de animación suave */
+        --d-comp: 0.4s;                /* Duración estándar de transiciones */
       }
 
-      /* Contenedor Superior */
+      /* Estilos Generales del Cuerpo (Reset básico y tipografía) */
+      body { 
+        font-family: 'Lato', Arial, sans-serif; 
+        margin: 0; 
+        padding: 0; 
+        color: var(--grafito);
+        background-color: var(--lino);
+        scroll-behavior: smooth;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      /* Barra de Navegación Fija (Navbar Superior) */
+      .nav { 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        z-index: 1000; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        padding: 1rem clamp(1.25rem, 5vw, 4rem); 
+        height: 74px; 
+        color: var(--lino); 
+        transition: background var(--d-comp) var(--e-inout), color var(--d-comp) var(--e-inout), box-shadow var(--d-comp) var(--e-inout); 
+        box-sizing: border-box;
+      }
+
+      /* Estado Activo al Hacer Scroll (Se vuelve opaca con efecto de desenfoque) */
+      .nav.is-scrolled { 
+        background: rgba(250, 247, 242, 0.95); 
+        backdrop-filter: blur(10px); 
+        color: var(--grafito); 
+        box-shadow: 0 1px 10px rgba(74, 64, 64, 0.08); 
+      }
+
+      /* Logotipo Tipográfico "Gran Palmera" en la Barra Superior */
+      .nav__brand { 
+        font-family: 'Cormorant Garamond', Georgia, serif; 
+        font-style: italic; 
+        font-size: 1.5rem; 
+        font-weight: 600; 
+        color: inherit;
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+      .nav__brand:hover { opacity: 0.85; }
+
+      /* Enlaces del Menú Superior */
+      .nav__links { 
+        display: flex; 
+        gap: 1.8rem; 
+        font-size: 0.78rem; 
+        text-transform: uppercase; 
+        align-items: center; 
+        letter-spacing: 0.1em;
+        font-weight: 700;
+      }
+      .nav__links a { color: inherit; text-decoration: none; transition: color 0.3s; }
+      .nav__links a:hover { color: var(--rosa); }
+      .nav.is-scrolled .nav__links a:hover { color: var(--tierra); }
+
+      /* Botón de Llamada a la Acción en Navbar (WhatsApp) */
+      .nav__cta { 
+        display: inline-flex; 
+        border: 1px solid currentColor; 
+        border-radius: 100px; 
+        padding: 0.5rem 1.25rem; 
+        transition: all 0.3s ease;
+      }
+      .nav__cta:hover {
+        background: var(--rosa) !important;
+        color: var(--tierra-deep) !important;
+        border-color: var(--rosa) !important;
+      }
+
+      /* Responsividad: Oculta links secundarios en pantallas móviles pequeñas */
+      @media (max-width: 760px) {
+        .nav__links { display: none; }
+      }
+
+      /* Contenedor del Encabezado Principal y Buscadores */
       #buscador-container { 
-        padding: 22px 15px; 
-        background: #2c3e50; 
-        color: white; 
+        padding: 90px 15px 25px 15px; 
+        background: var(--verde-atardecer); 
+        color: var(--lino); 
         text-align: center; 
       }
 
+      /* Marco Circular del Logo Central */
+      .logo-circle { 
+        width: 100px; 
+        height: 100px; 
+        border-radius: 50%; 
+        border: 2px solid var(--salvia); 
+        overflow: hidden; 
+        margin: 0 auto 12px auto; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        background-color: white; 
+        box-shadow: 0 8px 18px rgba(0,0,0,0.2); 
+        transition: transform 0.3s ease;
+      }
+      .logo-circle:hover { transform: scale(1.05); }
+      .logo-image { width: 100%; height: 100%; object-fit: cover; }
+
+      /* Título H1 Principal */
       #buscador-container h1 {
-        font-size: 20px;
-        margin: 0 0 8px 0;
-        font-weight: 700;
-        line-height: 1.3;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: clamp(1.6rem, 3vw, 2.3rem);
+        margin: 10px 0 8px 0;
+        font-weight: 600;
+        line-height: 1.2;
+        color: #E6CDBF;
       }
 
+      /* Bajada Descriptiva SEO */
       .bajada-seo {
         font-size: 13px;
-        color: #ecf0f1;
+        color: var(--lino);
         margin: 0 auto 15px auto;
         max-width: 800px;
         line-height: 1.4;
+        opacity: 0.92;
       }
 
-      /* Botones de navegación interna */
+      /* Botones de Navegación Interna por Anclajes (#) */
       .info-links {
         margin-bottom: 20px;
         font-size: 12px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 5px;
+        gap: 6px;
         max-width: 950px;
         margin-left: auto;
         margin-right: auto;
       }
-
       .info-btn {
-        background: rgba(255, 255, 255, 0.12);
-        color: #64b5f6;
-        padding: 5px 10px;
+        background: rgba(250, 247, 242, 0.12);
+        color: #E6CDBF;
+        padding: 6px 12px;
         border-radius: 15px;
         text-decoration: none;
         cursor: pointer;
         display: inline-block;
         transition: all 0.2s ease;
-        border: 1px solid rgba(100, 181, 246, 0.3);
+        border: 1px solid rgba(230, 205, 191, 0.3);
       }
-
-      .info-btn:hover {
-        background: #64b5f6;
-        color: #2c3e50;
+      .info-btn:hover { background: var(--rosa); color: var(--tierra-deep); }
+      .info-btn-index {
+        background: var(--rosa) !important;
+        color: var(--tierra-deep) !important;
+        font-weight: bold;
+        border: 1px solid var(--rosa) !important;
       }
+      .info-btn-index:hover { background: var(--crema) !important; color: var(--grafito) !important; }
 
-      /* GRILLA DE LOS 4 BUSCADORES (Apilados y Anchos) */
+      /* Grilla de los 4 Campos de Buscador */
       .buscadores-grid {
         display: flex;
         flex-direction: column;
@@ -112,95 +267,62 @@
         max-width: 900px;
         margin: 0 auto;
       }
-
-      .buscador-item {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-      }
-
+      .buscador-item { display: flex; flex-direction: column; text-align: left; }
       .buscador-item label {
         font-size: 12px;
-        color: #bdc3c7;
+        color: #d1c7bd;
         margin-bottom: 5px;
         font-weight: bold;
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
-
       .buscador-item input { 
         padding: 12px 15px; 
         font-size: 14px; 
         border-radius: 5px; 
-        border: 1px solid #7f8c8d; 
+        border: 1px solid var(--tierra); 
         outline: none;
-        background: #ecf0f1;
-        color: #2c3e50;
-        transition: background 0.3s;
+        background: var(--lino);
+        color: var(--grafito);
+        transition: background 0.3s, border-color 0.3s;
         width: 100%;
         box-sizing: border-box;
       }
+      .buscador-item input:focus { background: #ffffff; border-color: var(--rosa); }
 
-      .buscador-item input:focus {
-        background: #ffffff;
-        border-color: #3498db;
-      }
+      /* Indicador del Estado de Carga del CSV */
+      #mensaje-status { margin-top: 15px; font-size: 13px; font-weight: bold; color: #f39c12; }
 
-      #mensaje-status {
-        margin-top: 15px;
-        font-size: 13px;
-        font-weight: bold;
-        color: #f39c12;
-      }
-
-      /* ========================================== */
-      /* PANEL DE INTEGRACIÓN ARBOLADO URBANO       */
-      /* ========================================== */
+      /* Panel de Integración con Arbolado Urbano */
       .arbolado-panel {
         max-width: 1000px;
         margin: 20px auto 0 auto;
         padding: 15px;
-        background: #e8f5e9;
-        border: 1px solid #c8e6c9;
+        background: #f2ede4;
+        border: 1px solid var(--crema);
         border-radius: 8px;
         display: flex;
         flex-direction: column;
         gap: 10px;
         font-size: 14px;
-        color: #2e7d32;
+        color: var(--verde-atardecer);
         box-sizing: border-box;
       }
-
-      .arbolado-buscador-wrapper {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 100%;
-        text-align: left;
-        position: relative;
-      }
-
-      .arbolado-buscador-wrapper label {
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 5px;
-        text-transform: uppercase;
-        color: #27ae60;
-      }
-
+      .arbolado-buscador-wrapper { display: flex; flex-direction: column; width: 100%; text-align: left; position: relative; }
+      .arbolado-buscador-wrapper label { font-size: 12px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; color: var(--tierra-deep); }
       .arbolado-buscador-wrapper input {
         padding: 10px 12px;
         font-size: 13px;
         border-radius: 5px;
-        border: 1px solid #81c784;
+        border: 1px solid var(--salvia);
         outline: none;
         background: #ffffff;
-        color: #2c3e50;
+        color: var(--grafito);
         width: 100%;
         box-sizing: border-box;
       }
 
-      /* Lista desplegable personalizada de sugerencias */
+      /* Autocompletado Desplegable para Especies de Árboles */
       #lista-sugerencias {
         position: absolute;
         top: 100%;
@@ -212,66 +334,69 @@
         list-style: none;
         padding: 0;
         margin: 2px 0 0 0;
-        border: 1px solid #81c784;
+        border: 1px solid var(--salvia);
         max-height: 200px;
         overflow-y: auto;
         border-radius: 5px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       }
+      #lista-sugerencias li { padding: 10px 12px; cursor: pointer; border-bottom: 1px solid var(--lino); color: var(--grafito); font-size: 13px; }
+      #lista-sugerencias li:hover { background-color: var(--lino); }
 
-      #lista-sugerencias li {
-        padding: 10px 12px;
-        cursor: pointer;
-        border-bottom: 1px solid #edf2f7;
-        color: #2c3e50;
-        font-size: 13px;
-      }
+      #arbolado-conexion-status { font-size: 12px; font-weight: bold; margin-top: 4px; padding: 6px 10px; border-radius: 4px; display: inline-block; width: fit-content; }
 
-      #lista-sugerencias li:hover {
-        background-color: #f1f8f5;
-      }
-
-      /* Campo de estado de conexión */
-      #arbolado-conexion-status {
-        font-size: 12px;
-        font-weight: bold;
-        margin-top: 4px;
-        padding: 6px 10px;
-        border-radius: 4px;
-        display: inline-block;
-        width: fit-content;
-      }
-
-      /* Visor del Mapa (Limitado al ancho del contenido y centrado) */
+      /* Contenedor del Mapa Interactivo (Leaflet) */
       #map { 
         height: 65vh; 
         max-width: 1000px;
         width: 100%; 
         margin: 15px auto 20px auto;
         border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        border: 1px solid #ddd;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        border: 1px solid var(--crema);
         box-sizing: border-box;
       }
+      .leaflet-popup-content { font-size: 14px; text-align: center; margin: 8px 12px; line-height: 1.4; }
 
-      .leaflet-popup-content {
-        font-size: 14px;
+      /* Botones Flotantes Personalizados sobre el Mapa */
+      .map-custom-btn {
+        background: white;
+        border: 2px solid rgba(0,0,0,0.15);
+        background-clip: padding-box;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--grafito);
+        font-size: 16px;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+      }
+      .map-custom-btn:hover { background: var(--lino); color: var(--tierra-deep); }
+      .map-custom-btn.active { background: var(--verde-atardecer) !important; color: #ffffff !important; border-color: var(--verde-atardecer) !important; }
+      .fa-spin-fast { animation: fa-spin 0.7s infinite linear; }
+      .smn-marker-icon {
+        background: var(--verde-atardecer);
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+        color: #ffffff;
         text-align: center;
-        margin: 8px 12px;
-        line-height: 1.4;
+        line-height: 24px;
+        font-size: 12px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
       }
 
-      /* ========================================== */
-      /* TABLAS DE REFERENCIA USDA (LEYENDA VISIBLE) */
-      /* ========================================== */
+      /* Tablas Guía de Colores de Zonas USDA */
       .usda-zones-container {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
         max-width: 1000px;
         margin: 20px auto;
         padding: 0 15px;
         overflow-x: auto;
       }
-
       .usda-table {
         width: 100%;
         border-collapse: collapse;
@@ -281,15 +406,9 @@
         border: 1px solid #ddd;
         background: white;
       }
+      .usda-table td { padding: 10px 6px; border: 1px solid #ccc; line-height: 1.3; font-weight: 500; }
 
-      .usda-table td {
-        padding: 10px 6px;
-        border: 1px solid #ccc;
-        line-height: 1.3;
-        font-weight: 500;
-      }
-
-      /* Estilos e Isoterma Hexadecimal de Colores */
+      /* Definición Hexadecimal de Colores de las Zonas de Rusticidad */
       .hz1a  { background-color: #3c3c3c; color: #FFFFFF; }
       .hz1b  { background-color: #FFFFFF; color: #000000; }
       .hz2a  { background-color: #DDDFE3; color: #000000; }
@@ -311,106 +430,153 @@
       .hz10a { background-color: #F7B9BD; color: #000000; }
       .hz10b { background-color: #F7797D; color: #000000; }
 
-      /* ========================================== */
-      /* CONTENIDO INFORMATIVO EXPUESTO             */
-      /* ========================================== */
-      .info-sections-container {
-        max-width: 1000px;
-        margin: 30px auto;
+      /* Tarjetas Informativas y Bloques Destacados */
+      .section-cards-wrapper { max-width: 1000px; margin: 45px auto 25px auto; padding: 0 15px; box-sizing: border-box; }
+      .section-head-cards { text-align: center; margin-bottom: 2rem; }
+      .eyebrow-cards { font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; color: var(--tierra); display: block; margin-bottom: 4px; }
+      .section-head-cards h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; color: var(--verde-atardecer); margin: 0; }
+      .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.8rem; }
+      .card-item {
         background: #ffffff;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        color: #2c3e50;
-        line-height: 1.6;
-        font-size: 14px;
-        box-sizing: border-box;
+        border-radius: 4px;
+        padding: 2rem 1.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        border: 1px solid var(--crema);
+        box-shadow: 0 4px 12px rgba(74, 64, 64, 0.04);
+        transition: transform var(--d-comp) var(--e-inout), box-shadow var(--d-comp) var(--e-inout), border-color var(--d-comp) var(--e-inout);
+        will-change: transform, opacity;
       }
+      .card-item:hover { transform: translateY(-5px); box-shadow: 0 18px 35px rgba(74, 64, 64, 0.09); border-color: var(--rosa); }
+      .card-item h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.45rem; font-weight: 600; color: var(--verde-atardecer); margin: 0; line-height: 1.25; }
+      .card-item p { color: rgba(74, 64, 64, 0.85); font-size: 13.5px; line-height: 1.6; margin: 0; }
 
-      .info-sections-container h2 {
-        color: #16a085;
-        margin-top: 30px;
-        font-size: 18px;
-        border-bottom: 2px solid #ecf0f1;
-        padding-bottom: 6px;
-      }
-      .info-sections-container h2:first-of-type { margin-top: 0; }
-      .info-sections-container h3 {
-        color: #2980b9;
-        font-size: 15px;
-        margin-top: 20px;
-        margin-bottom: 8px;
-      }
-      .info-sections-container ul { padding-left: 20px; }
-      .info-sections-container li { margin-bottom: 8px; }
+      /* Sección FAQ en Acordeón (<details>) */
+      .faq { max-width: 1000px; margin: 25px auto 45px auto; padding: 0 15px; box-sizing: border-box; }
+      .faq__item { border-bottom: 1px solid rgba(139, 111, 94, 0.26); background: #ffffff; border-radius: 6px; margin-bottom: 12px; padding: 0 20px; box-shadow: 0 2px 6px rgba(74, 64, 64, 0.04); transition: background 0.3s; will-change: transform, opacity; }
+      .faq__item[open] { background: #ffffff; }
+      .faq__q { width: 100%; text-align: left; background: none; border: 0; cursor: pointer; padding: 1.2rem 0; display: flex; justify-content: space-between; gap: 1rem; align-items: center; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.25rem, 2.2vw, 1.55rem); font-weight: 600; color: var(--grafito); list-style: none; outline: none; }
+      .faq__q::-webkit-details-marker { display: none; }
+      .faq__q .ic { flex: none; width: 22px; height: 22px; position: relative; }
+      .faq__q .ic::before, .faq__q .ic::after { content: ""; position: absolute; background: var(--tierra); }
+      .faq__q .ic::before { left: 0; top: 10px; width: 22px; height: 2px; }
+      .faq__q .ic::after { left: 10px; top: 0; width: 2px; height: 22px; transition: transform var(--d-comp) var(--e-inout); }
+      .faq__item[open] .ic::after { transform: scaleY(0); }
+      .faq__a { padding: 0 0 1.5rem 0; color: rgba(74, 64, 64, 0.9); font-size: 14px; line-height: 1.65; }
+      .faq__a h3 { color: var(--verde-atardecer); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem; margin-top: 18px; margin-bottom: 8px; }
+      .faq__a ul { padding-left: 20px; }
+      .faq__a li { margin-bottom: 8px; }
 
-      /* Tabla comparativa estilizada */
-      .tabla-comparativa {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 15px 0;
-        font-size: 13px;
-      }
-      .tabla-comparativa th, .tabla-comparativa td {
-        border: 1px solid #ddd;
-        padding: 10px;
-        text-align: left;
-      }
-      .tabla-comparativa th {
-        background-color: #2c3e50;
-        color: white;
-      }
+      .tabla-comparativa { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13px; }
+      .tabla-comparativa th, .tabla-comparativa td { border: 1px solid var(--crema); padding: 10px; text-align: left; }
+      .tabla-comparativa th { background-color: var(--verde-atardecer); color: var(--lino); }
 
-      .fuente-link {
-        font-size: 12px; color: #7f8c8d; margin-top: 30px;
-        padding-top: 15px; border-top: 1px solid #eee; word-break: break-all;
+      .fuente-link { font-size: 13px; color: var(--grafito); line-height: 1.8; word-break: break-all; }
+      .fuente-link a { color: var(--tierra); text-decoration: underline; }
+
+      /* Estilos para el Bloque CTA Final y Botón de WhatsApp Flotante */
+      .btn { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.95rem 1.9rem; border-radius: 100px; font-size: 0.9rem; transition: 0.3s; text-decoration: none; }
+      .btn--solid { background-color: var(--rosa) !important; color: #38291d !important; border: 1px solid var(--rosa); }
+      .btn--solid:hover, .btn--solid:focus-visible { background-color: var(--tierra-deep) !important; border-color: var(--tierra-deep); color: var(--lino) !important; }
+      .section { padding: clamp(4rem, 8vh, 7rem) 15px; position: relative; }
+      .cta { background: var(--tierra-deep); color: var(--lino); text-align: center; margin-top: 50px; }
+      .cta h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2.4rem, 6vw, 4.6rem); margin: 0; color: var(--lino); }
+      .cta p { margin: 1.4rem auto 2.4rem; max-width: 48ch; font-size: 1rem; color: var(--lino); opacity: 0.92; line-height: 1.6; }
+
+      .wa-float {
+        position: fixed;
+        right: 1.2rem;
+        bottom: 1.2rem;
+        z-index: 55;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: var(--tierra-deep) !important;
+        color: var(--lino);
+        border: 1.5px solid rgba(250,247,242,0.32);
+        display: grid;
+        place-items: center;
+        box-shadow: 0 10px 26px rgba(74,64,64,0.32);
+        transition: transform var(--d-comp) var(--e-inout);
       }
+      .wa-float:hover { transform: scale(1.06); }
+      .wa-float svg { width: 26px; height: 26px; }
     </style>
 </head>
 <body>
 
   <!-- ========================================== -->
-  <!-- ESTRUCTURA INTERFAZ DEL BUSCADOR           -->
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR FIJA (NAVBAR) -->
+  <!-- ========================================== -->
+  <nav class="nav" id="nav">
+    <!-- Enlace Principal a Home de Gran Palmera (Esquina Superior Izquierda) -->
+    <a class="nav__brand" href="https://www.granpalmera-vivero-paisajismo.com/index.html">Gran Palmera</a>
+    
+    <!-- Enlaces Internos Rápidos a Bloques de la Misma Página -->
+    <div class="nav__links">
+      <a href="#sec-beneficios">Beneficios</a>
+      <a href="#sec-base-conocimiento">Guía Técnica</a>
+      <a href="#sec-propuesta">Propuesta</a>
+      <a class="nav__cta" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank">WhatsApp</a>
+    </div>
+  </nav>
+
+  <!-- ========================================== -->
+  <!-- ENCABEZADO Y PANEL DE 4 BUSCADORES         -->
   <!-- ========================================== -->
   <div id="buscador-container">
-    <h1>Buscador de Zonas de Resistencia USDA por Especie</h1>
+    <!-- Logotipo Circular Interactivo -->
+    <a href="https://www.granpalmera-vivero-paisajismo.com/index.html" title="Ir a la página principal de Gran Palmera" style="display:inline-block; text-decoration:none;">
+      <div class="logo-circle">
+        <img src="/img/logo_granpalmera.png" alt="" class="logo-image">
+      </div>
+    </a>
+
+    <!-- Título Principal de la Aplicación Web -->
+    <h1>Buscador de Resistencia al Frío y Zonas USDA para Plantas en Argentina</h1>
     <p class="bajada-seo">
       Determina qué plantas perennes tienen mayor probabilidad de prosperar según la temperatura mínima invernal promedio. Basado en el USDA Plant Hardiness Zone Map, muestra la Resistencia Térmica de cada especie y las Isotermas USDA sobre Argentina.
     </p>
 
-    <!-- Enlaces de navegación rápida con anclajes -->
+    <!-- Botonera de Anclajes Directos a las Secciones del Texto -->
     <div class="info-links">
       <a href="#sec-usda" class="info-btn"><i class="fa-solid fa-circle-info"></i> USDA Plant Map</a>
       <a href="#sec-resistencia" class="info-btn"><i class="fa-solid fa-temperature-arrow-down"></i> Resistencia Térmica</a>
       <a href="#sec-isotermas" class="info-btn"><i class="fa-solid fa-chart-line"></i> Isotermas USDA</a>
-      <a href="#sec-estructura" class="info-btn"><i class="fa-solid fa-layer-group"></i> Estructura de las Zonas USDA</a>
+      <a href="#sec-estructura" class="info-btn"><i class="fa-solid fa-layer-group"></i> Estructura Zonas</a>
       <a href="#sec-tabla" class="info-btn"><i class="fa-solid fa-table-list"></i> Tabla comparativa</a>
       <a href="#sec-practica" class="info-btn"><i class="fa-solid fa-seedling"></i> Aplicación práctica</a>
-      <a href="#sec-agroclimaticos" class="info-btn"><i class="fa-solid fa-sun"></i> Requerimientos Agroclimáticos</a>
+      <a href="#sec-agroclimaticos" class="info-btn"><i class="fa-solid fa-sun"></i> Agroclimáticos</a>
       <a href="#sec-advertencias" class="info-btn"><i class="fa-solid fa-triangle-exclamation"></i> Advertencias</a>
-    </div>
+      <a href="#sec-fuentes" class="info-btn"><i class="fa-solid fa-book"></i> Fuentes</a>
+      <a href="#sec-herramienta" class="info-btn"><i class="fa-solid fa-microchip"></i> Acerca de</a>
+       </div>
 
-    <!-- Panel de los 4 Buscadores (Apilados y Anchos) -->
+    <!-- Campos de Búsqueda con Sugerencias Dinámicas (<datalist>) -->
     <div class="buscadores-grid">
-      <!-- Barra 1: Plantas (diccionario-plantas.csv) -->
+      <!-- 1. Buscador de Plantas -->
       <div class="buscador-item">
         <label for="input-plantas"><i class="fa-solid fa-leaf"></i> Plantas</label>
         <input type="text" id="input-plantas" list="list-plantas" placeholder="Buscar por planta...">
         <datalist id="list-plantas"></datalist>
       </div>
-      <!-- Barra 2: Palmeras (diccionario-palmeras.csv) -->
+
+      <!-- 2. Buscador de Palmeras -->
       <div class="buscador-item">
         <label for="input-palmeras"><i class="fa-solid fa-tree"></i> Palmeras</label>
         <input type="text" id="input-palmeras" list="list-palmeras" placeholder="Buscar por palmera...">
         <datalist id="list-palmeras"></datalist>
       </div>
-      <!-- Barra 3: Zonas USDA -->
+
+      <!-- 3. Buscador por Zonas USDA -->
       <div class="buscador-item">
         <label for="input-zonas"><i class="fa-solid fa-layer-group"></i> Zonas USDA</label>
         <input type="text" id="input-zonas" list="list-zonas" placeholder="Ej. Zona USDA 8b...">
         <datalist id="list-zonas"></datalist>
       </div>
-      <!-- Barra 4: Ciudades -->
+
+      <!-- 4. Buscador por Ciudades de Argentina -->
       <div class="buscador-item">
         <label for="input-ciudades"><i class="fa-solid fa-city"></i> Ciudades (Argentina)</label>
         <input type="text" id="input-ciudades" list="list-ciudades" placeholder="Buscar por ciudad...">
@@ -418,11 +584,12 @@
       </div>
     </div>
 
+    <!-- Mensaje dinámico de carga de CSVs -->
     <div id="mensaje-status">Cargando bases de datos...</div>
   </div>
 
   <!-- ========================================== -->
-  <!-- PANEL DE INTEGRACIÓN: ARBOLADO URBANO      -->
+  <!-- PANEL DE BÚSQUEDA DE ARBOLADO URBANO       -->
   <!-- ========================================== -->
   <div class="arbolado-panel">
     <div class="arbolado-buscador-wrapper">
@@ -434,15 +601,14 @@
   </div>
 
   <!-- ========================================== -->
-  <!-- LIENZO DEL MAPA INTERACTIVO (Alineado)     -->
+  <!-- MAPA INTERACTIVO (LEAFLET.JS)             -->
   <!-- ========================================== -->
   <div id="map"></div>
 
   <!-- ========================================== -->
-  <!-- TABLAS DE REFERENCIA (LEYENDA VISIBLE)     -->
+  <!-- TABLAS GUÍA DE TEMPERATURAS Y ISOTERMAS    -->
   <!-- ========================================== -->
   <div class="usda-zones-container">
-    <!-- Fila 1: Zonas 1a a 4a -->
     <table class="usda-table">
       <tbody>
         <tr>
@@ -457,7 +623,6 @@
       </tbody>
     </table>
 
-    <!-- Fila 2: Zonas 4b a 7b -->
     <table class="usda-table">
       <tbody>
         <tr>
@@ -472,7 +637,6 @@
       </tbody>
     </table>
 
-    <!-- Fila 3: Zonas 8a a 10b -->
     <table class="usda-table">
       <tbody>
         <tr>
@@ -488,150 +652,502 @@
   </div>
 
   <!-- ========================================== -->
-  <!-- CONTENIDO INFORMATIVO TÉCNICO AMPLIADO     -->
+  <!-- SECCIÓN: BENEFICIOS PARA EL USUARIO        -->
   <!-- ========================================== -->
-  <div class="info-sections-container">
-    
-    <section id="sec-usda">
-      <h2>1. ¿Qué es el USDA Plant Hardiness Zone Map?</h2>
-      <p>Es un mapa desarrollado por el Departamento de Agricultura de los Estados Unidos (USDA), basado en datos de temperaturas mínimas registradas durante un período de 30 años. Es decir, una zona 10a puede registrar una temperatura mínima de -2 °C en un año puntual, pero si el promedio de los últimos 30 años es de -1,1 °C, seguirá catalogada como zona 10a. Por ello, estos mapas sirven como una guía orientativa muy precisa, pero no infalible.</p>
-      <p>Asimismo, en áreas urbanas puede suceder que un sector con clasificación 9b eleve su valor a 10a (o hasta 10b en el centro de una ciudad) debido al efecto de isla de calor generado por la densidad de construcciones, asfalto y vehículos. Las plantas ubicadas en estas zonas urbanas resguardadas pueden tolerar temperaturas invernales ligeramente más exigentes que las cultivadas en zonas rurales circundantes.</p>
-    </section>
-
-    <section id="sec-resistencia">
-      <h2>2. ¿Qué es la Resistencia Térmica de una planta?</h2>
-      <p>También conocida como rusticidad (o <em>hardiness</em> en inglés), hace referencia a la capacidad biológica de una especie para tolerar condiciones climáticas adversas, enfocándose en la temperatura mínima extrema que puede soportar en invierno sin sufrir daños permanentes o perecer.</p>
-      <ul>
-        <li><strong>Múltiples factores:</strong> La tolerancia depende de la duración del evento de frío (horas vs. días continuos), la humedad presente en el sustrato y la madurez del ejemplar.</li>
-        <li><strong>Zonas de calor:</strong> Paralelamente, existe una escala de la American Horticultural Society que mide la tolerancia al estrés térmico por días acumulados con temperaturas superiores a 30 °C.</li>
-      </ul>
-    </section>
-
-    <section id="sec-isotermas">
-      <h2>3. ¿Qué son las Isotermas USDA y cómo funciona el sistema?</h2>
-      <p>Las isotermas son líneas que unen puntos geográficos con la misma temperatura promedio. El USDA trazó estas franjas térmicas en base a los promedios de mínimas anuales durante tres décadas. Cada franja constituye una zona de cultivo de referencia a nivel mundial.</p>
-    </section>
-
-    <section id="sec-estructura">
-      <h2>4. Estructura de las Zonas USDA</h2>
-      <p>El sistema abarca 13 zonas (del 1 al 13). A menor número, más frío es el clima (la Zona 1 es el Ártico); a mayor número, más cálido (la Zona 13 representa el trópico absoluto). Cada zona se subdivide en letras "a" y "b" para aportar mayor nivel de detalle (siendo "a" ligeramente más fría que "b").</p>
-    </section>
-
-    <section id="sec-tabla">
-      <h2>5. Tabla comparativa de referencias</h2>
-      <table class="tabla-comparativa">
-        <thead>
-          <tr>
-            <th>Zona USDA</th>
-            <th>Mínima Promedio Anual</th>
-            <th>Ejemplo de Clima y Especies</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Zona 1 a 4</td>
-            <td>Menos de -28,9 °C</td>
-            <td>Climas polares / alta montaña. Coníferas muy resistentes.</td>
-          </tr>
-          <tr>
-            <td>Zona 5</td>
-            <td>-28,8 °C a -23,3 °C</td>
-            <td>Inviernos muy fríos. Manzanos y bulbos.</td>
-          </tr>
-          <tr>
-            <td>Zona 7</td>
-            <td>-17,8 °C a -12,2 °C</td>
-            <td>Inviernos fríos moderados. Pinos, lavandas, perales.</td>
-          </tr>
-          <tr>
-            <td>Zona 9</td>
-            <td>-6,6 °C a -1,2 °C</td>
-            <td>Inviernos suaves / heladas breves. Cítricos, olivos, buganvillas.</td>
-          </tr>
-          <tr>
-            <td>Zona 11 a 13</td>
-            <td>Más de 4,4 °C</td>
-            <td>Climas tropicales sin heladas. Palmeras tropicales, plátanos.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="sec-practica">
-      <h2>6. Aplicación práctica</h2>
-      <p>Al adquirir un ejemplar o consultar su ficha técnica (ej. Zona USDA: 8 a 10), debes cotejarla con la zona de tu localidad. Si tu región es Zona 7 y la especie seleccionada es Zona 10, no logrará desarrollarse al aire libre en invierno sin la protección de una estructura cubierta o invernadero.</p>
-    </section>
-
-    <section id="sec-agroclimaticos">
-      <h2>7. Requerimientos Agroclimáticos, Adaptabilidad Térmica y Zonificación</h2>
-      <p>Las Zonas USDA constituyen uno de los parámetros de clasificación climática y zonificación más utilizados internacionalmente para determinar la viabilidad de una planta. Sin embargo, el frío mínimo no es el único parámetro que define el éxito de un cultivo. Para evaluar la adaptabilidad real de una especie se deben integrar diversas variables agronómicas y ecofisiológicas:</p>
-      
-      <h3>7.1. Parámetros Ecofisiológicos de Crecimiento</h3>
-      <ul>
-        <li><strong>Temperatura Base (T base):</strong> Umbral térmico mínimo a partir del cual la planta activa su metabolismo y comienza a vegetar.</li>
-        <li><strong>Grados Día de Crecimiento (GDD):</strong> Acumulación de unidades de calor requeridas durante la temporada para completar etapas de desarrollo (brote, floración, maduración).</li>
-        <li><strong>Temperatura Óptima de Crecimiento:</strong> Rango térmico diurno y nocturno en el que la planta realiza la fotosíntesis con máxima eficiencia.</li>
-      </ul>
-
-      <h3>7.2. Sistemas de Clasificación Climática y Zonificación</h3>
-      <ul>
-        <li><strong>Clasificación Köppen-Geiger:</strong> Evalúa patrones macroclimáticos generales (precipitaciones, estacionalidad y temperaturas medias).</li>
-        <li><strong>Clasificación USDA (Cultivo en Suelo vs. Maceta Móvil):</strong> La resistencia varía si la planta está establecida en suelo pleno o si se cultiva en contenedor, donde las raíces sufren mayor estrés térmico.</li>
-        <li><strong>AHS Heat Zones:</strong> Clasifica las regiones según el número de días al año que superan los 30 °C.</li>
-        <li><strong>Sunset Climate Zones:</strong> Sistema integral que combina frío, calor, humedad, altitud y duración de la temporada de crecimiento.</li>
-        <li><strong>RHS Hardiness Rating / European Garden Flora:</strong> Escalas de rusticidad europeas ajustadas a climas oceánicos y templados-húmedos.</li>
-      </ul>
-
-      <h3>7.3. Tolerancias Ambientales y Respuesta al Estrés</h3>
-      <ul>
-        <li><strong>Tolerancia al Frío y Comportamiento Invernal:</strong> Respuesta biológica ante bajas temperaturas (latencia, defoliación preventiva o tolerancia en tejidos persistentes).</li>
-        <li><strong>Tolerancia al Calor y Estrés Hídrico:</strong> Capacidad de transpiración y resistencia a la deshidratación por radiación solar intensa.</li>
-      </ul>
-
-      <h3>7.4. Estrategias de Manejo y Protección</h3>
-      <p>Técnicas agronómicas aplicadas para expandir la zona de cultivo, tales como creación de microclimas protegidos, acolchados (mulch), cubiertas térmicas pasivas o ubicación estratégica junto a muros refractarios de calor.</p>
-    </section>
-
-    <section id="sec-advertencias">
-      <h2>8. ⚠️ Advertencias importantes sobre el uso de las Zonas de Rusticidad</h2>
-      <ul>
-        <li><strong>Miden únicamente la temperatura mínima extrema:</strong> El sistema está diseñado exclusivamente en función del promedio de las mínimas invernales anuales, por lo que no contempla otros factores determinantes para la vida vegetal.</li>
-        <li><strong>No consideran la duración del frío:</strong> Una planta puede tolerar una helada puntual de corta duración, pero verse gravemente afectada (o morir) si las temperaturas se mantienen bajas de forma continua durante semanas.</li>
-        <li><strong>Ignoran el calor acumulado y la luz:</strong> Especies de climas tropicales o subtropicales requieren umbrales térmicos diurnos altos y constantes para desarrollar sus procesos metabólicos básicos, algo que una zona fría o templada no garantiza por sí sola a pesar de no registrar inviernos extremos.</li>
-        <li><strong>Varían según el microclima:</strong> Las condiciones locales de tu terreno —como la cercanía a cuerpos de agua, la protección contra vientos, la exposición solar o la presencia de un dosel de árboles— pueden crear microclimas que difieran sustancialmente de la clasificación general de tu ciudad.</li>
-      </ul>
-    </section>
-
-    <div class="fuente-link">
-      <strong>FUENTES Y HERRAMIENTAS:</strong><br>
-      Isotermas: <a href="https://www.plantmaps.com/interactive-argentina-plant-hardiness-zone-map-celsius.php" target="_blank" rel="noopener">Plantmaps Argentina</a><br>
-      Zonas USDA: <a href="https://www.trebrown.com/" target="_blank" rel="noopener">Trebrown Nurseries</a><br>
-      Arbolado Urbano: <a href="https://arboladourbano.com/" target="_blank" rel="noopener">Arbolado Urbano (Buscador de ejemplares geolocalizados)</a>
+  <section class="section-cards-wrapper" id="sec-beneficios">
+    <div class="section-head-cards">
+      <span class="eyebrow-cards">Ventajas & Experiencia de Usuario</span>
+      <h2>Beneficios de Usar Nuestra Aplicación</h2>
     </div>
+    <div class="cards-grid stagger">
+      <article class="card-item">
+        <h3>01 · Elección Sin Dudas</h3>
+        <p>Sabé al instante si la planta o palmera que te gusta va a prosperar en tu patio. Chau compras a ciegas y plantas secas por el frío.</p>
+      </article>
+      <article class="card-item">
+        <h3>02 · Protección Contra Heladas</h3>
+        <p>Visualizá en un mapa las temperaturas extremas de tu zona. Garantizá que tu inversión verde sobreviva año tras año sin sorpresas invernales.</p>
+      </article>
+      <article class="card-item">
+        <h3>03 · Prueba Real en tu Barrio</h3>
+        <p>Comprobá qué árboles y especies ya están creciendo fuertes y sanas en las calles de tu ciudad antes de gastar un solo peso.</p>
+      </article>
+      <article class="card-item">
+        <h3>04 · Respaldo Científico</h3>
+        <p>Datos térmicos oficiales del Servicio Meteorológico Nacional para asegurar que cada elección vegetal esté adaptada a tu suelo real.</p>
+      </article>
+    </div>
+  </section>
+
+ <!-- ========================================== -->
+  <!-- CONTENIDO INFORMATIVO DESPLEGABLE (10 PTS) -->
+  <!-- ========================================== -->
+  <div class="section-head-cards" id="sec-base-conocimiento" style="margin-top: 55px; margin-bottom: 25px;">
+    <span class="eyebrow-cards">Base de Conocimiento</span>
+    <h2>Guía Técnica & Conceptos Climáticos</h2>
+    <p style="margin: 6px auto 0 auto; max-width: 600px; font-size: 14px; color: rgba(74, 64, 64, 0.85);">
+      Información esencial sobre rusticidad, isotermas y adaptación vegetal para tomar mejores decisiones en tu jardín.
+    </p>
+  </div>
+
+  <div class="faq">
+    
+    <!-- 1 -->
+    <details class="faq__item" id="sec-usda">
+      <summary class="faq__q">1. ¿Qué es el USDA Plant Hardiness Zone Map?<span class="ic" aria-hidden="true"></span></summary>
+      <div class="faq__a">
+        <p>Es un mapa desarrollado por el Departamento de Agricultura de los Estados Unidos (USDA), basado en datos de temperaturas mínimas registradas durante un período de 30 años. Es decir, una zona 10a puede registrar una temperatura mínima de -2 °C en un año puntual, pero si el promedio de los últimos 30 años es de -1,1 °C, seguirá catalogada como zona 10a. Por ello, estos mapas sirven como una guía orientativa muy precisa, pero no infalible.</p>
+        <p>Asimismo, en áreas urbanas puede suceder que un sector con clasificación 9b eleve su valor a 10a (o hasta 10b en el centro de una ciudad) debido al efecto de isla de calor generado por la densidad de construcciones, asfalto y vehículos. Las plantas ubicadas en estas zonas urbanas resguardadas pueden tolerar temperaturas invernales ligeramente más exigentes que las cultivadas en zonas rurales circundantes.</p>
+      </div>
+    </details>
+
+    <!-- 2 -->
+    <details class="faq__item" id="sec-resistencia">
+      <summary class="faq__q">2. ¿Qué es la Resistencia Térmica de una planta?<span class="ic" aria-hidden="true"></span></summary>
+      <div class="faq__a">
+        <p>También conocida como rusticidad (o <em>hardiness</em> en inglés), hace referencia a la capacidad biológica de una especie para tolerar condiciones climáticas adversas, enfocándose en la temperatura mínima extrema que puede soportar en invierno sin sufrir daños permanentes o perecer.</p>
+        <ul>
+          <li><strong>Múltiples factores:</strong> La tolerancia depende de la duración del evento de frío (horas vs. días continuos), la humedad presente en el sustrato y la madurez del ejemplar.</li>
+          <li><strong>Zonas de calor:</strong> Paralelamente, existe una escala de la American Horticultural Society que mide la tolerancia al estrés térmico por días acumulados con temperaturas superiores a 30 °C.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- 3 -->
+    <details class="faq__item" id="sec-isotermas">
+      <summary class="faq__q">3. ¿Qué son las Isotermas USDA y cómo funciona el sistema?<span class="ic" aria-hidden="true"></span></summary>
+      <div class="faq__a">
+        <p>Las isotermas son líneas que unen puntos geográficos con la misma temperatura promedio. El USDA trazó estas franjas térmicas en base a los promedios de mínimas anuales durante tres décadas. Cada franja constituye una zona de cultivo de referencia a nivel mundial.</p>
+      </div>
+    </details>
+
+    <!-- 4 -->
+    <details class="faq__item" id="sec-estructura">
+      <summary class="faq__q">4. Estructura de las Zonas USDA<span class="ic" aria-hidden="true"></span></summary>
+      <div class="faq__a">
+        <p>El sistema abarca 13 zonas (del 1 al 13). A menor número, más frío es el clima (la Zona 1 es el Ártico); a mayor número, más cálido (la Zona 13 representa el trópico absoluto). Cada zona se subdivide en letras "a" y "b" para aportar mayor nivel de detalle (siendo "a" ligeramente más fría que "b").</p>
+      </div>
+    </details>
+
+    <!-- 5 -->
+    <details class="faq__item" id="sec-tabla">
+      <summary class="faq__q">5. Tabla comparativa de referencias<span class="ic" aria-hidden="true"></span></summary>
+      <div class="faq__a">
+        <table class="tabla-comparativa">
+          <thead>
+            <tr>
+              <th>Zona USDA</th>
+              <th>Mínima Promedio Anual</th>
+              <th>Ejemplo de Clima y Especies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Zona 1 a 4</td>
+              <td>Menos de -28,9 °C</td>
+              <td>Climas polares / alta montaña. Coníferas muy resistentes.</td>
+            </tr>
+            <tr>
+              <td>Zona 5</td>
+              <td>-28,8 °C a -23,3 °C</td>
+              <td>Inviernos muy fríos. Manzanos y bulbos.</td>
+            </tr>
+            <tr>
+              <td>Zona 7</td>
+              <td>-17,8 °C a -12,2 °C</td>
+              <td>Inviernos fríos moderados. Pinos, lavandas, perales.</td>
+            </tr>
+            <tr>
+              <td>Zona 9</td>
+              <td>-6,6 °C a -1,2 °C</td>
+              <td>Inviernos suaves / heladas breves. Cítricos, olivos, buganvillas.</td>
+            </tr>
+            <tr>
+              <td>Zona 11 a 13</td>
+              <td>Más de 4,4 °C</td>
+              <td>Climas tropicales sin heladas. Palmeras tropicales, plátanos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <!-- 6 -->
+    <details class="faq__item" id="sec-practica">
+      <summary class="faq__q">6. Aplicación práctica<span class="ic" aria-hidden="true"></span></summary>
+      <div class="faq__a">
+        <p>Al adquirir un ejemplar o consultar su ficha técnica (ej. Zona USDA: 8 a 10), debes cotejarla con la zona de tu localidad. Si tu región es Zona 7 y la especie seleccionada es Zona 10, no logrará desarrollarse al aire libre en invierno sin la protección de una estructura cubierta o invernadero.</p>
+      </div>
+    </details>
+
+    <!-- 7 -->
+    <details class="faq__item" id="sec-agroclimaticos">
+      <summary class="faq__q">7. Requerimientos Agroclimáticos, Adaptabilidad Térmica y Zonificación<span class="ic" aria-hidden="true"></span></summary>
+      <div class="faq__a">
+        <p>Las Zonas USDA constituyen uno de los parámetros de clasificación climática y zonificación más utilizados internacionalmente para determinar la viabilidad de una planta. Sin embargo, el frío mínimo no es el único parámetro que define el éxito de un cultivo. Para evaluar la adaptabilidad real de una especie se deben integrar diversas variables agronómicas y ecofisiológicas:</p>
+        
+        <h3>7.1. Parámetros Ecofisiológicos de Crecimiento</h3>
+        <ul>
+          <li><strong>Temperatura Base (T base):</strong> Umbral térmico mínimo a partir del cual la planta activa su metabolismo y comienza a vegetar.</li>
+          <li><strong>Grados Día de Crecimiento (GDD):</strong> Acumulación de unidades de calor requeridas durante la temporada para completar etapas de desarrollo (brote, floración, maduración).</li>
+          <li><strong>Temperatura Óptima de Crecimiento:</strong> Rango térmico diurno y nocturno en el que la planta realiza la fotosíntesis con máxima eficiencia.</li>
+        </ul>
+
+        <h3>7.2. Sistemas de Clasificación Climática y Zonificación</h3>
+        <ul>
+          <li><strong>Clasificación Köppen-Geiger:</strong> Evalúa patrones macroclimáticos generales (precipitaciones, estacionalidad y temperaturas medias).</li>
+          <li><strong>Clasificación USDA (Cultivo en Suelo vs. Maceta Móvil):</strong> La resistencia varía si la planta está establecida en suelo pleno o si se cultiva en contenedor, donde las raíces sufren mayor estrés térmico.</li>
+          <li><strong>AHS Heat Zones:</strong> Clasifica las regiones según el número de días al año que superan los 30 °C.</li>
+          <li><strong>Sunset Climate Zones:</strong> Sistema integral que combina frío, calor, humedad, altitud y duración de la temporada de crecimiento.</li>
+          <li><strong>RHS Hardiness Rating / European Garden Flora:</strong> Escalas de rusticidad europeas ajustadas a climas oceánicos y templados-húmedos.</li>
+        </ul>
+
+        <h3>7.3. Tolerancias Ambientales y Respuesta al Estrés</h3>
+        <ul>
+          <li><strong>Tolerancia al Frío y Comportamiento Invernal:</strong> Respuesta biológica ante bajas temperaturas (latencia, defoliación preventiva o tolerancia en tejidos persistentes).</li>
+          <li><strong>Tolerancia al Calor y Estrés Hídrico:</strong> Capacidad de transpiración y resistencia a la deshidratación por radiación solar intensa.</li>
+        </ul>
+
+        <h3>7.4. Estrategias de Manejo y Protección</h3>
+        <p>Técnicas agronómicas aplicadas para expandir la zona de cultivo, tales como creación de microclimas protegidos, acolchados (mulch), cubiertas térmicas pasivas o ubicación estratégica junto a muros refractarios de calor.</p>
+      </div>
+    </details>
+
+    <!-- 8 -->
+    <details class="faq__item" id="sec-advertencias">
+      <summary class="faq__q">8. ⚠️ Advertencias importantes sobre el uso de las Zonas de Rusticidad<span class="ic" aria-hidden="true"></span></summary>
+      <div class="faq__a">
+        <ul>
+          <li><strong>Miden únicamente la temperatura mínima extrema:</strong> El sistema está diseñado exclusivamente en función del promedio de las mínimas invernales anuales, por lo que no contempla otros factores determinantes para la vida vegetal.</li>
+          <li><strong>No consideran la duración del frío:</strong> Una planta puede tolerar una helada puntual de corta duración, pero verse gravemente afectada (o morir) si las temperaturas se mantienen bajas de forma continua durante semanas.</li>
+          <li><strong>Ignoran el calor acumulado y la luz:</strong> Especies de climas tropicales o subtropicales requieren umbrales térmicos diurnos altos y constantes para desarrollar sus procesos metabólicos básicos, algo que una zona fría o templada no garantiza por sí sola a pesar de no registrar inviernos extremos.</li>
+          <li><strong>Varían según el microclima:</strong> Las condiciones locales de tu terreno —como la cercanía a cuerpos de agua, la protección contra vientos, la exposición solar o la presencia de un dosel de árboles— pueden crear microclimas que difieran sustancialmente de la clasificación general de tu ciudad.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- 9 -->
+    <details class="faq__item" id="sec-fuentes">
+      <summary class="faq__q">9. Fuentes y Herramientas<span class="ic" aria-hidden="true"></span></summary>
+      <div class="faq__a">
+        <div class="fuente-link">
+          <strong>Isotermas:</strong> <a href="https://www.plantmaps.com/interactive-argentina-plant-hardiness-zone-map-celsius.php" target="_blank" rel="noopener">Plantmaps Argentina</a><br>
+          <strong>Zonas USDA:</strong> <a href="https://www.trebrown.com/" target="_blank" rel="noopener">Trebrown Nurseries</a><br>
+          <strong>Arbolado Urbano:</strong> <a href="https://arboladourbano.com/" target="_blank" rel="noopener">Arbolado Urbano (Buscador de ejemplares geolocalizados)</a>
+        </div>
+      </div>
+    </details>
+
+    <!-- 10 -->
+    <details class="faq__item" id="sec-herramienta">
+      <summary class="faq__q">10. Acerca de esta herramienta interactiva | Gran Palmera<span class="ic" aria-hidden="true"></span></summary>
+      <div class="faq__a">
+        <p><strong>El Buscador de Zonas de Resistencia USDA de Argentina</strong> es una plataforma web técnica desarrollada por el equipo de <strong>Gran Palmera Vivero & Paisajismo</strong> para asistir a paisajistas, agrónomos, arquitectos, viveristas y aficionados del paisajismo en la toma de decisiones informadas para sus proyectos verdes.</p>
+
+        <h3>Arquitectura de Datos e Integración Tecnológica</h3>
+        <p>Esta aplicación reúne en un único lienzo geográfico interactivo múltiples capas de datos agronómicos y vectoriales de libre consulta:</p>
+        <ul>
+          <li><strong>Isotermas USDA Oficiales para Argentina:</strong> Capas vectoriales GeoJSON procesadas para reflejar las franjas de temperatura mínima extrema promedio de los últimos 30 años en todo el país.</li>
+          <li><strong>Bases de Datos Taxonómicas Dinámicas:</strong> Consulta instantánea de resistencia térmica para plantas perennes, palmeras tropicales y subtropicales, y especies leñosas.</li>
+          <li><strong>Geolocalización del Arbolado Urbano:</strong> Integración mediante microservicios con el censo de arbolado público para verificar cómo se comportan y distribuyen las especies en entornos urbanos reales.</li>
+          <li><strong>Monitoreo de Estaciones Meteorológicas (SMN):</strong> Visualización interactiva de la red oficial de estaciones del Servicio Meteorológico Nacional con datos de altitud y ubicación exacta.</li>
+        </ul>
+
+        <h3>Compromiso y Filosofía Gran Palmera</h3>
+        <p>En Gran Palmera concebimos el paisajismo como una disciplina donde la estética debe estar respaldada por el rigor biológico. Utilizar especies adaptadas al régimen térmico local es el pilar fundamental para lograr jardines sostenibles, eficientes en el consumo hídrico y resistentes en el tiempo.</p>
+        
+        <p style="margin-top: 15px; font-weight: bold;">
+          <a href="https://www.granpalmera-vivero-paisajismo.com/index.html" style="color: var(--tierra); text-decoration: underline;">
+            <i class="fa-solid fa-arrow-right-long"></i> Conoce más sobre nuestros proyectos de paisajismo residencial y comercial en Gran Palmera
+          </a>
+        </p>
+      </div>
+    </details>
 
   </div>
 
   <!-- ========================================== -->
-  <!-- LIBRERÍAS JAVASCRIPT EXTERNAS              -->
+  <!-- PROPUESTA DE VALOR Y SERVICIOS             -->
   <!-- ========================================== -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <section class="section-cards-wrapper" id="sec-propuesta">
+    <div class="section-head-cards">
+      <span class="eyebrow-cards">Propuesta Técnica & Comercial</span>
+      <h2>Soluciones Integrales para tu Jardín</h2>
+    </div>
+    <div class="cards-grid stagger">
+      <article class="card-item">
+        <h3>01 · Zonificación Térmica</h3>
+        <p>Cotejá la resistencia al frío de cada especie con la isoterma USDA de tu ciudad.</p>
+      </article>
+      <article class="card-item">
+        <h3>02 · Arbolado & Datos Reales</h3>
+        <p>Explorá ejemplares censados y estaciones meteorológicas en el mapa interactivo.</p>
+      </article>
+      <article class="card-item">
+        <h3>03 · Venta Online Segura</h3>
+        <p>Comprá plantas y palmeras online con envíos garantizados a todo el país.</p>
+      </article>
+      <article class="card-item">
+        <h3>04 · Paisajismo Integral</h3>
+        <p>Transformamos tu espacio en un jardín sustentable con visualización 3D y ejecución profesional.</p>
+      </article>
+    </div>
+  </section>
 
   <!-- ========================================== -->
-  <!-- LÓGICA CORE DE LA APLICACIÓN               -->
+  <!-- SECCIÓN DE LLAMADA A LA ACCIÓN (CTA FINAL) -->
+  <!-- ========================================== -->
+  <section class="section cta">
+    <h2>¿Tenés un espacio que querés transformar?</h2>
+    <p>No necesitás saber qué plantas comprar. No necesitás tener el diseño resuelto. Contanos qué espacio tenés y qué querés lograr.</p>
+    <div class="cta__actions">
+      <a class="btn btn--solid" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" style="background-color:#fff!important; color:var(--tierra-deep)!important;">Escribinos por WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Botón Flotante de Contacto Directo por WhatsApp -->
+  <a class="wa-float" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
+  </a>
+
+  <!-- ========================================== -->
+  <!-- INCLUSIÓN DE LIBRERÍAS JAVASCRIPT JS       -->
+  <!-- ========================================== -->
+  <!-- Leaflet Core: Motor interactivo del mapa -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- MarkerCluster: Agrupador de pines de arbolado público -->
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <!-- PapaParse: Lector asíncrono y de alto rendimiento de archivos CSV -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <!-- GSAP & ScrollTrigger: Motor de animaciones fluidas al hacer scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <!-- ========================================== -->
+  <!-- CÓDIGO Y LÓGICA PRINCIPAL (JAVASCRIPT)     -->
   <!-- ========================================== -->
   <script>
     // ---------------------------------------------------------
-    // 1. Inicialización del Mapa
+    // 1. ANIMACIONES DE INTERFAZ (GSAP + SCROLLTRIGGER)
     // ---------------------------------------------------------
+    document.addEventListener("DOMContentLoaded", function() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Cambia el fondo del menú superior al hacer scroll de más de 50px
+      const nav = document.getElementById('nav');
+      if (nav) {
+        ScrollTrigger.create({
+          start: 'top -50',
+          onUpdate: self => nav.classList.toggle('is-scrolled', self.scroll() > 50)
+        });
+      }
+
+      // Animación escalonada de las tarjetas de servicios/beneficios
+      gsap.utils.toArray('.stagger').forEach(function(el) {
+        gsap.fromTo(el.children, 
+          { opacity: 0, y: 50 }, 
+          {
+            opacity: 1, y: 0, ease: 'none', stagger: 0.12,
+            scrollTrigger: { trigger: el, start: 'top 90%', end: 'top 55%', scrub: 0.7 }
+          }
+        );
+      });
+
+      // Animación lateral deslizable para los acordeones FAQ
+      gsap.utils.toArray('.faq .faq__item').forEach(function(item) {
+        gsap.fromTo(item, 
+          { opacity: 0, x: -130 }, 
+          {
+            opacity: 1, x: 0, ease: 'none',
+            scrollTrigger: { trigger: item, start: 'top 92%', end: 'top 62%', scrub: 0.6 }
+          }
+        );
+      });
+    });
+
+    // Despliega automáticamente los acordeones cuando se hace clic en los enlaces internos (#)
+    document.querySelectorAll('.info-links a, .nav__links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId.startsWith('#')) {
+          const targetEl = document.querySelector(targetId);
+          if (targetEl && targetEl.tagName.toLowerCase() === 'details') {
+            targetEl.open = true;
+          }
+        }
+      });
+    });
+
+    // ---------------------------------------------------------
+    // 2. CONFIGURACIÓN DEL MAPA LEAFLET
+    // ---------------------------------------------------------
+    // Inicialización centrado en Argentina (Lat: -34.0, Lng: -64.0, Zoom: 4)
     const map = L.map('map').setView([-34.0, -64.0], 4);
+    
+    // Capa de mapa base en español de OpenStreetMap France
     L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { 
       maxZoom: 13, attribution: '© OpenStreetMap' 
     }).addTo(map);
+
     let capasActivas = L.layerGroup().addTo(map);
+    let capaEstacionesSMN = L.layerGroup();
+    let estacionesCargadas = false;
+    let marcadorUsuario = null;
+
+    // Convierte coordenadas en formato grados/minutos del SMN a decimales
+    function parseSMNCoord(val) {
+      if (!val) return null;
+      const partes = val.trim().split(/\s+/);
+      if (partes.length === 2) {
+        const deg = parseFloat(partes[0]);
+        const min = parseFloat(partes[1]);
+        if (isNaN(deg) || isNaN(min)) return null;
+        return deg < 0 ? deg - (min / 60.0) : deg + (min / 60.0);
+      } else if (partes.length === 1) {
+        const deg = parseFloat(partes[0]);
+        return isNaN(deg) ? null : deg;
+      }
+      return null;
+    }
 
     // ---------------------------------------------------------
-    // 2. Diccionarios Térmicos Extendidos (1a a 10b)
+    // 3. CONTROLES PERSONALIZADOS SOBRE EL MAPA
+    // ---------------------------------------------------------
+    // Botón 1: Reiniciar Vista y Limpiar Filtros
+    const ResetControl = L.Control.extend({
+      options: { position: 'topright' },
+      onAdd: function(map) {
+        const container = L.DomUtil.create('div', 'leaflet-bar');
+        const btn = L.DomUtil.create('button', 'map-custom-btn', container);
+        btn.innerHTML = '<i class="fa-solid fa-rotate-left"></i>';
+        btn.title = "Limpiar mapa y reiniciar vista";
+        
+        btn.onclick = function(e) {
+          e.stopPropagation();
+          map.setView([-34.0, -64.0], 4);
+          capasActivas.clearLayers();
+          if (capaArbolesUrbano) capaArbolesUrbano.clearLayers();
+          if (map.hasLayer(capaEstacionesSMN)) map.removeLayer(capaEstacionesSMN);
+          if (marcadorUsuario) { map.removeLayer(marcadorUsuario); marcadorUsuario = null; }
+          document.querySelectorAll('.map-custom-btn').forEach(b => b.classList.remove('active'));
+          ['input-plantas', 'input-palmeras', 'input-zonas', 'input-ciudades', 'input-arbolado-especie'].forEach(id => {
+            const el = document.getElementById(id); if (el) el.value = '';
+          });
+          const listaSug = document.getElementById('lista-sugerencias');
+          if (listaSug) listaSug.style.display = 'none';
+        };
+        return container;
+      }
+    });
+
+    // Botón 2: Mi Ubicación (Geolocalización GPS)
+    const GeoControl = L.Control.extend({
+      options: { position: 'topright' },
+      onAdd: function(map) {
+        const container = L.DomUtil.create('div', 'leaflet-bar');
+        container.style.marginTop = '8px';
+        const btn = L.DomUtil.create('button', 'map-custom-btn', container);
+        btn.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i>';
+        btn.title = "Ir a mi ubicación";
+        
+        btn.onclick = function(e) {
+          e.stopPropagation();
+          if (navigator.geolocation) {
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin-fast"></i>';
+            navigator.geolocation.getCurrentPosition(
+              function(pos) {
+                const lat = pos.coords.latitude;
+                const lng = pos.coords.longitude;
+                if (marcadorUsuario) map.removeLayer(marcadorUsuario);
+                marcadorUsuario = L.marker([lat, lng], {
+                  icon: L.divIcon({
+                    className: 'custom-user-marker',
+                    html: '<i class="fa-solid fa-location-dot" style="color:#e74c3c; font-size:28px; filter: drop-shadow(0px 3px 3px rgba(0,0,0,0.4));"></i>',
+                    iconSize: [28, 28], iconAnchor: [14, 28], popupAnchor: [0, -25]
+                  })
+                }).addTo(map).bindPopup("<b>Tu ubicación actual</b>").openPopup();
+                map.flyTo([lat, lng], 11, { duration: 1.5 });
+                btn.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i>';
+              },
+              function() {
+                alert("No pudimos acceder a tu ubicación.");
+                btn.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i>';
+              },
+              { enableHighAccuracy: true, timeout: 5000 }
+            );
+          }
+        };
+        return container;
+      }
+    });
+
+    // Botón 3: Carga de Estaciones Meteorológicas SMN (diccionario_estaciones_.csv)
+    const SMNControl = L.Control.extend({
+      options: { position: 'topright' },
+      onAdd: function(map) {
+        const container = L.DomUtil.create('div', 'leaflet-bar');
+        container.style.marginTop = '8px';
+        const btn = L.DomUtil.create('button', 'map-custom-btn', container);
+        btn.innerHTML = '<i class="fa-solid fa-cloud-sun-rain"></i>';
+        btn.title = "Activar / Desactivar Estaciones Meteorológicas del SMN";
+        
+        btn.onclick = function(e) {
+          e.stopPropagation();
+          if (map.hasLayer(capaEstacionesSMN)) {
+            map.removeLayer(capaEstacionesSMN);
+            btn.classList.remove('active');
+            return;
+          }
+
+          if (!estacionesCargadas) {
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin-fast"></i>';
+            Papa.parse('diccionario_estaciones.csv', {
+              download: true, header: true, skipEmptyLines: true,
+              complete: function(results) {
+                capaEstacionesSMN.clearLayers();
+                results.data.forEach(estacion => {
+                  const lat = parseSMNCoord(estacion.LATITUD);
+                  const lng = parseSMNCoord(estacion.LONGITUD);
+                  if (lat !== null && lng !== null && estacion.NOMBRE) {
+                    const nombre = estacion.NOMBRE.trim();
+                    const provincia = estacion.PROVINCIA ? estacion.PROVINCIA.trim() : 'N/A';
+                    const altura = estacion.ALTURA ? `${estacion.ALTURA} m.s.n.m.` : 'N/A';
+                    const smnIcon = L.divIcon({
+                      className: 'smn-marker-icon',
+                      html: '<i class="fa-solid fa-temperature-high"></i>',
+                      iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -12]
+                    });
+                    const popupContent = `
+                      <div style="text-align: left;">
+                        <h4 style="margin:0; color:var(--verde-atardecer);"><i class="fa-solid fa-tower-observation"></i> ${nombre}</h4>
+                        <span style="font-size:12px;"><b>Provincia:</b> ${provincia}</span><br>
+                        <span style="font-size:12px;"><b>Altitud:</b> ${altura}</span>
+                      </div>
+                    `;
+                    L.marker([lat, lng], { icon: smnIcon }).bindPopup(popupContent).addTo(capaEstacionesSMN);
+                  }
+                });
+                capaEstacionesSMN.addTo(map);
+                estacionesCargadas = true;
+                btn.innerHTML = '<i class="fa-solid fa-cloud-sun-rain"></i>';
+                btn.classList.add('active');
+              }
+            });
+          } else {
+            capaEstacionesSMN.addTo(map);
+            btn.classList.add('active');
+          }
+        };
+        return container;
+      }
+    });
+
+    map.addControl(new ResetControl());
+    map.addControl(new GeoControl());
+    map.addControl(new SMNControl());
+
+    // ---------------------------------------------------------
+    // 4. DICCIONARIOS DE ZONAS USDA Y COLORES HEXADECIMALES
     // ---------------------------------------------------------
     const coloresUSDA = {
       '1a': '#3c3c3c', '1b': '#FFFFFF', '2a': '#DDDFE3', '2b': '#B8BABE',
@@ -649,31 +1165,24 @@
       '9a': '-6.7°C a -3.9°C', '9b': '-3.9°C a -1.1°C', '10a': '-1.1°C a 1.7°C', '10b': '1.7°C a 4.4°C'
     };
 
-    // Bases de datos independientes en memoria
-    const dbPlantas = {};
-    const dbPalmeras = {};
-    const dbZonas = {};
-    const dbCiudades = {};
+    const dbPlantas = {}, dbPalmeras = {}, dbZonas = {}, dbCiudades = {};
 
     // ---------------------------------------------------------
-    // 3. Sistema de Control Individual de Carga de Archivos
+    // 5. LECTURA Y PROCESAMIENTO DE ARCHIVOS CSV DE DATOS
     // ---------------------------------------------------------
     const basesACargar = [
-      { archivo: 'diccionario-plantas.csv', datalistId: 'list-plantas', dbTarget: dbPlantas, nombre: 'Plantas' },
-      { archivo: 'diccionario-palmeras.csv', datalistId: 'list-palmeras', dbTarget: dbPalmeras, nombre: 'Palmeras' },
-      { archivo: 'diccionario-zonas.csv', datalistId: 'list-zonas', dbTarget: dbZonas, nombre: 'Zonas' },
-      { archivo: 'diccionario-ciudades.csv', datalistId: 'list-ciudades', dbTarget: dbCiudades, nombre: 'Ciudades' }
+      { archivo: 'diccionario-plantas.csv', datalistId: 'list-plantas', dbTarget: dbPlantas },
+      { archivo: 'diccionario-palmeras.csv', datalistId: 'list-palmeras', dbTarget: dbPalmeras },
+      { archivo: 'diccionario-zonas.csv', datalistId: 'list-zonas', dbTarget: dbZonas },
+      { archivo: 'diccionario-ciudades.csv', datalistId: 'list-ciudades', dbTarget: dbCiudades }
     ];
 
-    let archivosFallidos = [];
-    let completadosCount = 0;
+    let archivosFallidos = [], completadosCount = 0;
     const statusEl = document.getElementById('mensaje-status');
 
     function cargarBaseDatos(item) {
       Papa.parse(item.archivo, {
-        download: true,
-        header: true,
-        skipEmptyLines: true,
+        download: true, header: true, skipEmptyLines: true,
         complete: function(results) {
           const datalist = document.getElementById(item.datalistId);
           datalist.innerHTML = ''; 
@@ -691,53 +1200,36 @@
             if (item.archivo.includes("diccionario-zonas")) {
               const nombreZona = f["nombre zona"] || f["nombre común"] || "";
               const rango = f["rango"] || "";
-              if (nombreZona) {
-                etiqueta = `${nombreZona.trim()} - Temp mínima extrema promedio ${rango.trim()}`;
-              }
+              if (nombreZona) etiqueta = `${nombreZona.trim()} - Temp mínima extrema promedio ${rango.trim()}`;
             } else if (item.archivo.includes("diccionario-ciudades.csv") || f.hasOwnProperty("ciudad (provincia)")) {
               const ciudadProv = f["ciudad (provincia)"] || f["ciudad"] || "";
               const zona = f["zonas usda"] ? f["zonas usda"].trim() : "";
               const zonaLower = zona.toLowerCase();
               const rango = (f["rango"] && f["rango"].trim() !== "") ? f["rango"].trim() : (temperaturasUSDA[zonaLower] || "");
-              if (ciudadProv && zona) {
-                etiqueta = `${ciudadProv.trim()} - Zona USDA: ${zona.toUpperCase()} - Temp: ${rango}`;
-              }
+              if (ciudadProv && zona) etiqueta = `${ciudadProv.trim()} - Zona USDA: ${zona.toUpperCase()} - Temp: ${rango}`;
             } else if (f.hasOwnProperty("nombre común") && f.hasOwnProperty("nombre científico")) {
               const comun = f["nombre común"] ? f["nombre común"].trim() : "";
               const cient = f["nombre científico"] ? f["nombre científico"].trim() : "";
               const rango = f["rango"] ? f["rango"].trim() : "";
               const zona = f["zonas usda"] ? f["zonas usda"].trim().toUpperCase() : "";
-              if (comun && cient && zona) {
-                etiqueta = `${comun} (${cient}) - Zona USDA: ${zona} - Temp: ${rango}`;
-              }
+              if (comun && cient && zona) etiqueta = `${comun} (${cient}) - Zona USDA: ${zona} - Temp: ${rango}`;
             }
 
             if (zonasRaw && etiqueta) {
               const zonasArray = zonasRaw.split(/[, -]+/).map(z => z.trim().toLowerCase()).filter(z => z.length > 0);
-              
               item.dbTarget[etiqueta.toLowerCase()] = zonasArray;
               if (f["nombre común"]) item.dbTarget[f["nombre común"].trim().toLowerCase()] = zonasArray;
               if (f["nombre científico"]) item.dbTarget[f["nombre científico"].trim().toLowerCase()] = zonasArray;
-              if (f["nombre zona"]) item.dbTarget[f["nombre zona"].trim().toLowerCase()] = zonasArray; 
-              if (f["ciudad (provincia)"]) item.dbTarget[f["ciudad (provincia)"].trim().toLowerCase()] = zonasArray;
-              if (f["ciudad"]) item.dbTarget[f["ciudad"].trim().toLowerCase()] = zonasArray;
-              if (zonasRaw) item.dbTarget[zonasRaw.trim().toLowerCase()] = zonasArray;
-
+              
               const option = document.createElement('option');
               option.value = etiqueta;
               datalist.appendChild(option);
             }
           });
-
           completadosCount++;
           verificarEstadoFinal();
         },
-        error: function(err) {
-          archivosFallidos.push(item.archivo);
-          completadosCount++;
-          verificarEstadoFinal();
-          console.error(`Error al cargar ${item.archivo}`, err);
-        }
+        error: function(err) { archivosFallidos.push(item.archivo); completadosCount++; verificarEstadoFinal(); }
       });
     }
 
@@ -753,69 +1245,45 @@
       }
     }
 
-    // Disparar la carga de todas las bases
     basesACargar.forEach(b => cargarBaseDatos(b));
 
     // ---------------------------------------------------------
-    // 4. Gestión Unificada de Buscadores y Map Render
+    // 6. RENDERIZADO DE CAPAS GEOJSON DE ISOTERMAS EN EL MAPA
     // ---------------------------------------------------------
     function configurarBuscador(inputId, dbTarget) {
       document.getElementById(inputId).addEventListener('input', function(e) {
         const seleccion = e.target.value.trim().toLowerCase();
-        
         let zonas = null;
-        if (dbTarget[seleccion]) {
-          zonas = dbTarget[seleccion];
-        } else if (seleccion.length >= 2) {
-          for (let key in dbTarget) {
-            if (key.includes(seleccion)) {
-              zonas = dbTarget[key];
-              break;
-            }
-          }
+        if (dbTarget[seleccion]) zonas = dbTarget[seleccion];
+        else if (seleccion.length >= 2) {
+          for (let key in dbTarget) { if (key.includes(seleccion)) { zonas = dbTarget[key]; break; } }
         }
 
         if (zonas) {
           ['input-plantas', 'input-palmeras', 'input-zonas', 'input-ciudades'].forEach(id => {
             if(id !== inputId) document.getElementById(id).value = '';
           });
-
           capasActivas.clearLayers(); 
 
           const peticiones = zonas.map(zona => {
             const urlGeoJSON = `https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${zona}.geojson`;
             return fetch(urlGeoJSON)
-              .then(res => {
-                if (!res.ok) throw new Error(`Sin datos vectoriales para: ${zona}`);
-                return res.json();
-              })
+              .then(res => { if (!res.ok) throw new Error(`Sin datos para ${zona}`); return res.json(); })
               .then(data => {
-                const tempRango = temperaturasUSDA[zona] || 'Rango mayor a 4.4°C';
+                const tempRango = temperaturasUSDA[zona] || 'Rango > 4.4°C';
                 const colorCapa = coloresUSDA[zona] || '#e74c3c'; 
-                
-                return L.geoJson(data, {
-                  style: { fillColor: colorCapa, weight: 1, color: '#333', fillOpacity: 0.65 }
-                }).bindPopup(`Zona USDA: ${zona.toUpperCase()}<br>Temp: ${tempRango}`);
+                return L.geoJson(data, { style: { fillColor: colorCapa, weight: 1, color: '#333', fillOpacity: 0.65 } })
+                  .bindPopup(`Zona USDA: ${zona.toUpperCase()}<br>Temp: ${tempRango}`);
               });
           });
 
-          Promise.allSettled(peticiones)
-            .then(resultados => {
-              let seAgregoCapa = false;
-              
-              resultados.forEach(resultado => {
-                if (resultado.status === 'fulfilled') {
-                  capasActivas.addLayer(resultado.value);
-                  seAgregoCapa = true;
-                } else {
-                  console.warn("Isoterma omitida en mapa:", resultado.reason.message);
-                }
-              });
-              
-              if (seAgregoCapa) {
-                map.setView([-34.0, -64.0], 4);
-              }
+          Promise.allSettled(peticiones).then(resultados => {
+            let seAgregoCapa = false;
+            resultados.forEach(res => {
+              if (res.status === 'fulfilled') { capasActivas.addLayer(res.value); seAgregoCapa = true; }
             });
+            if (seAgregoCapa) map.setView([-34.0, -64.0], 4);
+          });
         }
       });
     }
@@ -826,36 +1294,31 @@
     configurarBuscador('input-ciudades', dbCiudades);
 
     // ---------------------------------------------------------
-    // 5. INTEGRACIÓN: API DE ARBOLADO URBANO CON VERCEL REWRITE
+    // 7. INTEGRACIÓN DE API DE ARBOLADO URBANO CON DEBOUNCE
     // ---------------------------------------------------------
-    
-    let todasLasEspecies = [];
-    let cacheArboles = [];
-    let capaArbolesUrbano = L.layerGroup().addTo(map);
+    let todasLasEspecies = [], cacheArboles = [];
+    let capaArbolesUrbano = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50 }).addTo(map);
 
     const inputEspecie = document.getElementById('input-arbolado-especie');
     const listaSugerencias = document.getElementById('lista-sugerencias');
     const conexionStatusEl = document.getElementById('arbolado-conexion-status');
 
-    async function inicializarArboladoAPI() {
-      conexionStatusEl.innerText = 'Conectando con la API de Arbolado Urbano via Vercel...';
-      conexionStatusEl.style.color = '#d35400';
-      conexionStatusEl.style.background = '#fdebd0';
+    function debounce(func, wait) {
+      let timeout;
+      return function(...args) { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), wait); };
+    }
 
+    async function inicializarArboladoAPI() {
       try {
         const resEspecies = await fetch('/api-arbolado/especies');
-        if (!resEspecies.ok) throw new Error('Error al conectar con especies');
         todasLasEspecies = await resEspecies.json();
-
         const resArboles = await fetch('/api-arbolado/arboles');
-        if (!resArboles.ok) throw new Error('Error al conectar con árboles');
         cacheArboles = await resArboles.json();
 
         conexionStatusEl.innerText = 'Conectado a API de Arbolado Urbano';
-        conexionStatusEl.style.color = '#27ae60';
-        conexionStatusEl.style.background = '#e8f5e9';
+        conexionStatusEl.style.color = 'var(--verde-atardecer)';
+        conexionStatusEl.style.background = '#f2ede4';
       } catch (error) {
-        console.error('Error al conectar con la API mediante Vercel Rewrite:', error);
         conexionStatusEl.innerText = 'No se pudo conectar con la API de Arbolado Urbano';
         conexionStatusEl.style.color = '#c0392b';
         conexionStatusEl.style.background = '#fadbd8';
@@ -871,14 +1334,9 @@
       return slug ? slug.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase()) : "Especie";
     }
 
-    inputEspecie.addEventListener('input', (e) => {
+    inputEspecie.addEventListener('input', debounce((e) => {
       const texto = e.target.value.trim().toLowerCase();
-      
-      if (texto.length < 2) {
-        listaSugerencias.style.display = 'none';
-        capaArbolesUrbano.clearLayers();
-        return;
-      }
+      if (texto.length < 2) { listaSugerencias.style.display = 'none'; capaArbolesUrbano.clearLayers(); return; }
 
       const filtradas = todasLasEspecies.filter(esp => {
         const comun = (esp.nombre_comun || '').toLowerCase();
@@ -886,100 +1344,52 @@
         return comun.includes(texto) || cientifico.includes(texto);
       }).slice(0, 5);
 
-      if (filtradas.length === 0) {
-        listaSugerencias.style.display = 'none';
-        return;
-      }
+      if (filtradas.length === 0) { listaSugerencias.style.display = 'none'; return; }
 
-      listaSugerencias.innerHTML = filtradas.map(esp => {
-        const comunMostrar = esp.nombre_comun || esp.slug || 'Especie';
-        const cientificoMostrar = esp.nombre_científico || esp.nombre_cientifico ? `(${esp.nombre_científico || esp.nombre_cientifico})` : '';
-        return `
-          <li data-url="${esp.url || ''}" data-nombre="${comunMostrar}">
-            <strong>${comunMostrar}</strong> <small>${cientificoMostrar}</small>
-          </li>
-        `;
-      }).join('');
-
+      listaSugerencias.innerHTML = filtradas.map(esp => `
+        <li data-url="${esp.url || ''}" data-nombre="${esp.nombre_comun || esp.slug}">
+          <strong>${esp.nombre_comun || esp.slug}</strong>
+        </li>
+      `).join('');
       listaSugerencias.style.display = 'block';
-    });
+    }, 300));
 
     listaSugerencias.addEventListener('click', (e) => {
       const item = e.target.closest('li');
       if (item) {
         const nombreEspecie = item.getAttribute('data-nombre');
         const urlEspecie = item.getAttribute('data-url');
-        
         inputEspecie.value = nombreEspecie;
         listaSugerencias.style.display = 'none';
-
         filtrarYRenderizarArboles(nombreEspecie, urlEspecie);
-      }
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.arbolado-buscador-wrapper')) {
-        listaSugerencias.style.display = 'none';
       }
     });
 
     function filtrarYRenderizarArboles(nombreSeleccionado, urlEspecie) {
       capaArbolesUrbano.clearLayers();
       if (cacheArboles.length === 0) return;
-
       const query = nombreSeleccionado.toLowerCase();
-      let arbolesFiltrados = [];
-
-      if (urlEspecie) {
-        arbolesFiltrados = cacheArboles.filter(a => a.species === urlEspecie || (a.species && a.species.includes(urlEspecie)));
-      } else {
-        arbolesFiltrados = cacheArboles.filter(a => {
-          const nombreUrl = extraerNombreEspecie(a.species).toLowerCase();
-          return nombreUrl.includes(query);
-        });
-      }
-
+      let arbolesFiltrados = cacheArboles.filter(a => urlEspecie ? a.species === urlEspecie : extraerNombreEspecie(a.species).toLowerCase().includes(query));
       renderizarArboles(arbolesFiltrados);
     }
 
     function renderizarArboles(arboles) {
       const treeIcon = L.icon({
         iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-        shadowSize: [41, 41]
+        iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34]
       });
-
       if (!arboles || arboles.length === 0) return;
-
       const bounds = [];
-
       arboles.forEach(arbol => {
-        const lat = parseFloat(arbol.lat);
-        const lng = parseFloat(arbol.lng);
+        const lat = parseFloat(arbol.lat), lng = parseFloat(arbol.lng);
         if (isNaN(lat) || isNaN(lng)) return;
-
         const nombreEspecie = extraerNombreEspecie(arbol.species);
-        const popupContent = `
-          <div style="text-align: left; min-width: 180px;">
-            <h4 style="margin: 0 0 5px 0; color: #2e7d32;">Árbol #${arbol.id}</h4>
-            <em>${nombreEspecie}</em><br>
-            <a href="${arbol.species}" target="_blank" style="font-size: 12px; color: #2980b9; text-decoration: underline;">Ver ficha de especie</a>
-          </div>
-        `;
-
-        L.marker([lat, lng], { icon: treeIcon })
-         .bindPopup(popupContent)
-         .addTo(capaArbolesUrbano);
-
+        const marcador = L.marker([lat, lng], { icon: treeIcon })
+         .bindPopup(`<b>Árbol #${arbol.id}</b><br><em>${nombreEspecie}</em>`);
+        capaArbolesUrbano.addLayer(marcador);
         bounds.push([lat, lng]);
       });
-      
-      if (bounds.length > 0) {
-        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
-      }
+      if (bounds.length > 0) map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
     }
   </script>
 </body>
