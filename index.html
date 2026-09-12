@@ -38,10 +38,10 @@
     <meta property="og:description" content="🌴 GRANPALMERA | Vivero y Paisajismo. Especialistas en palmeras, plantas tropicales y diseño paisajístico.">
     <meta property="og:type" content="website">
     
-    <!-- URL y Rutas Absolutas: Vitales para WhatsApp. Tienen que apuntar a tu dominio de Vercel (https://...) -->
-    <meta property="og:url" content="https://granpalmera-sepia.vercel.app/">
-    <meta property="og:image" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
-    <meta property="og:image:secure_url" itemprop="image" content="https://granpalmera-sepia.vercel.app/img/logo_granpalmera.png">
+    <!-- NUEVO DOMINIO: URL y Rutas Absolutas vitales para que WhatsApp cargue la imagen correctamente. -->
+    <meta property="og:url" content="https://www.granpalmera-vivero-paisajismo.com/">
+    <meta property="og:image" itemprop="image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
+    <meta property="og:image:secure_url" itemprop="image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
     
     <!-- Dimensiones explícitas (500x500) para forzar a las apps a cargar la imagen sin demoras. -->
     <meta property="og:image:type" content="image/png">
@@ -106,25 +106,6 @@
         .btn-subtitle { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: #5a665f; font-weight: 500; }
         .btn-arrow { font-size: 1.2rem; color: #5a665f; }
 
-        /* === NUEVO: Animación y estilos para botón destacado (Sorteo) === */
-        @keyframes pulse-animation {
-            0% { box-shadow: 0 0 0 0 rgba(164, 179, 158, 0.7); }
-            70% { box-shadow: 0 0 0 12px rgba(164, 179, 158, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(164, 179, 158, 0); }
-        }
-        
-        .btn-highlight {
-            background-color: #1a2f24; /* Fondo oscuro contrastante */
-            border: 2px solid var(--accent-color);
-            padding: 16px 20px; /* Ligeramente más grande que los normales */
-            animation: pulse-animation 2s infinite; /* Aplica la animación de latido constante */
-        }
-        
-        .btn-highlight .btn-title { color: var(--text-white); font-size: 1.1rem; font-weight: 800; }
-        .btn-highlight .btn-subtitle { color: #d6e2cf; }
-        .btn-highlight .btn-arrow { color: var(--accent-color); }
-        /* ================================================================ */
-
         /* Estilos del pie de página y botones circulares de redes sociales */
         footer { text-align: center; width: 100%; }
         .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
@@ -152,12 +133,12 @@
         <!-- MAIN: Contenedor principal de los botones de interacción -->
         <main class="links-container">
             
-            <!-- NUEVO: Botón Destacado del Sorteo UNE 2026 -->
-            <a href="sorteo/granpalmera.sorteo.html" class="link-btn btn-highlight">
-                <span class="btn-icon">🎁</span>
+            <!-- NUEVO: Botón hacia la App Web del Buscador USDA -->
+            <a href="usda/buscador_usda.html" class="link-btn">
+                <span class="btn-icon">🗺️</span>
                 <div class="btn-text">
-                    <span class="btn-title">Sorteo Gran Palmera | UNE 2026</span>
-                    <span class="btn-subtitle">PARTICIPÁ Y GANÁ UNA PALMERA BISMARCKIA</span>
+                    <span class="btn-title">Mapa de Zonas USDA</span>
+                    <span class="btn-subtitle">BUSCADOR DE RESISTENCIA AL FRÍO</span>
                 </div>
                 <span class="btn-arrow">→</span>
             </a>
@@ -213,7 +194,7 @@
             </a>
 
             <!-- Botón hacia Subpágina de Envíos -->
-            <a href="envios/envios_granpalmera.html" class="link-btn">
+            <a href="envios/envíos_granpalmera.html" class="link-btn">
                 <span class="btn-icon">🚚</span>
                 <div class="btn-text">
                     <span class="btn-title">Envíos a todo el país</span>
