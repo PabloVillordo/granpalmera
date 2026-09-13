@@ -696,40 +696,44 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
       <h2>Dos caminos. Un mismo objetivo: un mejor paisaje.</h2>
     </div>
     <div class="choice-container">
-      <div class="choice-grid stagger">
-        <article class="choice__card">
-          <div>
-            <div class="choice__icon">🏡</div>
-            <h3>Quiero diseñar mi jardín</h3>
-            <p><strong>Paisajismo residencial:</strong> Del diseño a la instalación. Transformamos jardines, patios y espacios exteriores de casas y residencias.</p>
-          </div>
-          <div class="choice__actions">
-            <a class="btn btn--solid" href="paisajismo_residencial_granpalmera.html" target="_blank" rel="noopener">Presupuesto sin cargo</a>
-          </div>
-        </article>
+<div class="choice-grid stagger">
+  <!-- Tarjeta 1: Residencial (Abre en la misma pestaña) -->
+  <article class="choice__card">
+    <div class="choice__body">
+      <div class="choice__icon" aria-hidden="true">🏡</div>
+      <h3>Quiero diseñar mi jardín</h3>
+      <p><strong>Paisajismo residencial:</strong> Del diseño a la instalación. Transformamos jardines, patios y espacios exteriores de casas y residencias.</p>
+    </div>
+    <div class="choice__actions">
+      <a class="btn btn--solid" href="paisajismo_residencial_granpalmera.html">Presupuesto sin cargo</a>
+    </div>
+  </article>
 
-        <article class="choice__card">
-          <div>
-            <div class="choice__icon">👷🏻‍♂️</div>
-            <h3>Tengo un proyecto</h3>
-            <p><strong>Paisajismo para profesionales:</strong> Partner técnico para arquitectura, construcción y desarrollos de mayor envergadura.</p>
-          </div>
-          <div class="choice__actions">
-            <a class="btn btn--solid" href="paisajismo_profesional_granpalmera.html" target="_blank" rel="noopener">Trabajemos juntos</a>
-          </div>
-        </article>
-      </div>
+  <!-- Tarjeta 2: Profesional (Abre en la misma pestaña) -->
+  <article class="choice__card">
+    <div class="choice__body">
+      <div class="choice__icon" aria-hidden="true">👷🏻‍♂️</div>
+      <h3>Tengo un proyecto</h3>
+      <p><strong>Paisajismo para profesionales:</strong> Partner técnico para arquitectura, construcción y desarrollos de mayor envergadura.</p>
+    </div>
+    <div class="choice__actions">
+      <a class="btn btn--solid" href="paisajismo_profesional_granpalmera.html">Trabajemos juntos</a>
+    </div>
+  </article>
 
-      <article class="choice__card wa-card reveal">
-        <div>
-          <div class="choice__icon">📲</div>
-          <h3>Quiero consultar</h3>
-          <p>Consultas, asesoramiento o pedidos especiales. Hablemos directamente por WhatsApp.</p>
-        </div>
-        <div class="choice__actions">
-          <a class="btn" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Abrir WhatsApp →</a>
-        </div>
-      </article>
+  <!-- Tarjeta 3: WhatsApp (Mantiene target="_blank" recomendable para enlaces externos) -->
+  <article class="choice__card wa-card reveal">
+    <div class="choice__body">
+      <div class="choice__icon" aria-hidden="true">📲</div>
+      <h3>Quiero consultar</h3>
+      <p>Consultas, asesoramiento o pedidos especiales. Hablemos directamente por WhatsApp.</p>
+    </div>
+    <div class="choice__actions">
+      <a class="btn btn--whatsapp" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Abrir WhatsApp →</a>
+    </div>
+  </article>
+
+</div>
     </div>
   </section>
 
