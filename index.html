@@ -238,7 +238,7 @@
 <body>
 
 <div id="bgwash" aria-hidden="true"></div>
-<!-- Canvas para hojas cayendo (motor físico adaptado al trópico) -->
+<!-- Canvas para hojas de Monstera Deliciosa (usando /img/monstera.png) -->
 <canvas id="petals" aria-hidden="true"></canvas>
 
 <!-- NAVEGACIÓN -->
@@ -305,14 +305,12 @@
     </div>
   </section>
 
-  <!-- SIGNATURE · EL MONTAJE (Rediseñado para Paisajismo Botánico) -->
+  <!-- SIGNATURE · EL MONTAJE -->
   <section class="bloom" id="montaje" aria-label="Diseño Paisajístico">
     <div class="bloom__stage" id="bloomStage">
       <span class="bloom__ground" aria-hidden="true"></span>
-      <!-- Trazos SVG simulando nervaduras u hojas creciendo -->
       <svg class="bloom__stems" id="bloomStems" aria-hidden="true" fill="none" stroke-width="3" stroke-linecap="round"></svg>
       <div class="bloom__cluster" id="bloomCluster">
-        <!-- Hojas generadas por JS en estas coordenadas -->
         <div class="bloom__flower" data-kind="float" style="top:20%; left:15%; width:12%"><i class="fa-solid fa-leaf fa-4x" style="color:var(--salvia); opacity:0.6; transform:rotate(-45deg);"></i></div>
         <div class="bloom__flower" data-kind="float" style="top:30%; left:80%; width:14%"><i class="fa-solid fa-leaf fa-5x" style="color:var(--verde-atardecer); opacity:0.5; transform:rotate(30deg);"></i></div>
         <div class="bloom__flower" data-kind="float" style="top:60%; left:10%; width:15%"><i class="fa-solid fa-leaf fa-5x" style="color:var(--tierra); opacity:0.7; transform:rotate(-60deg);"></i></div>
@@ -473,7 +471,7 @@
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
 </a>
 
-<!-- SCRIPTS (GSAP + LENIS + LOGICA CUSTOM) -->
+<!-- SCRIPTS (GSAP + LENIS + CANVAS MONSTERA PNG + LÓGICA CUSTOM) -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
@@ -628,39 +626,89 @@
     });
   }
 
-  // Canvas 2D: Hojas flotando suavemente (adaptado botánico)
-  if(!reduce) {
-    const canvas = document.getElementById('petals');
-    const ctx = canvas.getContext('2d');
-    const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
-    let W, H, bits = [], running = true, raf = 0;
-    const COUNT = window.innerWidth < 760 ? 6 : 10; // Menos partículas para ambiente más elegante
-    const LEAF_COLORS = ['rgba(138,158,135,0.25)', 'rgba(91,70,56,0.15)', 'rgba(58,74,63,0.1)']; // Colores Gran Palmera
+  // Canvas 2D: Hojas flotantes basadas en la referencia de imagen /img/monstera.png
+  (function(){
+    var canvas = document.getElementById('petals'); if(!canvas || reduce) return;
+    var ctx = canvas.getContext('2d'); var DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+    var W, H, bits = [], running = true, raf = 0;
     
-    function resize() { W = canvas.width = Math.floor(innerWidth * DPR); H = canvas.height = Math.floor(innerHeight * DPR); canvas.style.width = innerWidth + 'px'; canvas.style.height = innerHeight + 'px'; }
-    function mk(y) { return {x: Math.random() * W, y: (y != null ? y : Math.random() * H), r: (8 + Math.random() * 12) * DPR, vy: (0.12 + Math.random() * 0.25) * DPR, sway: 0.5 + Math.random() * 1.5, ph: Math.random() * Math.PI * 2, rot: Math.random() * Math.PI, vr: (Math.random() - 0.5) * 0.01, c: LEAF_COLORS[Math.floor(Math.random() * LEAF_COLORS.length)] }; }
-    function init() { resize(); bits = []; for(let i=0; i<COUNT; i++) bits.push(mk()); }
-    
-    function shape(p) { 
-        let r = p.r; ctx.beginPath(); 
-        ctx.moveTo(0, -r); ctx.quadraticCurveTo(r*0.6, 0, 0, r); ctx.quadraticCurveTo(-r*0.6, 0, 0, -r); 
-        ctx.closePath(); ctx.fill(); 
+    var COUNT = window.innerWidth < 760 ? 5 : 9; 
+
+    // Carga de la imagen de referencia compartida
+    var monsteraImg = new Image();
+    monsteraImg.src = 'img/monstera.png';
+    var imgReady = false;
+    monsteraImg.onload = function() {
+      imgReady = true;
+    };
+
+    function resize() { 
+      W = canvas.width = Math.floor(innerWidth * DPR); 
+      H = canvas.height = Math.floor(innerHeight * DPR); 
+      canvas.style.width = innerWidth + 'px'; 
+      canvas.style.height = innerHeight + 'px'; 
     }
-    
+
+    function mk(y) { 
+      return {
+        x: Math.random() * W, 
+        y: (y != null ? y : Math.random() * H), 
+        r: (18 + Math.random() * 14) * DPR, // Escala basada en la referencia visual
+        vy: (0.10 + Math.random() * 0.20) * DPR, 
+        sway: 0.5 + Math.random() * 1.2, 
+        ph: Math.random() * Math.PI * 2, 
+        rot: Math.random() * Math.PI, 
+        vr: (Math.random() - 0.5) * 0.008
+      }; 
+    }
+
+    function init() { resize(); bits = []; for(var i=0; i<COUNT; i++) bits.push(mk()); }
+
     function draw() { 
       if(!running) return; 
       ctx.clearRect(0, 0, W, H);
-      for(let i=0; i<bits.length; i++) { 
-        let p = bits[i]; p.y += p.vy; p.ph += 0.006; p.x += Math.sin(p.ph) * p.sway * 0.4 * DPR; p.rot += p.vr;
-        if(p.y - p.r * 2 > H) { bits[i] = mk(-30); p = bits[i]; }
-        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.fillStyle = p.c; shape(p); ctx.restore(); 
+      
+      for(var i=0; i<bits.length; i++) { 
+        var p = bits[i]; 
+        p.y += p.vy; 
+        p.ph += 0.005; 
+        p.x += Math.sin(p.ph) * p.sway * 0.35 * DPR; 
+        p.rot += p.vr;
+        
+        if(p.y - p.r * 2 > H) { 
+          bits[i] = mk(-40); 
+          p = bits[i]; 
+        }
+        
+        ctx.save(); 
+        ctx.translate(p.x, p.y); 
+        ctx.rotate(p.rot); 
+        
+        if (imgReady) {
+          // Dibujar la imagen exactamente centrada con su proporción simétrica
+          ctx.drawImage(monsteraImg, -p.r, -p.r * 1.1, p.r * 2, p.r * 2.2);
+        }
+        
+        ctx.restore(); 
       }
       raf = requestAnimationFrame(draw);
     }
-    init(); draw();
-    addEventListener('resize', () => { cancelAnimationFrame(raf); init(); if(running) draw(); }, {passive: true});
-    document.addEventListener('visibilitychange', () => { running = !document.hidden; if(running) draw(); else cancelAnimationFrame(raf); });
-  }
+
+    init(); 
+    draw();
+    
+    addEventListener('resize', function(){ 
+      cancelAnimationFrame(raf); 
+      init(); 
+      if(running) draw(); 
+    }, {passive: true});
+    
+    document.addEventListener('visibilitychange', function(){ 
+      running = !document.hidden; 
+      if(running) draw(); 
+      else cancelAnimationFrame(raf); 
+    });
+  })();
 
   // Buscador Interactivo Lógica
   const inputBuscador = document.getElementById('input-buscador-hub');

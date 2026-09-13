@@ -1,26 +1,64 @@
 <!DOCTYPE html>
-<!-- Declaración HTML5 y clase anti-flash para evitar saltos visuales antes de cargar CSS/JS[cite: 10] -->
+<!--
+  GRAN PALMERA · Paisajismo para Profesionales (Atelier Opus 5.0 Refactored)
+  ARQUITECTURA: Basada en el sistema de diseño y performance de Coupes y Rosas.
+  SECCIÓN NARRATIVA B2B: Escenario de Transformación del Proyecto (#proyectoStage).
+  MOTOR FÍSICO CANVAS 2D: Partículas de Monstera Deliciosa (../img/monstera.png).
+-->
 <html lang="es-AR" class="preload">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paisajismo para Profesionales | Gran Palmera</title>
-<meta name="description" content="Paisajismo profesional para arquitectos, estudios, constructoras y desarrolladores. Diseño, documentación, visualización 3D, vegetación, provisión y supervisión.">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Paisajismo para Profesionales | Gran Palmera · Partner Técnico B2B</title>
+<meta name="description" content="Paisajismo profesional para arquitectos, estudios, constructoras y desarrolladores. Diseño, documentación técnica, visualización 3D, curaduría de vegetación y supervisión de obra.">
+<link rel="canonical" href="https://www.granpalmera-vivero-paisajismo.com/paisajismo/paisajismo_profesional_granpalmera.html">
 
-<!-- Preconexión e importación de fuentes desde Google Fonts (Cormorant Garamond, Playfair Display y Lato)[cite: 10] -->
+<!-- Meta etiquetas Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.granpalmera-vivero-paisajismo.com/paisajismo/paisajismo_profesional_granpalmera.html">
+<meta property="og:title" content="Paisajismo para Profesionales | Gran Palmera">
+<meta property="og:description" content="Partner técnico para arquitectos, estudios, constructoras y desarrolladores. Integramos paisaje, arquitectura y vegetación desde el proyecto a la obra.">
+<meta property="og:image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Gran Palmera">
+
+<link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://unpkg.com">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-
-<!-- Iconos vectoriales FontAwesome[cite: 10] -->
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+<!-- SCHEMA.ORG JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService", "GardenStore"],
+  "@id": "https://www.granpalmera-vivero-paisajismo.com/#b2b-business",
+  "name": "Gran Palmera · Paisajismo Profesional",
+  "description": "Consultoría, proyecto paisajístico, documentación técnica y provisión vegetal para estudios de arquitectura, desarrolladores y constructoras.",
+  "url": "https://www.granpalmera-vivero-paisajismo.com",
+  "image": "https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png",
+  "telephone": "+54 9 376 400-0000",
+  "slogan": "El paisaje como parte del proyecto.",
+  "areaServed": ["Posadas", "Misiones", "Argentina"],
+  "address": { 
+    "@type": "PostalAddress", 
+    "addressLocality": "Posadas", 
+    "addressRegion": "Misiones", 
+    "addressCountry": "AR" 
+  },
+  "openingHours": "Mo-Sa 08:00-19:00"
+}
+</script>
+
 <style>
-/* ════════════════════════════════════════════════════════════════
-   1. VARIABLES GLOBALES (TOKENS DE DISEÑO)
-   ════════════════════════════════════════════════════════════════[cite: 10] */
+/* ════ PALETA Y SISTEMA DE DISEÑO BASE ════ */
 :root {
-  /* Paleta cromática corporativa y de naturaleza[cite: 10] */
   --lino: #FAF7F2; 
   --crema: #EDE3D5; 
   --rosa: #C9A89A; 
@@ -30,110 +68,276 @@
   --grafito: #4A4040;
   --verde-atardecer: #3a4a3f; 
   --burdeos: #6e3b3b;
-  
-  /* Curvas de aceleración bézier para animaciones orgánicas[cite: 10] */
-  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1); 
   --e-out-lg: cubic-bezier(0.16, 1, 0.30, 1);
-  --e-inout: cubic-bezier(0.76, 0, 0.24, 1);
+  --e-inout: cubic-bezier(0.76, 0, 0.24, 1); 
   --e-soft: cubic-bezier(0.33, 0, 0.20, 1);
-  
-  /* Tiempos de transición y padding adaptativo mediante clamp[cite: 10] */
-  --d-comp: 0.6s;
+  --d-micro: 0.32s; 
+  --d-comp: 0.6s; 
+  --d-hero: 1.1s; 
   --pad: clamp(1.25rem, 5vw, 6rem);
 }
 
-/* Reset básico universal[cite: 10] */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--lino); color: var(--grafito); font-family: 'Lato', system-ui, sans-serif; line-height: 1.65; overflow-x: hidden; }
+html { color-scheme: light only; overflow-x: clip; }
+body { 
+  background: var(--lino); 
+  color: var(--grafito); 
+  font-family: 'Lato', system-ui, -apple-system, sans-serif; 
+  line-height: 1.65; 
+  -webkit-font-smoothing: antialiased; 
+  overflow-x: clip; 
+}
 
-/* Tipografía de jerarquía principal[cite: 10] */
-h1, h2, h3, .display { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; line-height: 1.06; letter-spacing: -.01em; }
+h1, h2, h3, .display { 
+  font-family: 'Cormorant Garamond', Georgia, serif; 
+  font-weight: 500; 
+  line-height: 1.06; 
+  letter-spacing: -0.01em; 
+  text-wrap: balance; 
+}
 .accent { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; }
-.eyebrow { font-family: 'Lato', sans-serif; font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 700; }
+.eyebrow { font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase; font-weight: 700; }
 a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+::selection { background: rgba(201,168,154,0.32); color: var(--tierra-deep); }
+:focus-visible { outline: 2px solid var(--rosa); outline-offset: 3px; border-radius: 2px; }
 
-/* Capas fijas de fondo (Lavado de color y Canvas de partículas)[cite: 10] */
-#bgwash { position: fixed; inset: 0; z-index: 0; background: var(--lino); pointer-events: none; }
+/* Textura sutil de grano analógico */
+body::before { 
+  content: ""; 
+  position: fixed; 
+  inset: 0; 
+  z-index: 1; 
+  pointer-events: none; 
+  opacity: 0.5; 
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); 
+}
+
+#bgwash { position: fixed; inset: 0; z-index: 0; background: var(--lino); pointer-events: none; will-change: background-color; }
 #petals { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 main { position: relative; z-index: 2; }
 
-/* Bloqueo anti-flash pre-carga de JavaScript[cite: 10] */
-html.preload * { transition: none !important; }
+html.preload *, html.preload *::before, html.preload *::after { transition: none !important; }
 
-/* ════════════════════════════════════════════════════════════════
-   2. BARRA DE NAVEGACIÓN FLOTANTE (NAV)
-   ════════════════════════════════════════════════════════════════[cite: 10] */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 1rem var(--pad); height: 74px; color: var(--lino); transition: background var(--d-comp) var(--e-soft); }
-/* Estado activo mediante ScrollTrigger: activa el fondo semitransparente con desenfoque[cite: 10] */
-.nav.is-scrolled { background: rgba(250,247,242,.9); backdrop-filter: blur(10px); color: var(--grafito); box-shadow: 0 1px 0 rgba(74,64,64,.08); }
+/* ════ NAVEGACIÓN ════ */
+.nav { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 60; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 1rem var(--pad); 
+  height: 74px; 
+  color: var(--lino); 
+  transition: background var(--d-comp) var(--e-soft), color var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft); 
+}
+.nav.is-scrolled { 
+  background: rgba(250,247,242,0.92); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--grafito); 
+  box-shadow: 0 1px 0 rgba(74,64,64,0.08); 
+}
 .nav__brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; font-weight: 600; }
-.nav__links { display: flex; gap: 1.8rem; font-size: .78rem; text-transform: uppercase; align-items: center; }
-.nav__cta { display: inline-flex; border: 1px solid currentColor; border-radius: 100px; padding: .62rem 1.25rem; }
+.nav__links { display: flex; gap: 1.8rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; align-items: center; }
+.nav__links a:not(.nav__cta) { position: relative; padding-bottom: 3px; }
+.nav__links a:not(.nav__cta)::after { 
+  content: ""; 
+  position: absolute; 
+  left: 0; 
+  bottom: 0; 
+  width: 100%; 
+  height: 1px; 
+  background: currentColor; 
+  transform: scaleX(0); 
+  transform-origin: left; 
+  transition: transform var(--d-comp) var(--e-soft); 
+}
+.nav__links a:not(.nav__cta):hover::after, 
+.nav__links a:not(.nav__cta):focus-visible::after { transform: scaleX(1); }
 
-/* Logo circular del Hero[cite: 10] */
-.logo-circle { width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--salvia); overflow: hidden; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; background: #fff; box-shadow: 0 10px 20px rgba(0,0,0,.15); }
-.logo-image { width: 100%; height: 100%; object-fit: cover; }
+.nav__cta { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: transparent !important; 
+  border: 1px solid currentColor; 
+  border-radius: 100px; 
+  padding: 0.62rem 1.25rem; 
+  line-height: 1; 
+  text-align: center; 
+  transition: transform var(--d-micro) var(--e-soft), background-color var(--d-comp) var(--e-soft); 
+}
+.nav__cta:hover, .nav__cta:focus-visible { 
+  transform: translateY(-1px); 
+  background-color: rgba(201,168,154,0.14) !important; 
+}
 
-/* ════════════════════════════════════════════════════════════════
-   3. BOTONES Y COMPONENTES INTERACTIVOS
-   ════════════════════════════════════════════════════════════════[cite: 10] */
-.btn { display: inline-flex; align-items: center; gap: .55rem; padding: .95rem 1.9rem; border-radius: 100px; font-size: .9rem; transition: .3s; }
-.btn--solid { background: var(--rosa) !important; color: #38291d !important; border: 1px solid var(--rosa); }
-.btn--solid:hover, .btn--solid:focus-visible { background: var(--tierra-deep) !important; border-color: var(--tierra-deep); color: var(--lino) !important; }
-.btn--ghost { border: 1.5px solid rgba(250,247,242,.55); color: var(--lino); }
+/* Menú Hamburguesa Móvil */
+.nav__burger { display: none; position: relative; z-index: 3; width: 34px; height: 22px; padding: 0; background: none; border: 0; color: inherit; cursor: pointer; }
+.nav__burger span { position: absolute; left: 2px; right: 2px; height: 2.5px; background: currentColor; border-radius: 2px; transition: transform var(--d-comp) var(--e-soft), opacity var(--d-micro) var(--e-soft), top var(--d-comp) var(--e-soft); }
+.nav__burger span:nth-child(1) { top: 3px; }
+.nav__burger span:nth-child(2) { top: 10px; }
+.nav__burger span:nth-child(3) { top: 17px; }
+.nav.is-open .nav__burger span:nth-child(1) { top: 10px; transform: rotate(45deg); }
+.nav.is-open .nav__burger span:nth-child(2) { opacity: 0; }
+.nav.is-open .nav__burger span:nth-child(3) { top: 10px; transform: rotate(-45deg); }
+
+@media (max-width: 760px) {
+  .nav__burger { display: block; }
+  .nav__brand { position: relative; z-index: 3; }
+  .nav.is-open { color: var(--lino); }
+  .nav.is-open.is-scrolled { background: transparent; box-shadow: none; }
+  .nav__links { 
+    position: fixed; 
+    inset: 0; 
+    height: 100svh; 
+    z-index: 2; 
+    flex-direction: column; 
+    justify-content: center; 
+    gap: 1.7rem; 
+    padding: 2rem; 
+    background: var(--verde-atardecer); 
+    color: var(--lino); 
+    opacity: 0; 
+    visibility: hidden; 
+    transform: translateY(-10px); 
+    transition: opacity var(--d-comp) var(--e-soft), transform var(--d-comp) var(--e-out), visibility 0s linear var(--d-comp); 
+  }
+  .nav.is-open .nav__links { opacity: 1; visibility: visible; transform: none; transition: opacity var(--d-comp) var(--e-soft), transform var(--d-comp) var(--e-out); }
+  .nav__links a:not(.nav__cta) { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; letter-spacing: 0.01em; text-transform: none; }
+  .nav__cta { margin-top: 0.6rem; color: var(--lino); border-color: rgba(250,247,242,0.55); padding: 0.8rem 1.8rem; font-size: 0.82rem; }
+}
+
+/* ════ BOTONES Y COMPONENTES REUTILIZABLES ════ */
+.btn { 
+  position: relative; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.55rem; 
+  padding: 0.95rem 1.9rem; 
+  border-radius: 100px; 
+  font-size: 0.9rem; 
+  letter-spacing: 0.02em; 
+  line-height: 1; 
+  text-decoration: none; 
+  cursor: pointer; 
+  appearance: none; 
+  -webkit-appearance: none; 
+  transition: background var(--d-comp) var(--e-soft), color var(--d-comp) var(--e-soft), border-color var(--d-comp) var(--e-soft), transform var(--d-micro) var(--e-soft); 
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--solid { background-color: var(--rosa) !important; color: #38291d !important; border: 1px solid var(--rosa); }
+.btn--solid:hover, .btn--solid:focus-visible { background-color: var(--tierra-deep) !important; border-color: var(--tierra-deep); color: var(--lino) !important; }
+.btn--ghost { background-color: transparent !important; color: var(--lino); border: 1.5px solid rgba(250,247,242,0.55); }
+.btn--ghost:hover, .btn--ghost:focus-visible { background-color: rgba(250,247,242,0.16) !important; border-color: var(--lino); color: var(--lino); }
 .btn__wa { width: 18px; height: 18px; flex: none; }
 
-/* Botón flotante directo a WhatsApp[cite: 10] */
-.wa-float { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 55; width: 56px; height: 56px; border-radius: 50%; background: var(--tierra-deep) !important; color: var(--lino); border: 1.5px solid rgba(250,247,242,.32); display: grid; place-items: center; box-shadow: 0 10px 26px rgba(74,64,64,.32); transition: transform var(--d-comp) var(--e-soft); }
-.wa-float:hover { transform: scale(1.06); }
-.wa-float svg { width: 26px; height: 26px; }
+/* Logo Circular en el Hero */
+.logo-circle { 
+  width: 110px; 
+  height: 110px; 
+  border-radius: 50%; 
+  border: 2px solid var(--salvia); 
+  overflow: hidden; 
+  margin: 0 auto 1.4rem auto; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background-color: white; 
+  box-shadow: 0 10px 24px rgba(0,0,0,0.2); 
+  position: relative; 
+  z-index: 2; 
+}
+.logo-image { width: 100%; height: 100%; object-fit: cover; }
 
-/* ════════════════════════════════════════════════════════════════
-   4. ENCABEZADO PRINCIPAL (HERO)
-   ════════════════════════════════════════════════════════════════[cite: 10] */
-.hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 4.5rem var(--pad) 4rem; background: radial-gradient(circle at 50% 40%,#595E53 0%,#3B4B40 50%,#3A4A3F 100%); color: var(--lino); overflow: hidden; }
-.hero h1 { font-size: clamp(2.6rem, 6.4vw, 5.4rem); max-width: 20ch; margin-inline: auto; color: #E6CDBF; }
-.hero__sub { margin-top: 1.8rem; font-size: clamp(1.02rem, 1.5vw, 1.28rem); max-width: 58ch; margin-inline: auto; color: rgba(250,247,242,.9); }
-.hero__actions { margin-top: 2.4rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-.scrollcue { position: absolute; bottom: 1.8rem; display: flex; flex-direction: column; align-items: center; gap: .6rem; font-size: .66rem; text-transform: uppercase; color: rgba(250,247,242,.7); }
-.scrollcue__line { width: 1px; height: 42px; background: linear-gradient(rgba(250,247,242,.8),transparent); }
+/* ════ HERO SECTION ════ */
+.hero { 
+  position: relative; 
+  min-height: 100svh; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  padding: 6.5rem var(--pad) 4.5rem; 
+  background: radial-gradient(circle at 50% 40%, #595E53 0%, #3B4B40 50%, #3A4A3F 100%); 
+  color: var(--lino); 
+  overflow: hidden; 
+}
+.hero__glow { 
+  position: absolute; 
+  inset: 0; 
+  background: radial-gradient(120% 90% at 50% 40%, rgba(201,168,154,0.24), transparent 62%); 
+  pointer-events: none; 
+}
+.hero__eyebrow { overflow: hidden; margin-bottom: 1.3rem; color: #E6CDBF; position: relative; z-index: 2; }
+.hero h1 { font-size: clamp(2.4rem, 5.8vw, 5.2rem); max-width: min(94vw, 22ch); margin-inline: auto; position: relative; z-index: 2; font-weight: 500; color: #E6CDBF; }
+.hero h1 .accent { color: #E6CDBF; }
+.hero__line { display: block; overflow: hidden; }
+.hero__line > span { display: inline-block; will-change: transform; }
+.hero__sub { margin-top: 1.8rem; font-size: clamp(1.02rem, 1.5vw, 1.28rem); max-width: 58ch; margin-inline: auto; color: rgba(250,247,242,0.9); overflow: hidden; position: relative; z-index: 2; }
+.hero__sub > span { display: inline-block; }
+.hero__actions { margin-top: 2.4rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center; position: relative; z-index: 2; }
 
-/* ════════════════════════════════════════════════════════════════
-   5. SECCIONES GENERALES Y MANIFIESTO (TEXT REVEAL)
-   ════════════════════════════════════════════════════════════════[cite: 10] */
+.scrollcue { 
+  position: absolute; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  bottom: 1.8rem; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 0.6rem; 
+  font-size: 0.66rem; 
+  letter-spacing: 0.22em; 
+  text-transform: uppercase; 
+  color: rgba(250,247,242,0.7); 
+  z-index: 2; 
+}
+.scrollcue__line { width: 1px; height: 42px; background: linear-gradient(rgba(250,247,242,0.8), transparent); transform-origin: top; }
+
+/* ════ SECCIONES Y ENCABEZADOS ════ */
 .section { padding: clamp(5.5rem, 13vh, 11rem) var(--pad); position: relative; }
 .section--crema { background: transparent; }
 .section-head { margin-bottom: clamp(2.5rem, 6vh, 4.5rem); max-width: 54rem; }
-.section-head h2 { font-size: clamp(2.0rem, 4.4vw, 3.5rem); }
+.section-head .eyebrow { color: var(--tierra); display: block; margin-bottom: 1rem; }
+.section-head h2 { font-size: clamp(2rem, 4.4vw, 3.5rem); color: var(--verde-atardecer); }
+.section-head p { margin-top: 1.2rem; max-width: 60ch; color: rgba(74,64,64,0.84); font-size: clamp(1rem, 1.4vw, 1.15rem); }
 
-.manifesto { max-width: min(92vw, 50rem); margin-inline: auto; text-align: center; display: flex; flex-direction: column; gap: 1.9rem; }
-.manifesto__line { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 4.6vw, 3.5rem); line-height: 1.16; }
-/* Las palabras de la clase .w cambian de color con el scroll gestionado por GSAP[cite: 10] */
-.manifesto .w { color: rgba(74,64,64,.15); transition: color .6s; }
+/* ════ MANIFIESTO NARRATIVO ════ */
+.manifesto { max-width: min(92vw, 50rem); margin-inline: auto; text-align: center; display: flex; flex-direction: column; gap: clamp(0.9rem, 2.4vw, 1.9rem); }
+.manifesto__line { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 4.6vw, 3.5rem); line-height: 1.16; font-weight: 500; text-wrap: balance; color: var(--verde-atardecer); }
+.manifesto__line:nth-child(2) { font-style: italic; font-family: 'Playfair Display', 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.8vw, 2.9rem); color: var(--tierra-deep); }
+.manifesto .w { color: rgba(74,64,64,0.15); transition: color var(--d-comp) var(--e-out); }
 
-/* ════════════════════════════════════════════════════════════════
-   6. ESCENARIO DE TRANSFORMACIÓN GSAP (#proyectoStage)
-   ════════════════════════════════════════════════════════════════[cite: 10] */
-.stage { position: relative; width: 100%; height: 100vh; background: var(--lino); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.copy { position: relative; z-index: 10; text-align: center; width: 100%; max-width: 52rem; padding: 0 var(--pad); }
-.texto-1, .texto-2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; }
+/* ════ ESCENARIO B2B RECONSTRUIDO: TRANSFORMACIÓN DEL PROYECTO (#proyectoStage) ════ */
+.stage { position: relative; width: 100%; height: 100vh; background-color: var(--lino); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.copy { position: relative; z-index: 10; text-align: center; width: 100%; max-width: 52rem; padding: 0 var(--pad); pointer-events: none; }
+.texto-1, .texto-2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; will-change: transform, opacity; }
 .texto-2 { opacity: 0; }
-.stage p.display { font-size: clamp(2.4rem, 6.4vw, 4.8rem); margin-bottom: .5rem; color: var(--verde-atardecer); }
+.stage p.display { font-size: clamp(2.4rem, 6.4vw, 4.8rem); margin-bottom: 0.5rem; color: var(--verde-atardecer); }
 
-/* Elementos del plano y paisaje vectorial construidos exclusivamente en CSS[cite: 10] */
-.proyecto-elemento { position: absolute; pointer-events: none; }
-.plano { inset: auto -5% -10vh; width: 110%; height: 35vh; background: #D7CEC0; border-radius: 50% 50% 0 0; z-index: 1; }
-.arbol { border-radius: 50%; z-index: 3; box-shadow: inset -10px -10px 20px rgba(0,0,0,.1); }
+/* Formas Geométricas Vectoriales del Plano y Paisaje Arquitectónico */
+.proyecto-elemento { position: absolute; pointer-events: none; will-change: transform, opacity; }
+.plano { bottom: -10vh; left: -5%; width: 110%; height: 35vh; background: #D7CEC0; border-radius: 50% 50% 0 0; z-index: 1; }
+
+.arbol { border-radius: 50%; z-index: 3; box-shadow: inset -10px -10px 20px rgba(0,0,0,0.1); }
 .arbol-1 { bottom: 10vh; left: 15%; width: 180px; height: 140px; background: #8A9E87; }
 .arbol-2 { bottom: 5vh; right: 20%; width: 220px; height: 160px; background: #718F65; }
 .arbol-3 { bottom: 15vh; right: 10%; width: 120px; height: 100px; background: #A8B59E; }
 
-/* Ejemplar 1 (Palmera Principal)[cite: 10] */
+/* Ejemplar Principal (Palmera / Proyección de Volumetría) */
 .ejemplar { bottom: 15vh; left: 30%; z-index: 2; }
 .tronco { width: 24px; height: 55vh; background: #8B6F5E; border-radius: 12px; position: absolute; bottom: 0; left: -12px; }
-.copa { width: 280px; height: 280px; background: #8DA3A6; border-radius: 50%; position: absolute; bottom: 50vh; left: -140px; box-shadow: inset -20px -20px 40px rgba(0,0,0,.15); }
+.copa { width: 280px; height: 280px; background: #8DA3A6; border-radius: 50%; position: absolute; bottom: 50vh; left: -140px; box-shadow: inset -20px -20px 40px rgba(0,0,0,0.15); }
 
-/* Ejemplar 2 (Multitronco)[cite: 10] */
+/* Ejemplar Secundario (Multitronco) */
 .ejemplar-2 { bottom: 20vh; right: 35%; z-index: 2; }
 .tronco2 { width: 16px; background: #A39C76; border-radius: 8px; position: absolute; bottom: 0; }
 .tronco2.t1 { height: 45vh; left: -25px; transform: rotate(-5deg); }
@@ -142,362 +346,795 @@ html.preload * { transition: none !important; }
 .copa2.c1 { width: 180px; height: 150px; bottom: 40vh; left: -110px; }
 .copa2.c2 { width: 160px; height: 130px; bottom: 35vh; left: -40px; }
 
-/* ════════════════════════════════════════════════════════════════
-   7. TARJETAS DE SERVICIOS Y PROCESOS (.cards / .steps)
-   ════════════════════════════════════════════════════════════════[cite: 10] */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.2rem; }
-.card { background: #fff; border-radius: 3px; padding: 2.2rem 1.8rem; display: flex; flex-direction: column; gap: .7rem; transition: transform var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft); }
-.card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(74,64,64,.09); }
-.card h3 { font-size: 1.8rem; color: var(--verde-atardecer); }
+/* ════ GRILLAS DE CONTENIDO B2B ════ */
 
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; }
-.step { border-top: 1px solid rgba(139,111,94,.3); padding-top: 1.1rem; }
+/* Cards (.cards - Servicios para Profesionales) */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(1.2rem, 2.5vw, 2.2rem); }
+.card { 
+  background: #ffffff; 
+  border: 1px solid var(--crema); 
+  border-radius: 6px; 
+  padding: 2.2rem 1.8rem; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.75rem; 
+  transition: transform var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft), border-color 0.3s; 
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(74,64,64,0.09); border-color: var(--rosa); }
+.card h3 { font-size: 1.6rem; color: var(--verde-atardecer); }
+.card p { color: rgba(74,64,64,0.82); font-size: 0.96rem; flex: 1; }
+.card a { font-size: 0.85rem; letter-spacing: 0.04em; color: var(--tierra); border-bottom: 1px solid var(--rosa); padding-bottom: 2px; align-self: start; font-weight: 700; transition: color 0.3s; }
+.card a:hover { color: var(--tierra-deep); }
+
+/* Steps (.steps - Metodología de Proyecto) */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(1.4rem, 3vw, 3rem); }
+.step { border-top: 1px solid rgba(139,111,94,0.3); padding-top: 1.1rem; }
 .step__n { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--rosa); }
-.step h3 { font-size: 1.6rem; margin: .3rem 0; }
+.step h3 { font-size: 1.6rem; margin: 0.3rem 0 0.5rem; color: var(--verde-atardecer); }
+.step p { font-size: 0.95rem; color: rgba(74,64,64,0.82); }
 
-/* ════════════════════════════════════════════════════════════════
-   8. GRILLA DE AUDIENCIA B2B (.audience)
-   ════════════════════════════════════════════════════════════════[cite: 10] */
-.audience { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: rgba(139,111,94,.2); }
-.audience article { background: var(--lino); padding: 2rem 1.6rem; min-height: 190px; }
-.audience .icon { font-size: 1.6rem; margin-bottom: 1rem; }
-.audience h3 { font-size: 1.55rem; margin-bottom: .4rem; color: var(--verde-atardecer); }
+/* Grilla B2B de Público Objetivo (.audience) */
+.audience { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 1px; 
+  background: rgba(139,111,94,0.22); 
+  border-radius: 8px; 
+  overflow: hidden; 
+  box-shadow: 0 10px 30px rgba(74,64,64,0.05); 
+}
+.audience article { 
+  background: var(--lino); 
+  padding: 2.2rem 1.8rem; 
+  min-height: 200px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  transition: background var(--d-comp) var(--e-soft); 
+}
+.audience article:hover { background: #ffffff; }
+.audience .icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.audience h3 { font-size: 1.55rem; margin-bottom: 0.5rem; color: var(--verde-atardecer); }
+.audience p { font-size: 0.92rem; color: rgba(74,64,64,0.82); line-height: 1.6; }
 
-/* ════════════════════════════════════════════════════════════════
-   9. ACORDEÓN MODULAR DE PREGUNTAS / MÓDULOS (.faq)
-   ════════════════════════════════════════════════════════════════[cite: 10] */
-.faq { max-width: 64rem; margin: 0 auto; }
-.faq__item { border-bottom: 1px solid rgba(139,111,94,.26); }
-.faq__q { width: 100%; text-align: left; background: none; border: 0; cursor: pointer; padding: 1.4rem 0; display: flex; justify-content: space-between; gap: 1rem; align-items: center; font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 2.4vw, 1.7rem); color: var(--grafito); list-style: none; }
+/* FAQ Acordeón (.faq - Soluciones Modulares B2B) */
+.faq { max-width: 64rem; margin-inline: auto; }
+.faq__item { border-bottom: 1px solid rgba(139,111,94,0.26); background: #ffffff; border-radius: 6px; margin-bottom: 12px; padding: 0 22px; box-shadow: 0 2px 6px rgba(74,64,64,0.04); }
+.faq__q { 
+  width: 100%; 
+  text-align: left; 
+  background: none; 
+  border: 0; 
+  cursor: pointer; 
+  padding: 1.4rem 0; 
+  display: flex; 
+  justify-content: space-between; 
+  gap: 1rem; 
+  align-items: center; 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem); 
+  color: var(--verde-atardecer); 
+  list-style: none; 
+  outline: none; 
+}
 .faq__q::-webkit-details-marker { display: none; }
-
-/* Dibujo vectorial del ícono +/- con pseudo-elementos[cite: 10] */
 .faq__q .ic { flex: none; width: 22px; height: 22px; position: relative; }
-.faq__q .ic:before, .faq__q .ic:after { content: ""; position: absolute; background: var(--tierra); }
-.faq__q .ic:before { left: 0; top: 10px; width: 22px; height: 2px; } /* Línea horizontal (-)[cite: 10] */
-.faq__q .ic:after { left: 10px; top: 0; width: 2px; height: 22px; transition: transform var(--d-comp) var(--e-inout); } /* Línea vertical (|)[cite: 10] */
+.faq__q .ic::before, .faq__q .ic::after { content: ""; position: absolute; background: var(--tierra); }
+.faq__q .ic::before { left: 0; top: 10px; width: 22px; height: 2px; }
+.faq__q .ic::after { left: 10px; top: 0; width: 2px; height: 22px; transition: transform var(--d-comp) var(--e-inout); }
+.faq__item[open] .ic::after { transform: scaleY(0); }
+.faq__a p { padding: 0 0 1.5rem; max-width: 68ch; color: rgba(74,64,64,0.85); line-height: 1.65; }
 
-/* Al abrir el elemento <details open>, la barra vertical colapsa (scaleY=0) transformando el + en -[cite: 10] */
-.faq__item[open] .ic:after { transform: scaleY(0); }
-.faq__a p { padding: 0 0 1.5rem; max-width: 68ch; color: rgba(74,64,64,.85); }
-
-/* ════════════════════════════════════════════════════════════════
-   10. LLAMADO A LA ACCIÓN FINAL (CTA) & RESPONSIVE
-   ════════════════════════════════════════════════════════════════[cite: 10] */
+/* ════ CTA FINAL Y FOOTER ════ */
 .cta { background: var(--tierra-deep); color: var(--lino); text-align: center; }
-.cta h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); }
-.cta p { margin: 1.4rem auto 2.4rem; max-width: 52ch; }
-.cta__actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.cta h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 20ch; margin-inline: auto; color: var(--lino); }
+.cta p { margin: 1.4rem auto 2.4rem; max-width: 52ch; color: rgba(250,247,242,0.82); }
+.cta__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-@media (max-width: 760px) {
-  .nav__links { display: none; }
-  .hero { padding: 4.5rem 1.5rem 3.5rem; }
-  .logo-circle { width: 100px; height: 100px; }
+.footer { 
+  background: var(--verde-atardecer); 
+  color: rgba(250,247,242,0.8); 
+  padding: 3.5rem var(--pad); 
+  display: grid; 
+  grid-template-columns: 1.4fr 1fr 1fr; 
+  gap: 1.5rem; 
+  font-size: 0.86rem; 
+  align-items: start; 
+}
+.footer__brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; color: var(--lino); margin-bottom: 0.4rem; }
+.footer h4 { font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250,247,242,0.6); margin-bottom: 0.7rem; font-weight: 700; }
+.footer a:hover { color: var(--lino); }
+.footer__tag { font-family: 'Playfair Display', serif; font-style: italic; color: var(--rosa); font-size: 1.2rem; }
+.footer__credit { grid-column: 1 / -1; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(250,247,242,0.12); font-size: 0.74rem; color: rgba(250,247,242,0.5); }
+
+@media (max-width: 760px) { 
+  .footer { grid-template-columns: 1fr; gap: 1.4rem; }
   .audience { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 500px) {
   .audience { grid-template-columns: 1fr; }
 }
+
+/* Botón Flotante de WhatsApp */
+.wa-float { 
+  position: fixed; 
+  right: 1.2rem; 
+  bottom: 1.2rem; 
+  z-index: 55; 
+  width: 56px; 
+  height: 56px; 
+  border-radius: 50%; 
+  background-color: var(--tierra-deep) !important; 
+  color: var(--lino); 
+  border: 1.5px solid rgba(250,247,242,0.32); 
+  display: grid; 
+  place-items: center; 
+  box-shadow: 0 10px 26px rgba(74,64,64,0.32); 
+  transition: transform var(--d-comp) var(--e-soft); 
+}
+.wa-float:hover { transform: scale(1.06); }
+.wa-float svg { width: 26px; height: 26px; }
+
+/* ════ SINFONÍA DE REVELACIÓN CSS Y ACCESIBILIDAD ════ */
+.js-motion .section-head { opacity: 1; transform: none; clip-path: none; }
+.js-motion .section-head.is-in .eyebrow { transition-delay: 0s; }
+.js-motion .section-head.is-in h2 { transition-delay: 0.12s; }
+.js-motion .section-head.is-in p { transition-delay: 0.24s; }
+.js-motion .section-head .eyebrow { position: relative; }
+.js-motion .section-head .eyebrow::after { 
+  content: ""; 
+  position: absolute; 
+  left: 0; 
+  bottom: -0.5rem; 
+  width: 2.2rem; 
+  height: 1px; 
+  background: var(--rosa); 
+  transform: scaleX(0); 
+  transform-origin: left; 
+  transition: transform var(--d-hero) var(--e-out) 0.3s; 
+}
+.js-motion .section-head.is-in .eyebrow::after { transform: scaleX(1); }
+
+/* Adaptación para Usuarios con Movimiento Reducido */
+@media (prefers-reduced-motion: reduce) {
+  .js-motion .reveal, .js-motion .stagger > * { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .stage .texto-1, .stage .texto-2, .proyecto-elemento { opacity: 1 !important; transform: none !important; }
+  .scrollcue__line { display: none; }
+}
 </style>
 </head>
-
 <body>
-<!-- Capas de fondo animadas[cite: 10] -->
+
 <div id="bgwash" aria-hidden="true"></div>
 <canvas id="petals" aria-hidden="true"></canvas>
 
-<!-- NAVEGACIÓN PRINCIPAL[cite: 10] -->
-<nav class="nav" id="nav">
+<!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
+<nav class="nav" id="nav" aria-label="Navegación Principal">
   <a class="nav__brand" href="../index.html">Gran Palmera</a>
-  <div class="nav__links">
+  <div class="nav__links" id="navLinks">
     <a href="#manifiesto">Enfoque</a>
-    <a href="#proyectoStage">El proyecto</a>
+    <a href="#proyectoStage">El Proyecto</a>
     <a href="#servicios">Servicios</a>
-    <a href="#proceso">Proceso</a>
+    <a href="#proceso">Metodología</a>
+    <a href="#audiencia">Sectores</a>
+    <a href="#opciones">Módulos</a>
     <a class="nav__cta" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp</a>
   </div>
+  <button class="nav__burger" id="navBurger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<main>
-<!-- HERO[cite: 10] -->
-<header class="hero">
-  <div class="logo-circle">
-    <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo" class="logo-image">
-  </div>
-  <p class="hero__eyebrow"><span class="eyebrow accent" style="font-size:1rem;text-transform:none">El paisaje como parte del proyecto</span></p>
-  <h1><span class="accent">Paisajismo para profesionales</span></h1>
-  <p class="hero__sub">Partner técnico para arquitectos, estudios, constructoras y desarrolladores que necesitan integrar paisaje, arquitectura y vegetación.</p>
-  <div class="hero__actions">
-    <a class="btn btn--solid" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">
-      <svg class="btn__wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
-      Trabajemos juntos
-    </a>
-    <a class="btn btn--ghost" href="#proyectoStage">Ver enfoque</a>
-  </div>
-  <div class="scrollcue"><span>Deslizá</span><span class="scrollcue__line"></span></div>
-</header>
+<main id="inicio">
 
-<!-- SECCIÓN MANIFIESTO (EFECTO TEXT REVEAL)[cite: 10] -->
-<section class="section" id="manifiesto">
-  <p class="eyebrow" style="color:var(--tierra);margin-bottom:1.6rem;text-align:center">Nuestro enfoque</p>
-  <div class="manifesto" id="text-reveal">
-    <p class="manifesto__line">El paisaje no debería ser un agregado de último momento.</p>
-    <p class="manifesto__line">Lo integramos al proyecto desde sus primeras decisiones.</p>
-    <p class="manifesto__line">Arquitectura, espacio exterior y vegetación como una sola propuesta.</p>
-  </div>
-</section>
-
-<!-- ESCENARIO FIJO GSAP (PIN TRIGGER)[cite: 10] -->
-<section class="stage" id="proyectoStage">
-  <div class="copy">
-    <div class="texto-1">
-      <span class="eyebrow">Del proyecto al paisaje</span>
-      <p class="display">Una idea toma forma</p>
-      <p>Analizamos la arquitectura, el sitio y los objetivos<br>para construir una estrategia paisajística coherente.</p>
+  <!-- MÓDULO 1: HERO SECTION B2B -->
+  <header class="hero">
+    <span class="hero__glow" aria-hidden="true"></span>
+    
+    <div class="logo-circle" data-rise>
+      <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo Profesional" class="logo-image" loading="eager">
     </div>
-    <div class="texto-2">
-      <span class="eyebrow">Del paisaje a la obra</span>
-      <p class="display">Se convierte en realidad</p>
-      <p>Diseño, documentación, vegetación y asistencia<br>para llevar el proyecto al terreno.</p>
+
+    <p class="hero__eyebrow">
+      <span class="eyebrow accent" style="font-size:1rem; letter-spacing:0.04em; text-transform:none" data-rise>
+        El paisaje como parte del proyecto
+      </span>
+    </p>
+
+    <h1>
+      <span class="hero__line"><span>Paisajismo para</span></span>
+      <span class="hero__line"><span><span class="accent">Profesionales</span></span></span>
+    </h1>
+    
+    <p class="hero__sub">
+      <span data-rise>
+        Partner técnico para arquitectos, estudios, constructoras y desarrolladores que necesitan integrar paisaje, arquitectura y vegetación.
+      </span>
+    </p>
+    
+    <div class="hero__actions" data-rise>
+      <a class="btn btn--solid" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">
+        <svg class="btn__wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/>
+        </svg>
+        Trabajemos juntos
+      </a>
+      <a class="btn btn--ghost" href="#proyectoStage">Ver enfoque</a>
     </div>
-  </div>
 
-  <div class="proyecto-elemento plano" id="plano"></div>
-  <div class="proyecto-elemento ejemplar">
-    <div class="tronco" id="tronco1"></div>
-    <div class="copa" id="copa1"></div>
-  </div>
-  <div class="proyecto-elemento ejemplar-2">
-    <div class="tronco2 t1" id="tronco2"></div>
-    <div class="copa2 c1" id="copa2"></div>
-    <div class="tronco2 t2" id="tronco3"></div>
-    <div class="copa2 c2" id="copa3"></div>
-  </div>
-  <div class="proyecto-elemento arbol arbol-1" id="arbol1"></div>
-  <div class="proyecto-elemento arbol arbol-2" id="arbol2"></div>
-  <div class="proyecto-elemento arbol arbol-3" id="arbol3"></div>
-</section>
+    <div class="scrollcue">
+      <span>Deslizá</span>
+      <span class="scrollcue__line" id="cueLine" aria-hidden="true"></span>
+    </div>
+  </header>
 
-<!-- SERVICIOS B2B[cite: 10] -->
-<section class="section section--crema" id="servicios">
-  <div class="section-head">
-    <span class="eyebrow">Servicios</span>
-    <h2>Un partner para cada etapa del proyecto</h2>
-  </div>
-  <div class="cards stagger">
-    <article class="card">
-      <h3>01 · Diseño</h3>
-      <p>Concepto, estrategia paisajística, anteproyecto y proyecto. Integramos el paisaje con arquitectura, topografía, recorridos y usos.</p>
-    </article>
-    <article class="card">
-      <h3>02 · Documentación</h3>
-      <p>Planos, plantación, cuadros de especies, detalles, especificaciones y cómputos para comunicar, presupuestar y construir.</p>
-    </article>
-    <article class="card">
-      <h3>03 · Visualización</h3>
-      <p>Modelado 3D y renders para estudiar escala, volumetría vegetal, visuales y relación entre arquitectura y paisaje.</p>
-    </article>
-    <article class="card">
-      <h3>04 · Vegetación</h3>
-      <p>Curaduría, especificación y selección de especies y ejemplares según clima, escala, crecimiento, composición y disponibilidad.</p>
-    </article>
-    <article class="card">
-      <h3>05 · Provisión</h3>
-      <p>Desde GRANPALMERA podemos participar en la provisión de palmeras, árboles, tropicales, ornamentales y ejemplares especiales.</p>
-    </article>
-    <article class="card">
-      <h3>06 · Obra</h3>
-      <p>Asistencia, coordinación y supervisión de la implantación vegetal para acercar el resultado construido al proyecto definido.</p>
-    </article>
-  </div>
-</section>
+  <!-- MÓDULO 2: MANIFIESTO NARRATIVO B2B -->
+  <section class="section" id="manifiesto">
+    <p class="eyebrow reveal" style="color:var(--tierra); margin-bottom:1.6rem; text-align:center">Nuestro enfoque</p>
+    <div class="manifesto" id="manifesto">
+      <p class="manifesto__line">El paisaje no debería ser un agregado de último momento.</p>
+      <p class="manifesto__line">Lo integramos al proyecto desde sus primeras decisiones.</p>
+      <p class="manifesto__line">Arquitectura, espacio exterior y vegetación como una sola propuesta.</p>
+    </div>
+  </section>
 
-<!-- PASOS Y METODOLOGÍA[cite: 10] -->
-<section class="section" id="proceso">
-  <div class="section-head">
-    <span class="eyebrow">Metodología</span>
-    <h2>Un proceso claro, adaptable a tu proyecto</h2>
-  </div>
-  <div class="steps stagger">
-    <div class="step"><div class="step__n">01</div><h3>Conocemos el proyecto</h3><p>Recibimos la documentación disponible y entendemos objetivos, escala y etapa.</p></div>
-    <div class="step"><div class="step__n">02</div><h3>Analizamos el sitio</h3><p>Orientación, clima, suelo, topografía, visuales, circulaciones y condicionantes.</p></div>
-    <div class="step"><div class="step__n">03</div><h3>Definimos la estrategia</h3><p>Construimos el concepto y el lenguaje vegetal que acompañará a la arquitectura.</p></div>
-    <div class="step"><div class="step__n">04</div><h3>Desarrollamos</h3><p>Avanzamos con diseño, documentación, visualización y especificación según necesidad.</p></div>
-    <div class="step"><div class="step__n">05</div><h3>Proveemos</h3><p>Coordinamos ejemplares, cantidades, tamaños, disponibilidad y logística.</p></div>
-    <div class="step"><div class="step__n">06</div><h3>Acompañamos la obra</h3><p>Asistencia y supervisión para una correcta implantación del paisaje.</p></div>
-  </div>
-</section>
+  <!-- MÓDULO 3: ESCENARIO GSAP PINNED B2B (#proyectoStage) -->
+  <section class="stage" id="proyectoStage" aria-label="El proyecto técnico se transforma en obra viva">
+    <div class="copy">
+      <div class="texto-1">
+        <span class="eyebrow">Del proyecto al paisaje</span>
+        <p class="display">Una idea toma forma</p>
+        <p>Analizamos la arquitectura, el sitio y los objetivos<br>para construir una estrategia paisajística coherente.</p>
+      </div>
+      <div class="texto-2">
+        <span class="eyebrow">Del paisaje a la obra</span>
+        <p class="display">Se convierte en realidad</p>
+        <p>Diseño, documentación, vegetación y asistencia<br>para llevar el proyecto al terreno.</p>
+      </div>
+    </div>
 
-<!-- PÚBLICO OBJETIVO B2B[cite: 10] -->
-<section class="section section--crema">
-  <div class="section-head" style="text-align:center;margin:0 auto 3rem">
-    <span class="eyebrow">¿Para quién?</span>
-    <h2>Nos integramos a distintos equipos</h2>
-  </div>
-  <div class="audience stagger">
-    <article><div class="icon">🏛️</div><h3>Arquitectos y estudios</h3><p>Desarrollamos el componente paisajístico y vegetal del proyecto arquitectónico.</p></article>
-    <article><div class="icon">🏗️</div><h3>Constructoras</h3><p>Documentación, provisión y asistencia para llevar el paisaje a obra.</p></article>
-    <article><div class="icon">🏢</div><h3>Desarrolladores</h3><p>Paisaje para amenities, áreas comunes y espacios que construyen valor.</p></article>
-    <article><div class="icon">🏨</div><h3>Hoteles e instituciones</h3><p>Espacios exteriores con identidad, experiencia y coherencia arquitectónica.</p></article>
-    <article><div class="icon">🌳</div><h3>Profesionales independientes</h3><p>Apoyo especializado en vegetación, diseño, documentación y provisión.</p></article>
-  </div>
-</section>
+    <!-- Formas Geométricas del Plano y Paisaje Arquitectónico -->
+    <div class="proyecto-elemento plano" id="plano"></div>
+    
+    <div class="proyecto-elemento ejemplar">
+      <div class="tronco" id="tronco1"></div>
+      <div class="copa" id="copa1"></div>
+    </div>
 
-<!-- SOLUCIONES MODULARES (ACORDEÓN CON ENTRADA LATERAL)[cite: 10] -->
-<section class="section" id="opciones">
-  <div class="section-head" style="text-align:center;margin:0 auto 3rem">
-    <span class="eyebrow">Soluciones modulares</span>
-    <h2>¿Qué necesitás de GRANPALMERA?</h2>
-    <p style="margin:0 auto">Podemos asumir el paisaje completo o incorporarnos en una etapa específica.</p>
-  </div>
-  <div class="faq">
-    <details class="faq__item">
-      <summary class="faq__q">Consultoría y estrategia<span class="ic" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Tenés un proyecto y necesitás definir criterios de paisaje, vegetación o implantación.</p></div>
-    </details>
-    <details class="faq__item">
-      <summary class="faq__q">Diseño paisajístico<span class="ic" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Desarrollamos concepto, anteproyecto y proyecto paisajístico según el alcance acordado.</p></div>
-    </details>
-    <details class="faq__item">
-      <summary class="faq__q">Documentación técnica<span class="ic" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Planos, plantación, cuadros, detalles, especificaciones y cómputos para avanzar con el proyecto.</p></div>
-    </details>
-    <details class="faq__item">
-      <summary class="faq__q">3D y renders<span class="ic" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Visualizamos la propuesta para presentaciones, aprobaciones, concursos o comercialización.</p></div>
-    </details>
-    <details class="faq__item">
-      <summary class="faq__q">Curaduría y provisión vegetal<span class="ic" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Seleccionamos especies y ejemplares y podemos participar en su provisión y logística.</p></div>
-    </details>
-    <details class="faq__item" open>
-      <summary class="faq__q" style="color:var(--rosa)">Partner integral<span class="ic" aria-hidden="true"></span></summary>
-      <div class="faq__a"><p>Nos integramos desde el concepto hasta la obra, coordinando diseño, vegetación, provisión y supervisión.</p></div>
-    </details>
-  </div>
-</section>
+    <div class="proyecto-elemento ejemplar-2">
+      <div class="tronco2 t1" id="tronco2"></div>
+      <div class="copa2 c1" id="copa2"></div>
+      <div class="tronco2 t2" id="tronco3"></div>
+      <div class="copa2 c2" id="copa3"></div>
+    </div>
 
-<!-- CTA FINAL[cite: 10] -->
-<section class="section cta">
-  <h2>¿Tenés un proyecto?</h2>
-  <p>Puede estar en etapa de idea, anteproyecto, documentación o construcción. Contanos en qué etapa se encuentra y qué necesitás resolver.</p>
-  <div class="cta__actions">
-    <a class="btn btn--solid" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" style="background:#fff!important;color:var(--tierra-deep)!important">Trabajemos juntos</a>
-    <a class="btn btn--ghost" href="../index.html">Volver a Gran Palmera</a>
-  </div>
-</section>
+    <div class="proyecto-elemento arbol arbol-1" id="arbol1"></div>
+    <div class="proyecto-elemento arbol arbol-2" id="arbol2"></div>
+    <div class="proyecto-elemento arbol arbol-3" id="arbol3"></div>
+  </section>
 
-<a class="wa-float" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-4.7-4.1-.1-2.6 1.2-2.6.9 0 .6.9 1.5 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
-</a>
+  <!-- MÓDULO 4: SERVICIOS TÉCNICOS B2B (.cards) -->
+  <section class="section section--crema" id="servicios">
+    <div class="section-head reveal">
+      <span class="eyebrow">Servicios</span>
+      <h2>Un partner para cada etapa del proyecto</h2>
+      <p>Nos integramos a las dinámicas de trabajo de tu estudio u oficina técnica con rigor proyectual y soluciones reales.</p>
+    </div>
+    <div class="cards stagger">
+      <article class="card">
+        <h3>01 · Diseño</h3>
+        <p>Concepto, estrategia paisajística, anteproyecto y proyecto. Integramos el paisaje con arquitectura, topografía, recorridos y usos.</p>
+        <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Consultar →</a>
+      </article>
+      <article class="card">
+        <h3>02 · Documentación</h3>
+        <p>Planos, plantación, cuadros de especies, detalles, especificaciones y cómputos para comunicar, presupuestar y construir.</p>
+        <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Consultar →</a>
+      </article>
+      <article class="card">
+        <h3>03 · Visualización</h3>
+        <p>Modelado 3D y renders para estudiar escala, volumetría vegetal, visuales y relación entre arquitectura y paisaje.</p>
+        <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Consultar →</a>
+      </article>
+      <article class="card">
+        <h3>04 · Vegetación</h3>
+        <p>Curaduría, especificación y selección de especies y ejemplares según clima, escala, crecimiento, composición y disponibilidad.</p>
+        <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Consultar →</a>
+      </article>
+      <article class="card">
+        <h3>05 · Provisión</h3>
+        <p>Desde GRANPALMERA podemos participar en la provisión de palmeras, árboles, tropicales, ornamentales y ejemplares especiales.</p>
+        <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Consultar →</a>
+      </article>
+      <article class="card">
+        <h3>06 · Obra</h3>
+        <p>Asistencia, coordinación y supervisión de la implantación vegetal para acercar el resultado construido al proyecto definido.</p>
+        <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Consultar →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- MÓDULO 5: METODOLOGÍA / PROCESO (.steps) -->
+  <section class="section" id="proceso">
+    <div class="section-head reveal">
+      <span class="eyebrow">Metodología</span>
+      <h2>Un proceso claro, adaptable a tu proyecto</h2>
+      <p>Alineamos nuestros tiempos con el cronograma de arquitectura para garantizar ejecuciones sin fisuras.</p>
+    </div>
+    <div class="steps stagger">
+      <div class="step">
+        <div class="step__n">01</div>
+        <h3>Conocemos el proyecto</h3>
+        <p>Recibimos la documentación disponible y entendemos objetivos, escala y etapa.</p>
+      </div>
+      <div class="step">
+        <div class="step__n">02</div>
+        <h3>Analizamos el sitio</h3>
+        <p>Orientación, clima, suelo, topografía, visuales, circulaciones y condicionantes.</p>
+      </div>
+      <div class="step">
+        <div class="step__n">03</div>
+        <h3>Definimos la estrategia</h3>
+        <p>Construimos el concepto y el lenguaje vegetal que acompañará a la arquitectura.</p>
+      </div>
+      <div class="step">
+        <div class="step__n">04</div>
+        <h3>Desarrollamos</h3>
+        <p>Avanzamos con diseño, documentación, visualización y especificación según necesidad.</p>
+      </div>
+      <div class="step">
+        <div class="step__n">05</div>
+        <h3>Proveemos</h3>
+        <p>Coordinamos ejemplares, cantidades, tamaños, disponibilidad y logística.</p>
+      </div>
+      <div class="step">
+        <div class="step__n">06</div>
+        <h3>Acompañamos la obra</h3>
+        <p>Asistencia y supervisión para una correcta implantación del paisaje.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULO 6: PÚBLICO OBJETIVO B2B (.audience) -->
+  <section class="section section--crema" id="audiencia">
+    <div class="section-head reveal" style="text-align:center; margin: 0 auto 3rem auto;">
+      <span class="eyebrow">¿Para quién?</span>
+      <h2>Nos integramos a distintos equipos</h2>
+      <p style="margin: 0 auto;">Ofrecemos respaldo técnico adaptado a la escala de cada profesional o firma constructora.</p>
+    </div>
+    <div class="audience stagger">
+      <article>
+        <div class="icon">🏛️</div>
+        <h3>Arquitectos y estudios</h3>
+        <p>Desarrollamos el componente paisajístico y vegetal del proyecto arquitectónico.</p>
+      </article>
+      <article>
+        <div class="icon">🏗️</div>
+        <h3>Constructoras</h3>
+        <p>Documentación, provisión y asistencia para llevar el paisaje a obra.</p>
+      </article>
+      <article>
+        <div class="icon">🏢</div>
+        <h3>Desarrolladores</h3>
+        <p>Paisaje para amenities, áreas comunes y espacios que construyen valor.</p>
+      </article>
+      <article>
+        <div class="icon">🏨</div>
+        <h3>Hoteles e instituciones</h3>
+        <p>Espacios exteriores con identidad, experiencia y coherencia arquitectónica.</p>
+      </article>
+      <article>
+        <div class="icon">🌳</div>
+        <h3>Profesionales independientes</h3>
+        <p>Apoyo especializado en vegetación, diseño, documentación y provisión.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- MÓDULO 7: OPÇÕES MODULARES / FAQ (.faq) -->
+  <section class="section" id="opciones">
+    <div class="section-head reveal" style="text-align:center; margin: 0 auto 3rem auto;">
+      <span class="eyebrow">Soluciones modulares</span>
+      <h2>¿Qué necesitás de GRANPALMERA?</h2>
+      <p style="margin: 0 auto;">Podemos asumir el paisaje completo o incorporarnos en una etapa específica.</p>
+    </div>
+    <div class="faq">
+      <details class="faq__item">
+        <summary class="faq__q">Consultoría y estrategia<span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>Tenés un proyecto y necesitás definir criterios de paisaje, vegetación o implantación.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Diseño paisajístico<span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>Desarrollamos concepto, anteproyecto y proyecto paisajístico según el alcance acordado.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Documentación técnica<span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>Planos, plantación, cuadros, detalles, especificaciones y cómputos para avanzar con el proyecto.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">3D y renders<span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>Visualizamos la propuesta para presentaciones, aprobaciones, concursos o comercialización.</p></div>
+      </details>
+      <details class="faq__item">
+        <summary class="faq__q">Curaduría y provisión vegetal<span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>Seleccionamos especies y ejemplares y podemos participar en su provisión y logística.</p></div>
+      </details>
+      <details class="faq__item" open>
+        <summary class="faq__q" style="color:var(--rosa);">Partner integral<span class="ic" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>Nos integramos desde el concepto hasta la obra, coordinando diseño, vegetación, provisión y supervisión.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- MÓDULO 8: CTA FINAL Y FOOTER B2B -->
+  <section class="section cta" id="contacto">
+    <h2 class="reveal">¿Tenés un proyecto?</h2>
+    <p class="reveal">Puede estar en etapa de idea, anteproyecto, documentación o construcción. Contanos en qué etapa se encuentra y qué necesitás resolver.</p>
+    <div class="cta__actions reveal">
+      <a class="btn btn--solid" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" style="background-color:#ffffff !important; color:var(--tierra-deep) !important;">
+        <svg class="btn__wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/>
+        </svg>
+        Trabajemos juntos
+      </a>
+      <a class="btn btn--ghost" href="../index.html">Volver a Gran Palmera</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <p class="footer__brand">Gran Palmera</p>
+      <p>Paisajismo para Profesionales y Vivero · Posadas, Misiones, Argentina.<br>Especialistas en especificación vegetal y paisajismo técnico.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p><a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp Oficial</a></p>
+      <p style="color:rgba(250,247,242,0.6); margin-top:0.4rem">Lunes a Sábado, 8 a 19 h</p>
+    </div>
+    <div>
+      <h4>Explorar</h4>
+      <p><a href="../index.html">Inicio Gran Palmera</a></p>
+      <p><a href="paisajismo_granpalmera.html">Paisajismo Residencial</a></p>
+      <p><a href="../usda/buscador_usda.html">Mapa USDA</a></p>
+      <p class="footer__tag" style="margin-top:1rem">El paisaje como parte del proyecto.</p>
+    </div>
+    <p class="footer__credit">Gran Palmera · Partner Paisajístico B2B para Arquitectura y Desarrollos en Posadas, Misiones.</p>
+  </footer>
 </main>
 
-<!-- LIBRERÍAS DE ANIMACIÓN (GSAP + SCROLLTRIGGER)[cite: 10] -->
+<a class="wa-float" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/>
+  </svg>
+</a>
+
+<!-- LIBRERÍAS DE ANIMACIÓN GSAP + LENIS -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function(){
-  // Remueve la clase de precarga para permitir las animaciones CSS/GSAP[cite: 10]
-  document.documentElement.classList.remove('preload');
+(function() {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGSAP = window.gsap && window.ScrollTrigger;
+
+  if (!hasGSAP) return;
+  if (!reduce) document.documentElement.classList.add('js-motion');
+
+  var gsap = window.gsap;
   gsap.registerPlugin(ScrollTrigger);
 
-  // 1. Detección de scroll para cambiar la barra de navegación a modo compacto con blur[cite: 10]
-  const nav = document.getElementById('nav');
+  if (window.CustomEase) {
+    CustomEase.create('e-out', 'M0,0 C0.22,1 0.36,1 1,1');
+    CustomEase.create('e-out-lg', 'M0,0 C0.16,1 0.3,1 1,1');
+    CustomEase.create('e-inout', 'M0,0 C0.76,0 0.24,1 1,1');
+    CustomEase.create('e-soft', 'M0,0 C0.33,0 0.2,1 1,1');
+  }
+  var EOUT = window.CustomEase ? 'e-out' : 'power3.out';
+  var EOUTLG = window.CustomEase ? 'e-out-lg' : 'power4.out';
+
+  // Integración de Lenis (Smooth Scroll con rAF)
+  var lenis = null;
+  if (!reduce && window.Lenis) {
+    lenis = new Lenis({
+      duration: 1.1,
+      easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.addEventListener('visibilitychange', function() {
+      document.hidden ? lenis.stop() : lenis.start();
+    });
+  }
+
+  // Desplazamiento suave para enlaces de ancla
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      if (lenis) lenis.scrollTo(target, { offset: 0 });
+      else target.scrollIntoView({ behavior: 'smooth' });
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    });
+  });
+
+  // Estado con Glassmorphism para Barra de Navegación
+  var nav = document.getElementById('nav');
   ScrollTrigger.create({
     start: 'top -50',
-    onUpdate: self => nav.classList.toggle('is-scrolled', self.scroll() > 50)
-  });
-
-  // 2. Efecto de oscurecimiento de texto palabra por palabra en el Manifiesto[cite: 10]
-  const lines = document.querySelectorAll('#text-reveal .manifesto__line');
-  lines.forEach(p => {
-    const words = p.textContent.split(' ');
-    p.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
-  });
-  gsap.to('#text-reveal .w', {
-    color: '#4A4040',
-    stagger: .2,
-    ease: 'none',
-    scrollTrigger: { trigger: '#text-reveal', start: 'top 75%', end: 'bottom 60%', scrub: .5 }
-  });
-
-  // 3. Configuración inicial del escenario de construcción del proyecto (#proyectoStage)[cite: 10]
-  gsap.set("#plano", { scaleY: 0, opacity: 0, transformOrigin: "bottom center" });
-  gsap.set("[id^=tronco]", { scaleY: 0, transformOrigin: "bottom center" });
-  gsap.set("[id^=copa]", { scale: 0, opacity: 0, transformOrigin: "center center" });
-  gsap.set("[id^=arbol]", { scale: 0, opacity: 0, transformOrigin: "center bottom" });
-
-  // Timeline GSAP atada al scroll con fijado de pantalla (Pinning)[cite: 10]
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#proyectoStage",
-      start: "top top",
-      end: "+=250%",
-      pin: true,
-      scrub: 1
+    end: 99999,
+    onUpdate: function(self) {
+      nav.classList.toggle('is-scrolled', self.scroll() > 50);
     }
   });
 
-  // Secuencia temporal de animación del escenario[cite: 10]
-  tl.to("#plano", { scaleY: 1, opacity: 1, duration: 2, ease: "power2.out" }, 0);
-  tl.to("[id^=tronco]", { scaleY: 1, duration: 3, stagger: .5, ease: "power1.inOut" }, 1);
-  tl.to("[id^=copa]", { scale: 1, opacity: 1, duration: 2.5, stagger: .5, ease: "back.out(1.5)" }, 3);
-  tl.to(".texto-1", { y: -30, opacity: 0, duration: 1.5 }, 3.5);
-  tl.to(".texto-2", { y: 0, opacity: 1, duration: 1.5 }, 4.5);
-  tl.to("[id^=arbol]", { scale: 1, opacity: 1, duration: 2, stagger: .4, ease: "back.out(1.2)" }, 4);
-
-  // 4. Animación vertical escalonada para elementos con clase .stagger (Cards, Pasos, Audiencia)[cite: 10]
-  gsap.utils.toArray('.stagger').forEach(el => {
-    gsap.fromTo(el.children, { opacity: 0, y: 66 }, {
-      opacity: 1, y: 0, ease: 'none', stagger: .12,
-      scrollTrigger: { trigger: el, start: 'top 94%', end: 'top 56%', scrub: .7 }
+  window.addEventListener('load', function() {
+    requestAnimationFrame(function() {
+      document.documentElement.classList.remove('preload');
     });
   });
 
-  // 5. Animación de entrada de izquierda a derecha (x: -130 a 0) para el acordeón modular[cite: 10]
-  gsap.utils.toArray('#opciones .faq__item').forEach(item => {
-    gsap.fromTo(item, { opacity: 0, x: -130 }, {
-      opacity: 1, x: 0, ease: 'none',
-      scrollTrigger: { trigger: item, start: 'top 92%', end: 'top 62%', scrub: .6 }
+  // Menú Hamburguesa en Dispositivos Móviles
+  var burger = document.getElementById('navBurger');
+  if (burger) {
+    var closeMenu = function() {
+      nav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    burger.addEventListener('click', function() {
+      var open = nav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
     });
+    document.querySelectorAll('#navLinks a').forEach(function(a) {
+      a.addEventListener('click', closeMenu);
+    });
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) closeMenu();
+    });
+  }
+
+  // Transición Dinámica de Fondo Ambiental (#bgwash)
+  if (!reduce) {
+    var wash = document.getElementById('bgwash');
+    if (wash) {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: 'main',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.8
+        }
+      })
+      .to(wash, { backgroundColor: '#F4EEE4', ease: 'none' })
+      .to(wash, { backgroundColor: '#EDE3D5', ease: 'none' })
+      .to(wash, { backgroundColor: '#F6F1E9', ease: 'none' });
+    }
+
+    // Transición a bloques oscuros (CTA)
+    var ctaEl = document.querySelector('.cta');
+    if (ctaEl) {
+      gsap.fromTo(ctaEl, { backgroundColor: '#EDE3D5' }, {
+        backgroundColor: '#5b4638',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: ctaEl,
+          start: 'top bottom',
+          end: 'top 86%',
+          scrub: 0.4
+        }
+      });
+    }
+  }
+
+  // Animaciones de Entrada del Hero Section
+  if (!reduce) {
+    gsap.fromTo('#cueLine', { scaleY: 0.2, opacity: 0.3 }, { scaleY: 1, opacity: 1, duration: 1.4, ease: EOUT, repeat: -1, yoyo: true });
+    gsap.to('.scrollcue', { opacity: 0, scrollTrigger: { start: 40, end: 220, scrub: true } });
+    gsap.set('[data-rise]', { yPercent: 110, opacity: 0 });
+    gsap.set('.hero__line>span', { yPercent: 100, opacity: 0 });
+    
+    gsap.timeline({ delay: 0.15 })
+      .to('.hero__line>span', { yPercent: 0, opacity: 1, duration: 1.1, ease: EOUTLG, stagger: 0.09 })
+      .to('[data-rise]', { yPercent: 0, opacity: 1, duration: 0.9, ease: EOUT, stagger: 0.08 }, '-=0.7');
+  }
+
+  // Manifiesto con animación de revelación palabra por palabra (Text Reveal Scrub)
+  (function() {
+    var lines = gsap.utils.toArray('#manifesto .manifesto__line');
+    if (!lines.length) return;
+    lines.forEach(function(p) {
+      var words = p.textContent.split(' ');
+      p.innerHTML = words.map(function(w) { return '<span class="w">' + w + '</span>'; }).join(' ');
+    });
+    if (reduce) {
+      gsap.set('#manifesto .w', { color: '#4A4040' });
+      return;
+    }
+    gsap.to('#manifesto .w', {
+      color: '#4A4040',
+      stagger: 0.2,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#manifesto',
+        start: 'top 75%',
+        end: 'bottom 60%',
+        scrub: 0.5
+      }
+    });
+  })();
+
+  // ════ COREOGRAFÍA DEL ESCENARIO DE PROYECTO TÉCNICO B2B (#proyectoStage) ════
+  if (!reduce) {
+    gsap.set("#plano", { scaleY: 0, opacity: 0, transformOrigin: "bottom center" });
+    gsap.set("[id^=tronco]", { scaleY: 0, transformOrigin: "bottom center" });
+    gsap.set("[id^=copa]", { scale: 0, opacity: 0, transformOrigin: "center center" });
+    gsap.set("[id^=arbol]", { scale: 0, opacity: 0, transformOrigin: "center bottom" });
+
+    var stageTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#proyectoStage",
+        start: "top top",
+        end: "+=250%",
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1
+      }
+    });
+
+    stageTL
+      .to("#plano", { scaleY: 1, opacity: 1, duration: 2, ease: "power2.out" }, 0)
+      .to("[id^=tronco]", { scaleY: 1, duration: 3, stagger: 0.5, ease: "power1.inOut" }, 1)
+      .to("[id^=copa]", { scale: 1, opacity: 1, duration: 2.5, stagger: 0.5, ease: "back.out(1.5)" }, 3)
+      .to(".texto-1", { y: -30, opacity: 0, duration: 1.5 }, 3.5)
+      .to(".texto-2", { y: 0, opacity: 1, duration: 1.5 }, 4.5)
+      .to("[id^=arbol]", { scale: 1, opacity: 1, duration: 2, stagger: 0.4, ease: "back.out(1.2)" }, 4);
+  }
+
+  // Animaciones de Tarjetas, Pasos, Grilla B2B y Acordeón FAQ vinculados al Scroll
+  if (!reduce) {
+    gsap.utils.toArray('.stagger').forEach(function(el) {
+      gsap.fromTo(el.children, { opacity: 0, y: 66 }, {
+        opacity: 1,
+        y: 0,
+        ease: 'none',
+        stagger: 0.12,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 94%',
+          end: 'top 56%',
+          scrub: 0.7
+        }
+      });
+    });
+
+    gsap.utils.toArray('.reveal').forEach(function(el) {
+      gsap.fromTo(el, { opacity: 0, y: 58 }, {
+        opacity: 1,
+        y: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 94%',
+          end: 'top 60%',
+          scrub: 0.7
+        }
+      });
+    });
+
+    gsap.utils.toArray('#opciones .faq__item').forEach(function(item) {
+      gsap.fromTo(item, { opacity: 0, x: -130 }, {
+        opacity: 1,
+        x: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 92%',
+          end: 'top 62%',
+          scrub: 0.6
+        }
+      });
+    });
+  }
+
+  // ════ CANVAS 2D: SIMULACIÓN FÍSICA DE HOJAS DE MONSTERA DELICIOSA ════
+  (function() {
+    var canvas = document.getElementById('petals');
+    if (!canvas || reduce) return;
+    var ctx = canvas.getContext('2d');
+    var DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+    var W, H, bits = [], running = true, raf = 0;
+    var COUNT = window.innerWidth < 760 ? 6 : 10;
+    
+    var monsteraImg = new Image();
+    monsteraImg.src = '../img/monstera.png';
+    var imgReady = false;
+    monsteraImg.onload = function() { imgReady = true; };
+
+    function resize() { 
+      W = canvas.width = Math.floor(window.innerWidth * DPR); 
+      H = canvas.height = Math.floor(window.innerHeight * DPR); 
+      canvas.style.width = window.innerWidth + 'px'; 
+      canvas.style.height = window.innerHeight + 'px'; 
+    }
+
+    function mk(y) { 
+      return {
+        x: Math.random() * W, 
+        y: (y != null ? y : Math.random() * H), 
+        r: (16 + Math.random() * 14) * DPR, 
+        vy: (0.12 + Math.random() * 0.22) * DPR, 
+        sway: 0.6 + Math.random() * 1.2, 
+        ph: Math.random() * Math.PI * 2, 
+        rot: Math.random() * Math.PI, 
+        vr: (Math.random() - 0.5) * 0.009, 
+        alpha: 0.22 + Math.random() * 0.18 
+      }; 
+    }
+
+    function init() { resize(); bits = []; for (var i = 0; i < COUNT; i++) bits.push(mk()); }
+
+    function draw() { 
+      if (!running) return; 
+      ctx.clearRect(0, 0, W, H);
+      
+      for (var i = 0; i < bits.length; i++) { 
+        var p = bits[i]; 
+        p.y += p.vy; 
+        p.ph += 0.006; 
+        p.x += Math.sin(p.ph) * p.sway * 0.35 * DPR; 
+        p.rot += p.vr;
+        
+        if (p.y - p.r * 2 > H) { 
+          bits[i] = mk(-40); 
+          p = bits[i]; 
+        }
+        
+        ctx.save(); 
+        ctx.translate(p.x, p.y); 
+        ctx.rotate(p.rot); 
+        ctx.globalAlpha = p.alpha;
+        
+        if (imgReady) {
+          ctx.drawImage(monsteraImg, -p.r, -p.r, p.r * 2, p.r * 2);
+        } else {
+          // Renderizado de reserva vectorial
+          ctx.fillStyle = 'rgba(138,158,135,0.3)';
+          ctx.beginPath();
+          ctx.arc(0, 0, p.r * 0.6, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        
+        ctx.restore(); 
+      }
+      raf = requestAnimationFrame(draw);
+    }
+
+    init(); 
+    draw();
+    
+    window.addEventListener('resize', function() { 
+      cancelAnimationFrame(raf); 
+      init(); 
+      if (running) draw(); 
+    }, { passive: true });
+    
+    document.addEventListener('visibilitychange', function() { 
+      running = !document.hidden; 
+      if (running) draw(); 
+      else cancelAnimationFrame(raf); 
+    });
+  })();
+
+  window.addEventListener('load', function() { 
+    ScrollTrigger.refresh(); 
   });
-
-  // 6. Loop continuo de partículas en Canvas 2D[cite: 10]
-  const canvas = document.getElementById('petals');
-  const ctx = canvas.getContext('2d');
-  let W, H, bits = [];
-
-  function initCanvas() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-    bits = Array.from({ length: 15 }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: Math.random() * 10 + 5,
-      vy: Math.random() * 1 + .5,
-      c: 'rgba(138,158,135,.2)'
-    }));
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    bits.forEach(p => {
-      p.y += p.vy;
-      if (p.y > H) p.y = -20;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.c;
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-
-  initCanvas();
-  draw();
-  window.addEventListener('resize', initCanvas);
-});
+})();
 </script>
 </body>
 </html>
