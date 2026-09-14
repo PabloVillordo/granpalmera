@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<!--
-  GRAN PALMERA · Hub Principal (Vivero, Palmeras Tropicales & Paisajismo)
-  ARQUITECTURA: Sistema de diseño y performance de Coupes y Rosas.
-  MÓDULO 3: Escenario de Crecimiento y Evolución por Capas (#jardinStage).
-  MOTOR FÍSICO CANVAS 2D: Partículas de Monstera Deliciosa (img/monstera.png).
--->
 <html lang="es-AR" class="preload">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <meta name="supported-color-schemes" content="light">
-<title>Gran Palmera | Vivero, Palmeras Tropicales y Paisajismo</title>
-<meta name="description" content="Vivero y Paisajismo en Posadas, Misiones. Especialistas en palmeras de colección, plantas tropicales, mapa de rusticidad USDA y diseño de espacios verdes.">
+
+<title>Granpalmera | Vivero y Paisajismo</title>
+<meta name="description" content="🌴 GRANPALMERA | Vivero y Paisajismo en Posadas, Misiones. Especialistas en palmeras de colección, plantas tropicales, mapa de rusticidad USDA y diseño de espacios verdes.">
 <link rel="canonical" href="https://www.granpalmera-vivero-paisajismo.com/">
 
 <!-- Meta etiquetas Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.granpalmera-vivero-paisajismo.com/">
-<meta property="og:title" content="Gran Palmera | Vivero, Palmeras Tropicales y Paisajismo">
-<meta property="og:description" content="Especialistas en palmeras de colección, plantas tropicales, mapa de resistencia USDA, envíos a todo el país y diseño de espacios verdes a medida.">
+<meta property="og:title" content="Granpalmera | Vivero y Paisajismo">
+<meta property="og:description" content="🌴 GRANPALMERA | Vivero y Paisajismo. Especialistas en palmeras, plantas tropicales y diseño paisajístico.">
 <meta property="og:image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
+<meta property="og:image:secure_url" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="500">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Gran Palmera">
 
@@ -35,12 +34,13 @@
   gtag('config', 'G-LWW542SW71');
 </script>
 
+<!-- Preconexión de Fuentes y CDN -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://unpkg.com">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <!-- SCHEMA.ORG JSON-LD -->
@@ -78,10 +78,14 @@
   --grafito: #4A4040;
   --verde-atardecer: #3a4a3f; 
   --burdeos: #6e3b3b;
+  --accent-color: #a4b39e;
+  
+  /* Curvas de aceleración matemáticas (Easing Tokens) */
   --e-out: cubic-bezier(0.22, 1, 0.36, 1); 
   --e-out-lg: cubic-bezier(0.16, 1, 0.30, 1);
   --e-inout: cubic-bezier(0.76, 0, 0.24, 1); 
   --e-soft: cubic-bezier(0.33, 0, 0.20, 1);
+  
   --d-micro: 0.32s; 
   --d-comp: 0.6s; 
   --d-hero: 1.1s; 
@@ -101,7 +105,7 @@ body {
 
 h1, h2, h3, .display { 
   font-family: 'Cormorant Garamond', Georgia, serif; 
-  font-weight: 500; 
+  font-weight: 600; 
   line-height: 1.06; 
   letter-spacing: -0.01em; 
   text-wrap: balance; 
@@ -131,7 +135,7 @@ main { position: relative; z-index: 2; }
 
 html.preload *, html.preload *::before, html.preload *::after { transition: none !important; }
 
-/* ════ NAVEGACIÓN ════ */
+/* ════ NAVEGACIÓN PRINCIPAL FLOTANTE ════ */
 .nav { 
   position: fixed; 
   top: 0; 
@@ -153,7 +157,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   color: var(--grafito); 
   box-shadow: 0 1px 0 rgba(74,64,64,0.08); 
 }
-.nav__brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.55rem; font-weight: 600; }
+.nav__brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.55rem; font-weight: 700; }
 .nav__links { display: flex; gap: 1.8rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; align-items: center; font-weight: 700; }
 .nav__links a:not(.nav__cta) { position: relative; padding-bottom: 3px; transition: color 0.3s; }
 .nav__links a:not(.nav__cta)::after { 
@@ -251,12 +255,11 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 .btn--solid:hover, .btn--solid:focus-visible { background-color: var(--tierra-deep) !important; border-color: var(--tierra-deep); color: var(--lino) !important; }
 .btn--ghost { background-color: transparent !important; color: var(--lino); border: 1.5px solid rgba(250,247,242,0.55); }
 .btn--ghost:hover, .btn--ghost:focus-visible { background-color: rgba(250,247,242,0.16) !important; border-color: var(--lino); color: var(--lino); }
-.btn__wa { width: 18px; height: 18px; flex: none; }
 
 /* Logo Circular */
 .logo-circle { 
-  width: 100px; 
-  height: 100px; 
+  width: 110px; 
+  height: 110px; 
   border-radius: 50%; 
   border: 2px solid var(--salvia); 
   overflow: hidden; 
@@ -292,7 +295,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   pointer-events: none; 
 }
 .hero__eyebrow { overflow: hidden; margin-bottom: 1.3rem; color: #E6CDBF; position: relative; z-index: 2; }
-.hero h1 { font-size: clamp(2.5rem, 6vw, 5.2rem); max-width: min(94vw, 24ch); margin-inline: auto; position: relative; z-index: 2; font-weight: 500; }
+.hero h1 { font-size: clamp(2.5rem, 6vw, 5.2rem); max-width: min(94vw, 24ch); margin-inline: auto; position: relative; z-index: 2; font-weight: 600; }
 .hero h1 .accent { color: #E6CDBF; }
 .hero__line { display: block; overflow: hidden; }
 .hero__line > span { display: inline-block; will-change: transform; }
@@ -362,11 +365,11 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 
 /* ════ MANIFIESTO NARRATIVO ════ */
 .manifesto { max-width: min(92vw, 50rem); margin-inline: auto; text-align: center; display: flex; flex-direction: column; gap: clamp(0.9rem, 2.4vw, 1.9rem); }
-.manifesto__line { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 4.6vw, 3.5rem); line-height: 1.16; font-weight: 500; text-wrap: balance; color: var(--verde-atardecer); }
+.manifesto__line { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 4.6vw, 3.5rem); line-height: 1.16; font-weight: 600; text-wrap: balance; color: var(--verde-atardecer); }
 .manifesto__line:nth-child(2) { font-style: italic; font-family: 'Playfair Display', 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.8vw, 2.9rem); color: var(--tierra-deep); }
 .manifesto .w { color: rgba(74,64,64,0.15); transition: color var(--d-comp) var(--e-out); }
 
-/* ════ MÓDULO 3: ESCENARIO DE CRECIMIENTO VEGETAL (#jardinStage) ════ */
+/* ════ ESCENARIO DE CRECIMIENTO VEGETAL (#jardinStage) ════ */
 .stage { position: relative; width: 100%; height: 100vh; background-color: var(--lino); overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .copy { position: relative; z-index: 10; text-align: center; width: 100%; max-width: 52rem; padding: 0 var(--pad); pointer-events: none; }
 .texto-1, .texto-2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; will-change: transform, opacity; }
@@ -382,12 +385,10 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 .arbusto-2 { bottom: 5vh; right: 20%; width: 220px; height: 160px; background: #718f65; }
 .arbusto-3 { bottom: 15vh; right: 10%; width: 120px; height: 100px; background: #8A9E87; }
 
-/* Palmera Principal (Bismarckia Nobilis / Colección) */
 .palmera-principal { bottom: 15vh; left: 30%; z-index: 2; }
 .tronco-principal { width: 24px; height: 55vh; background: #8B6F5E; border-radius: 12px; position: absolute; bottom: 0; left: -12px; }
 .copa-principal { width: 280px; height: 280px; background: #8da3a6; border-radius: 50%; position: absolute; bottom: 50vh; left: -140px; box-shadow: inset -20px -20px 40px rgba(0,0,0,0.15); }
 
-/* Palmera Secundaria (Multitronco Tropical) */
 .palmera-secundaria { bottom: 20vh; right: 35%; z-index: 2; }
 .tronco-sec { width: 16px; background: #a39c76; border-radius: 8px; position: absolute; bottom: 0; }
 .tronco-sec.t1 { height: 45vh; left: -25px; transform: rotate(-5deg); }
@@ -396,49 +397,208 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 .copa-sec.c1 { width: 180px; height: 150px; bottom: 40vh; left: -110px; }
 .copa-sec.c2 { width: 160px; height: 130px; bottom: 35vh; left: -40px; }
 
-/* ════ ECOSISTEMA (HUB GRID) ════ */
-.hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.4rem; max-width: 1080px; margin-inline: auto; }
+/* ════ ECOSISTEMA CON ACORDEÓN EXCLUSIVO INTERACTIVO ════ */
+.accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.accordion-item {
+  background: #ffffff;
+  border: 1px solid var(--crema);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(74,64,64,0.04);
+  transition: border-color var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft);
+}
+
+.accordion-item.is-open {
+  border-color: var(--rosa);
+  box-shadow: 0 12px 32px rgba(74,64,64,0.09);
+}
+
+.accordion-header {
+  width: 100%;
+  background: #ffffff;
+  border: none;
+  outline: none;
+  padding: 1.6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+  transition: background-color 0.3s var(--e-soft);
+}
+
+.accordion-header:hover {
+  background-color: var(--lino);
+}
+
+.accordion-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Íconos personalizados en formato círculo unificado */
+.accordion-cat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--lino);
+  border: 1px solid var(--crema);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--verde-atardecer);
+  flex-shrink: 0;
+  transition: background-color 0.3s var(--e-soft), color 0.3s var(--e-soft), border-color 0.3s var(--e-soft);
+}
+
+.accordion-item.is-open .accordion-cat-icon,
+.accordion-header:hover .accordion-cat-icon {
+  background: var(--rosa);
+  color: var(--tierra-deep);
+  border-color: var(--rosa);
+}
+
+.accordion-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-title-group h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  font-weight: 700;
+  color: var(--verde-atardecer);
+}
+
+.accordion-title-group p {
+  font-size: 0.82rem;
+  color: var(--tierra);
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+
+.accordion-chevron {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--lino);
+  border: 1px solid var(--crema);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--verde-atardecer);
+  font-size: 0.95rem;
+  transition: transform var(--d-comp) var(--e-out), background-color 0.3s, color 0.3s;
+}
+
+.accordion-item.is-open .accordion-chevron {
+  transform: rotate(180deg);
+  background: var(--rosa);
+  color: var(--tierra-deep);
+  border-color: var(--rosa);
+}
+
+/* Transición por CSS Grid del Acordeón */
+.accordion-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--d-comp) var(--e-out);
+}
+
+.accordion-item.is-open .accordion-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.accordion-content {
+  overflow: hidden;
+}
+
+.accordion-body {
+  padding: 0.5rem 2rem 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-top: 1px dashed var(--crema);
+  margin-top: 0.2rem;
+}
+
+.hub-subgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.hub-sublabel {
+  grid-column: 1 / -1;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--tierra);
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hub-sublabel::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--crema);
+}
+
 .hub-card { 
-  background: #ffffff; 
+  background: var(--lino); 
   border: 1px solid var(--crema); 
-  border-radius: 8px; 
-  padding: 1.6rem; 
+  border-radius: 10px; 
+  padding: 1.15rem 1.3rem; 
   display: flex; 
   align-items: center; 
-  gap: 1.2rem; 
+  gap: 1.1rem; 
   text-decoration: none; 
   color: var(--grafito); 
-  box-shadow: 0 4px 14px rgba(74,64,64,0.04); 
-  transition: transform var(--d-comp) var(--e-inout), box-shadow var(--d-comp) var(--e-inout), border-color var(--d-comp) var(--e-inout); 
+  transition: transform var(--d-comp) var(--e-inout), box-shadow var(--d-comp) var(--e-inout), border-color var(--d-comp) var(--e-inout), background-color 0.3s; 
 }
-.hub-card:hover { transform: translateY(-5px); box-shadow: 0 18px 35px rgba(74,64,64,0.09); border-color: var(--rosa); }
+.hub-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(74,64,64,0.08); border-color: var(--rosa); background: #ffffff; }
+
 .hub-icon-wrapper { 
-  width: 54px; 
-  height: 54px; 
+  width: 44px; 
+  height: 44px; 
   border-radius: 50%; 
-  background: var(--lino); 
+  background: #ffffff; 
   border: 1px solid var(--crema); 
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  font-size: 1.4rem; 
+  font-size: 1.15rem; 
   color: var(--verde-atardecer); 
   flex-shrink: 0; 
   transition: background 0.3s, color 0.3s; 
 }
 .hub-card:hover .hub-icon-wrapper { background: var(--rosa); color: var(--tierra-deep); }
 .hub-info { display: flex; flex-direction: column; flex-grow: 1; }
-.hub-subtitle { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tierra); font-weight: 700; margin-bottom: 2px; }
-.hub-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--verde-atardecer); line-height: 1.2; }
-.hub-arrow { font-size: 1.1rem; color: var(--rosa); transition: transform 0.3s ease, color 0.3s ease; }
+.hub-subtitle { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tierra); font-weight: 700; margin-bottom: 2px; }
+.hub-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--verde-atardecer); line-height: 1.2; }
+.hub-arrow { font-size: 0.95rem; color: var(--rosa); transition: transform 0.3s ease, color 0.3s ease; }
 .hub-card:hover .hub-arrow { transform: translateX(4px); color: var(--tierra-deep); }
 
-/* ════ CARDS (VENTAJAS / BENEFICIOS) ════ */
+/* ════ CARDS (VENTAJAS / SERVICIOS DESTACADOS) ════ */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(1.2rem, 2.5vw, 2.2rem); max-width: 1080px; margin-inline: auto; }
 .card { 
   background: #ffffff; 
   border: 1px solid var(--crema); 
-  border-radius: 6px; 
+  border-radius: 8px; 
   padding: 2.2rem 1.8rem; 
   display: flex; 
   flex-direction: column; 
@@ -451,9 +611,9 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 .card a { display: inline-block; align-self: flex-start; margin-top: 0.5rem; font-size: 0.85rem; color: var(--tierra); border-bottom: 1px solid var(--tierra); padding-bottom: 2px; font-weight: 700; transition: color 0.3s, border-color 0.3s; }
 .card a:hover { color: var(--tierra-deep); border-color: var(--tierra-deep); }
 
-/* ════ FAQ ACORDEÓN ════ */
+/* ════ FAQ ACORDEÓN INTERACTIVO ════ */
 .faq { max-width: 64rem; margin-inline: auto; }
-.faq__item { border-bottom: 1px solid rgba(139,111,94,0.26); background: #ffffff; border-radius: 6px; margin-bottom: 12px; padding: 0 22px; box-shadow: 0 2px 6px rgba(74,64,64,0.04); }
+.faq__item { border-bottom: 1px solid rgba(139,111,94,0.26); background: #ffffff; border-radius: 8px; margin-bottom: 12px; padding: 0 22px; box-shadow: 0 2px 6px rgba(74,64,64,0.04); }
 .faq__q { 
   width: 100%; 
   text-align: left; 
@@ -467,7 +627,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   align-items: center; 
   font-family: 'Cormorant Garamond', serif; 
   font-size: clamp(1.3rem, 2.4vw, 1.65rem); 
-  font-weight: 600; 
+  font-weight: 700; 
   color: var(--verde-atardecer); 
   list-style: none; 
   outline: none; 
@@ -482,7 +642,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 .faq__a a { color: var(--tierra); font-weight: 700; border-bottom: 1px solid var(--tierra); padding-bottom: 1px; transition: color 0.3s; }
 .faq__a a:hover { color: var(--tierra-deep); }
 
-/* ════ CTA FINAL Y FOOTER ════ */
+/* ════ CTA FINAL Y FOOTER UNIFICADO ════ */
 .cta { background: var(--tierra-deep); color: var(--lino); text-align: center; }
 .cta h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 22ch; margin-inline: auto; color: var(--lino); }
 .cta p { margin: 1.4rem auto 2.4rem; max-width: 50ch; color: rgba(250,247,242,0.85); }
@@ -508,7 +668,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   transition: background 0.3s, transform 0.3s; 
 }
 .footer__socials a:hover { background-color: var(--rosa); border-color: var(--rosa); color: var(--tierra-deep); transform: translateY(-3px); }
-.footer__brand { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; color: var(--lino); }
+.footer__brand { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; color: var(--lino); font-weight: 700; }
 .footer__credit { font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; color: #b0beb5; margin-top: 1rem; }
 
 /* Botón Flotante de WhatsApp */
@@ -531,7 +691,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 .wa-float:hover { transform: scale(1.08); background-color: var(--verde-atardecer) !important; }
 .wa-float svg { width: 26px; height: 26px; }
 
-/* ════ SINFONÍA DE REVELACIÓN CSS Y ACCESIBILIDAD ════ */
+/* ════ REVELACIÓN CSS Y CONTROL DE ACCESIBILIDAD ════ */
 .js-motion .section-head { opacity: 1; transform: none; clip-path: none; }
 .js-motion .section-head.is-in .eyebrow { transition-delay: 0s; }
 .js-motion .section-head.is-in h2 { transition-delay: 0.12s; }
@@ -581,12 +741,12 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 
 <main id="inicio">
 
-  <!-- MÓDULO 1: HERO SECTION CON BUSCADOR DE DESTINOS -->
+  <!-- MÓDULO 1: HERO SECTION CON BUSCADOR INTEGRADO -->
   <header class="hero">
     <span class="hero__glow" aria-hidden="true"></span>
     
     <div class="logo-circle" data-rise>
-      <img src="img/logo_granpalmera.png" alt="Gran Palmera Logotipo" class="logo-image" loading="eager">
+      <img src="img/logo_granpalmera.png" alt="Logotipo Gran Palmera Paisajismo" class="logo-image" loading="eager">
     </div>
 
     <p class="hero__eyebrow">
@@ -594,32 +754,38 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     </p>
 
     <h1>
-      <span class="hero__line"><span>Palmeras, Plantas Tropicales</span></span>
-      <span class="hero__line"><span>& <span class="accent">Paisajismo</span></span></span>
+      <span class="hero__line"><span>Gran Palmera</span></span>
+      <span class="hero__line"><span>Vivero & <span class="accent">Paisajismo</span></span></span>
     </h1>
     
     <p class="hero__sub">
       <span data-rise>
-        Especialistas en botánica tropical para proyectos de exterior e interior. Asesoramiento técnico en resistencia al frío (Zonas USDA), envíos a todo el país y diseño a medida.
+        Palmeras, plantas tropicales y diseño de espacios verdes a medida. Asesoramiento técnico en resistencia al frío (Zonas USDA) y envíos a todo el país.
       </span>
     </p>
     
     <!-- Buscador Integrado -->
     <div class="hero__search" data-rise>
-      <input type="text" id="input-buscador-hub" list="list-destinos" placeholder="Buscar: Zonas USDA, Envíos, Paisajismo...">
+      <input type="text" id="input-buscador-hub" list="list-destinos" placeholder="Buscar: Resistencia USDA, Tienda, Paisajismo...">
       <i class="fa-solid fa-magnifying-glass"></i>
       <datalist id="list-destinos">
-        <option value="Mapa de Zonas USDA"></option>
-        <option value="WhatsApp Gran Palmera"></option>
+        <option value="Buscador de Resistencia & Mapa USDA"></option>
+        <option value="Ejemplos en Pinterest"></option>
         <option value="Tienda Online"></option>
-        <option value="Servicio de Paisajismo"></option>
+        <option value="Mercado Libre"></option>
         <option value="Envíos a todo el país"></option>
-        <option value="Ubicación Vivero"></option>
+        <option value="Visitá el vivero"></option>
+        <option value="Diseño y Ejecución de Paisajismo"></option>
+        <option value="Paisajismo Residencial"></option>
+        <option value="Paisajismo para Profesionales (B2B)"></option>
+        <option value="Chat con un asesor"></option>
+        <option value="Catálogo de WhatsApp"></option>
+        <option value="Canal de Novedades"></option>
       </datalist>
     </div>
 
     <div class="hero__actions" data-rise>
-      <a class="btn btn--solid" href="usda/buscador_usda.html"><i class="fa-solid fa-map-location-dot"></i> Zonas USDA</a>
+      <a class="btn btn--solid" href="usda/buscador_usda.html"><i class="fa-solid fa-map-location-dot"></i> Mapa USDA</a>
       <a class="btn btn--ghost" href="#sec-servicios">Explorar Ecosistema</a>
     </div>
 
@@ -674,54 +840,201 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     <div class="elemento-jardin arbusto arbusto-3" id="arbusto3"></div>
   </section>
 
-  <!-- MÓDULO 4: ECOSISTEMA / HUB GRID (.hub-grid) -->
+  <!-- MÓDULO 4: ECOSISTEMA CON ACORDEÓN EXCLUSIVO -->
   <section class="section section--crema" id="sec-servicios">
     <div class="section-head reveal">
       <span class="eyebrow">Ecosistema Gran Palmera</span>
-      <h2>Canales y Servicios</h2>
-      <p>Explorá nuestras herramientas técnicas, tiendas oficiales y plataformas de inspiración diseñadas para acercarte al trópico.</p>
+      <h2>Canales, Productos & Servicios</h2>
+      <p>Seleccioná la categoría que buscás para desplegar las opciones disponibles.</p>
     </div>
-    <div class="hub-grid stagger">
-      <a href="usda/buscador_usda.html" class="hub-card">
-        <div class="hub-icon-wrapper"><i class="fa-solid fa-map"></i></div>
-        <div class="hub-info"><span class="hub-subtitle">Herramienta Técnica</span><span class="hub-title">Mapa USDA</span></div>
-        <i class="fa-solid fa-chevron-right hub-arrow"></i>
-      </a>
-      <a href="whatsapp/whatsapp_granpalmera.html" class="hub-card">
-        <div class="hub-icon-wrapper"><i class="fab fa-whatsapp"></i></div>
-        <div class="hub-info"><span class="hub-subtitle">Catálogo y Chat</span><span class="hub-title">WhatsApp Oficial</span></div>
-        <i class="fa-solid fa-chevron-right hub-arrow"></i>
-      </a>
-      <a href="https://granpalmera.mitiendanube.com/" target="_blank" rel="noopener" class="hub-card">
-        <div class="hub-icon-wrapper"><i class="fa-solid fa-bag-shopping"></i></div>
-        <div class="hub-info"><span class="hub-subtitle">Comprá Online</span><span class="hub-title">Tienda Nube</span></div>
-        <i class="fa-solid fa-chevron-right hub-arrow"></i>
-      </a>
-      <a href="https://www.mercadolibre.com.ar/pagina/granpalmera" target="_blank" rel="noopener" class="hub-card">
-        <div class="hub-icon-wrapper"><i class="fa-solid fa-store"></i></div>
-        <div class="hub-info"><span class="hub-subtitle">Envíos a todo el país</span><span class="hub-title">Mercado Libre</span></div>
-        <i class="fa-solid fa-chevron-right hub-arrow"></i>
-      </a>
-      <a href="paisajismo/paisajismo_granpalmera.html" class="hub-card">
-        <div class="hub-icon-wrapper"><i class="fa-solid fa-compass-drafting"></i></div>
-        <div class="hub-info"><span class="hub-subtitle">Espacios Verdes</span><span class="hub-title">Paisajismo 3D</span></div>
-        <i class="fa-solid fa-chevron-right hub-arrow"></i>
-      </a>
-      <a href="envios/envios_granpalmera.html" class="hub-card">
-        <div class="hub-icon-wrapper"><i class="fa-solid fa-truck-ramp-box"></i></div>
-        <div class="hub-info"><span class="hub-subtitle">Logística Segura</span><span class="hub-title">Envíos Nacionales</span></div>
-        <i class="fa-solid fa-chevron-right hub-arrow"></i>
-      </a>
-      <a href="direccion/direccion_granpalmera.html" class="hub-card">
-        <div class="hub-icon-wrapper"><i class="fa-solid fa-location-dot"></i></div>
-        <div class="hub-info"><span class="hub-subtitle">Posadas, Misiones</span><span class="hub-title">El Vivero</span></div>
-        <i class="fa-solid fa-chevron-right hub-arrow"></i>
-      </a>
-      <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" rel="noopener" class="hub-card">
-        <div class="hub-icon-wrapper"><i class="fab fa-pinterest-p"></i></div>
-        <div class="hub-info"><span class="hub-subtitle">Inspiración</span><span class="hub-title">Galería Pinterest</span></div>
-        <i class="fa-solid fa-chevron-right hub-arrow"></i>
-      </a>
+    
+    <div class="accordion-group stagger">
+      
+      <!-- CATEGORÍA 1: ELIJE TU PLANTA (PRODUCTOS) -->
+      <div class="accordion-item is-open">
+        <button class="accordion-header" type="button" aria-expanded="true" aria-controls="cat-planta">
+          <div class="accordion-header-left">
+            <div class="accordion-cat-icon"><i class="fa-solid fa-leaf"></i></div>
+            <div class="accordion-title-group">
+              <h3>Elije tu Planta</h3>
+              <p>Palmeras exclusivas, catálogo online, prueba de resistencia y envíos</p>
+            </div>
+          </div>
+          <div class="accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </button>
+
+        <div class="accordion-wrapper" id="cat-planta">
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <div class="hub-subgrid">
+                
+                <!-- Subsección 1.1 -->
+                <div class="hub-sublabel">Elije tu planta</div>
+                
+                <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" rel="noopener" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fab fa-pinterest-p"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Inspiración</span>
+                    <span class="hub-title">Ejemplos en Pinterest</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <a href="usda/buscador_usda.html" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-magnifying-glass-location"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Resistencia Climática</span>
+                    <span class="hub-title">Buscador & Mapa USDA 🗺️</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <!-- Subsección 1.2 -->
+                <div class="hub-sublabel">Comprá tu planta</div>
+
+                <a href="https://granpalmera.mitiendanube.com/" target="_blank" rel="noopener" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-bag-shopping"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Comprá Online</span>
+                    <span class="hub-title">Tienda Nube</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <a href="https://www.mercadolibre.com.ar/pagina/granpalmera" target="_blank" rel="noopener" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-store"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Tienda Oficial</span>
+                    <span class="hub-title">Mercado Libre</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <!-- Subsección 1.3 -->
+                <div class="hub-sublabel">Todo sobre el envío</div>
+
+                <a href="envios/envios_granpalmera.html" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Logística Segura</span>
+                    <span class="hub-title">Envíos a todo el país</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <a href="direccion/direccion_granpalmera.html" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-location-dot"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Ubicación y Horarios</span>
+                    <span class="hub-title">Visitá el vivero</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA 2: ESTUDIO DE PAISAJISMO (SERVICIOS) -->
+      <div class="accordion-item">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-paisajismo">
+          <div class="accordion-header-left">
+            <div class="accordion-cat-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+            <div class="accordion-title-group">
+              <h3>Estudio de Paisajismo</h3>
+              <p>Proyectos a medida, jardines residenciales y desarrollos B2B</p>
+            </div>
+          </div>
+          <div class="accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </button>
+
+        <div class="accordion-wrapper" id="cat-paisajismo">
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <div class="hub-subgrid">
+                <a href="paisajismo/paisajismo_granpalmera.html" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-compass-drafting"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Servicios Integrales</span>
+                    <span class="hub-title">Diseño y Ejecución</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <a href="paisajismo/paisajismo_residencial_granpalmera.html" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-house-chimney-window"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Jardines & Exteriores</span>
+                    <span class="hub-title">Paisajismo Residencial</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <a href="paisajismo/paisajismo_profesional_granpalmera.html" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-user-gear"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Arquitectos & Desarrollos</span>
+                    <span class="hub-title">Paisajismo para Profesionales</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA 3: CONTACTO Y NOVEDADES -->
+      <div class="accordion-item">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-contacto">
+          <div class="accordion-header-left">
+            <div class="accordion-cat-icon"><i class="fa-solid fa-comments"></i></div>
+            <div class="accordion-title-group">
+              <h3>Contacto & Novedades</h3>
+              <p>Atención directa por WhatsApp, catálogo de stock y promociones</p>
+            </div>
+          </div>
+          <div class="accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </button>
+
+        <div class="accordion-wrapper" id="cat-contacto">
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <div class="hub-subgrid">
+                <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fab fa-whatsapp"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Consultas y Pedidos</span>
+                    <span class="hub-title">Chat con un asesor</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <a href="https://wa.me/c/5493764149835" target="_blank" rel="noopener" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-border-all"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Stock Disponible</span>
+                    <span class="hub-title">Catálogo de WhatsApp</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <a href="https://whatsapp.com/channel/0029VbDNEdM6rsR2btM00y2Z" target="_blank" rel="noopener" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-bullhorn"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Promos & Novedades</span>
+                    <span class="hub-title">Canal de Novedades</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -729,38 +1042,38 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   <section class="section" id="sec-beneficios">
     <div class="section-head reveal">
       <span class="eyebrow">¿Por Qué Elegirnos?</span>
-      <h2>Ventajas y Compromiso</h2>
+      <h2>Ventajas & Compromiso</h2>
       <p>Nos enfocamos en brindar respaldo botánico técnico y soluciones adaptadas a cada localidad.</p>
     </div>
     <div class="cards stagger">
       <article class="card">
         <h3>01 · Variedad & Asesoramiento</h3>
         <p>Disponemos de palmeras y plantas aptas para diversos climas. Te asesoramos en la elección de la especie ideal para tu zona y sus cuidados específicos.</p>
-        <a href="whatsapp/whatsapp_granpalmera.html">Más info →</a>
+        <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Consultar por WhatsApp →</a>
       </article>
       <article class="card">
         <h3>02 · Respaldo Técnico USDA</h3>
         <p>Ponemos a tu disposición nuestro Buscador interactivo de Zonas de Rusticidad USDA para asegurar que cada planta prospere en tu localidad.</p>
-        <a href="usda/buscador_usda.html">Más info →</a>
+        <a href="usda/buscador_usda.html">Probar Mapa USDA →</a>
       </article>
       <article class="card">
         <h3>03 · Logística Embalada Segura</h3>
         <p>Desarrollamos técnicas de acondicionamiento de raíz y follaje para garantizar que tu pedido llegue en óptimas condiciones fitosanitarias.</p>
-        <a href="envios/envios_granpalmera.html">Más info →</a>
+        <a href="envios/envios_granpalmera.html">Ver proceso de envío →</a>
       </article>
       <article class="card">
         <h3>04 · Diseños 3D a Medida</h3>
         <p>Desarrollamos proyectos de paisajismo residencial y comercial integrando criterios botánicos, zonificación agroclimática y estética.</p>
-        <a href="paisajismo/paisajismo_granpalmera.html">Más info →</a>
+        <a href="paisajismo/paisajismo_granpalmera.html">Ver Proyectos 3D →</a>
       </article>
     </div>
   </section>
 
-  <!-- MÓDULO 6: PREGUNTAS FRECUENTES (.faq) -->
+  <!-- MÓDULO 6: GUÍA DE COMPRAS & FAQ (.faq) -->
   <section class="section section--crema" id="sec-faq">
     <div class="section-head reveal">
       <span class="eyebrow">Información Útil</span>
-      <h2>Guía de Compras & FAQ</h2>
+      <h2>Guía de Compras & Preguntas Frecuentes</h2>
     </div>
     <div class="faq">
       <details class="faq__item" id="faq-envios" open>
@@ -778,19 +1091,19 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
       <details class="faq__item" id="faq-vivero">
         <summary class="faq__q">¿Se puede visitar el vivero en Posadas, Misiones?<span class="ic" aria-hidden="true"></span></summary>
         <div class="faq__a">
-          <p>Muy pronto vas a poder visitarnos, recorrer el predio y elegir personalmente tus ejemplares favoritos.<br><br><a href="direccion/direccion_granpalmera.html">Ubicación del Vivero →</a></p>
+          <p>Podés visitarnos en nuestro predio para recorrer los cultivos y elegir personalmente tus ejemplares favoritos con asesoramiento en vivo.<br><br><a href="direccion/direccion_granpalmera.html">Ubicación del Vivero →</a></p>
         </div>
       </details>
       <details class="faq__item" id="faq-paisajismo">
-        <summary class="faq__q">¿Cómo solicito un presupuesto de paisajismo?<span class="ic" aria-hidden="true"></span></summary>
+        <summary class="faq__q">¿Cómo solicito un proyecto de paisajismo residencial o B2B?<span class="ic" aria-hidden="true"></span></summary>
         <div class="faq__a">
-          <p>Podés comunicarte directamente con nuestro equipo técnico enviando fotos o planos de tu espacio verde. Evaluamos la orientación solar, tipo de suelo y requerimientos para elevar una propuesta conceptual 3D a medida.<br><br><a href="paisajismo/paisajismo_granpalmera.html">Ver servicio de Paisajismo →</a></p>
+          <p>Comunicate con nuestro equipo técnico enviando fotos o planos de tu espacio verde. Evaluamos orientación solar, suelo y requerimientos para formular propuestas integrales 3D.<br><br><a href="paisajismo/paisajismo_granpalmera.html">Ver Estudio de Paisajismo →</a></p>
         </div>
       </details>
     </div>
   </section>
 
-  <!-- MÓDULO 7: CTA FINAL Y FOOTER -->
+  <!-- MÓDULO 7: CTA FINAL Y FOOTER UNIFICADO -->
   <section class="section cta" id="contacto">
     <h2 class="reveal">¿Querés asesoramiento para tu espacio verde?</h2>
     <p class="reveal">Contanos qué proyecto tenés en mente, en qué zona te encontrás o qué plantas querés incorporar y te asesoramos de forma personalizada.</p>
@@ -806,24 +1119,26 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 
   <footer class="footer">
     <div class="footer__socials">
-      <a href="https://www.instagram.com/granpalmera/" target="_blank" title="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/GranPalmera/" target="_blank" title="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.tiktok.com/@granpalmera" target="_blank" title="TikTok" rel="noopener"><i class="fab fa-tiktok"></i></a>
-      <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" title="Pinterest" rel="noopener"><i class="fab fa-pinterest-p"></i></a>
-      <a href="https://www.youtube.com/@GranPalmera" target="_blank" title="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/granpalmera/" target="_blank" title="Instagram" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/GranPalmera/" target="_blank" title="Facebook" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.tiktok.com/@granpalmera" target="_blank" title="TikTok" aria-label="TikTok" rel="noopener"><i class="fab fa-tiktok"></i></a>
+      <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" title="Pinterest" aria-label="Pinterest" rel="noopener"><i class="fab fa-pinterest-p"></i></a>
+      <a href="https://www.youtube.com/@GranPalmera" target="_blank" title="YouTube" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" title="LinkedIn" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
     </div>
     <p class="footer__brand">Gran Palmera</p>
-    <p class="footer__credit">Vivero y Paisajismo · Posadas, Misiones, Argentina</p>
+    <p class="footer__credit">GRANPALMERA VIVERO Y PAISAJISMO · Posadas, Misiones, Argentina</p>
   </footer>
 </main>
 
+<!-- Botón Flotante de WhatsApp -->
 <a class="wa-float" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/>
   </svg>
 </a>
 
-<!-- LIBRERÍAS DE ANIMACIÓN GSAP + LENIS -->
+<!-- LIBRERÍAS DE ANIMACIÓN HIGH-END: GSAP v3 + LENIS SMOOTH SCROLL -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
@@ -913,6 +1228,40 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
       if (e.key === 'Escape' && nav.classList.contains('is-open')) closeMenu();
     });
   }
+
+  // LÓGICA DE ACORDEÓN EXCLUSIVO PARA EL ECOSISTEMA
+  var accordionItems = document.querySelectorAll('.accordion-item');
+  accordionItems.forEach(function(item) {
+    var header = item.querySelector('.accordion-header');
+    if (!header) return;
+
+    header.addEventListener('click', function() {
+      var isOpen = item.classList.contains('is-open');
+
+      // Cierra todos los otros acordeones (Acordeón Exclusivo)
+      accordionItems.forEach(function(otherItem) {
+        if (otherItem !== item) {
+          otherItem.classList.remove('is-open');
+          var otherHeader = otherItem.querySelector('.accordion-header');
+          if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Alterna el estado del acordeón cliqueado
+      if (isOpen) {
+        item.classList.remove('is-open');
+        header.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('is-open');
+        header.setAttribute('aria-expanded', 'true');
+      }
+
+      // Actualiza las posiciones de ScrollTrigger para evitar saltos
+      setTimeout(function() {
+        ScrollTrigger.refresh();
+      }, 350);
+    });
+  });
 
   // Fondo Dinámico Ambiental
   if (!reduce) {
@@ -1139,18 +1488,23 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     });
   })();
 
-  // Lógica del Buscador Interactivo en el Hero
+  // Lógica del Buscador Interactivo en el Hero con redirección directa
   var inputBuscador = document.getElementById('input-buscador-hub');
   if (inputBuscador) {
     inputBuscador.addEventListener('change', function(e) {
       var val = e.target.value.toLowerCase();
-      if (val.includes('usda') || val.includes('mapa')) window.location.href = 'usda/buscador_usda.html';
-      else if (val.includes('whatsapp') || val.includes('chat')) window.location.href = 'whatsapp/whatsapp_granpalmera.html';
-      else if (val.includes('tienda')) window.open('https://granpalmera.mitiendanube.com/', '_blank');
+      if (val.includes('usda') || val.includes('mapa') || val.includes('resistencia')) window.location.href = 'usda/buscador_usda.html';
+      else if (val.includes('pinterest')) window.open('https://ar.pinterest.com/granpalmera/_saved/', '_blank');
+      else if (val.includes('tienda nube') || val.includes('tienda online')) window.open('https://granpalmera.mitiendanube.com/', '_blank');
       else if (val.includes('mercado libre')) window.open('https://www.mercadolibre.com.ar/pagina/granpalmera', '_blank');
-      else if (val.includes('paisajismo')) window.location.href = 'paisajismo/paisajismo_granpalmera.html';
-      else if (val.includes('envío')) window.location.href = 'envios/envios_granpalmera.html';
-      else if (val.includes('ubicación') || val.includes('vivero')) window.location.href = 'direccion/direccion_granpalmera.html';
+      else if (val.includes('envío') || val.includes('país')) window.location.href = 'envios/envios_granpalmera.html';
+      else if (val.includes('vivero') || val.includes('ubicación')) window.location.href = 'direccion/direccion_granpalmera.html';
+      else if (val.includes('diseño') || val.includes('ejecución') || val.includes('paisajismo')) window.location.href = 'paisajismo/paisajismo_granpalmera.html';
+      else if (val.includes('residencial')) window.location.href = 'paisajismo/paisajismo_residencial_granpalmera.html';
+      else if (val.includes('profesionales') || val.includes('b2b')) window.location.href = 'paisajismo/paisajismo_profesional_granpalmera.html';
+      else if (val.includes('asesor') || val.includes('chat')) window.open('https://wa.me/message/3R4CL2MTGO4VC1', '_blank');
+      else if (val.includes('catálogo')) window.open('https://wa.me/c/5493764149835', '_blank');
+      else if (val.includes('canal') || val.includes('novedades')) window.open('https://whatsapp.com/channel/0029VbDNEdM6rsR2btM00y2Z', '_blank');
     });
   }
 
