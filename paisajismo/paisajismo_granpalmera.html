@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!--
-  GRAN PALMERA · Servicio de Paisajismo (Refactorizado con Arquitectura Coupes y Rosas v2.5)
-  SISTEMA: Diseño editorial, Smooth Scroll con Lenis, GSAP ScrollTrigger Pinned Stage (#jardinStage) y Motor 2D Canvas.
+  GRAN PALMERA · Hub de Paisajismo (Landing de Enrutamiento v4.4 · Redes Centradas & Firma de Autor)
+  SISTEMA: Diseño editorial, Smooth Scroll con Lenis, Motor 2D Canvas de Monstera y Acordeón Unificado.
+  ARQUITECTURA: Enrutamiento directo B2C / B2B con footer full-width, redes centradas y autoría de Pablo Villordo.
 -->
 <html lang="es-AR" class="preload">
 <head>
@@ -10,27 +11,27 @@
 <meta name="color-scheme" content="light">
 <meta name="supported-color-schemes" content="light">
 <title>Servicio de Paisajismo Integral | Gran Palmera · Vivero & Paisajismo</title>
-<meta name="description" content="Integramos arquitectura y naturaleza. Proyectos de paisajismo residencial y profesional en Posadas, Misiones y todo el país. Del diseño a la instalación.">
+<meta name="description" content="Integramos arquitectura y naturaleza. Proyectos de paisajismo residencial y para profesionales en Posadas, Misiones. Elegí tu servicio.">
 <link rel="canonical" href="https://www.granpalmera-vivero-paisajismo.com/paisajismo/paisajismo_granpalmera.html">
 
 <!-- Meta etiquetas Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.granpalmera-vivero-paisajismo.com/paisajismo/paisajismo_granpalmera.html">
 <meta property="og:title" content="Servicio de Paisajismo | Gran Palmera">
-<meta property="og:description" content="Transformamos patios, jardines y proyectos arquitectónicos en ambientes pensados para disfrutar y conectar con la naturaleza.">
+<meta property="og:description" content="Transformamos espacios exteriores. Partner técnico B2B y diseño de jardines residenciales a medida.">
 <meta property="og:image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Gran Palmera">
 
 <link rel="icon" type="image/png" href="../img/logo_granpalmera.png">
 
-<!-- Tipografías de Diseño Editorial -->
+<!-- Tipografías -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://unpkg.com">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <!-- SCHEMA.ORG JSON-LD -->
@@ -40,19 +41,18 @@
   "@type": ["LocalBusiness", "GardenStore"],
   "@id": "https://www.granpalmera-vivero-paisajismo.com/#business",
   "name": "Gran Palmera",
-  "description": "Vivero y paisajismo en Posadas, Misiones. Especialistas en palmeras de colección, plantas tropicales y diseño de espacios verdes a medida.",
+  "description": "Vivero y paisajismo en Posadas, Misiones. Diseño residencial y partner técnico para arquitectos y constructoras.",
   "url": "https://www.granpalmera-vivero-paisajismo.com",
   "image": "https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png",
   "telephone": "+54 9 376 400-0000",
   "slogan": "Cultivando el trópico.",
   "areaServed": ["Posadas", "Misiones", "Argentina"],
-  "address": { "@type": "PostalAddress", "addressLocality": "Posadas", "addressRegion": "Misiones", "addressCountry": "AR" },
-  "openingHours": "Mo-Sa 08:00-19:00"
+  "address": { "@type": "PostalAddress", "addressLocality": "Posadas", "addressRegion": "Misiones", "addressCountry": "AR" }
 }
 </script>
 
 <style>
-/* ════ PALETA Y SISTEMA DE DISEÑO BASE (DESIGN SYSTEM COUPES Y ROSAS v2.5) ════ */
+/* ════ PALETA Y SISTEMA DE DISEÑO UNIFICADO (INDEX & LANDING) ════ */
 :root {
   --lino: #FAF7F2; 
   --crema: #EDE3D5; 
@@ -63,10 +63,13 @@
   --grafito: #4A4040;
   --verde-atardecer: #3a4a3f; 
   --burdeos: #6e3b3b;
+  --accent-color: #a4b39e;
+  
   --e-out: cubic-bezier(0.22, 1, 0.36, 1); 
   --e-out-lg: cubic-bezier(0.16, 1, 0.30, 1);
   --e-inout: cubic-bezier(0.76, 0, 0.24, 1); 
   --e-soft: cubic-bezier(0.33, 0, 0.20, 1);
+  
   --d-micro: 0.32s; 
   --d-comp: 0.6s; 
   --d-hero: 1.1s; 
@@ -86,7 +89,7 @@ body {
 
 h1, h2, h3, .display { 
   font-family: 'Cormorant Garamond', Georgia, serif; 
-  font-weight: 500; 
+  font-weight: 600; 
   line-height: 1.06; 
   letter-spacing: -0.01em; 
   text-wrap: balance; 
@@ -113,10 +116,9 @@ body::before {
 #bgwash { position: fixed; inset: 0; z-index: 0; background: var(--lino); pointer-events: none; will-change: background-color; }
 #petals { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 main { position: relative; z-index: 2; }
-
 html.preload *, html.preload *::before, html.preload *::after { transition: none !important; }
 
-/* ════ NAVEGACIÓN ════ */
+/* ════ NAVEGACIÓN PRINCIPAL FLOTANTE ════ */
 .nav { 
   position: fixed; 
   top: 0; 
@@ -138,7 +140,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   color: var(--grafito); 
   box-shadow: 0 1px 0 rgba(74,64,64,0.08); 
 }
-.nav__brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.55rem; font-weight: 600; }
+.nav__brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.55rem; font-weight: 700; }
 .nav__links { display: flex; gap: 1.8rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; align-items: center; font-weight: 700; }
 .nav__links a:not(.nav__cta) { position: relative; padding-bottom: 3px; transition: color 0.3s; }
 .nav__links a:not(.nav__cta)::after { 
@@ -213,7 +215,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   .nav__cta { margin-top: 0.6rem; color: var(--lino); border-color: rgba(250,247,242,0.55); padding: 0.8rem 1.8rem; font-size: 0.82rem; }
 }
 
-/* ════ BOTONES Y LOGO ════ */
+/* ════ BOTONES Y COMPONENTES REUTILIZABLES ════ */
 .btn { 
   position: relative; 
   display: inline-flex; 
@@ -234,10 +236,13 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 .btn:hover { transform: translateY(-2px); }
 .btn--solid { background-color: var(--rosa) !important; color: #38291d !important; border: 1px solid var(--rosa); }
 .btn--solid:hover, .btn--solid:focus-visible { background-color: var(--tierra-deep) !important; border-color: var(--tierra-deep); color: var(--lino) !important; }
-.btn--ghost { background-color: transparent !important; color: var(--lino); border: 1.5px solid rgba(250,247,242,0.55); }
-.btn--ghost:hover, .btn--ghost:focus-visible { background-color: rgba(250,247,242,0.16) !important; border-color: var(--lino); color: var(--lino); }
+.btn--ghost { background-color: transparent !important; color: var(--tierra-deep); border: 1.5px solid var(--tierra-deep); }
+.btn--ghost:hover, .btn--ghost:focus-visible { background-color: rgba(91,70,56,0.08) !important; }
+.btn--ghost-light { background-color: transparent !important; color: var(--lino); border: 1.5px solid rgba(250,247,242,0.55); }
+.btn--ghost-light:hover, .btn--ghost-light:focus-visible { background-color: rgba(250,247,242,0.16) !important; border-color: var(--lino); color: var(--lino); }
 .btn__wa { width: 18px; height: 18px; flex: none; }
 
+/* Logo Circular */
 .logo-circle { 
   width: 110px; 
   height: 110px; 
@@ -275,16 +280,14 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   background: radial-gradient(120% 90% at 50% 40%, rgba(201,168,154,0.24), transparent 62%); 
   pointer-events: none; 
 }
-.hero__eyebrow { overflow: hidden; margin-bottom: 1.3rem; color: #e6cdbf; position: relative; z-index: 2; }
-.hero h1 { font-size: clamp(2.6rem, 6.4vw, 5.4rem); max-width: min(94vw, 22ch); margin-inline: auto; position: relative; z-index: 2; font-weight: 500; }
-.hero h1 .accent { color: #e6cdbf; }
+.hero__eyebrow { overflow: hidden; margin-bottom: 1.3rem; color: #E6CDBF; position: relative; z-index: 2; }
+.hero h1 { font-size: clamp(2.6rem, 6.4vw, 5.4rem); max-width: min(94vw, 22ch); margin-inline: auto; position: relative; z-index: 2; font-weight: 600; }
+.hero h1 .accent { color: #E6CDBF; }
 .hero__line { display: block; overflow: hidden; }
 .hero__line > span { display: inline-block; will-change: transform; }
 .hero__sub { margin-top: 1.8rem; font-size: clamp(1.02rem, 1.5vw, 1.28rem); max-width: 58ch; margin-inline: auto; color: rgba(250,247,242,0.9); overflow: hidden; position: relative; z-index: 2; }
 .hero__sub > span { display: inline-block; }
-
 .hero__actions { margin-top: 2.4rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center; position: relative; z-index: 2; }
-
 .scrollcue { 
   position: absolute; 
   left: 50%; 
@@ -310,170 +313,228 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 .section-head h2 { font-size: clamp(2rem, 4.4vw, 3.5rem); color: var(--verde-atardecer); }
 .section-head p { margin: 1.2rem auto 0; max-width: 60ch; color: rgba(74,64,64,0.84); font-size: clamp(1rem, 1.4vw, 1.15rem); }
 
-/* ════ MANIFIESTO NARRATIVO ════ */
-.manifesto { max-width: min(92vw, 50rem); margin-inline: auto; text-align: center; display: flex; flex-direction: column; gap: clamp(0.9rem, 2.4vw, 1.9rem); }
-.manifesto__line { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 4.6vw, 3.5rem); line-height: 1.16; font-weight: 500; text-wrap: balance; color: var(--verde-atardecer); }
-.manifesto__line:nth-child(2) { font-style: italic; font-family: 'Playfair Display', 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.8vw, 2.9rem); color: var(--tierra-deep); }
-.manifesto .w { color: rgba(74,64,64,0.15); transition: color var(--d-comp) var(--e-out); }
-
-/* ════ MÓDULO 3 CONSERVADO EXACTO: ESCENARIO GSAP DE CRECIMIENTO (#jardinStage) ════ */
-.stage { position: relative; width: 100%; height: 100vh; background-color: var(--lino); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.copy { position: relative; z-index: 10; text-align: center; width: 100%; max-width: 50rem; padding: 0 var(--pad); pointer-events: none; }
-.texto-1, .texto-2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; will-change: transform, opacity; }
-.texto-2 { opacity: 0; }
-.stage p.display { font-size: clamp(2.4rem, 6.4vw, 4.8rem); margin-bottom: 0.5rem; color: var(--verde-atardecer); }
-
-/* Formas Geométricas del Jardín en Capas */
-.elemento-jardin { position: absolute; pointer-events: none; will-change: transform, opacity; }
-.cubresuelos { bottom: -10vh; left: -5%; width: 110%; height: 35vh; background: #2d4231; border-radius: 50% 50% 0 0; z-index: 1; }
-
-.arbusto { border-radius: 50%; z-index: 3; box-shadow: inset -10px -10px 20px rgba(0,0,0,0.1); }
-.arbusto-1 { bottom: 10vh; left: 15%; width: 180px; height: 140px; background: #5b7553; }
-.arbusto-2 { bottom: 5vh; right: 20%; width: 220px; height: 160px; background: #718f65; }
-.arbusto-3 { bottom: 15vh; right: 10%; width: 120px; height: 100px; background: #8A9E87; }
-
-/* Palmera Principal (Azul plateada - Bismarckia) */
-.palmera-principal { bottom: 15vh; left: 30%; z-index: 2; }
-.tronco-principal { width: 24px; height: 55vh; background: #8B6F5E; border-radius: 12px; position: absolute; bottom: 0; left: -12px; }
-.copa-principal { width: 280px; height: 280px; background: #8da3a6; border-radius: 50%; position: absolute; bottom: 50vh; left: -140px; box-shadow: inset -20px -20px 40px rgba(0,0,0,0.15); }
-
-/* Palmera Secundaria (Multitronco) */
-.palmera-secundaria { bottom: 20vh; right: 35%; z-index: 2; }
-.tronco-sec { width: 16px; background: #a39c76; border-radius: 8px; position: absolute; bottom: 0; }
-.tronco-sec.t1 { height: 45vh; left: -25px; transform: rotate(-5deg); }
-.tronco-sec.t2 { height: 40vh; left: 10px; transform: rotate(8deg); }
-.copa-sec { background: #4a6b46; border-radius: 50%; position: absolute; }
-.copa-sec.c1 { width: 180px; height: 150px; bottom: 40vh; left: -110px; }
-.copa-sec.c2 { width: 160px; height: 130px; bottom: 35vh; left: -40px; }
-
-/* ════ GRILLAS DE SERVICIOS Y AUDIENCIA ════ */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; max-width: 1080px; margin-inline: auto; }
-.service-card { 
-  background: #ffffff; 
-  border: 1px solid var(--crema); 
-  border-radius: 8px; 
-  padding: 2.2rem 1.8rem; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: space-between; 
-  min-height: 240px; 
-  box-shadow: 0 4px 14px rgba(74,64,64,0.04); 
-  transition: transform var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft), border-color 0.3s; 
+/* ════ ACORDEÓN EXCLUSIVO INTERACTIVO DE SERVICIOS ════ */
+.accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 860px;
+  margin-inline: auto;
 }
-.service-card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(74,64,64,0.09); border-color: var(--rosa); }
-.service-card__n { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--rosa); font-weight: 600; }
-.service-card h3 { font-size: 1.65rem; color: var(--verde-atardecer); margin: 0.5rem 0; }
-.service-card p { color: rgba(74,64,64,0.84); font-size: 0.95rem; }
 
-.audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; max-width: 1080px; margin-inline: auto; }
-.audience-card { 
-  background: var(--lino); 
-  border: 1px solid var(--crema); 
-  border-radius: 8px; 
-  padding: 2.2rem 1.8rem; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: space-between; 
-  transition: transform var(--d-comp) var(--e-soft), background 0.3s, border-color 0.3s; 
+.accordion-item {
+  background: #ffffff;
+  border: 1px solid var(--crema);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(74,64,64,0.04);
+  transition: border-color var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft);
 }
-.audience-card:hover { background: #ffffff; transform: translateY(-4px); border-color: var(--rosa); }
-.audience-card .icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
-.audience-card h3 { font-size: 1.55rem; color: var(--verde-atardecer); margin-bottom: 0.45rem; }
-.audience-card p { font-size: 0.94rem; color: rgba(74,64,64,0.82); }
 
-/* ════ SECCIÓN ELEGÍ / CAMINOS (.choice) ════ */
-.choice-container { max-width: 1080px; margin-inline: auto; display: flex; flex-direction: column; gap: 1.5rem; }
-.choice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.4rem; }
-.choice__card { 
-  background: var(--lino); 
-  border: 1px solid var(--crema); 
-  border-radius: 8px; 
-  padding: clamp(2rem, 4vw, 3rem); 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: space-between; 
-  transition: transform var(--d-comp) var(--e-soft), background 0.3s, border-color 0.3s; 
+.accordion-item.is-open {
+  border-color: var(--rosa);
+  box-shadow: 0 12px 32px rgba(74,64,64,0.09);
 }
-.choice__card:hover { background: #ffffff; border-color: var(--rosa); transform: translateY(-4px); }
-.choice__icon { font-size: 2.2rem; margin-bottom: 1rem; }
-.choice__card h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--verde-atardecer); }
-.choice__card p { margin-top: 0.8rem; color: rgba(74,64,64,0.85); font-size: 0.98rem; }
-.choice__actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
 
-.wa-card { background: var(--tierra-deep) !important; color: var(--lino) !important; border-color: var(--tierra-deep) !important; }
-.wa-card h3 { color: #E6CDBF !important; }
-.wa-card p { color: rgba(250,247,242,0.88) !important; }
-.wa-card:hover { background: #4a392f !important; }
-.wa-card .btn { background: #ffffff !important; color: var(--tierra-deep) !important; }
+.accordion-header {
+  width: 100%;
+  background: #ffffff;
+  border: none;
+  outline: none;
+  padding: 1.6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+  transition: background-color 0.3s var(--e-soft);
+}
 
-/* ════ CTA FINAL Y FOOTER ════ */
+.accordion-header:hover {
+  background-color: var(--lino);
+}
+
+.accordion-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.accordion-cat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--lino);
+  border: 1px solid var(--crema);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--verde-atardecer);
+  flex-shrink: 0;
+  transition: background-color 0.3s var(--e-soft), color 0.3s var(--e-soft), border-color 0.3s var(--e-soft);
+}
+
+.accordion-item.is-open .accordion-cat-icon,
+.accordion-header:hover .accordion-cat-icon {
+  background: var(--rosa);
+  color: var(--tierra-deep);
+  border-color: var(--rosa);
+}
+
+.accordion-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-title-group h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  font-weight: 700;
+  color: var(--verde-atardecer);
+}
+
+.accordion-title-group p {
+  font-size: 0.82rem;
+  color: var(--tierra);
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+
+.accordion-chevron {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--lino);
+  border: 1px solid var(--crema);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--verde-atardecer);
+  font-size: 0.95rem;
+  transition: transform var(--d-comp) var(--e-out), background-color 0.3s, color 0.3s;
+}
+
+.accordion-item.is-open .accordion-chevron {
+  transform: rotate(180deg);
+  background: var(--rosa);
+  color: var(--tierra-deep);
+  border-color: var(--rosa);
+}
+
+.accordion-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--d-comp) var(--e-out);
+}
+
+.accordion-item.is-open .accordion-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.accordion-content {
+  overflow: hidden;
+}
+
+.accordion-body {
+  padding: 0.5rem 2rem 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-top: 1px dashed var(--crema);
+  margin-top: 0.2rem;
+}
+
+/* ════ MÓDULO DE METODOLOGÍA (STEPS) ════ */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(1.4rem, 3vw, 3rem); max-width: 1080px; margin-inline: auto; }
+.step { border-top: 1px solid rgba(139,111,94,0.3); padding-top: 1.1rem; }
+.step__n { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--rosa); }
+.step h3 { font-size: 1.6rem; margin: 0.3rem 0 0.5rem; color: var(--verde-atardecer); }
+.step p { font-size: 0.95rem; color: rgba(74,64,64,0.82); }
+
+/* ════ CTA FINAL & FOOTER FULL-WIDTH ════ */
 .cta { background: var(--tierra-deep); color: var(--lino); text-align: center; }
 .cta h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 22ch; margin-inline: auto; color: #E6CDBF; }
 .cta p { margin: 1.4rem auto 2.4rem; max-width: 52ch; color: rgba(250,247,242,0.85); }
 .cta__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-.footer { 
+.footer-full { 
   background: var(--verde-atardecer); 
+  width: 100%; 
   color: rgba(250,247,242,0.8); 
-  padding: 3.5rem var(--pad) 2rem; 
-  display: grid; 
-  grid-template-columns: 1.4fr 1fr 1fr; 
-  gap: 1.8rem; 
-  font-size: 0.86rem; 
-  align-items: start; 
+  padding: 4rem 0 2rem; 
+}
+.footer { 
+  width: 100%; 
   max-width: 1200px; 
   margin-inline: auto; 
+  padding: 0 var(--pad); 
+  display: grid; 
+  grid-template-columns: 1.4fr 1fr 1fr; 
+  gap: 2.5rem; 
+  font-size: 0.86rem; 
+  align-items: start; 
 }
-.footer__brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.6rem; color: var(--lino); margin-bottom: 0.4rem; }
+.footer__brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.6rem; color: var(--lino); margin-bottom: 0.4rem; font-weight: 700; }
 .footer h4 { font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250,247,242,0.6); margin-bottom: 0.7rem; font-weight: 700; }
 .footer a:hover { color: var(--lino); }
 .footer__tag { font-family: 'Playfair Display', serif; font-style: italic; color: var(--rosa); font-size: 1.2rem; }
-.footer__credit { grid-column: 1 / -1; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(250,247,242,0.12); font-size: 0.76rem; color: rgba(250,247,242,0.5); text-align: center; }
-@media (max-width: 760px) { .footer { grid-template-columns: 1fr; gap: 1.5rem; } }
 
-/* Botón Flotante de WhatsApp */
-.wa-float { 
-  position: fixed; 
-  right: 1.3rem; 
-  bottom: 1.3rem; 
-  z-index: 55; 
-  width: 56px; 
-  height: 56px; 
+/* Redes Sociales Centradas en el Footer */
+.footer__socials { display: flex; justify-content: center; gap: 0.9rem; margin-top: 1.2rem; flex-wrap: wrap; }
+.footer__socials a { 
+  width: 38px; 
+  height: 38px; 
   border-radius: 50%; 
-  background-color: var(--tierra-deep) !important; 
-  color: var(--lino); 
-  border: 1.5px solid rgba(250,247,242,0.32); 
+  background: rgba(250,247,242,0.08); 
+  border: 1px solid rgba(250,247,242,0.18); 
   display: grid; 
   place-items: center; 
-  box-shadow: 0 10px 26px rgba(74,64,64,0.35); 
-  transition: transform var(--d-comp) var(--e-soft), background-color 0.3s; 
+  color: var(--lino); 
+  font-size: 0.95rem; 
+  transition: background 0.3s, transform 0.3s, border-color 0.3s; 
 }
+.footer__socials a:hover { 
+  background: var(--rosa); 
+  border-color: var(--rosa); 
+  color: var(--tierra-deep); 
+  transform: translateY(-2px); 
+}
+
+.footer__credit { 
+  width: 100%;
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem var(--pad) 0;
+  border-top: 1px solid rgba(250,247,242,0.12); 
+  font-size: 0.76rem; 
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(250,247,242,0.5); 
+  text-align: center; 
+}
+
+@media (max-width: 760px) { 
+  .footer { grid-template-columns: 1fr; gap: 2rem; } 
+}
+
+/* Botón Flotante WhatsApp */
+.wa-float { position: fixed; right: 1.3rem; bottom: 1.3rem; z-index: 55; width: 56px; height: 56px; border-radius: 50%; background-color: var(--tierra-deep) !important; color: var(--lino); border: 1.5px solid rgba(250,247,242,0.32); display: grid; place-items: center; box-shadow: 0 10px 26px rgba(74,64,64,0.35); transition: transform var(--d-comp) var(--e-soft); }
 .wa-float:hover { transform: scale(1.08); background-color: var(--verde-atardecer) !important; }
 .wa-float svg { width: 26px; height: 26px; }
 
-/* ════ SINFONÍA DE REVELACIÓN CSS Y ACCESIBILIDAD ════ */
+/* ACCESIBILIDAD & SINFONÍA CSS */
 .js-motion .section-head { opacity: 1; transform: none; clip-path: none; }
 .js-motion .section-head.is-in .eyebrow { transition-delay: 0s; }
 .js-motion .section-head.is-in h2 { transition-delay: 0.12s; }
 .js-motion .section-head.is-in p { transition-delay: 0.24s; }
 .js-motion .section-head .eyebrow { position: relative; display: inline-block; }
-.js-motion .section-head .eyebrow::after { 
-  content: ""; 
-  position: absolute; 
-  left: 50%; 
-  bottom: -0.5rem; 
-  width: 2.2rem; 
-  height: 1px; 
-  background: var(--rosa); 
-  transform: translateX(-50%) scaleX(0); 
-  transform-origin: center; 
-  transition: transform var(--d-hero) var(--e-out) 0.3s; 
-}
+.js-motion .section-head .eyebrow::after { content: ""; position: absolute; left: 50%; bottom: -0.5rem; width: 2.2rem; height: 1px; background: var(--rosa); transform: translateX(-50%) scaleX(0); transform-origin: center; transition: transform var(--d-hero) var(--e-out) 0.3s; }
 .js-motion .section-head.is-in .eyebrow::after { transform: translateX(-50%) scaleX(1); }
 
 @media (prefers-reduced-motion: reduce) {
   .js-motion .reveal, .js-motion .stagger > * { opacity: 1 !important; transform: none !important; clip-path: none !important; }
-  .stage .texto-1, .stage .texto-2, .elemento-jardin { opacity: 1 !important; transform: none !important; }
   .scrollcue__line { display: none; }
 }
 </style>
@@ -483,15 +544,12 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 <div id="bgwash" aria-hidden="true"></div>
 <canvas id="petals" aria-hidden="true"></canvas>
 
-<!-- NAVEGACIÓN PRINCIPAL -->
+<!-- NAVEGACIÓN -->
 <nav class="nav" id="nav" aria-label="Navegación Principal">
   <a class="nav__brand" href="../index.html">Gran Palmera</a>
   <div class="nav__links" id="navLinks">
-    <a href="#integral">Filosofía</a>
-    <a href="#jardinStage">El Proyecto</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#quienes">Clientes</a>
-    <a href="#elegir">Soluciones</a>
+    <a href="#elegir">Servicios</a>
+    <a href="#metodologia">Metodología</a>
     <a class="nav__cta" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp</a>
   </div>
   <button class="nav__burger" id="navBurger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
@@ -504,240 +562,154 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   <!-- MÓDULO 1: HERO SECTION -->
   <header class="hero">
     <span class="hero__glow" aria-hidden="true"></span>
-    
     <div class="logo-circle" data-rise>
       <img src="../img/logo_granpalmera.png" alt="Gran Palmera Paisajismo Logotipo" class="logo-image" loading="eager">
     </div>
-
     <p class="hero__eyebrow">
       <span class="eyebrow accent" style="font-size:1rem; letter-spacing:0.04em; text-transform:none" data-rise>Servicio de Paisajismo</span>
     </p>
-
     <h1>
       <span class="hero__line"><span>Del diseño</span></span>
       <span class="hero__line"><span>a la <span class="accent">instalación</span></span></span>
     </h1>
-    
     <p class="hero__sub">
       <span data-rise>
         Integramos arquitectura y naturaleza para crear espacios exteriores pensados, diseñados y ejecutados con estricto criterio estético y botánico.
       </span>
     </p>
-
     <div class="hero__actions" data-rise>
-      <a class="btn btn--solid" href="#elegir">Elegí cómo podemos ayudarte</a>
-      <a class="btn btn--ghost" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">
+      <a class="btn btn--solid" href="#elegir">Elegí tu servicio</a>
+      <a class="btn btn--ghost-light" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">
         <svg class="btn__wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
         Quiero consultar
       </a>
     </div>
-
     <div class="scrollcue">
       <span>Deslizá</span>
       <span class="scrollcue__line" id="cueLine" aria-hidden="true"></span>
     </div>
   </header>
 
-  <!-- MÓDULO 2: MANIFIESTO NARRATIVO -->
-  <section class="section" id="integral">
-    <p class="eyebrow reveal" style="color:var(--tierra); margin-bottom:1.6rem; text-align:center">Nuestra Visión</p>
-    <div class="manifesto" id="text-reveal">
-      <p class="manifesto__line">El paisaje transforma la forma en que habitamos un espacio.</p>
-      <p class="manifesto__line">Por eso lo pensamos como parte de la arquitectura.</p>
-      <p class="manifesto__line">Diseño, vegetación y ejecución como una sola propuesta.</p>
-    </div>
-  </section>
-
-  <!-- MÓDULO 3 CONSERVADO EXACTO: ESCENARIO GSAP DE CRECIMIENTO (#jardinStage) -->
-  <section class="stage" id="jardinStage" aria-label="El paisaje se construye por capas vegetales">
-    <div class="copy">
-      <div class="texto-1">
-        <span class="eyebrow">Tu jardín, como proyecto</span>
-        <p class="display">El espacio vacío</p>
-        <p>Primero entendemos el espacio, la arquitectura<br>y la forma en que querés utilizarlo.</p>
-      </div>
-      <div class="texto-2">
-        <span class="eyebrow">El paisaje consolidado</span>
-        <p class="display">Toma forma</p>
-        <p>Crear un paisaje que funcione, tenga identidad<br>y evolucione correctamente con el tiempo.</p>
-      </div>
-    </div>
-
-    <!-- Formas Geométricas del Jardín en Capas -->
-    <div class="elemento-jardin cubresuelos" id="cubresuelos"></div>
-    
-    <div class="elemento-jardin palmera-principal">
-      <div class="tronco-principal" id="tronco1"></div>
-      <div class="copa-principal" id="copa1"></div>
-    </div>
-
-    <div class="elemento-jardin palmera-secundaria">
-      <div class="tronco-sec t1" id="tronco2"></div>
-      <div class="copa-sec c1" id="copa2"></div>
-      <div class="tronco-sec t2" id="tronco3"></div>
-      <div class="copa-sec c2" id="copa3"></div>
-    </div>
-
-    <div class="elemento-jardin arbusto arbusto-1" id="arbusto1"></div>
-    <div class="elemento-jardin arbusto arbusto-2" id="arbusto2"></div>
-    <div class="elemento-jardin arbusto arbusto-3" id="arbusto3"></div>
-  </section>
-
-  <!-- MÓDULO 4: SERVICIOS / ETAPAS DEL PROYECTO INTEGRAL -->
-  <section class="section section--crema" id="servicios">
-    <div class="section-head reveal">
-      <span class="eyebrow">Paisajismo Integral</span>
-      <h2>Del concepto al jardín construido</h2>
-      <p>Desarrollamos proyectos de paisajismo desde la concepción hasta la ejecución, integrando diseño, visualización, selección vegetal, provisión de plantas e instalación.</p>
-    </div>
-    <div class="services-grid stagger">
-      <article class="service-card">
-        <div>
-          <span class="service-card__n">01</span>
-          <h3>Diseño</h3>
-          <p>Concepto, anteproyecto y proyecto paisajístico adaptado al espacio y sus necesidades específicas.</p>
-        </div>
-      </article>
-      <article class="service-card">
-        <div>
-          <span class="service-card__n">02</span>
-          <h3>Visualización</h3>
-          <p>Modelado 3D y renders para anticipar la relación entre arquitectura, espacio y vegetación.</p>
-        </div>
-      </article>
-      <article class="service-card">
-        <div>
-          <span class="service-card__n">03</span>
-          <h3>Vegetación</h3>
-          <p>Curaduría y selección de especies y ejemplares según clima, escala, composición y crecimiento.</p>
-        </div>
-      </article>
-      <article class="service-card">
-        <div>
-          <span class="service-card__n">04</span>
-          <h3>Provisión</h3>
-          <p>Provisión de plantas y ejemplares seleccionados para que el proyecto llegue al terreno.</p>
-        </div>
-      </article>
-      <article class="service-card">
-        <div>
-          <span class="service-card__n">05</span>
-          <h3>Instalación</h3>
-          <p>Implantación del paisaje y coordinación de los componentes necesarios para su ejecución.</p>
-        </div>
-      </article>
-      <article class="service-card">
-        <div>
-          <span class="service-card__n">06</span>
-          <h3>Supervisión</h3>
-          <p>Acompañamiento y control de los componentes paisajísticos durante el desarrollo de la obra.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- MÓDULO 5: ¿PARA QUIÉN TRABAJAMOS? (AUDIENCIA) -->
-  <section class="section" id="quienes">
-    <div class="section-head reveal">
-      <span class="eyebrow">¿Para quién trabajamos?</span>
-      <h2>Un mismo lenguaje de paisaje. Diferentes proyectos.</h2>
-      <p>Adaptamos nuestras herramientas y capacidades técnicas al perfil y escala de cada cliente.</p>
-    </div>
-    <div class="audience-grid stagger">
-      <article class="audience-card">
-        <div>
-          <div class="icon">🏡</div>
-          <h3>Propietarios y particulares</h3>
-          <p>Diseñamos y transformamos jardines, patios y espacios exteriores a medida.</p>
-        </div>
-      </article>
-      <article class="audience-card">
-        <div>
-          <div class="icon">🏛️</div>
-          <h3>Arquitectos y estudios</h3>
-          <p>Integramos el paisaje al proyecto arquitectónico en etapas tempranas.</p>
-        </div>
-      </article>
-      <article class="audience-card">
-        <div>
-          <div class="icon">🏗️</div>
-          <h3>Constructoras</h3>
-          <p>Documentación técnica, provisión vegetal y asistencia directa para la ejecución.</p>
-        </div>
-      </article>
-      <article class="audience-card">
-        <div>
-          <div class="icon">🏢</div>
-          <h3>Desarrolladores inmobiliarios</h3>
-          <p>Paisaje diseñado para aumentar la calidad espacial y el valor percibido del emprendimiento.</p>
-        </div>
-      </article>
-      <article class="audience-card">
-        <div>
-          <div class="icon">🏨</div>
-          <h3>Hotelería e instituciones</h3>
-          <p>Espacios exteriores pensados para mejorar la experiencia, identidad y funcionamiento del entorno.</p>
-        </div>
-      </article>
-      <article class="audience-card">
-        <div>
-          <div class="icon">🌳</div>
-          <h3>Profesionales independientes</h3>
-          <p>Apoyo especializado en botánica tropical, diseño de masas vegetales y documentación.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- MÓDULO 6: ELEGÍ CÓMO PODEMOS AYUDARTE (.choice) -->
+  <!-- MÓDULO 2: HUB DE SOLUCIONES (ACORDEÓN COMPLETAMENTE PLEGADO) -->
   <section class="section section--crema" id="elegir">
     <div class="section-head reveal">
-      <span class="eyebrow">Elegí cómo podemos ayudarte</span>
-      <h2>Dos caminos. Un mismo objetivo: un mejor paisaje.</h2>
+      <span class="eyebrow">Elegí tu camino</span>
+      <h2>Dos enfoques. Un mismo lenguaje de paisaje.</h2>
+      <p>Seleccioná el servicio que mejor se adapte a vos y descubrí cómo podemos transformar tu próximo proyecto.</p>
     </div>
-    <div class="choice-container">
-<div class="choice-grid stagger">
-  <!-- Tarjeta 1: Residencial (Abre en la misma pestaña) -->
-  <article class="choice__card">
-    <div class="choice__body">
-      <div class="choice__icon" aria-hidden="true">🏡</div>
-      <h3>Quiero diseñar mi jardín</h3>
-      <p><strong>Paisajismo residencial:</strong> Del diseño a la instalación. Transformamos jardines, patios y espacios exteriores de casas y residencias.</p>
-    </div>
-    <div class="choice__actions">
-      <a class="btn btn--solid" href="paisajismo_residencial_granpalmera.html">Quieres saber más?</a>
-    </div>
-  </article>
 
-  <!-- Tarjeta 2: Profesional (Abre en la misma pestaña) -->
-  <article class="choice__card">
-    <div class="choice__body">
-      <div class="choice__icon" aria-hidden="true">👷🏻‍♂️</div>
-      <h3>Tengo un proyecto</h3>
-      <p><strong>Paisajismo para profesionales:</strong> Partner técnico para arquitectura, construcción y desarrollos de mayor envergadura.</p>
-    </div>
-    <div class="choice__actions">
-      <a class="btn btn--solid" href="paisajismo_profesional_granpalmera.html">Trabajemos juntos!</a>
-    </div>
-  </article>
+    <div class="accordion-group stagger">
+      
+      <!-- TAB 1: RESIDENCIAL -->
+      <div class="accordion-item">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="acc-residencial">
+          <div class="accordion-header-left">
+            <div class="accordion-cat-icon"><i class="fa-solid fa-house-chimney-window"></i></div>
+            <div class="accordion-title-group">
+              <h3>Paisajismo Residencial</h3>
+              <p>Propietarios, diseño 3D y ejecución llave en mano</p>
+            </div>
+          </div>
+          <div class="accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </button>
 
-  <!-- Tarjeta 3: WhatsApp (Mantiene target="_blank" recomendable para enlaces externos) -->
-  <article class="choice__card wa-card reveal">
-    <div class="choice__body">
-      <div class="choice__icon" aria-hidden="true">📲</div>
-      <h3>Quiero consultar</h3>
-      <p>Consultas, asesoramiento o pedidos especiales. Hablemos directamente por WhatsApp.</p>
-    </div>
-    <div class="choice__actions">
-      <a class="btn btn--whatsapp" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">Abrir WhatsApp →</a>
-    </div>
-  </article>
+        <div class="accordion-wrapper" id="acc-residencial">
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p style="color: rgba(74,64,64,0.85); font-size: 1.05rem; max-width: 58ch;">Diseñamos jardines para vivirlos. Transformamos patios y espacios exteriores de casas en ecosistemas equilibrados y estéticos. Un servicio integral que va desde la primera idea y modelado 3D, hasta la selección botánica y la instalación completa.</p>
+              <div style="margin-top: 1rem;">
+                <a href="paisajismo_residencial_granpalmera.html" class="btn btn--solid">Ver Paisajismo Residencial →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-</div>
+      <!-- TAB 2: PROFESIONALES -->
+      <div class="accordion-item">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="acc-profesionales">
+          <div class="accordion-header-left">
+            <div class="accordion-cat-icon"><i class="fa-solid fa-user-gear"></i></div>
+            <div class="accordion-title-group">
+              <h3>Paisajismo para Profesionales</h3>
+              <p>Arquitectos, desarrolladores y partner técnico B2B</p>
+            </div>
+          </div>
+          <div class="accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </button>
+
+        <div class="accordion-wrapper" id="acc-profesionales">
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p style="color: rgba(74,64,64,0.85); font-size: 1.05rem; max-width: 58ch;">Tu partner técnico en botánica tropical y diseño exterior. Nos integramos a las dinámicas de estudios de arquitectura y constructoras ofreciendo documentación técnica, curaduría vegetal a gran escala y supervisión de obra.</p>
+              <div style="margin-top: 1rem;">
+                <a href="paisajismo_profesional_granpalmera.html" class="btn btn--solid">Ver Servicios para Profesionales →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: CONTACTO RÁPIDO -->
+      <div class="accordion-item">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="acc-contacto">
+          <div class="accordion-header-left">
+            <div class="accordion-cat-icon"><i class="fa-solid fa-comments"></i></div>
+            <div class="accordion-title-group">
+              <h3>Consultas y Ejecución de Obra</h3>
+              <p>Provisión de palmeras, plantas de colección y asesoramiento</p>
+            </div>
+          </div>
+          <div class="accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </button>
+
+        <div class="accordion-wrapper" id="acc-contacto">
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p style="color: rgba(74,64,64,0.85); font-size: 1.05rem; max-width: 58ch;">¿Ya tenés un proyecto diseñado y necesitás provisión de plantas, palmeras de colección o ejecución de obra? Contanos qué estás buscando y hablemos directamente con nuestro equipo técnico.</p>
+              <div style="margin-top: 1rem;">
+                <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" class="btn btn--ghost">Contactar por WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- MÓDULO 7: CTA FINAL Y FOOTER -->
+  <!-- MÓDULO 3: METODOLOGÍA COMPACTA -->
+  <section class="section" id="metodologia">
+    <div class="section-head reveal">
+      <span class="eyebrow">Proceso de Trabajo</span>
+      <h2>Nuestra Metodología</h2>
+      <p>Una hoja de ruta clara para llevar tu espacio exterior del concepto a la realidad, sin importar la escala del proyecto.</p>
+    </div>
+    <div class="steps stagger">
+      <div class="step">
+        <div class="step__n">01</div>
+        <h3>Análisis y Concepto</h3>
+        <p>Evaluamos el sitio, la arquitectura y definimos la estrategia paisajística.</p>
+      </div>
+      <div class="step">
+        <div class="step__n">02</div>
+        <h3>Diseño y Visualización</h3>
+        <p>Desarrollamos el proyecto con planos, documentación y renders 3D.</p>
+      </div>
+      <div class="step">
+        <div class="step__n">03</div>
+        <h3>Curaduría Vegetal</h3>
+        <p>Seleccionamos las especies y ejemplares exactos garantizando su adaptación.</p>
+      </div>
+      <div class="step">
+        <div class="step__n">04</div>
+        <h3>Instalación y Obra</h3>
+        <p>Llevamos el paisaje al terreno con asistencia y supervisión profesional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULO 4: CTA FINAL -->
   <section class="section cta" id="contacto">
     <h2 class="reveal">El paisaje como parte de la arquitectura.</h2>
     <p class="reveal">Diseñamos espacios exteriores que conectan naturaleza, arquitectura y experiencia. Contanos tu proyecto y empecemos a planificarlo.</p>
@@ -746,28 +718,48 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
         <svg class="btn__wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/></svg>
         Hablar por WhatsApp
       </a>
-      <a class="btn btn--ghost" href="#elegir">Elegí tu servicio</a>
+      <a class="btn btn--ghost-light" href="#elegir">Elegí tu servicio</a>
     </div>
   </section>
 
-  <footer class="footer">
-    <div>
-      <p class="footer__brand">Gran Palmera</p>
-      <p>Vivero y Paisajismo · Posadas, Misiones, Argentina.<br>Especialistas en palmeras de colección y plantas tropicales.</p>
+  <!-- FOOTER DE ANCHO COMPLETO CON REDES CENTRADAS Y FIRMA DE AUTOR -->
+  <div class="footer-full">
+    <footer class="footer">
+      <div>
+        <p class="footer__brand">Gran Palmera</p>
+        <p>Vivero y Paisajismo · Posadas, Misiones, Argentina.<br>Especialistas en palmeras de colección y plantas tropicales.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p><a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp Oficial</a></p>
+        <p style="color:rgba(250,247,242,0.6); margin-top:0.4rem">Lunes a Sábado, 8 a 19 h</p>
+      </div>
+      <div>
+        <h4>Explorar</h4>
+        <p><a href="../index.html">Inicio Gran Palmera</a></p>
+        <p><a href="../usda/buscador_usda.html">Mapa USDA</a></p>
+        <p class="footer__tag" style="margin-top:1rem">Cultivando el trópico.</p>
+      </div>
+    </footer>
+
+    <!-- Bloque de Redes Sociales Centradas y Crédito de Autoría -->
+    <div style="text-align: center; margin-top: 3rem; padding: 0 var(--pad);">
+      <div class="footer__socials">
+        <a href="https://www.instagram.com/granpalmera/" target="_blank" title="Instagram" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/GranPalmera/" target="_blank" title="Facebook" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@granpalmera" target="_blank" title="TikTok" aria-label="TikTok" rel="noopener"><i class="fab fa-tiktok"></i></a>
+        <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" title="Pinterest" aria-label="Pinterest" rel="noopener"><i class="fab fa-pinterest-p"></i></a>
+        <a href="https://www.youtube.com/@GranPalmera" target="_blank" title="YouTube" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" title="LinkedIn" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.82rem; color: rgba(250,247,242,0.7);">
+        Sitio desarrollado por <a href="https://www.linkedin.com/in/pablo-villordo/" target="_blank" rel="noopener" style="color: var(--rosa); text-decoration: underline; text-underline-offset: 3px; font-weight: 700;">Pablo Villordo</a>
+      </p>
     </div>
-    <div>
-      <h4>Contacto</h4>
-      <p><a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp Oficial</a></p>
-      <p style="color:rgba(250,247,242,0.6); margin-top:0.4rem">Lunes a Sábado, 8 a 19 h</p>
-    </div>
-    <div>
-      <h4>Explorar</h4>
-      <p><a href="../index.html">Inicio Gran Palmera</a></p>
-      <p><a href="../usda/buscador_usda.html">Mapa USDA</a></p>
-      <p class="footer__tag" style="margin-top:1rem">Cultivando el trópico.</p>
-    </div>
+
     <p class="footer__credit">Gran Palmera · Servicio de Paisajismo Integral y Vivero en Posadas, Misiones.</p>
-  </footer>
+  </div>
+
 </main>
 
 <a class="wa-float" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">
@@ -786,7 +778,6 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 (function() {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasGSAP = window.gsap && window.ScrollTrigger;
-
   if (!hasGSAP) return;
   if (!reduce) document.documentElement.classList.add('js-motion');
 
@@ -802,22 +793,15 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   var EOUT = window.CustomEase ? 'e-out' : 'power3.out';
   var EOUTLG = window.CustomEase ? 'e-out-lg' : 'power4.out';
 
-  // Integración Lenis Smooth Scroll
   var lenis = null;
   if (!reduce && window.Lenis) {
-    lenis = new Lenis({
-      duration: 1.1,
-      easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
-    });
+    lenis = new Lenis({ duration: 1.1, easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); } });
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
-    document.addEventListener('visibilitychange', function() {
-      document.hidden ? lenis.stop() : lenis.start();
-    });
+    document.addEventListener('visibilitychange', function() { document.hidden ? lenis.stop() : lenis.start(); });
   }
 
-  // Desplazamiento suave para enlaces de ancla
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
       var target = document.querySelector(a.getAttribute('href'));
@@ -830,257 +814,112 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     });
   });
 
-  // Estado de Navegación con Glassmorphism
   var nav = document.getElementById('nav');
   ScrollTrigger.create({
     start: 'top -50',
     end: 99999,
-    onUpdate: function(self) {
-      nav.classList.toggle('is-scrolled', self.scroll() > 50);
-    }
+    onUpdate: function(self) { nav.classList.toggle('is-scrolled', self.scroll() > 50); }
   });
 
-  window.addEventListener('load', function() {
-    requestAnimationFrame(function() {
-      document.documentElement.classList.remove('preload');
-    });
-  });
+  window.addEventListener('load', function() { requestAnimationFrame(function() { document.documentElement.classList.remove('preload'); }); });
 
-  // Menú Hamburguesa Móvil
   var burger = document.getElementById('navBurger');
   if (burger) {
-    var closeMenu = function() {
-      nav.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    };
-    burger.addEventListener('click', function() {
-      var open = nav.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    document.querySelectorAll('#navLinks a').forEach(function(a) {
-      a.addEventListener('click', closeMenu);
-    });
-    window.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && nav.classList.contains('is-open')) closeMenu();
-    });
+    var closeMenu = function() { nav.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+    burger.addEventListener('click', function() { var open = nav.classList.toggle('is-open'); burger.setAttribute('aria-expanded', open ? 'true' : 'false'); document.body.style.overflow = open ? 'hidden' : ''; });
+    document.querySelectorAll('#navLinks a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+    window.addEventListener('keydown', function(e) { if (e.key === 'Escape' && nav.classList.contains('is-open')) closeMenu(); });
   }
 
-  // Fondo Dinámico Ambiental
+  var accordionItems = document.querySelectorAll('.accordion-item');
+  accordionItems.forEach(function(item) {
+    var header = item.querySelector('.accordion-header');
+    if (!header) return;
+
+    header.addEventListener('click', function() {
+      var isOpen = item.classList.contains('is-open');
+
+      accordionItems.forEach(function(otherItem) {
+        if (otherItem !== item) {
+          otherItem.classList.remove('is-open');
+          var otherHeader = otherItem.querySelector('.accordion-header');
+          if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove('is-open');
+        header.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('is-open');
+        header.setAttribute('aria-expanded', 'true');
+      }
+
+      setTimeout(function() { ScrollTrigger.refresh(); }, 350);
+    });
+  });
+
   if (!reduce) {
     var wash = document.getElementById('bgwash');
     if (wash) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: 'main',
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.8
-        }
-      })
+      gsap.timeline({ scrollTrigger: { trigger: 'main', start: 'top top', end: 'bottom bottom', scrub: 0.8 } })
       .to(wash, { backgroundColor: '#F4EEE4', ease: 'none' })
       .to(wash, { backgroundColor: '#EDE3D5', ease: 'none' })
       .to(wash, { backgroundColor: '#F6F1E9', ease: 'none' });
     }
-
     var ctaEl = document.querySelector('.cta');
     if (ctaEl) {
-      gsap.fromTo(ctaEl, { backgroundColor: '#EDE3D5' }, {
-        backgroundColor: '#5b4638',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: ctaEl,
-          start: 'top bottom',
-          end: 'top 86%',
-          scrub: 0.4
-        }
-      });
+      gsap.fromTo(ctaEl, { backgroundColor: '#EDE3D5' }, { backgroundColor: '#5b4638', ease: 'none', scrollTrigger: { trigger: ctaEl, start: 'top bottom', end: 'top 86%', scrub: 0.4 } });
     }
   }
 
-  // Animaciones del Hero Section
   if (!reduce) {
     gsap.fromTo('#cueLine', { scaleY: 0.2, opacity: 0.3 }, { scaleY: 1, opacity: 1, duration: 1.4, ease: EOUT, repeat: -1, yoyo: true });
     gsap.to('.scrollcue', { opacity: 0, scrollTrigger: { start: 40, end: 220, scrub: true } });
     gsap.set('[data-rise]', { yPercent: 110, opacity: 0 });
     gsap.set('.hero__line>span', { yPercent: 0, opacity: 1 });
-    
     gsap.timeline({ delay: 0.15 })
       .to('.hero__line>span', { yPercent: 0, opacity: 1, duration: 1.1, ease: EOUTLG, stagger: 0.09 })
       .to('[data-rise]', { yPercent: 0, opacity: 1, duration: 0.9, ease: EOUT, stagger: 0.08 }, '-=0.7');
   }
 
-  // Manifiesto con animación palabra por palabra (text-reveal scrub)
-  (function() {
-    var lines = gsap.utils.toArray('#text-reveal .manifesto__line');
-    if (!lines.length) return;
-    lines.forEach(function(p) {
-      var words = p.textContent.split(' ');
-      p.innerHTML = words.map(function(w) { return '<span class="w">' + w + '</span>'; }).join(' ');
-    });
-    if (reduce) {
-      gsap.set('#text-reveal .w', { color: '#4A4040' });
-      return;
-    }
-    gsap.to('#text-reveal .w', {
-      color: '#4A4040',
-      stagger: 0.2,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#text-reveal',
-        start: 'top 75%',
-        end: 'bottom 60%',
-        scrub: 0.5
-      }
-    });
-  })();
-
-  // ════ COREOGRAFÍA DEL MÓDULO 3 (#jardinStage): CONSTRUCCIÓN VEGETAL EN CAPAS ════
-  if (!reduce) {
-    gsap.set("#cubresuelos", { scaleY: 0, opacity: 0, transformOrigin: "bottom center" });
-    gsap.set("[id^=tronco]", { scaleY: 0, transformOrigin: "bottom center" });
-    gsap.set("[id^=copa]", { scale: 0, opacity: 0, transformOrigin: "center center" });
-    gsap.set("[id^=arbusto]", { scale: 0, opacity: 0, transformOrigin: "center bottom" });
-
-    var stageTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#jardinStage",
-        start: "top top",
-        end: "+=250%",
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1
-      }
-    });
-
-    stageTL
-      .to("#cubresuelos", { scaleY: 1, opacity: 1, duration: 2, ease: "power2.out" }, 0)
-      .to("[id^=tronco]", { scaleY: 1, duration: 3, stagger: 0.5, ease: "power1.inOut" }, 1)
-      .to("[id^=copa]", { scale: 1, opacity: 1, duration: 2.5, stagger: 0.5, ease: "back.out(1.5)" }, 3)
-      .to(".texto-1", { y: -30, opacity: 0, duration: 1.5 }, 3.5)
-      .to(".texto-2", { y: 0, opacity: 1, duration: 1.5 }, 4.5)
-      .to("[id^=arbusto]", { scale: 1, opacity: 1, duration: 2, stagger: 0.4, ease: "back.out(1.2)" }, 4);
-  }
-
-  // Animaciones de Tarjetas y Grillas atadas al Scroll
   if (!reduce) {
     gsap.utils.toArray('.stagger').forEach(function(el) {
-      gsap.fromTo(el.children, { opacity: 0, y: 66 }, {
-        opacity: 1,
-        y: 0,
-        ease: 'none',
-        stagger: 0.12,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 94%',
-          end: 'top 56%',
-          scrub: 0.7
-        }
-      });
+      gsap.fromTo(el.children, { opacity: 0, y: 66 }, { opacity: 1, y: 0, ease: 'none', stagger: 0.12, scrollTrigger: { trigger: el, start: 'top 94%', end: 'top 56%', scrub: 0.7 } });
     });
-
     gsap.utils.toArray('.reveal').forEach(function(el) {
-      gsap.fromTo(el, { opacity: 0, y: 58 }, {
-        opacity: 1,
-        y: 0,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 94%',
-          end: 'top 60%',
-          scrub: 0.7
-        }
-      });
+      gsap.fromTo(el, { opacity: 0, y: 58 }, { opacity: 1, y: 0, ease: 'none', scrollTrigger: { trigger: el, start: 'top 94%', end: 'top 60%', scrub: 0.7 } });
     });
   }
 
-  // ════ CANVAS 2D: SIMULACIÓN FÍSICA DE HOJAS DE MONSTERA DELICIOSA (../img/monstera.png) ════
   (function() {
     var canvas = document.getElementById('petals');
     if (!canvas || reduce) return;
     var ctx = canvas.getContext('2d');
     var DPR = Math.min(window.devicePixelRatio || 1, 1.5);
-    var W, H, bits = [], running = true, raf = 0;
-    var COUNT = window.innerWidth < 760 ? 5 : 9;
-    
-    var monsteraImg = new Image();
-    monsteraImg.src = '../img/monstera.png';
-    var imgReady = false;
-    monsteraImg.onload = function() { imgReady = true; };
-
-    function resize() { 
-      W = canvas.width = Math.floor(window.innerWidth * DPR); 
-      H = canvas.height = Math.floor(window.innerHeight * DPR); 
-      canvas.style.width = window.innerWidth + 'px'; 
-      canvas.style.height = window.innerHeight + 'px'; 
-    }
-
-    function mk(y) { 
-      return {
-        x: Math.random() * W, 
-        y: (y != null ? y : Math.random() * H), 
-        r: (18 + Math.random() * 14) * DPR, 
-        vy: (0.10 + Math.random() * 0.20) * DPR, 
-        sway: 0.5 + Math.random() * 1.2, 
-        ph: Math.random() * Math.PI * 2, 
-        rot: Math.random() * Math.PI, 
-        vr: (Math.random() - 0.5) * 0.008, 
-        alpha: 0.24 + Math.random() * 0.18 
-      }; 
-    }
-
+    var W, H, bits = [], running = true, raf = 0, COUNT = window.innerWidth < 760 ? 5 : 9;
+    var monsteraImg = new Image(); monsteraImg.src = '../img/monstera.png'; var imgReady = false; monsteraImg.onload = function() { imgReady = true; };
+    function resize() { W = canvas.width = Math.floor(window.innerWidth * DPR); H = canvas.height = Math.floor(window.innerHeight * DPR); canvas.style.width = window.innerWidth + 'px'; canvas.style.height = window.innerHeight + 'px'; }
+    function mk(y) { return { x: Math.random() * W, y: (y != null ? y : Math.random() * H), r: (18 + Math.random() * 14) * DPR, vy: (0.10 + Math.random() * 0.20) * DPR, sway: 0.5 + Math.random() * 1.2, ph: Math.random() * Math.PI * 2, rot: Math.random() * Math.PI, vr: (Math.random() - 0.5) * 0.008, alpha: 0.24 + Math.random() * 0.18 }; }
     function init() { resize(); bits = []; for (var i = 0; i < COUNT; i++) bits.push(mk()); }
-
     function draw() { 
       if (!running) return; 
       ctx.clearRect(0, 0, W, H);
-      
       for (var i = 0; i < bits.length; i++) { 
-        var p = bits[i]; 
-        p.y += p.vy; 
-        p.ph += 0.005; 
-        p.x += Math.sin(p.ph) * p.sway * 0.35 * DPR; 
-        p.rot += p.vr;
-        
-        if (p.y - p.r * 2 > H) { 
-          bits[i] = mk(-40); 
-          p = bits[i]; 
-        }
-        
-        ctx.save(); 
-        ctx.translate(p.x, p.y); 
-        ctx.rotate(p.rot); 
-        ctx.globalAlpha = p.alpha;
-        
-        if (imgReady) {
-          ctx.drawImage(monsteraImg, -p.r, -p.r * 1.1, p.r * 2, p.r * 2.2);
-        }
-        
+        var p = bits[i]; p.y += p.vy; p.ph += 0.005; p.x += Math.sin(p.ph) * p.sway * 0.35 * DPR; p.rot += p.vr;
+        if (p.y - p.r * 2 > H) { bits[i] = mk(-40); p = bits[i]; }
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.globalAlpha = p.alpha;
+        if (imgReady) ctx.drawImage(monsteraImg, -p.r, -p.r * 1.1, p.r * 2, p.r * 2.2);
         ctx.restore(); 
       }
       raf = requestAnimationFrame(draw);
     }
-
-    init(); 
-    draw();
-    
-    window.addEventListener('resize', function() { 
-      cancelAnimationFrame(raf); 
-      init(); 
-      if (running) draw(); 
-    }, { passive: true });
-    
-    document.addEventListener('visibilitychange', function() { 
-      running = !document.hidden; 
-      if (running) draw(); 
-      else cancelAnimationFrame(raf); 
-    });
+    init(); draw();
+    window.addEventListener('resize', function() { cancelAnimationFrame(raf); init(); if (running) draw(); }, { passive: true });
+    document.addEventListener('visibilitychange', function() { running = !document.hidden; if (running) draw(); else cancelAnimationFrame(raf); });
   })();
 
-  window.addEventListener('load', function() { 
-    ScrollTrigger.refresh(); 
-  });
+  window.addEventListener('load', function() { ScrollTrigger.refresh(); });
 })();
 </script>
 </body>

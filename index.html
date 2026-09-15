@@ -397,7 +397,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 .copa-sec.c1 { width: 180px; height: 150px; bottom: 40vh; left: -110px; }
 .copa-sec.c2 { width: 160px; height: 130px; bottom: 35vh; left: -40px; }
 
-/* ════ ECOSISTEMA CON ACORDEÓN EXCLUSIVO INTERACTIVO ════ */
+/* ════ ACORDEÓN EXCLUSIVO INTERACTIVO DE SERVICIOS ════ */
 .accordion-group {
   display: flex;
   flex-direction: column;
@@ -642,34 +642,71 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 .faq__a a { color: var(--tierra); font-weight: 700; border-bottom: 1px solid var(--tierra); padding-bottom: 1px; transition: color 0.3s; }
 .faq__a a:hover { color: var(--tierra-deep); }
 
-/* ════ CTA FINAL Y FOOTER UNIFICADO ════ */
+/* ════ CTA FINAL Y FOOTER UNIFICADO FULL-WIDTH ════ */
 .cta { background: var(--tierra-deep); color: var(--lino); text-align: center; }
 .cta h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 22ch; margin-inline: auto; color: var(--lino); }
 .cta p { margin: 1.4rem auto 2.4rem; max-width: 50ch; color: rgba(250,247,242,0.85); }
 .cta__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-.footer { 
+.footer-full { 
   background: var(--verde-atardecer); 
+  width: 100%; 
   color: rgba(250,247,242,0.8); 
-  padding: 3.5rem var(--pad) 2rem; 
+  padding: 4rem 0 2rem; 
+}
+.footer { 
+  width: 100%; 
+  max-width: 1200px; 
+  margin-inline: auto; 
+  padding: 0 var(--pad); 
+  display: grid; 
+  grid-template-columns: 1.4fr 1fr 1fr; 
+  gap: 2.5rem; 
+  font-size: 0.86rem; 
+  align-items: start; 
+}
+.footer__brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.6rem; color: var(--lino); margin-bottom: 0.4rem; font-weight: 700; }
+.footer h4 { font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250,247,242,0.6); margin-bottom: 0.7rem; font-weight: 700; }
+.footer a:hover { color: var(--lino); }
+.footer__tag { font-family: 'Playfair Display', serif; font-style: italic; color: var(--rosa); font-size: 1.2rem; }
+
+/* Redes Sociales Centradas en el Footer */
+.footer__socials { display: flex; justify-content: center; gap: 0.9rem; margin-top: 1.2rem; flex-wrap: wrap; }
+.footer__socials a { 
+  width: 38px; 
+  height: 38px; 
+  border-radius: 50%; 
+  background: rgba(250,247,242,0.08); 
+  border: 1px solid rgba(250,247,242,0.18); 
+  display: grid; 
+  place-items: center; 
+  color: var(--lino); 
+  font-size: 0.95rem; 
+  transition: background 0.3s, transform 0.3s, border-color 0.3s; 
+}
+.footer__socials a:hover { 
+  background: var(--rosa); 
+  border-color: var(--rosa); 
+  color: var(--tierra-deep); 
+  transform: translateY(-2px); 
+}
+
+.footer__credit { 
+  width: 100%;
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem var(--pad) 0;
+  border-top: 1px solid rgba(250,247,242,0.12); 
+  font-size: 0.76rem; 
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(250,247,242,0.5); 
   text-align: center; 
 }
-.footer__socials { display: flex; justify-content: center; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
-.footer__socials a { 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  width: 42px; 
-  height: 42px; 
-  border-radius: 50%; 
-  border: 1px solid rgba(250,247,242,0.3); 
-  color: var(--lino); 
-  font-size: 1.2rem; 
-  transition: background 0.3s, transform 0.3s; 
+
+@media (max-width: 760px) { 
+  .footer { grid-template-columns: 1fr; gap: 2rem; } 
 }
-.footer__socials a:hover { background-color: var(--rosa); border-color: var(--rosa); color: var(--tierra-deep); transform: translateY(-3px); }
-.footer__brand { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; color: var(--lino); font-weight: 700; }
-.footer__credit { font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; color: #b0beb5; margin-top: 1rem; }
 
 /* Botón Flotante de WhatsApp */
 .wa-float { 
@@ -727,9 +764,9 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 <nav class="nav" id="nav" aria-label="Navegación Principal">
   <a class="nav__brand" href="#inicio">Gran Palmera</a>
   <div class="nav__links" id="navLinks">
+    <a href="#sec-servicios">Servicios</a>
     <a href="#manifesto">Filosofía</a>
     <a href="#jardinStage">El Proyecto</a>
-    <a href="#sec-servicios">Ecosistema</a>
     <a href="#sec-beneficios">Beneficios</a>
     <a href="#sec-faq">Guía & FAQ</a>
     <a class="nav__cta" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp</a>
@@ -786,7 +823,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 
     <div class="hero__actions" data-rise>
       <a class="btn btn--solid" href="usda/buscador_usda.html"><i class="fa-solid fa-map-location-dot"></i> Mapa USDA</a>
-      <a class="btn btn--ghost" href="#sec-servicios">Explorar Ecosistema</a>
+      <a class="btn btn--ghost" href="#sec-servicios">Explorar Servicios</a>
     </div>
 
     <div class="scrollcue">
@@ -795,55 +832,10 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     </div>
   </header>
 
-  <!-- MÓDULO 2: MANIFIESTO NARRATIVO -->
-  <section class="section">
-    <p class="eyebrow reveal" style="color:var(--tierra); margin-bottom:1.6rem; text-align:center">Nuestra Filosofía</p>
-    <div class="manifesto" id="manifesto">
-      <p class="manifesto__line">Cultivamos especies botánicas de colección.</p>
-      <p class="manifesto__line">Asesoramos con estricto rigor técnico y climático.</p>
-      <p class="manifesto__line">Llevamos la magnificencia del trópico a tu jardín.</p>
-    </div>
-  </section>
-
-  <!-- MÓDULO 3: ESCENARIO GSAP PINNED DE CRECIMIENTO VEGETAL POR CAPAS (#jardinStage) -->
-  <section class="stage" id="jardinStage" aria-label="El paisaje se construye por capas vegetales">
-    <div class="copy">
-      <div class="texto-1">
-        <span class="eyebrow">Tu jardín, como proyecto</span>
-        <p class="display">El espacio vacío</p>
-        <p>Partimos del análisis agroclimático, la arquitectura<br>y la forma en que querés habitar el espacio exterior.</p>
-      </div>
-      <div class="texto-2">
-        <span class="eyebrow">El paisaje consolidado</span>
-        <p class="display">Toma forma</p>
-        <p>Un ecosistema tropical equilibrado, resistente<br>a la zona de rusticidad USDA de tu región.</p>
-      </div>
-    </div>
-
-    <!-- Formas Geométricas del Jardín en Capas -->
-    <div class="elemento-jardin cubresuelos" id="cubresuelos"></div>
-    
-    <div class="elemento-jardin palmera-principal">
-      <div class="tronco-principal" id="tronco1"></div>
-      <div class="copa-principal" id="copa1"></div>
-    </div>
-
-    <div class="elemento-jardin palmera-secundaria">
-      <div class="tronco-sec t1" id="tronco2"></div>
-      <div class="copa-sec c1" id="copa2"></div>
-      <div class="tronco-sec t2" id="tronco3"></div>
-      <div class="copa-sec c2" id="copa3"></div>
-    </div>
-
-    <div class="elemento-jardin arbusto arbusto-1" id="arbusto1"></div>
-    <div class="elemento-jardin arbusto arbusto-2" id="arbusto2"></div>
-    <div class="elemento-jardin arbusto arbusto-3" id="arbusto3"></div>
-  </section>
-
-  <!-- MÓDULO 4: ECOSISTEMA CON ACORDEÓN EXCLUSIVO -->
+  <!-- MÓDULO 2: SERVICIOS Y CATÁLOGO (ACORDEÓN EXCLUSIVO REPLEGADO) -->
   <section class="section section--crema" id="sec-servicios">
     <div class="section-head reveal">
-      <span class="eyebrow">Ecosistema Gran Palmera</span>
+      <span class="eyebrow">Servicios Gran Palmera</span>
       <h2>Canales, Productos & Servicios</h2>
       <p>Seleccioná la categoría que buscás para desplegar las opciones disponibles.</p>
     </div>
@@ -851,8 +843,8 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     <div class="accordion-group stagger">
       
       <!-- CATEGORÍA 1: ELIJE TU PLANTA (PRODUCTOS) -->
-      <div class="accordion-item is-open">
-        <button class="accordion-header" type="button" aria-expanded="true" aria-controls="cat-planta">
+      <div class="accordion-item">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-planta">
           <div class="accordion-header-left">
             <div class="accordion-cat-icon"><i class="fa-solid fa-leaf"></i></div>
             <div class="accordion-title-group">
@@ -868,7 +860,6 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
             <div class="accordion-body">
               <div class="hub-subgrid">
                 
-                <!-- Subsección 1.1 -->
                 <div class="hub-sublabel">Elije tu planta</div>
                 
                 <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" rel="noopener" class="hub-card">
@@ -889,7 +880,6 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
                   <i class="fa-solid fa-chevron-right hub-arrow"></i>
                 </a>
 
-                <!-- Subsección 1.2 -->
                 <div class="hub-sublabel">Comprá tu planta</div>
 
                 <a href="https://granpalmera.mitiendanube.com/" target="_blank" rel="noopener" class="hub-card">
@@ -910,7 +900,6 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
                   <i class="fa-solid fa-chevron-right hub-arrow"></i>
                 </a>
 
-                <!-- Subsección 1.3 -->
                 <div class="hub-sublabel">Todo sobre el envío</div>
 
                 <a href="envios/envios_granpalmera.html" class="hub-card">
@@ -1038,6 +1027,51 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     </div>
   </section>
 
+  <!-- MÓDULO 3: MANIFIESTO NARRATIVO -->
+  <section class="section">
+    <p class="eyebrow reveal" style="color:var(--tierra); margin-bottom:1.6rem; text-align:center">Nuestra Filosofía</p>
+    <div class="manifesto" id="manifesto">
+      <p class="manifesto__line">Cultivamos especies botánicas de colección.</p>
+      <p class="manifesto__line">Asesoramos con estricto rigor técnico y climático.</p>
+      <p class="manifesto__line">Llevamos la magnificencia del trópico a tu jardín.</p>
+    </div>
+  </section>
+
+  <!-- MÓDULO 4: ESCENARIO GSAP PINNED DE CRECIMIENTO VEGETAL POR CAPAS (#jardinStage) -->
+  <section class="stage" id="jardinStage" aria-label="El paisaje se construye por capas vegetales">
+    <div class="copy">
+      <div class="texto-1">
+        <span class="eyebrow">Tu jardín, como proyecto</span>
+        <p class="display">El espacio vacío</p>
+        <p>Partimos del análisis agroclimático, la arquitectura<br>y la forma en que querés habitar el espacio exterior.</p>
+      </div>
+      <div class="texto-2">
+        <span class="eyebrow">El paisaje consolidado</span>
+        <p class="display">Toma forma</p>
+        <p>Un ecosistema tropical equilibrado, resistente<br>a la zona de rusticidad USDA de tu región.</p>
+      </div>
+    </div>
+
+    <!-- Formas Geométricas del Jardín en Capas -->
+    <div class="elemento-jardin cubresuelos" id="cubresuelos"></div>
+    
+    <div class="elemento-jardin palmera-principal">
+      <div class="tronco-principal" id="tronco1"></div>
+      <div class="copa-principal" id="copa1"></div>
+    </div>
+
+    <div class="elemento-jardin palmera-secundaria">
+      <div class="tronco-sec t1" id="tronco2"></div>
+      <div class="copa-sec c1" id="copa2"></div>
+      <div class="tronco-sec t2" id="tronco3"></div>
+      <div class="copa-sec c2" id="copa3"></div>
+    </div>
+
+    <div class="elemento-jardin arbusto arbusto-1" id="arbusto1"></div>
+    <div class="elemento-jardin arbusto arbusto-2" id="arbusto2"></div>
+    <div class="elemento-jardin arbusto arbusto-3" id="arbusto3"></div>
+  </section>
+
   <!-- MÓDULO 5: BENEFICIOS Y COMPROMISO (.cards) -->
   <section class="section" id="sec-beneficios">
     <div class="section-head reveal">
@@ -1103,7 +1137,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     </div>
   </section>
 
-  <!-- MÓDULO 7: CTA FINAL Y FOOTER UNIFICADO -->
+  <!-- MÓDULO 7: CTA FINAL Y FOOTER UNIFICADO FULL-WIDTH -->
   <section class="section cta" id="contacto">
     <h2 class="reveal">¿Querés asesoramiento para tu espacio verde?</h2>
     <p class="reveal">Contanos qué proyecto tenés en mente, en qué zona te encontrás o qué plantas querés incorporar y te asesoramos de forma personalizada.</p>
@@ -1117,18 +1151,43 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="footer__socials">
-      <a href="https://www.instagram.com/granpalmera/" target="_blank" title="Instagram" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/GranPalmera/" target="_blank" title="Facebook" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.tiktok.com/@granpalmera" target="_blank" title="TikTok" aria-label="TikTok" rel="noopener"><i class="fab fa-tiktok"></i></a>
-      <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" title="Pinterest" aria-label="Pinterest" rel="noopener"><i class="fab fa-pinterest-p"></i></a>
-      <a href="https://www.youtube.com/@GranPalmera" target="_blank" title="YouTube" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" title="LinkedIn" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+  <!-- FOOTER DE ANCHO COMPLETO CON REDES CENTRADAS Y FIRMA DE AUTOR -->
+  <div class="footer-full">
+    <footer class="footer">
+      <div>
+        <p class="footer__brand">Gran Palmera</p>
+        <p>Vivero y Paisajismo · Posadas, Misiones, Argentina.<br>Especialistas en palmeras de colección y plantas tropicales.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p><a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp Oficial</a></p>
+        <p style="color:rgba(250,247,242,0.6); margin-top:0.4rem">Lunes a Sábado, 8 a 19 h</p>
+      </div>
+      <div>
+        <h4>Explorar</h4>
+        <p><a href="#inicio">Inicio Gran Palmera</a></p>
+        <p><a href="usda/buscador_usda.html">Mapa USDA</a></p>
+        <p class="footer__tag" style="margin-top:1rem">Cultivando el trópico.</p>
+      </div>
+    </footer>
+
+    <!-- Bloque de Redes Sociales Centradas y Crédito de Autoría -->
+    <div style="text-align: center; margin-top: 3rem; padding: 0 var(--pad);">
+      <div class="footer__socials">
+        <a href="https://www.instagram.com/granpalmera/" target="_blank" title="Instagram" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/GranPalmera/" target="_blank" title="Facebook" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@granpalmera" target="_blank" title="TikTok" aria-label="TikTok" rel="noopener"><i class="fab fa-tiktok"></i></a>
+        <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" title="Pinterest" aria-label="Pinterest" rel="noopener"><i class="fab fa-pinterest-p"></i></a>
+        <a href="https://www.youtube.com/@GranPalmera" target="_blank" title="YouTube" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" title="LinkedIn" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.82rem; color: rgba(250,247,242,0.7);">
+        Sitio desarrollado por <a href="https://www.linkedin.com/in/pablo-villordo/" target="_blank" rel="noopener" style="color: var(--rosa); text-decoration: underline; text-underline-offset: 3px; font-weight: 700;">Pablo Villordo</a>
+      </p>
     </div>
-    <p class="footer__brand">Gran Palmera</p>
-    <p class="footer__credit">GRANPALMERA VIVERO Y PAISAJISMO · Posadas, Misiones, Argentina</p>
-  </footer>
+
+    <p class="footer__credit">Gran Palmera · Servicio de Paisajismo Integral y Vivero en Posadas, Misiones.</p>
+  </div>
 </main>
 
 <!-- Botón Flotante de WhatsApp -->
@@ -1238,7 +1297,6 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     header.addEventListener('click', function() {
       var isOpen = item.classList.contains('is-open');
 
-      // Cierra todos los otros acordeones (Acordeón Exclusivo)
       accordionItems.forEach(function(otherItem) {
         if (otherItem !== item) {
           otherItem.classList.remove('is-open');
@@ -1247,7 +1305,6 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
         }
       });
 
-      // Alterna el estado del acordeón cliqueado
       if (isOpen) {
         item.classList.remove('is-open');
         header.setAttribute('aria-expanded', 'false');
@@ -1256,7 +1313,6 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
         header.setAttribute('aria-expanded', 'true');
       }
 
-      // Actualiza las posiciones de ScrollTrigger para evitar saltos
       setTimeout(function() {
         ScrollTrigger.refresh();
       }, 350);
@@ -1332,7 +1388,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     });
   })();
 
-  // ════ COREOGRAFÍA DEL MÓDULO 3 (#jardinStage): CONSTRUCCIÓN VEGETAL EN CAPAS ════
+  // ════ COREOGRAFÍA DEL ESCENARIO (#jardinStage): CONSTRUCCIÓN VEGETAL EN CAPAS ════
   if (!reduce) {
     gsap.set("#cubresuelos", { scaleY: 0, opacity: 0, transformOrigin: "bottom center" });
     gsap.set("[id^=tronco]", { scaleY: 0, transformOrigin: "bottom center" });
