@@ -269,6 +269,7 @@
       }
       #lista-sugerencias li { padding: 0.7rem 1rem; cursor: pointer; border-bottom: 1px solid var(--lino); color: var(--grafito); font-size: 0.85rem; transition: background 0.2s; }
       #lista-sugerencias li:hover { background-color: var(--lino); color: var(--tierra-deep); }
+      #lista-sugerencias li em { font-style: italic; font-weight: 400; color: var(--tierra); margin-left: 4px; }
 
       /* Micro-texto discreto para estado individual por input */
       .input-status {
@@ -714,7 +715,7 @@
         </article>
         <article class="card">
           <h3>04 · Estudio de Paisajismo</h3>
-          <p>Transformamos tu visión en un ecosistema sustained con renderizado 3D y ejecución profesional.</p>
+          <p>Transformamos tu visión en un ecosistema sustentable con renderizado 3D y ejecución profesional.</p>
         </article>
       </div>
     </section>
@@ -749,7 +750,7 @@
         </div>
       </footer>
       
-<!-- Bloque de Redes Sociales Centradas y Crédito de Autoría -->
+    <!-- Bloque de Redes Sociales Centradas y Crédito de Autoría -->
     <div style="text-align: center; margin-top: 3rem; padding: 0 var(--pad);">
       <div class="footer__socials">
         <a href="https://www.instagram.com/granpalmera/" target="_blank" title="Instagram" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
@@ -762,8 +763,6 @@
       <p style="margin-top: 1.2rem; font-size: 0.82rem; color: rgba(250,247,242,0.7);">
         Sitio desarrollado por <a href="https://www.linkedin.com/in/pablo-villordo/" target="_blank" rel="noopener" style="color: var(--rosa); text-decoration: underline; text-underline-offset: 3px; font-weight: 700;">Pablo Villordo</a>
       </p>
-    </div>
-      <p class="footer__credit">Herramienta de Zonas USDA &copy; Gran Palmera.</p>
     </div>
 
   </main>
@@ -963,8 +962,7 @@
           ctx.translate(p.x, p.y); 
           ctx.rotate(p.rot); 
           ctx.globalAlpha = p.alpha; 
-          // Cambiar el color - Original: #FFFFFF - Dorado #E6CDBF - Giz-Azulado #699DBE//
-          ctx.strokeStyle = '#699DBE'; 
+          ctx.strokeStyle = '#FFFFFF';
           drawSnowflakeVector(p.r);
           ctx.restore(); 
         }
@@ -1167,10 +1165,12 @@
       configBuscador('input-plantas', dbPlantas); configBuscador('input-palmeras', dbPalmeras);
       configBuscador('input-zonas', dbZonas); configBuscador('input-ciudades', dbCiudades);
 
-      // API Arbolado Urbano (Capa Estándar Nativa)
+      // API Arbolado Urbano (Nombre Común + Nombre Científico)
       let todasLasEspecies = [], cacheArboles = [];
       let capaArbolesUrbano = L.layerGroup().addTo(map);
-      const inputEspecie = document.getElementById('input-arbolado-especie'), listaSug = document.getElementById('lista-sugerencias'), conStatus = document.getElementById('status-arbolado');
+      const inputEspecie = document.getElementById('input-arbolado-especie'), 
+            listaSug = document.getElementById('lista-sugerencias'), 
+            conStatus = document.getElementById('status-arbolado');
 
       async function initArbolado() {
         try {
@@ -1189,9 +1189,26 @@
         timeout = setTimeout(() => {
           const txt = e.target.value.trim().toLowerCase();
           if (txt.length < 2) { listaSug.style.display = 'none'; capaArbolesUrbano.clearLayers(); return; }
-          const fil = todasLasEspecies.filter(esp => ((esp.nombre_comun||'').toLowerCase().includes(txt) || (esp.nombre_cientifico||esp.nombre_científico||'').toLowerCase().includes(txt))).slice(0,5);
+          
+          const fil = todasLasEspecies.filter(esp => {
+            const comun = (esp.nombre_comun || '').toLowerCase();
+            const cientifico = (esp.nombre_cientifico || esp.nombre_científico || '').toLowerCase();
+            return comun.includes(txt) || cientifico.includes(txt);
+          }).slice(0, 6);
+
           if (fil.length === 0) { listaSug.style.display = 'none'; return; }
-          listaSug.innerHTML = fil.map(esp => `<li data-url="${esp.url||''}" data-nombre="${esp.nombre_comun||esp.slug}"><strong>${esp.nombre_comun||esp.slug}</strong></li>`).join('');
+
+          listaSug.innerHTML = fil.map(esp => {
+            const comun = esp.nombre_comun || esp.slug || 'Especie';
+            const cientifico = esp.nombre_cientifico || esp.nombre_científico || '';
+            const etiqueta = cientifico ? `${comun} <em>(${cientifico})</em>` : comun;
+            const completo = cientifico ? `${comun} (${cientifico})` : comun;
+            
+            return `<li data-url="${esp.url || ''}" data-nombre="${comun}" data-completo="${completo}">
+                      <strong>${etiqueta}</strong>
+                    </li>`;
+          }).join('');
+          
           listaSug.style.display = 'block';
         }, 300);
       });
@@ -1199,12 +1216,17 @@
       listaSug.addEventListener('click', (e) => {
         const li = e.target.closest('li');
         if (li) {
-          const nom = li.getAttribute('data-nombre'), url = li.getAttribute('data-url');
-          inputEspecie.value = nom; listaSug.style.display = 'none';
+          const nomComun = li.getAttribute('data-nombre');
+          const nomCompleto = li.getAttribute('data-completo');
+          const url = li.getAttribute('data-url');
+          
+          inputEspecie.value = nomCompleto; 
+          listaSug.style.display = 'none';
           
           capaArbolesUrbano.clearLayers();
           if (cacheArboles.length === 0) return;
-          const query = nom.toLowerCase();
+          
+          const query = nomComun.toLowerCase();
           const extract = s => s ? s.split('/').filter(Boolean).pop().replace(/-/g, ' ').replace(/^\w/, c=>c.toUpperCase()) : "Especie";
           
           const filtrados = cacheArboles.filter(a => url ? a.species === url : extract(a.species).toLowerCase().includes(query));
@@ -1214,7 +1236,7 @@
           filtrados.forEach(a => {
             const lat = parseFloat(a.lat), lng = parseFloat(a.lng);
             if (!isNaN(lat) && !isNaN(lng)) {
-              capaArbolesUrbano.addLayer(L.marker([lat, lng], {icon}).bindPopup(`<b>Árbol #${a.id}</b><br><em>${extract(a.species)}</em>`));
+              capaArbolesUrbano.addLayer(L.marker([lat, lng], {icon}).bindPopup(`<b>Árbol #${a.id}</b><br><em>${nomCompleto}</em>`));
               bounds.push([lat, lng]);
             }
           });
