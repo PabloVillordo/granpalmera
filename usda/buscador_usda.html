@@ -58,7 +58,6 @@
         --burdeos: #6e3b3b;
         --accent-color: #a4b39e;
         
-        /* Curvas matemáticas */
         --e-out: cubic-bezier(0.22, 1, 0.36, 1); 
         --e-out-lg: cubic-bezier(0.16, 1, 0.30, 1);
         --e-inout: cubic-bezier(0.76, 0, 0.24, 1); 
@@ -95,7 +94,6 @@
       ::selection { background: rgba(201,168,154,0.32); color: var(--tierra-deep); }
       :focus-visible { outline: 2px solid var(--rosa); outline-offset: 3px; border-radius: 2px; }
 
-      /* Textura Analógica Global */
       body::before { 
         content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.5; mix-blend-mode: multiply;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); 
@@ -106,7 +104,7 @@
 
       html.preload *, html.preload *::before, html.preload *::after { transition: none !important; }
 
-      /* ════ NAVEGACIÓN FLOTANTE ════ */
+      /* NAVEGACIÓN FLOTANTE */
       .nav { 
         position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; 
         padding: 1rem var(--pad); height: 74px; color: var(--lino); 
@@ -125,7 +123,6 @@
       .nav__cta { display: inline-flex; border: 1px solid currentColor; border-radius: 100px; padding: 0.62rem 1.25rem; line-height: 1; transition: all 0.3s var(--e-soft); }
       .nav__cta:hover { transform: translateY(-1px); background-color: var(--rosa) !important; color: var(--tierra-deep) !important; border-color: var(--rosa) !important; }
 
-      /* Menú Hamburguesa */
       .nav__burger { display: none; position: relative; z-index: 1001; width: 34px; height: 22px; padding: 0; background: none; border: 0; color: inherit; cursor: pointer; }
       .nav__burger span { position: absolute; left: 2px; right: 2px; height: 2.5px; background: currentColor; border-radius: 2px; transition: all var(--d-comp) var(--e-soft); }
       .nav__burger span:nth-child(1) { top: 3px; } .nav__burger span:nth-child(2) { top: 10px; } .nav__burger span:nth-child(3) { top: 17px; }
@@ -143,7 +140,6 @@
         .nav__links a:not(.nav__cta) { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; letter-spacing: 0.01em; text-transform: none; }
       }
 
-      /* Botones y Componentes Reutilizables */
       .btn { position: relative; display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.95rem 1.9rem; border-radius: 100px; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.02em; line-height: 1; text-decoration: none; cursor: pointer; transition: all var(--d-comp) var(--e-soft); }
       .btn:hover { transform: translateY(-2px); }
       .btn--solid { background-color: var(--rosa) !important; color: #38291d !important; border: 1px solid var(--rosa); }
@@ -153,7 +149,7 @@
       .logo-circle:hover { transform: scale(1.05); }
       .logo-image { width: 100%; height: 100%; object-fit: cover; }
 
-      /* ════ HERO SECTION ════ */
+      /* HERO SECTION */
       .hero { position: relative; min-height: 85svh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 7rem var(--pad) 4rem; background: var(--verde-atardecer); color: var(--lino); overflow: hidden; }
       .hero__glow { position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 40%, rgba(201,168,154,0.22), transparent 62%); pointer-events: none; }
       .hero h1 { font-size: clamp(2.3rem, 5.2vw, 4.5rem); max-width: min(94vw, 24ch); margin-inline: auto; position: relative; z-index: 2; font-weight: 600; }
@@ -162,7 +158,6 @@
       .hero__line > span { display: inline-block; will-change: transform; }
       .hero__sub { margin-top: 1.4rem; font-size: clamp(1rem, 1.4vw, 1.25rem); max-width: 65ch; margin-inline: auto; color: rgba(250,247,242,0.9); position: relative; z-index: 2; }
 
-      /* Enlaces de Anclaje Rápido en el Hero */
       .info-links { margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 950px; position: relative; z-index: 2; }
       .info-btn { font-family: 'Lato', sans-serif; font-size: 0.76rem; letter-spacing: 0.05em; background: rgba(250,247,242,0.12); color: #E6CDBF; padding: 8px 16px; border-radius: 100px; text-decoration: none; display: inline-block; transition: all 0.3s var(--e-soft); border: 1px solid rgba(230,205,191,0.3); backdrop-filter: blur(8px); }
       .info-btn:hover { background: var(--rosa); color: var(--tierra-deep); border-color: var(--rosa); transform: translateY(-2px); }
@@ -170,17 +165,16 @@
       .scrollcue { position: absolute; left: 50%; transform: translateX(-50%); bottom: 1.8rem; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(250,247,242,0.7); z-index: 2; }
       .scrollcue__line { width: 1px; height: 42px; background: linear-gradient(rgba(250,247,242,0.8), transparent); transform-origin: top; }
 
-      /* ════ SECCIONES GENERALES ════ */
+      /* SECCIONES GENERALES */
       .section { padding: clamp(4.5rem, 10vh, 8rem) var(--pad); position: relative; }
       .section--crema { background: transparent; }
       .section-head { margin-bottom: clamp(2rem, 5vh, 3.5rem); max-width: 54rem; margin-inline: auto; text-align: center; }
       .section-head h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); color: var(--verde-atardecer); }
       .section-head p { margin: 1.2rem auto 0; max-width: 60ch; color: rgba(74,64,64,0.84); font-size: clamp(0.95rem, 1.2vw, 1.1rem); }
 
-      /* ════ PANEL DE CONTROL UNIFICADO DE BÚSQUEDA Y MAPA ════ */
+      /* PANEL DE CONTROL UNIFICADO DE BÚSQUEDA Y MAPA */
       .map-wrapper { max-width: 1000px; margin: 0 auto; }
       
-      /* Centro de Control de Filtros Integrado */
       .search-hub-panel {
         background: #ffffff;
         border: 1px solid var(--crema);
@@ -249,7 +243,6 @@
         box-shadow: 0 0 0 3px rgba(201,168,154,0.18);
       }
 
-      /* Sugerencias Flotantes para Arbolado */
       #lista-sugerencias {
         position: absolute;
         top: calc(100% - 1.2rem);
@@ -271,7 +264,6 @@
       #lista-sugerencias li:hover { background-color: var(--lino); color: var(--tierra-deep); }
       #lista-sugerencias li em { font-style: italic; font-weight: 400; color: var(--tierra); margin-left: 4px; }
 
-      /* Micro-texto discreto para estado individual por input */
       .input-status {
         font-size: 0.72rem;
         font-weight: 700;
@@ -284,38 +276,125 @@
       .input-status.success { color: var(--salvia); }
       .input-status.error { color: var(--burdeos); }
 
-      /* Visor de Mapa */
       #map { height: 65vh; max-height: 700px; width: 100%; border-radius: 12px; box-shadow: 0 12px 32px rgba(74,64,64,0.08); border: 1px solid var(--crema); z-index: 10; position: relative; }
       .leaflet-popup-content { font-family: 'Lato', sans-serif; font-size: 0.9rem; text-align: center; margin: 12px; }
       
-      /* Botones de Control de Leaflet Adaptados */
       .map-custom-btn { background: #ffffff; border: 1px solid var(--crema); border-radius: 8px; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: var(--tierra-deep); font-size: 1.1rem; box-shadow: 0 4px 12px rgba(74,64,64,0.08); transition: all 0.3s var(--e-soft); }
       .map-custom-btn:hover { background: var(--rosa); color: #ffffff; border-color: var(--rosa); transform: scale(1.05); }
       .map-custom-btn.active { background: var(--verde-atardecer) !important; color: #ffffff !important; border-color: var(--verde-atardecer) !important; }
       .fa-spin-fast { animation: fa-spin 0.7s infinite linear; }
       .smn-marker-icon { background: var(--verde-atardecer); border: 2px solid #ffffff; border-radius: 50%; color: #ffffff; text-align: center; line-height: 26px; font-size: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-      /* ════ TABLAS USDA ════ */
-      .usda-zones-container { max-width: 1000px; margin: 0 auto; overflow-x: auto; border-radius: 12px; border: 1px solid var(--crema); box-shadow: 0 10px 24px rgba(74,64,64,0.04); background: #ffffff; }
-      .usda-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 0.85rem; font-family: 'Lato', sans-serif; }
-      .usda-table td { padding: 1.2rem 0.6rem; border: 1px solid rgba(0,0,0,0.06); line-height: 1.4; font-weight: 700; transition: transform 0.2s; }
-      .usda-table td:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 2; position: relative; }
-      
-      /* Colores USDA Originales */
-      .hz1a{background:#3c3c3c;color:#FFF;} .hz1b{background:#FFF;color:#000;} .hz2a{background:#DDDFE3;color:#000;} .hz2b{background:#B8BABE;color:#000;}
-      .hz3a{background:#EBD8FD;color:#000;} .hz3b{background:#F779E0;color:#000;} .hz4a{background:#B979D1;color:#000;} .hz4b{background:#D6EDFD;color:#000;}
-      .hz5a{background:#77A7F0;color:#000;} .hz5b{background:#77DCFD;color:#000;} .hz6a{background:#779FB7;color:#000;} .hz6b{background:#DCF1CB;color:#000;}
-      .hz7a{background:#A2F97D;color:#000;} .hz7b{background:#8AB37D;color:#000;} .hz8a{background:#F7F97D;color:#000;} .hz8b{background:#F7CE7D;color:#000;}
-      .hz9a{background:#B19F7D;color:#000;} .hz9b{background:#CB797D;color:#000;} .hz10a{background:#F7B9BD;color:#000;} .hz10b{background:#F7797D;color:#000;}
+      /* MÓDULO INTERACTIVO SELECTOR USDA */
+      .controles-climaticos-panel {
+        margin-top: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+      }
 
-      /* ════ CARDS (Beneficios & Propuesta) ════ */
+      .usda-widget {
+        background: #ffffff;
+        border: 1px solid var(--crema);
+        border-radius: 16px;
+        padding: 1.8rem;
+        box-shadow: 0 12px 32px rgba(74,64,64,0.06);
+      }
+
+      .usda-widget .widget-header h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--verde-atardecer);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .usda-widget .widget-header h3 i { color: var(--rosa); }
+
+      .usda-widget .widget-header p {
+        font-size: 0.88rem;
+        color: rgba(74,64,64,0.85);
+        margin-top: 0.4rem;
+      }
+
+      /* Grid de Botones con Estilos Cromáticos Oficiales USDA */
+      .zone-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+        gap: 0.5rem;
+        margin-top: 1.2rem;
+      }
+
+      .zone-grid button {
+        border: 1px solid rgba(0,0,0,0.15);
+        border-radius: 8px;
+        padding: 0.6rem 0.2rem;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.2s var(--e-soft);
+        font-family: 'Lato', sans-serif;
+      }
+
+      .zone-grid button span { font-weight: 700; font-size: 0.92rem; color: inherit; }
+      .zone-grid button small { font-size: 0.68rem; opacity: 0.85; color: inherit; margin-top: 1px; }
+
+      .zone-grid button:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.05);
+      }
+
+      /* Indicador visual de botón activo */
+      .zone-grid button.active {
+        outline: 3px solid var(--tierra-deep);
+        outline-offset: 1px;
+        transform: scale(1.08);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        z-index: 2;
+      }
+
+      /* Mapeo de Colores Oficiales USDA por Isoterma */
+      .zone-grid button.hz1a  { background: #3c3c3c; color: #ffffff; }
+      .zone-grid button.hz1b  { background: #ffffff; color: #000000; border-color: #cccccc; }
+      .zone-grid button.hz2a  { background: #DDDFE3; color: #000000; }
+      .zone-grid button.hz2b  { background: #B8BABE; color: #000000; }
+      .zone-grid button.hz3a  { background: #EBD8FD; color: #000000; }
+      .zone-grid button.hz3b  { background: #F779E0; color: #000000; }
+      .zone-grid button.hz4a  { background: #B979D1; color: #ffffff; }
+      .zone-grid button.hz4b  { background: #D6EDFD; color: #000000; }
+      .zone-grid button.hz5a  { background: #77A7F0; color: #000000; }
+      .zone-grid button.hz5b  { background: #77DCFD; color: #000000; }
+      .zone-grid button.hz6a  { background: #779FB7; color: #000000; }
+      .zone-grid button.hz6b  { background: #DCF1CB; color: #000000; }
+      .zone-grid button.hz7a  { background: #A2F97D; color: #000000; }
+      .zone-grid button.hz7b  { background: #8AB37D; color: #000000; }
+      .zone-grid button.hz8a  { background: #F7F97D; color: #000000; }
+      .zone-grid button.hz8b  { background: #F7CE7D; color: #000000; }
+      .zone-grid button.hz9a  { background: #B19F7D; color: #000000; }
+      .zone-grid button.hz9b  { background: #CB797D; color: #000000; }
+      .zone-grid button.hz10a { background: #F7B9BD; color: #000000; }
+      .zone-grid button.hz10b { background: #F7797D; color: #000000; }
+
+      .zone-feedback {
+        margin-top: 1.2rem;
+        padding: 0.9rem 1.2rem;
+        background: var(--lino);
+        border-left: 4px solid var(--rosa);
+        border-radius: 6px;
+        font-size: 0.88rem;
+        color: var(--grafito);
+      }
+
+      /* CARDS */
       .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(1.2rem, 2.5vw, 2.2rem); max-width: 1080px; margin-inline: auto; }
       .card { background: #ffffff; border: 1px solid var(--crema); border-radius: 12px; padding: 2.2rem 1.8rem; display: flex; flex-direction: column; gap: 0.75rem; transition: transform var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft), border-color 0.3s; }
       .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(74,64,64,0.09); border-color: var(--rosa); }
       .card h3 { font-size: 1.4rem; color: var(--verde-atardecer); line-height: 1.2; }
       .card p { color: rgba(74,64,64,0.85); font-size: 0.95rem; flex: 1; margin: 0; }
 
-      /* ════ FAQ ACORDEÓN INTERACTIVO ════ */
+      /* FAQ ACORDEÓN */
       .faq { max-width: 1000px; margin-inline: auto; }
       .faq__item { border-bottom: 1px solid rgba(139,111,94,0.26); background: #ffffff; border-radius: 8px; margin-bottom: 12px; padding: 0 22px; box-shadow: 0 4px 12px rgba(74,64,64,0.04); transition: border-color 0.3s; border: 1px solid transparent; }
       .faq__item[open] { border-color: var(--rosa); box-shadow: 0 12px 32px rgba(74,64,64,0.08); }
@@ -338,7 +417,7 @@
       .tabla-comparativa th { background-color: var(--verde-atardecer); color: var(--lino); font-family: 'Lato', sans-serif; font-weight: 700; }
       .tabla-comparativa tr:last-child td { border-bottom: none; }
 
-      /* ════ CTA FINAL Y FOOTER ════ */
+      /* CTA FINAL Y FOOTER */
       .cta { background: var(--tierra-deep); color: var(--lino); text-align: center; }
       .cta h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 26ch; margin-inline: auto; color: var(--lino); }
       .cta p { margin: 1.4rem auto 2.4rem; max-width: 50ch; color: rgba(250,247,242,0.85); }
@@ -355,12 +434,10 @@
 
       @media (max-width: 760px) { .footer { grid-template-columns: 1fr; gap: 2rem; } }
 
-      /* Botón Flotante WhatsApp */
       .wa-float { position: fixed; right: 1.3rem; bottom: 1.3rem; z-index: 1050; width: 56px; height: 56px; border-radius: 50%; background-color: var(--tierra-deep) !important; color: var(--lino); border: 1.5px solid rgba(250,247,242,0.32); display: grid; place-items: center; box-shadow: 0 10px 26px rgba(74,64,64,0.35); transition: all var(--d-comp) var(--e-soft); }
       .wa-float:hover { transform: scale(1.08); background-color: var(--verde-atardecer) !important; }
       .wa-float svg { width: 26px; height: 26px; }
 
-      /* ════ REVELACIÓN CSS (Prevención FOUC) ════ */
       .js-motion .section-head { opacity: 1; transform: none; clip-path: none; }
       .js-motion .section-head.is-in .eyebrow { transition-delay: 0s; }
       .js-motion .section-head.is-in h2 { transition-delay: 0.12s; }
@@ -377,19 +454,17 @@
 </head>
 <body>
 
-  <!-- Ambientación dinámica (Fondos y Canvas) -->
   <div id="bgwash" aria-hidden="true"></div>
   <canvas id="petals" aria-hidden="true"></canvas>
 
-  <!-- NAVEGACIÓN PRINCIPAL -->
   <nav class="nav" id="nav" aria-label="Navegación Principal">
-    <a class="nav__brand" href="https://www.granpalmera-vivero-paisajismo.com/index.html">Gran Palmera</a>
+    <a class="nav__brand" href="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html">Gran Palmera</a>
     <div class="nav__links" id="navLinks">
       <a href="#sec-mapa">El Mapa & Buscadores</a>
       <a href="#sec-beneficios">Beneficios</a>
       <a href="#sec-base-conocimiento">Guía Técnica</a>
       <a href="#sec-propuesta">Servicios</a>
-      <a class="nav__cta" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="nav__cta" href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <button class="nav__burger" id="navBurger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -398,11 +473,10 @@
 
   <main id="inicio">
 
-    <!-- HERO SECTION LIMPIO Y RESPIRABLE -->
     <header class="hero">
       <span class="hero__glow" aria-hidden="true"></span>
       
-      <a href="https://www.granpalmera-vivero-paisajismo.com/index.html" title="Volver a Inicio" data-rise>
+      <a href="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html" title="Volver a Inicio" data-rise>
         <div class="logo-circle">
           <img src="/img/logo_granpalmera.png" alt="Logotipo Gran Palmera" class="logo-image" loading="eager">
         </div>
@@ -423,7 +497,6 @@
         <a href="#sec-mapa" class="info-btn"><i class="fa-solid fa-map-location-dot"></i> Ir al Centro de Búsqueda</a>
         <a href="#sec-usda" class="info-btn"><i class="fa-solid fa-circle-info"></i> USDA Plant Map</a>
         <a href="#sec-isotermas" class="info-btn"><i class="fa-solid fa-chart-line"></i> Isotermas</a>
-        <a href="#sec-tabla" class="info-btn"><i class="fa-solid fa-table-list"></i> Tabla Térmica</a>
       </div>
 
       <div class="scrollcue">
@@ -432,7 +505,6 @@
       </div>
     </header>
 
-    <!-- MAPA & CENTRO UNIFICADO DE CONTROL DE BÚSQUEDA -->
     <section class="section section--crema" id="sec-mapa">
       <div class="section-head reveal">
         <span class="eyebrow">Centro de Control Climático</span>
@@ -442,30 +514,13 @@
 
       <div class="map-wrapper reveal">
         
-        <!-- PANEL DE CONTROL UNIFICADO DE BÚSQUEDA -->
         <div class="search-hub-panel">
           <div class="search-hub-panel__title">
             <i class="fa-solid fa-sliders"></i> Panel de Búsqueda & Filtros Integrados
           </div>
 
+          <!-- ORDEN REORDENADO DE BUSCADORES -->
           <div class="search-hub-grid">
-            <!-- 1. Buscador de Plantas -->
-            <div class="buscador-item">
-              <label for="input-plantas"><i class="fa-solid fa-leaf"></i> Plantas</label>
-              <input type="text" id="input-plantas" list="list-plantas" placeholder="Buscar por planta...">
-              <datalist id="list-plantas"></datalist>
-              <span id="status-plantas" class="input-status">Cargando base...</span>
-            </div>
-
-            <!-- 2. Buscador de Palmeras -->
-            <div class="buscador-item">
-              <label for="input-palmeras"><i class="fa-solid fa-tree"></i> Palmeras</label>
-              <input type="text" id="input-palmeras" list="list-palmeras" placeholder="Buscar por palmera...">
-              <datalist id="list-palmeras"></datalist>
-              <span id="status-palmeras" class="input-status">Cargando base...</span>
-            </div>
-
-            <!-- 3. Buscador por Zonas USDA -->
             <div class="buscador-item">
               <label for="input-zonas"><i class="fa-solid fa-layer-group"></i> Zonas USDA</label>
               <input type="text" id="input-zonas" list="list-zonas" placeholder="Ej. Zona 8b...">
@@ -473,7 +528,6 @@
               <span id="status-zonas" class="input-status">Cargando base...</span>
             </div>
 
-            <!-- 4. Buscador por Ciudades de Argentina -->
             <div class="buscador-item">
               <label for="input-ciudades"><i class="fa-solid fa-city"></i> Ciudades (ARG)</label>
               <input type="text" id="input-ciudades" list="list-ciudades" placeholder="Buscar por ciudad...">
@@ -481,7 +535,20 @@
               <span id="status-ciudades" class="input-status">Cargando base...</span>
             </div>
 
-            <!-- 5. Buscador en Arbolado Urbano (API) -->
+            <div class="buscador-item">
+              <label for="input-plantas"><i class="fa-solid fa-leaf"></i> Plantas</label>
+              <input type="text" id="input-plantas" list="list-plantas" placeholder="Buscar por planta...">
+              <datalist id="list-plantas"></datalist>
+              <span id="status-plantas" class="input-status">Cargando base...</span>
+            </div>
+
+            <div class="buscador-item">
+              <label for="input-palmeras"><i class="fa-solid fa-tree"></i> Palmeras</label>
+              <input type="text" id="input-palmeras" list="list-palmeras" placeholder="Buscar por palmera...">
+              <datalist id="list-palmeras"></datalist>
+              <span id="status-palmeras" class="input-status">Cargando base...</span>
+            </div>
+
             <div class="buscador-item">
               <label for="input-arbolado-especie"><i class="fa-solid fa-magnifying-glass-location"></i> Arbolado Urbano</label>
               <input type="text" id="input-arbolado-especie" placeholder="Especie (ej. Ceibo...)" autocomplete="off">
@@ -493,60 +560,51 @@
 
         <!-- VISOR DE MAPA LEAFLET -->
         <div id="map"></div>
+
+        <!-- MÓDULO INTERACTIVO SELECTOR USDA -->
+        <div id="controles-climaticos" class="controles-climaticos-panel">
+          
+          <div class="usda-widget" aria-labelledby="usda-heading">
+            <header class="widget-header">
+              <h3 id="usda-heading"><i class="fa-solid fa-layer-group"></i> Selector de Zonas USDA</h3>
+              <p>Hacé clic en una zona térmica para encender la isoterma en el mapa interactivo de Argentina:</p>
+            </header>
+
+            <!-- Selector USDA con rango completo de 1a a 10b -->
+            <div class="zone-grid" role="tablist" aria-label="Zonas térmicas de resistencia">
+              <button role="tab" aria-selected="false" data-zone="1a" class="hz1a"><span>1a</span><small>-51.1°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="1b" class="hz1b"><span>1b</span><small>-48.3°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="2a" class="hz2a"><span>2a</span><small>-45.6°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="2b" class="hz2b"><span>2b</span><small>-42.8°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="3a" class="hz3a"><span>3a</span><small>-40.0°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="3b" class="hz3b"><span>3b</span><small>-37.2°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="4a" class="hz4a"><span>4a</span><small>-34.4°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="4b" class="hz4b"><span>4b</span><small>-31.7°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="5a" class="hz5a"><span>5a</span><small>-28.9°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="5b" class="hz5b"><span>5b</span><small>-26.1°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="6a" class="hz6a"><span>6a</span><small>-23.3°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="6b" class="hz6b"><span>6b</span><small>-20.6°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="7a" class="hz7a"><span>7a</span><small>-17.8°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="7b" class="hz7b"><span>7b</span><small>-15.0°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="8a" class="hz8a"><span>8a</span><small>-12.2°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="8b" class="hz8b"><span>8b</span><small>-9.4°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="9a" class="hz9a"><span>9a</span><small>-6.7°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="9b" class="hz9b"><span>9b</span><small>-3.9°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="10a" class="hz10a"><span>10a</span><small>-1.1°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="10b" class="hz10b active"><span>10b</span><small>1.7°C</small></button>
+            </div>
+
+            <div id="zone-feedback" class="zone-feedback" aria-live="polite">
+              Zona activa: <strong>10b</strong> (Temp. Mínima Promedio: 1.7°C a 4.4°C) — <em>Isoterma en el mapa Leaflet actualizada.</em>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
-    <!-- TABLAS DE REFERENCIA USDA -->
-    <section class="section" id="sec-tablas">
-      <div class="section-head reveal">
-        <span class="eyebrow">Escala Global</span>
-        <h2>Tabla de Referencia Térmica</h2>
-        <p>Clasificación cromática estandarizada de las Zonas de Rusticidad y sus promedios de temperatura mínima extrema.</p>
-      </div>
-      
-      <div class="usda-zones-container reveal">
-        <table class="usda-table">
-          <tbody>
-            <tr>
-              <td class="hz1a"><strong>Zone 1a</strong><br>-51.1°C a -48.3°C</td>
-              <td class="hz1b"><strong>Zone 1b</strong><br>-48.3°C a -45.6°C</td>
-              <td class="hz2a"><strong>Zone 2a</strong><br>-45.6°C a -42.8°C</td>
-              <td class="hz2b"><strong>Zone 2b</strong><br>-42.8°C a -40°C</td>
-              <td class="hz3a"><strong>Zone 3a</strong><br>-40°C a -37.2°C</td>
-              <td class="hz3b"><strong>Zone 3b</strong><br>-37.2°C a -34.4°C</td>
-              <td class="hz4a"><strong>Zone 4a</strong><br>-34.4°C a -31.7°C</td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="usda-table">
-          <tbody>
-            <tr>
-              <td class="hz4b"><strong>Zone 4b</strong><br>-31.7°C a -28.9°C</td>
-              <td class="hz5a"><strong>Zone 5a</strong><br>-28.9°C a -26.1°C</td>
-              <td class="hz5b"><strong>Zone 5b</strong><br>-26.1°C a -23.3°C</td>
-              <td class="hz6a"><strong>Zone 6a</strong><br>-23.3°C a -20.6°C</td>
-              <td class="hz6b"><strong>Zone 6b</strong><br>-20.6°C a -17.8°C</td>
-              <td class="hz7a"><strong>Zone 7a</strong><br>-17.8°C a -15°C</td>
-              <td class="hz7b"><strong>Zone 7b</strong><br>-15°C a -12.2°C</td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="usda-table">
-          <tbody>
-            <tr>
-              <td class="hz8a"><strong>Zone 8a</strong><br>-12.2°C a -9.4°C</td>
-              <td class="hz8b"><strong>Zone 8b</strong><br>-9.4°C a -6.7°C</td>
-              <td class="hz9a"><strong>Zone 9a</strong><br>-6.7°C a -3.9°C</td>
-              <td class="hz9b"><strong>Zone 9b</strong><br>-3.9°C a -1.1°C</td>
-              <td class="hz10a"><strong>Zone 10a</strong><br>-1.1°C a 1.7°C</td>
-              <td class="hz10b"><strong>Zone 10b</strong><br>1.7°C a 4.4°C</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- BENEFICIOS (CARDS) -->
+    <!-- BENEFICIOS -->
     <section class="section section--crema" id="sec-beneficios">
       <div class="section-head reveal">
         <span class="eyebrow">Experiencia de Usuario</span>
@@ -684,7 +742,7 @@
           <div class="faq__a">
             <p>Plataforma técnica desarrollada por el equipo de <strong>Gran Palmera Vivero & Paisajismo</strong> para asistir a profesionales y aficionados a tomar decisiones basadas en el rigor biológico, garantizando jardines sostenibles y resistentes en el tiempo.</p>
             <p style="margin-top: 15px; font-weight: bold;">
-              <a href="https://www.granpalmera-vivero-paisajismo.com/index.html">
+              <a href="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html">
                 <i class="fa-solid fa-arrow-right-long"></i> Explorá nuestros Proyectos de Paisajismo 3D
               </a>
             </p>
@@ -694,7 +752,7 @@
       </div>
     </section>
 
-    <!-- PROPUESTA (CARDS) -->
+    <!-- PROPUESTA -->
     <section class="section section--crema" id="sec-propuesta">
       <div class="section-head reveal">
         <span class="eyebrow">Propuesta Técnica & Comercial</span>
@@ -715,7 +773,7 @@
         </article>
         <article class="card">
           <h3>04 · Estudio de Paisajismo</h3>
-          <p>Transformamos tu visión en un ecosistema sustained con renderizado 3D y ejecución profesional.</p>
+          <p>Transformamos tu visión en un ecosistema sustentable con renderizado 3D y ejecución profesional.</p>
         </article>
       </div>
     </section>
@@ -725,7 +783,7 @@
       <h2 class="reveal">¿Querés transformar tu paisaje?</h2>
       <p class="reveal">No necesitás saber qué plantas comprar ni tener el diseño resuelto. Contanos qué espacio tenés y nuestro equipo técnico te asesora.</p>
       <div class="cta__actions reveal">
-        <a class="btn btn--solid" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" style="background-color:#ffffff !important; color:var(--tierra-deep) !important;">
+        <a class="btn btn--solid" href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener" style="background-color:#ffffff !important; color:var(--tierra-deep) !important;">
           <i class="fab fa-whatsapp"></i> Hablar con un Asesor Botánico
         </a>
       </div>
@@ -740,28 +798,27 @@
         </div>
         <div>
           <h4>Contacto</h4>
-          <p><a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener">WhatsApp Oficial</a></p>
+          <p><a href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener">WhatsApp Oficial</a></p>
           <p style="color:rgba(250,247,242,0.6); margin-top:0.4rem">Lunes a Sábado, 8 a 19 h</p>
         </div>
         <div>
           <h4>Ecosistema</h4>
-          <p><a href="https://www.granpalmera-vivero-paisajismo.com/index.html">Inicio Gran Palmera</a></p>
+          <p><a href="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html">Inicio Gran Palmera</a></p>
           <p class="footer__tag" style="margin-top:1rem">Cultivando el trópico.</p>
         </div>
       </footer>
       
-      <!-- Bloque de Redes Sociales Centradas y Crédito de Autoría -->
       <div style="text-align: center; margin-top: 3rem; padding: 0 var(--pad);">
         <div class="footer__socials">
-          <a href="https://www.instagram.com/granpalmera/" target="_blank" title="Instagram" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/GranPalmera/" target="_blank" title="Facebook" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/granpalmera_vivero" target="_blank" title="Instagram" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/granpalmera" target="_blank" title="Facebook" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.tiktok.com/@granpalmera" target="_blank" title="TikTok" aria-label="TikTok" rel="noopener"><i class="fab fa-tiktok"></i></a>
-          <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" title="Pinterest" aria-label="Pinterest" rel="noopener"><i class="fab fa-pinterest-p"></i></a>
-          <a href="https://www.youtube.com/@GranPalmera" target="_blank" title="YouTube" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" title="LinkedIn" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://ar.pinterest.com/granpalmera" target="_blank" title="Pinterest" aria-label="Pinterest" rel="noopener"><i class="fab fa-pinterest-p"></i></a>
+          <a href="https://www.youtube.com/@granpalmera" target="_blank" title="YouTube" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/granpalmera" target="_blank" title="LinkedIn" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <p style="margin-top: 1.2rem; font-size: 0.82rem; color: rgba(250,247,242,0.7);">
-          Sitio desarrollado por <a href="https://www.linkedin.com/in/pablo-villordo/" target="_blank" rel="noopener" style="color: var(--rosa); text-decoration: underline; text-underline-offset: 3px; font-weight: 700;">Pablo Villordo</a>
+          Sitio desarrollado por <a href="https://www.granpalmera-vivero-paisajismo.com" target="_blank" rel="noopener" style="color: var(--rosa); text-decoration: underline; text-underline-offset: 3px; font-weight: 700;">Pablo Villordo</a>
         </p>
       </div>
       <p class="footer__credit">Herramienta de Zonas USDA &copy; Gran Palmera.</p>
@@ -769,16 +826,14 @@
 
   </main>
 
-  <!-- Botón Flotante de WhatsApp -->
-  <a class="wa-float" href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">
+  <!-- Botón Flotante WhatsApp -->
+  <a class="wa-float" href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/>
     </svg>
   </a>
 
-  <!-- ========================================== -->
-  <!-- SCRIPTS EXTERNOS (GSAP, LENIS, LEAFLET, PAPA) -->
-  <!-- ========================================== -->
+  <!-- SCRIPTS EXTERNOS -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
@@ -787,12 +842,9 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
-  <!-- ========================================== -->
-  <!-- LÓGICA DE ANIMACIÓN, UI Y MAPA LEAFLET     -->
-  <!-- ========================================== -->
+  <!-- LÓGICA JAVASCRIPT -->
   <script>
   (function() {
-    // ════ 1. INICIALIZACIÓN HIGH-END (GSAP + LENIS) ════
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var hasGSAP = window.gsap && window.ScrollTrigger;
 
@@ -809,7 +861,6 @@
       var EOUT = window.CustomEase ? 'e-out' : 'power3.out';
       var EOUTLG = window.CustomEase ? 'e-out-lg' : 'power4.out';
 
-      // Lenis Smooth Scroll
       var lenis = null;
       if (!reduce && window.Lenis) {
         lenis = new Lenis({
@@ -821,7 +872,6 @@
         gsap.ticker.lagSmoothing(0);
       }
 
-      // Smooth scrolling for Anchor Links (FAQ support)
       document.querySelectorAll('a[href^="#"]').forEach(function(a) {
         a.addEventListener('click', function(e) {
           var targetId = a.getAttribute('href');
@@ -836,14 +886,12 @@
         });
       });
 
-      // Navegación Transparente / Scrolled
       var nav = document.getElementById('nav');
       ScrollTrigger.create({
         start: 'top -50',
         onUpdate: function(self) { nav.classList.toggle('is-scrolled', self.scroll() > 50); }
       });
 
-      // Ambient Scrub (BgWash y CTA)
       if (!reduce) {
         var wash = document.getElementById('bgwash');
         if (wash) {
@@ -857,7 +905,6 @@
         }
       }
 
-      // Hero Animations
       if (!reduce) {
         gsap.fromTo('#cueLine', { scaleY: 0.2, opacity: 0.3 }, { scaleY: 1, opacity: 1, duration: 1.4, ease: EOUT, repeat: -1, yoyo: true });
         gsap.to('.scrollcue', { opacity: 0, scrollTrigger: { start: 40, end: 220, scrub: true } });
@@ -869,7 +916,6 @@
           .to('[data-rise]', { yPercent: 0, opacity: 1, duration: 0.9, ease: EOUT, stagger: 0.08 }, '-=0.7');
       }
 
-      // Animaciones de Tarjetas, Grid y FAQ
       if (!reduce) {
         gsap.utils.toArray('.stagger').forEach(function(el) {
           gsap.fromTo(el.children, { opacity: 0, y: 66 }, { opacity: 1, y: 0, ease: 'none', stagger: 0.12, scrollTrigger: { trigger: el, start: 'top 94%', end: 'top 56%', scrub: 0.7 } });
@@ -883,13 +929,11 @@
       }
     }
 
-    // Remover Preload
     window.addEventListener('load', function() {
       requestAnimationFrame(function() { document.documentElement.classList.remove('preload'); });
       if (hasGSAP) ScrollTrigger.refresh();
     });
 
-    // Menú Hamburguesa
     var burger = document.getElementById('navBurger');
     if (burger) {
       var closeMenu = function() {
@@ -901,7 +945,7 @@
       document.querySelectorAll('#navLinks a').forEach(function(a) { a.addEventListener('click', closeMenu); });
     }
 
-    // ════ 2. CANVAS 2D: SISTEMA VECTORIAL DE COPOS DE NIEVE ════
+    // CANVAS 2D: NIEVE
     (function() {
       var canvas = document.getElementById('petals');
       if (!canvas || reduce) return;
@@ -964,7 +1008,6 @@
           ctx.translate(p.x, p.y); 
           ctx.rotate(p.rot); 
           ctx.globalAlpha = p.alpha; 
-          // Color Azul-Grisáceo personalizado
           ctx.strokeStyle = '#699DBE';
           drawSnowflakeVector(p.r);
           ctx.restore(); 
@@ -988,26 +1031,24 @@
       });
     })();
 
-    // ════ 3. LÓGICA DE DATOS Y MAPA LEAFLET (RESTRICCIÓN GEOGRÁFICA Y ZOOM SUAVE) ════
+    // LÓGICA DE DATOS Y MAPA LEAFLET
     document.addEventListener("DOMContentLoaded", function() {
       if(typeof L === 'undefined') return;
 
-      // 1. Delimitación del marco geográfico de Argentina
       const boundsArgentina = L.latLngBounds(
-        L.latLng(-55.5, -75.0), // SW: Tierra del Fuego / Pasaje de Drake
-        L.latLng(-20.5, -50.0)  // NE: Misiones / Frontera norte
+        L.latLng(-55.5, -75.0),
+        L.latLng(-20.5, -50.0)
       );
 
-      // 2. Inicialización con límites rígidos y sensibilidad de zoom suavizada
       const map = L.map('map', {
         center: [-38.416097, -63.616672],
         zoom: 4,
-        minZoom: 4,                  // Impide alejarse más allá del encuadre nacional
-        maxZoom: 18,                 // Permite acercamiento hasta nivel de calle
-        maxBounds: boundsArgentina,  // Bloquea la navegación fuera de Argentina
-        maxBoundsViscosity: 1.0,     // Bloqueo rígido sin rebote en los márgenes
-        zoomSnap: 0.25,              // Transiciones de zoom fraccionadas
-        zoomDelta: 0.5               // Rueda del ratón más suave y progresiva
+        minZoom: 4,
+        maxZoom: 18,
+        maxBounds: boundsArgentina,
+        maxBoundsViscosity: 1.0,
+        zoomSnap: 0.25,
+        zoomDelta: 0.5
       });
 
       L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { 
@@ -1031,7 +1072,6 @@
         return null;
       }
 
-      // Controles Personalizados Leaflet
       const ResetControl = L.Control.extend({
         options: { position: 'topright' },
         onAdd: function(m) {
@@ -1115,7 +1155,6 @@
       map.addControl(new GeoControl());
       map.addControl(new SMNControl());
 
-      // Diccionarios & Carga CSV
       const coloresUSDA = { '1a': '#3c3c3c', '1b': '#FFFFFF', '2a': '#DDDFE3', '2b': '#B8BABE', '3a': '#EBD8FD', '3b': '#F779E0', '4a': '#B979D1', '4b': '#D6EDFD', '5a': '#77A7F0', '5b': '#77DCFD', '6a': '#779FB7', '6b': '#DCF1CB', '7a': '#A2F97D', '7b': '#8AB37D', '8a': '#F7F97D', '8b': '#F7CE7D', '9a': '#B19F7D', '9b': '#CB797D', '10a': '#F7B9BD', '10b': '#F7797D' };
       const temperaturasUSDA = { '1a': '-51.1°C a -48.3°C', '1b': '-48.3°C a -45.6°C', '2a': '-45.6°C a -42.8°C', '2b': '-42.8°C a -40.0°C', '3a': '-40.0°C a -37.2°C', '3b': '-37.2°C a -34.4°C', '4a': '-34.4°C a -31.7°C', '4b': '-31.7°C a -28.9°C', '5a': '-28.9°C a -26.1°C', '5b': '-26.1°C a -23.3°C', '6a': '-23.3°C a -20.6°C', '6b': '-20.6°C a -17.8°C', '7a': '-17.8°C a -15.0°C', '7b': '-15.0°C a -12.2°C', '8a': '-12.2°C a -9.4°C', '8b': '-9.4°C a -6.7°C', '9a': '-6.7°C a -3.9°C', '9b': '-3.9°C a -1.1°C', '10a': '-1.1°C a 1.7°C', '10b': '1.7°C a 4.4°C' };
 
@@ -1163,7 +1202,69 @@
         });
       });
 
-      // Búsqueda y GeoJSON
+      // FUNCIÓN MAESTRA: Carga GeoJSON e ilumina botones con su color oficial USDA
+      function cargarZonaUSDA(z, syncInput = true) {
+        if (!z) return;
+        z = z.toLowerCase();
+
+        capasActivas.clearLayers();
+
+        const colorIsotermico = coloresUSDA[z] || '#5b4638';
+
+        fetch(`https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${z}.geojson`)
+          .then(r => { if(!r.ok) throw new Error("GeoJSON no disponible"); return r.json(); })
+          .then(d => {
+            const geoLayer = L.geoJson(d, {
+              style: {
+                fillColor: colorIsotermico,
+                weight: 2,
+                color: '#5b4638',
+                fillOpacity: 0.70
+              }
+            }).bindPopup(`<b>Zona USDA: ${z.toUpperCase()}</b><br>Temp. Mínima Promedio: ${temperaturasUSDA[z] || 'N/A'}`);
+            
+            capasActivas.addLayer(geoLayer);
+            map.setView([-38.416097, -63.616672], 4);
+          })
+          .catch(e => console.log("GeoJSON no encontrado para la zona " + z));
+
+        const zoneGrid = document.querySelector('.zone-grid');
+        if (zoneGrid) {
+          zoneGrid.querySelectorAll('button').forEach(btn => {
+            const isTarget = btn.dataset.zone.toLowerCase() === z;
+            btn.classList.toggle('active', isTarget);
+            btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+          });
+        }
+
+        const zoneFeedback = document.getElementById('zone-feedback');
+        if (zoneFeedback) {
+          const tempRango = temperaturasUSDA[z] || 'Rango no especificado';
+          zoneFeedback.innerHTML = `Zona activa: <strong>${z.toUpperCase()}</strong> (Temp. Mínima Promedio: ${tempRango}) — <em>Isoterma en el mapa Leaflet actualizada.</em>`;
+        }
+
+        if (syncInput) {
+          const inputZonas = document.getElementById('input-zonas');
+          if (inputZonas) inputZonas.value = `Zona ${z.toUpperCase()}`;
+        }
+      }
+
+      const zoneGrid = document.querySelector('.zone-grid');
+      if (zoneGrid) {
+        zoneGrid.addEventListener('click', function(e) {
+          const btn = e.target.closest('button');
+          if (!btn) return;
+          const selectedZone = btn.dataset.zone;
+          if (selectedZone) {
+            ['input-plantas', 'input-palmeras', 'input-ciudades', 'input-arbolado-especie'].forEach(id => {
+              const el = document.getElementById(id);
+              if (el) el.value = '';
+            });
+            cargarZonaUSDA(selectedZone, true);
+          }
+        });
+      }
+
       function configBuscador(id, dbTarget) {
         document.getElementById(id).addEventListener('input', function(e) {
           const val = e.target.value.trim().toLowerCase();
@@ -1176,19 +1277,24 @@
             Promise.allSettled(zonas.map(z => 
               fetch(`https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${z}.geojson`)
               .then(r => { if(!r.ok) throw new Error(); return r.json(); })
-              .then(d => L.geoJson(d, { style: { fillColor: (coloresUSDA[z]||'#e74c3c'), weight: 1, color: '#333', fillOpacity: 0.65 } }).bindPopup(`Zona USDA: ${z.toUpperCase()}<br>Temp: ${temperaturasUSDA[z]||'N/A'}`))
+              .then(d => L.geoJson(d, { style: { fillColor: (coloresUSDA[z]||'#e74c3c'), weight: 1.5, color: '#333', fillOpacity: 0.65 } }).bindPopup(`<b>Zona USDA: ${z.toUpperCase()}</b><br>Temp. Mínima Promedio: ${temperaturasUSDA[z]||'N/A'}`))
             )).then(resultados => {
               let added = false;
               resultados.forEach(res => { if(res.status === 'fulfilled') { capasActivas.addLayer(res.value); added = true; } });
               if(added) map.setView([-38.416097, -63.616672], 4);
             });
+
+            if (zonas.length > 0) {
+              const primeraZona = zonas[0].toLowerCase();
+              cargarZonaUSDA(primeraZona, false);
+            }
           }
         });
       }
       configBuscador('input-plantas', dbPlantas); configBuscador('input-palmeras', dbPalmeras);
       configBuscador('input-zonas', dbZonas); configBuscador('input-ciudades', dbCiudades);
 
-      // API Arbolado Urbano (Nombre Común + Nombre Científico)
+      // ARBOLADO URBANO API
       let todasLasEspecies = [], cacheArboles = [];
       let capaArbolesUrbano = L.layerGroup().addTo(map);
       const inputEspecie = document.getElementById('input-arbolado-especie'), 
