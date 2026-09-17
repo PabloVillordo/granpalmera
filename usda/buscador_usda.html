@@ -715,7 +715,7 @@
         </article>
         <article class="card">
           <h3>04 · Estudio de Paisajismo</h3>
-          <p>Transformamos tu visión en un ecosistema sustentable con renderizado 3D y ejecución profesional.</p>
+          <p>Transformamos tu visión en un ecosistema sustained con renderizado 3D y ejecución profesional.</p>
         </article>
       </div>
     </section>
@@ -750,19 +750,21 @@
         </div>
       </footer>
       
-    <!-- Bloque de Redes Sociales Centradas y Crédito de Autoría -->
-    <div style="text-align: center; margin-top: 3rem; padding: 0 var(--pad);">
-      <div class="footer__socials">
-        <a href="https://www.instagram.com/granpalmera/" target="_blank" title="Instagram" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/GranPalmera/" target="_blank" title="Facebook" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.tiktok.com/@granpalmera" target="_blank" title="TikTok" aria-label="TikTok" rel="noopener"><i class="fab fa-tiktok"></i></a>
-        <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" title="Pinterest" aria-label="Pinterest" rel="noopener"><i class="fab fa-pinterest-p"></i></a>
-        <a href="https://www.youtube.com/@GranPalmera" target="_blank" title="YouTube" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" title="LinkedIn" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+      <!-- Bloque de Redes Sociales Centradas y Crédito de Autoría -->
+      <div style="text-align: center; margin-top: 3rem; padding: 0 var(--pad);">
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/granpalmera/" target="_blank" title="Instagram" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/GranPalmera/" target="_blank" title="Facebook" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@granpalmera" target="_blank" title="TikTok" aria-label="TikTok" rel="noopener"><i class="fab fa-tiktok"></i></a>
+          <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" title="Pinterest" aria-label="Pinterest" rel="noopener"><i class="fab fa-pinterest-p"></i></a>
+          <a href="https://www.youtube.com/@GranPalmera" target="_blank" title="YouTube" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/82666520/admin/dashboard/" target="_blank" title="LinkedIn" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p style="margin-top: 1.2rem; font-size: 0.82rem; color: rgba(250,247,242,0.7);">
+          Sitio desarrollado por <a href="https://www.linkedin.com/in/pablo-villordo/" target="_blank" rel="noopener" style="color: var(--rosa); text-decoration: underline; text-underline-offset: 3px; font-weight: 700;">Pablo Villordo</a>
+        </p>
       </div>
-      <p style="margin-top: 1.2rem; font-size: 0.82rem; color: rgba(250,247,242,0.7);">
-        Sitio desarrollado por <a href="https://www.linkedin.com/in/pablo-villordo/" target="_blank" rel="noopener" style="color: var(--rosa); text-decoration: underline; text-underline-offset: 3px; font-weight: 700;">Pablo Villordo</a>
-      </p>
+      <p class="footer__credit">Herramienta de Zonas USDA &copy; Gran Palmera.</p>
     </div>
 
   </main>
@@ -962,7 +964,7 @@
           ctx.translate(p.x, p.y); 
           ctx.rotate(p.rot); 
           ctx.globalAlpha = p.alpha; 
-           // Cambiar el color - Original: #FFFFFF - Dorado #E6CDBF - Giz-Azulado #699DBE//
+          // Color Azul-Grisáceo personalizado
           ctx.strokeStyle = '#699DBE';
           drawSnowflakeVector(p.r);
           ctx.restore(); 
@@ -986,12 +988,32 @@
       });
     })();
 
-    // ════ 3. LÓGICA DE DATOS Y MAPA LEAFLET (SISTEMA NATIVO SIN CLUSTER) ════
+    // ════ 3. LÓGICA DE DATOS Y MAPA LEAFLET (RESTRICCIÓN GEOGRÁFICA Y ZOOM SUAVE) ════
     document.addEventListener("DOMContentLoaded", function() {
       if(typeof L === 'undefined') return;
 
-      const map = L.map('map').setView([-34.0, -64.0], 4);
-      L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { maxZoom: 13, attribution: '© OpenStreetMap' }).addTo(map);
+      // 1. Delimitación del marco geográfico de Argentina
+      const boundsArgentina = L.latLngBounds(
+        L.latLng(-55.5, -75.0), // SW: Tierra del Fuego / Pasaje de Drake
+        L.latLng(-20.5, -50.0)  // NE: Misiones / Frontera norte
+      );
+
+      // 2. Inicialización con límites rígidos y sensibilidad de zoom suavizada
+      const map = L.map('map', {
+        center: [-38.416097, -63.616672],
+        zoom: 4,
+        minZoom: 4,                  // Impide alejarse más allá del encuadre nacional
+        maxZoom: 18,                 // Permite acercamiento hasta nivel de calle
+        maxBounds: boundsArgentina,  // Bloquea la navegación fuera de Argentina
+        maxBoundsViscosity: 1.0,     // Bloqueo rígido sin rebote en los márgenes
+        zoomSnap: 0.25,              // Transiciones de zoom fraccionadas
+        zoomDelta: 0.5               // Rueda del ratón más suave y progresiva
+      });
+
+      L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { 
+        maxZoom: 18, 
+        attribution: '© OpenStreetMap' 
+      }).addTo(map);
 
       let capasActivas = L.layerGroup().addTo(map);
       let capaEstacionesSMN = L.layerGroup();
@@ -1017,7 +1039,7 @@
           const b = L.DomUtil.create('button', 'map-custom-btn', c);
           b.innerHTML = '<i class="fa-solid fa-rotate-left"></i>'; b.title = "Limpiar mapa";
           b.onclick = function(e) {
-            e.stopPropagation(); m.setView([-34.0, -64.0], 4); capasActivas.clearLayers();
+            e.stopPropagation(); m.setView([-38.416097, -63.616672], 4); capasActivas.clearLayers();
             if (capaArbolesUrbano) capaArbolesUrbano.clearLayers();
             if (m.hasLayer(capaEstacionesSMN)) m.removeLayer(capaEstacionesSMN);
             if (marcadorUsuario) { m.removeLayer(marcadorUsuario); marcadorUsuario = null; }
@@ -1158,7 +1180,7 @@
             )).then(resultados => {
               let added = false;
               resultados.forEach(res => { if(res.status === 'fulfilled') { capasActivas.addLayer(res.value); added = true; } });
-              if(added) map.setView([-34.0, -64.0], 4);
+              if(added) map.setView([-38.416097, -63.616672], 4);
             });
           }
         });
