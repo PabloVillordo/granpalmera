@@ -170,7 +170,7 @@
       .section--crema { background: transparent; }
       .section-head { margin-bottom: clamp(2rem, 5vh, 3.5rem); max-width: 54rem; margin-inline: auto; text-align: center; }
       .section-head h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); color: var(--verde-atardecer); }
-      .section-head p { margin: 1.2rem auto 0; max-width: 60ch; color: rgba(74,64,64,0.84); font-size: clamp(0.95rem, 1.2vw, 1.1rem); }
+      .section-head p { margin: 1.2rem auto 0; max-width: 65ch; color: rgba(74,64,64,0.84); font-size: clamp(0.95rem, 1.2vw, 1.1rem); }
 
       /* PANEL DE CONTROL UNIFICADO DE BÚSQUEDA Y MAPA */
       .map-wrapper { max-width: 1000px; margin: 0 auto; }
@@ -376,6 +376,7 @@
       .zone-grid button.hz9b  { background: #CB797D; color: #000000; }
       .zone-grid button.hz10a { background: #F7B9BD; color: #000000; }
       .zone-grid button.hz10b { background: #F7797D; color: #000000; }
+      .zone-grid button.hz11a { background: #D81B60; color: #ffffff; }
 
       .zone-feedback {
         margin-top: 1.2rem;
@@ -509,7 +510,10 @@
       <div class="section-head reveal">
         <span class="eyebrow">Centro de Control Climático</span>
         <h2>Isotermas, Consultas & Arbolado Urbano</h2>
-        <p>Utiliza los filtros agrupados para consultar especies, zonas climáticas, ciudades o verificar ejemplares reales geolocalizados directamente sobre el mapa.</p>
+        <!-- DESCRIPCIÓN AMPLIADA Y ENRIQUECIDA -->
+        <p>
+          Utiliza el panel interactivo para explorar las Zonas USDA y zonas climáticas de Argentina. Escribe el nombre de la ciudad en la que vives para conocer la zona térmica en la que se encuentra, o busca el nombre común o científico de la planta que deseas para ver en el mapa en qué regiones puede resistir las temperaturas mínimas de invierno y verificar ejemplares geolocalizados.
+        </p>
       </div>
 
       <div class="map-wrapper reveal">
@@ -519,7 +523,6 @@
             <i class="fa-solid fa-sliders"></i> Panel de Búsqueda & Filtros Integrados
           </div>
 
-          <!-- ORDEN REORDENADO DE BUSCADORES -->
           <div class="search-hub-grid">
             <div class="buscador-item">
               <label for="input-zonas"><i class="fa-solid fa-layer-group"></i> Zonas USDA</label>
@@ -570,7 +573,7 @@
               <p>Hacé clic en una zona térmica para encender la isoterma en el mapa interactivo de Argentina:</p>
             </header>
 
-            <!-- Selector USDA con rango completo de 1a a 10b -->
+            <!-- Selector USDA con rango completo de 1a a 11a -->
             <div class="zone-grid" role="tablist" aria-label="Zonas térmicas de resistencia">
               <button role="tab" aria-selected="false" data-zone="1a" class="hz1a"><span>1a</span><small>-51.1°C</small></button>
               <button role="tab" aria-selected="false" data-zone="1b" class="hz1b"><span>1b</span><small>-48.3°C</small></button>
@@ -592,6 +595,7 @@
               <button role="tab" aria-selected="false" data-zone="9b" class="hz9b"><span>9b</span><small>-3.9°C</small></button>
               <button role="tab" aria-selected="false" data-zone="10a" class="hz10a"><span>10a</span><small>-1.1°C</small></button>
               <button role="tab" aria-selected="true" data-zone="10b" class="hz10b active"><span>10b</span><small>1.7°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="11a" class="hz11a"><span>11a</span><small>4.4°C</small></button>
             </div>
 
             <div id="zone-feedback" class="zone-feedback" aria-live="polite">
@@ -1155,8 +1159,8 @@
       map.addControl(new GeoControl());
       map.addControl(new SMNControl());
 
-      const coloresUSDA = { '1a': '#3c3c3c', '1b': '#FFFFFF', '2a': '#DDDFE3', '2b': '#B8BABE', '3a': '#EBD8FD', '3b': '#F779E0', '4a': '#B979D1', '4b': '#D6EDFD', '5a': '#77A7F0', '5b': '#77DCFD', '6a': '#779FB7', '6b': '#DCF1CB', '7a': '#A2F97D', '7b': '#8AB37D', '8a': '#F7F97D', '8b': '#F7CE7D', '9a': '#B19F7D', '9b': '#CB797D', '10a': '#F7B9BD', '10b': '#F7797D' };
-      const temperaturasUSDA = { '1a': '-51.1°C a -48.3°C', '1b': '-48.3°C a -45.6°C', '2a': '-45.6°C a -42.8°C', '2b': '-42.8°C a -40.0°C', '3a': '-40.0°C a -37.2°C', '3b': '-37.2°C a -34.4°C', '4a': '-34.4°C a -31.7°C', '4b': '-31.7°C a -28.9°C', '5a': '-28.9°C a -26.1°C', '5b': '-26.1°C a -23.3°C', '6a': '-23.3°C a -20.6°C', '6b': '-20.6°C a -17.8°C', '7a': '-17.8°C a -15.0°C', '7b': '-15.0°C a -12.2°C', '8a': '-12.2°C a -9.4°C', '8b': '-9.4°C a -6.7°C', '9a': '-6.7°C a -3.9°C', '9b': '-3.9°C a -1.1°C', '10a': '-1.1°C a 1.7°C', '10b': '1.7°C a 4.4°C' };
+      const coloresUSDA = { '1a': '#3c3c3c', '1b': '#FFFFFF', '2a': '#DDDFE3', '2b': '#B8BABE', '3a': '#EBD8FD', '3b': '#F779E0', '4a': '#B979D1', '4b': '#D6EDFD', '5a': '#77A7F0', '5b': '#77DCFD', '6a': '#779FB7', '6b': '#DCF1CB', '7a': '#A2F97D', '7b': '#8AB37D', '8a': '#F7F97D', '8b': '#F7CE7D', '9a': '#B19F7D', '9b': '#CB797D', '10a': '#F7B9BD', '10b': '#F7797D', '11a': '#D81B60' };
+      const temperaturasUSDA = { '1a': '-51.1°C a -48.3°C', '1b': '-48.3°C a -45.6°C', '2a': '-45.6°C a -42.8°C', '2b': '-42.8°C a -40.0°C', '3a': '-40.0°C a -37.2°C', '3b': '-37.2°C a -34.4°C', '4a': '-34.4°C a -31.7°C', '4b': '-31.7°C a -28.9°C', '5a': '-28.9°C a -26.1°C', '5b': '-26.1°C a -23.3°C', '6a': '-23.3°C a -20.6°C', '6b': '-20.6°C a -17.8°C', '7a': '-17.8°C a -15.0°C', '7b': '-15.0°C a -12.2°C', '8a': '-12.2°C a -9.4°C', '8b': '-9.4°C a -6.7°C', '9a': '-6.7°C a -3.9°C', '9b': '-3.9°C a -1.1°C', '10a': '-1.1°C a 1.7°C', '10b': '1.7°C a 4.4°C', '11a': '4.4°C a 7.2°C' };
 
       const dbPlantas = {}, dbPalmeras = {}, dbZonas = {}, dbCiudades = {};
       const bases = [
@@ -1359,7 +1363,7 @@
           const extract = s => s ? s.split('/').filter(Boolean).pop().replace(/-/g, ' ').replace(/^\w/, c=>c.toUpperCase()) : "Especie";
           
           const filtrados = cacheArboles.filter(a => url ? a.species === url : extract(a.species).toLowerCase().includes(query));
-          const icon = L.icon({ iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png', iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [1,-34] });
+          const icon = L.icon({ iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png', iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [0,-34] });
           const bounds = [];
           
           filtrados.forEach(a => {
