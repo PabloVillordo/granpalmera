@@ -342,8 +342,11 @@
       .zone-grid button small { font-size: 0.68rem; opacity: 0.85; color: inherit; margin-top: 1px; }
 
       .zone-grid button:hover {
-        transform: translateY(-2px);
-        filter: brightness(1.05);
+        transform: translateY(-3px) scale(1.05);
+        filter: brightness(1.1);
+        outline: 2px solid var(--tierra-deep);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+        z-index: 3;
       }
 
       /* Indicador visual de botón activo */
@@ -353,6 +356,23 @@
         transform: scale(1.08);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
         z-index: 2;
+      }
+
+      /* Tooltip Flotante Interactivo */
+      #geo-tip {
+        position: fixed;
+        z-index: 3000;
+        pointer-events: none;
+        background: var(--verde-atardecer);
+        color: var(--lino);
+        font-family: 'Lato', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 6px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        border: 1px solid var(--rosa);
+        transition: opacity 0.1s ease;
       }
 
       /* Mapeo de Colores Oficiales USDA por Isoterma */
@@ -386,6 +406,7 @@
         border-radius: 6px;
         font-size: 0.88rem;
         color: var(--grafito);
+        transition: all 0.2s ease;
       }
 
       /* CARDS */
@@ -830,6 +851,9 @@
 
   </main>
 
+  <!-- Elemento Tooltip Flotante -->
+  <div id="geo-tip" hidden></div>
+
   <!-- Botón Flotante WhatsApp -->
   <a class="wa-float" href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1039,6 +1063,8 @@
     document.addEventListener("DOMContentLoaded", function() {
       if(typeof L === 'undefined') return;
 
+      const tip = document.getElementById('geo-tip');
+
       const boundsArgentina = L.latLngBounds(
         L.latLng(-55.5, -75.0),
         L.latLng(-20.5, -50.0)
@@ -1206,7 +1232,7 @@
         });
       });
 
-      // FUNCIÓN MAESTRA: Carga GeoJSON e ilumina botones con su color oficial USDA
+      // FUNCIÓN MAESTRA: Carga GeoJSON e ilumina botones con su color oficial USDA + Efectos Hover en Capas Vectoriales
       function cargarZonaUSDA(z, syncInput = true) {
         if (!z) return;
         z = z.toLowerCase();
@@ -1224,6 +1250,28 @@
                 weight: 2,
                 color: '#5b4638',
                 fillOpacity: 0.70
+              },
+              onEachFeature: function(feature, layer) {
+                layer.on({
+                  mouseover: function(e) {
+                    const l = e.target;
+                    l.setStyle({ fillOpacity: 0.9, weight: 3, color: '#38291d' });
+                    if (tip) {
+                      tip.textContent = `Zona USDA ${z.toUpperCase()} (${temperaturasUSDA[z] || ''})`;
+                      tip.hidden = false;
+                    }
+                  },
+                  mousemove: function(e) {
+                    if (tip) {
+                      tip.style.left = (e.originalEvent.clientX + 12) + 'px';
+                      tip.style.top = (e.originalEvent.clientY + 12) + 'px';
+                    }
+                  },
+                  mouseout: function(e) {
+                    geoLayer.resetStyle(e.target);
+                    if (tip) tip.hidden = true;
+                  }
+                });
               }
             }).bindPopup(`<b>Zona USDA: ${z.toUpperCase()}</b><br>Temp. Mínima Promedio: ${temperaturasUSDA[z] || 'N/A'}`);
             
@@ -1253,8 +1301,46 @@
         }
       }
 
+      // EFECTO HOVER E INTERACTIVIDAD EN LOS BOTONES DE ZONAS USDA
       const zoneGrid = document.querySelector('.zone-grid');
       if (zoneGrid) {
+        const zoneFeedback = document.getElementById('zone-feedback');
+
+        zoneGrid.querySelectorAll('button').forEach(btn => {
+          btn.addEventListener('mouseenter', function() {
+            const z = btn.dataset.zone;
+            if (z) {
+              const zKey = z.toLowerCase();
+              const tempRango = temperaturasUSDA[zKey] || 'Rango no especificado';
+              if (zoneFeedback) {
+                zoneFeedback.innerHTML = `Explorando: <strong>Zona ${z.toUpperCase()}</strong> (Temp. Mínima Promedio: ${tempRango})`;
+              }
+              if (tip) {
+                tip.textContent = `Zona USDA ${z.toUpperCase()} (${tempRango})`;
+                tip.hidden = false;
+              }
+            }
+          });
+
+          btn.addEventListener('mousemove', function(e) {
+            if (tip) {
+              tip.style.left = (e.clientX + 12) + 'px';
+              tip.style.top = (e.clientY + 12) + 'px';
+            }
+          });
+
+          btn.addEventListener('mouseleave', function() {
+            const activeBtn = zoneGrid.querySelector('button.active');
+            const activeZone = activeBtn ? activeBtn.dataset.zone : '10b';
+            const tempRango = temperaturasUSDA[activeZone.toLowerCase()] || 'Rango no especificado';
+            
+            if (zoneFeedback) {
+              zoneFeedback.innerHTML = `Zona activa: <strong>${activeZone.toUpperCase()}</strong> (Temp. Mínima Promedio: ${tempRango}) — <em>Isoterma en el mapa Leaflet actualizada.</em>`;
+            }
+            if (tip) tip.hidden = true;
+          });
+        });
+
         zoneGrid.addEventListener('click', function(e) {
           const btn = e.target.closest('button');
           if (!btn) return;
@@ -1281,7 +1367,30 @@
             Promise.allSettled(zonas.map(z => 
               fetch(`https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${z}.geojson`)
               .then(r => { if(!r.ok) throw new Error(); return r.json(); })
-              .then(d => L.geoJson(d, { style: { fillColor: (coloresUSDA[z]||'#e74c3c'), weight: 1.5, color: '#333', fillOpacity: 0.65 } }).bindPopup(`<b>Zona USDA: ${z.toUpperCase()}</b><br>Temp. Mínima Promedio: ${temperaturasUSDA[z]||'N/A'}`))
+              .then(d => L.geoJson(d, { 
+                style: { fillColor: (coloresUSDA[z]||'#e74c3c'), weight: 1.5, color: '#333', fillOpacity: 0.65 },
+                onEachFeature: function(feature, layer) {
+                  layer.on({
+                    mouseover: function(e) {
+                      e.target.setStyle({ fillOpacity: 0.9, weight: 3 });
+                      if (tip) {
+                        tip.textContent = `Zona USDA ${z.toUpperCase()} (${temperaturasUSDA[z] || ''})`;
+                        tip.hidden = false;
+                      }
+                    },
+                    mousemove: function(e) {
+                      if (tip) {
+                        tip.style.left = (e.originalEvent.clientX + 12) + 'px';
+                        tip.style.top = (e.originalEvent.clientY + 12) + 'px';
+                      }
+                    },
+                    mouseout: function(e) {
+                      e.target.setStyle({ fillOpacity: 0.65, weight: 1.5 });
+                      if (tip) tip.hidden = true;
+                    }
+                  });
+                }
+              }).bindPopup(`<b>Zona USDA: ${z.toUpperCase()}</b><br>Temp. Mínima Promedio: ${temperaturasUSDA[z]||'N/A'}`))
             )).then(resultados => {
               let added = false;
               resultados.forEach(res => { if(res.status === 'fulfilled') { capasActivas.addLayer(res.value); added = true; } });
