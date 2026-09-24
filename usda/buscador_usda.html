@@ -629,15 +629,15 @@
               <button role="tab" aria-selected="false" data-zone="7b" class="hz7b"><span>7b</span><small>-15.0°C</small></button>
               <button role="tab" aria-selected="false" data-zone="8a" class="hz8a"><span>8a</span><small>-12.2°C</small></button>
               <button role="tab" aria-selected="false" data-zone="8b" class="hz8b"><span>8b</span><small>-9.4°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="9a" class="hz9a"><span>9a</span><small>-6.7°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="9b" class="hz9b"><span>9b</span><small>-3.9°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="10a" class="hz10a"><span>10a</span><small>-1.1°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="9a" class="hz9a active"><span>9a</span><small>-6.7°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="9b" class="hz9b active"><span>9b</span><small>-3.9°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="10a" class="hz10a active"><span>10a</span><small>-1.1°C</small></button>
               <button role="tab" aria-selected="true" data-zone="10b" class="hz10b active"><span>10b</span><small>1.7°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="11a" class="hz11a"><span>11a</span><small>4.4°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="11a" class="hz11a active"><span>11a</span><small>4.4°C</small></button>
             </div>
 
             <div id="zone-feedback" class="zone-feedback" aria-live="polite">
-              Zona activa: <strong>10b</strong> (Temp. Mínima Promedio: 1.7°C a 4.4°C) — <em>Isoterma en el mapa Leaflet actualizada.</em>
+              Cargando mapa e isotermas activas...
             </div>
           </div>
 
@@ -1108,8 +1108,16 @@
       let estacionesCargadas = false;
       let marcadorUsuario = null;
 
-      // ESTADO MULTI-ZONA Y MAPEO DE CAPAS
-      let zonasActivas = new Set(['10b']);
+      // =========================================================================
+      // 📌 PARÁMETROS DE CONFIGURACIÓN DE ZONAS PRECARGADAS AL INICIAR LA PÁGINA
+      // Edita el contenido de este array para sumar o quitar las zonas que deseas
+      // ver encendidas por defecto en el mapa y la botonera cuando abre el sitio.
+      // Ejemplo: ['11a', '10b', '10a', '9b', '9a']
+      // =========================================================================
+      const ZONAS_INICIALES = ['11a', '10b', '10a', '9b', '9a'];
+
+      // Estado multi-zona e índice de capas cargadas
+      let zonasActivas = new Set(ZONAS_INICIALES);
       let capasPorZona = {};
 
       function parseSMNCoord(val) {
@@ -1505,8 +1513,8 @@
         }
       });
 
-      // Inicialización por defecto (Cargar zona 10b activa)
-      actualizarZonasActivas(['10b'], true);
+      // Inicialización por defecto (Cargar zonas configuradas en ZONAS_INICIALES)
+      actualizarZonasActivas(ZONAS_INICIALES, true);
     });
   })();
   </script>
