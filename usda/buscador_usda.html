@@ -334,14 +334,31 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        transition: all 0.2s var(--e-soft);
+        transition: all 0.25s var(--e-soft);
         font-family: 'Lato', sans-serif;
       }
 
       .zone-grid button span { font-weight: 700; font-size: 0.92rem; color: inherit; }
       .zone-grid button small { font-size: 0.68rem; opacity: 0.85; color: inherit; margin-top: 1px; }
 
-      .zone-grid button:hover {
+      /* ESTADO INACTIVO (GRIS): Cuando la zona no está encendida en el mapa */
+      .zone-grid button:not(.active) {
+        background: #e5e2dc !important;
+        color: #8c857b !important;
+        border-color: #d2ccc2 !important;
+        opacity: 0.65;
+        box-shadow: none;
+        transform: none;
+      }
+
+      .zone-grid button:not(.active):hover {
+        opacity: 1;
+        background: #d8d3c8 !important;
+        color: var(--grafito) !important;
+        outline: 1px solid var(--tierra);
+      }
+
+      .zone-grid button.active:hover {
         transform: translateY(-3px) scale(1.05);
         filter: brightness(1.1);
         outline: 2px solid var(--tierra-deep);
@@ -356,6 +373,7 @@
         transform: scale(1.08);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
         z-index: 2;
+        opacity: 1;
       }
 
       /* Tooltip Flotante Interactivo */
@@ -376,27 +394,27 @@
       }
 
       /* Mapeo de Colores Oficiales USDA por Isoterma */
-      .zone-grid button.hz1a  { background: #3c3c3c; color: #ffffff; }
-      .zone-grid button.hz1b  { background: #ffffff; color: #000000; border-color: #cccccc; }
-      .zone-grid button.hz2a  { background: #DDDFE3; color: #000000; }
-      .zone-grid button.hz2b  { background: #B8BABE; color: #000000; }
-      .zone-grid button.hz3a  { background: #EBD8FD; color: #000000; }
-      .zone-grid button.hz3b  { background: #F779E0; color: #000000; }
-      .zone-grid button.hz4a  { background: #B979D1; color: #ffffff; }
-      .zone-grid button.hz4b  { background: #D6EDFD; color: #000000; }
-      .zone-grid button.hz5a  { background: #77A7F0; color: #000000; }
-      .zone-grid button.hz5b  { background: #77DCFD; color: #000000; }
-      .zone-grid button.hz6a  { background: #779FB7; color: #000000; }
-      .zone-grid button.hz6b  { background: #DCF1CB; color: #000000; }
-      .zone-grid button.hz7a  { background: #A2F97D; color: #000000; }
-      .zone-grid button.hz7b  { background: #8AB37D; color: #000000; }
-      .zone-grid button.hz8a  { background: #F7F97D; color: #000000; }
-      .zone-grid button.hz8b  { background: #F7CE7D; color: #000000; }
-      .zone-grid button.hz9a  { background: #B19F7D; color: #000000; }
-      .zone-grid button.hz9b  { background: #CB797D; color: #000000; }
-      .zone-grid button.hz10a { background: #F7B9BD; color: #000000; }
-      .zone-grid button.hz10b { background: #F7797D; color: #000000; }
-      .zone-grid button.hz11a { background: #D81B60; color: #ffffff; }
+      .zone-grid button.hz1a.active  { background: #3c3c3c; color: #ffffff; }
+      .zone-grid button.hz1b.active  { background: #ffffff; color: #000000; border-color: #cccccc; }
+      .zone-grid button.hz2a.active  { background: #DDDFE3; color: #000000; }
+      .zone-grid button.hz2b.active  { background: #B8BABE; color: #000000; }
+      .zone-grid button.hz3a.active  { background: #EBD8FD; color: #000000; }
+      .zone-grid button.hz3b.active  { background: #F779E0; color: #000000; }
+      .zone-grid button.hz4a.active  { background: #B979D1; color: #ffffff; }
+      .zone-grid button.hz4b.active  { background: #D6EDFD; color: #000000; }
+      .zone-grid button.hz5a.active  { background: #77A7F0; color: #000000; }
+      .zone-grid button.hz5b.active  { background: #77DCFD; color: #000000; }
+      .zone-grid button.hz6a.active  { background: #779FB7; color: #000000; }
+      .zone-grid button.hz6b.active  { background: #DCF1CB; color: #000000; }
+      .zone-grid button.hz7a.active  { background: #A2F97D; color: #000000; }
+      .zone-grid button.hz7b.active  { background: #8AB37D; color: #000000; }
+      .zone-grid button.hz8a.active  { background: #F7F97D; color: #000000; }
+      .zone-grid button.hz8b.active  { background: #F7CE7D; color: #000000; }
+      .zone-grid button.hz9a.active  { background: #B19F7D; color: #000000; }
+      .zone-grid button.hz9b.active  { background: #CB797D; color: #000000; }
+      .zone-grid button.hz10a.active { background: #F7B9BD; color: #000000; }
+      .zone-grid button.hz10b.active { background: #F7797D; color: #000000; }
+      .zone-grid button.hz11a.active { background: #D81B60; color: #ffffff; }
 
       .zone-feedback {
         margin-top: 1.2rem;
@@ -531,7 +549,6 @@
       <div class="section-head reveal">
         <span class="eyebrow">Centro de Control Climático</span>
         <h2>Isotermas, Consultas & Arbolado Urbano</h2>
-        <!-- DESCRIPCIÓN AMPLIADA Y ENRIQUECIDA -->
         <p>
           Utiliza el panel interactivo para explorar las Zonas USDA y zonas climáticas de Argentina. Escribe el nombre de la ciudad en la que vives para conocer la zona térmica en la que se encuentra, o busca el nombre común o científico de la planta que deseas para ver en el mapa en qué regiones puede resistir las temperaturas mínimas de invierno y verificar ejemplares geolocalizados.
         </p>
@@ -591,7 +608,7 @@
           <div class="usda-widget" aria-labelledby="usda-heading">
             <header class="widget-header">
               <h3 id="usda-heading"><i class="fa-solid fa-layer-group"></i> Selector de Zonas USDA</h3>
-              <p>Hacé clic en una zona térmica para encender la isoterma en el mapa interactivo de Argentina:</p>
+              <p>Hacé clic en una o varias zonas térmicas para encender o apagar las isotermas en el mapa interactivo de Argentina:</p>
             </header>
 
             <!-- Selector USDA con rango completo de 1a a 11a -->
@@ -1091,6 +1108,10 @@
       let estacionesCargadas = false;
       let marcadorUsuario = null;
 
+      // ESTADO MULTI-ZONA Y MAPEO DE CAPAS
+      let zonasActivas = new Set(['10b']);
+      let capasPorZona = {};
+
       function parseSMNCoord(val) {
         if (!val) return null;
         const partes = val.trim().split(/\s+/);
@@ -1109,7 +1130,8 @@
           const b = L.DomUtil.create('button', 'map-custom-btn', c);
           b.innerHTML = '<i class="fa-solid fa-rotate-left"></i>'; b.title = "Limpiar mapa";
           b.onclick = function(e) {
-            e.stopPropagation(); m.setView([-38.416097, -63.616672], 4); capasActivas.clearLayers();
+            e.stopPropagation(); m.setView([-38.416097, -63.616672], 4); 
+            actualizarZonasActivas([], true);
             if (capaArbolesUrbano) capaArbolesUrbano.clearLayers();
             if (m.hasLayer(capaEstacionesSMN)) m.removeLayer(capaEstacionesSMN);
             if (marcadorUsuario) { m.removeLayer(marcadorUsuario); marcadorUsuario = null; }
@@ -1232,18 +1254,15 @@
         });
       });
 
-      // FUNCIÓN MAESTRA: Carga GeoJSON e ilumina botones con su color oficial USDA + Efectos Hover en Capas Vectoriales
-      function cargarZonaUSDA(z, syncInput = true) {
-        if (!z) return;
-        z = z.toLowerCase();
-
-        capasActivas.clearLayers();
-
+      // CARGA DE CAPA INDIVIDUAL GEOJSON
+      function cargarCapaGeoJSONZona(z) {
         const colorIsotermico = coloresUSDA[z] || '#5b4638';
 
         fetch(`https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${z}.geojson`)
           .then(r => { if(!r.ok) throw new Error("GeoJSON no disponible"); return r.json(); })
           .then(d => {
+            if (!zonasActivas.has(z)) return;
+
             const geoLayer = L.geoJson(d, {
               style: {
                 fillColor: colorIsotermico,
@@ -1254,8 +1273,7 @@
               onEachFeature: function(feature, layer) {
                 layer.on({
                   mouseover: function(e) {
-                    const l = e.target;
-                    l.setStyle({ fillOpacity: 0.9, weight: 3, color: '#38291d' });
+                    e.target.setStyle({ fillOpacity: 0.9, weight: 3, color: '#1c241c' });
                     if (tip) {
                       tip.textContent = `Zona USDA ${z.toUpperCase()} (${temperaturasUSDA[z] || ''})`;
                       tip.hidden = false;
@@ -1275,33 +1293,81 @@
               }
             }).bindPopup(`<b>Zona USDA: ${z.toUpperCase()}</b><br>Temp. Mínima Promedio: ${temperaturasUSDA[z] || 'N/A'}`);
             
+            capasPorZona[z] = geoLayer;
             capasActivas.addLayer(geoLayer);
-            map.setView([-38.416097, -63.616672], 4);
           })
           .catch(e => console.log("GeoJSON no encontrado para la zona " + z));
+      }
 
+      // FUNCIÓN MAESTRA: Sincroniza conjunto completo de zonas (Mapa ⬌ Botonera)
+      function actualizarZonasActivas(nuevasZonas, syncInput = true) {
+        const targetZonas = new Set(nuevasZonas.map(z => z.toLowerCase()));
+        zonasActivas = targetZonas;
+
+        // 1. Quitar del mapa las capas que ya no están activas
+        Object.keys(capasPorZona).forEach(z => {
+          if (!zonasActivas.has(z)) {
+            if (capasPorZona[z] && capasActivas.hasLayer(capasPorZona[z])) {
+              capasActivas.removeLayer(capasPorZona[z]);
+            }
+            delete capasPorZona[z];
+          }
+        });
+
+        // 2. Cargar capas que no estaban activas
+        zonasActivas.forEach(z => {
+          if (!capasPorZona[z]) {
+            cargarCapaGeoJSONZona(z);
+          }
+        });
+
+        // 3. Sincronizar estado visual de los botones (Activo = Color USDA / Inactivo = Gris)
         const zoneGrid = document.querySelector('.zone-grid');
         if (zoneGrid) {
           zoneGrid.querySelectorAll('button').forEach(btn => {
-            const isTarget = btn.dataset.zone.toLowerCase() === z;
-            btn.classList.toggle('active', isTarget);
-            btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+            const btnZone = btn.dataset.zone ? btn.dataset.zone.toLowerCase() : '';
+            const isActive = zonasActivas.has(btnZone);
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
           });
         }
 
-        const zoneFeedback = document.getElementById('zone-feedback');
-        if (zoneFeedback) {
-          const tempRango = temperaturasUSDA[z] || 'Rango no especificado';
-          zoneFeedback.innerHTML = `Zona activa: <strong>${z.toUpperCase()}</strong> (Temp. Mínima Promedio: ${tempRango}) — <em>Isoterma en el mapa Leaflet actualizada.</em>`;
-        }
+        // 4. Actualizar texto informativo
+        actualizarFeedbackTexto();
 
         if (syncInput) {
           const inputZonas = document.getElementById('input-zonas');
-          if (inputZonas) inputZonas.value = `Zona ${z.toUpperCase()}`;
+          if (inputZonas) {
+            const arr = Array.from(zonasActivas).map(z => z.toUpperCase());
+            inputZonas.value = arr.length > 0 ? `Zona ${arr.join(', ')}` : '';
+          }
         }
       }
 
-      // EFECTO HOVER E INTERACTIVIDAD EN LOS BOTONES DE ZONAS USDA
+      // Conmuta (toggle ON/OFF) el estado de una zona individual al pulsar un botón
+      function toggleZonaUSDA(z) {
+        z = z.toLowerCase();
+        const listaActual = Array.from(zonasActivas);
+        if (zonasActivas.has(z)) {
+          actualizarZonasActivas(listaActual.filter(item => item !== z), true);
+        } else {
+          actualizarZonasActivas([...listaActual, z], true);
+        }
+      }
+
+      function actualizarFeedbackTexto() {
+        const zoneFeedback = document.getElementById('zone-feedback');
+        if (!zoneFeedback) return;
+
+        if (zonasActivas.size === 0) {
+          zoneFeedback.innerHTML = `Sin zonas seleccionadas — <em>Hacé clic en una o más zonas de la botonera para visualizarlas en el mapa.</em>`;
+        } else {
+          const arr = Array.from(zonasActivas).map(z => z.toUpperCase()).sort();
+          zoneFeedback.innerHTML = `Zonas activas (${arr.length}): <strong>${arr.join(', ')}</strong> — <em>Isotermas e iluminación de botones sincronizadas.</em>`;
+        }
+      }
+
+      // LISTENERS Y EVENTOS EN LA BOTONERA DE ZONAS USDA
       const zoneGrid = document.querySelector('.zone-grid');
       if (zoneGrid) {
         const zoneFeedback = document.getElementById('zone-feedback');
@@ -1312,9 +1378,6 @@
             if (z) {
               const zKey = z.toLowerCase();
               const tempRango = temperaturasUSDA[zKey] || 'Rango no especificado';
-              if (zoneFeedback) {
-                zoneFeedback.innerHTML = `Explorando: <strong>Zona ${z.toUpperCase()}</strong> (Temp. Mínima Promedio: ${tempRango})`;
-              }
               if (tip) {
                 tip.textContent = `Zona USDA ${z.toUpperCase()} (${tempRango})`;
                 tip.hidden = false;
@@ -1330,13 +1393,6 @@
           });
 
           btn.addEventListener('mouseleave', function() {
-            const activeBtn = zoneGrid.querySelector('button.active');
-            const activeZone = activeBtn ? activeBtn.dataset.zone : '10b';
-            const tempRango = temperaturasUSDA[activeZone.toLowerCase()] || 'Rango no especificado';
-            
-            if (zoneFeedback) {
-              zoneFeedback.innerHTML = `Zona activa: <strong>${activeZone.toUpperCase()}</strong> (Temp. Mínima Promedio: ${tempRango}) — <em>Isoterma en el mapa Leaflet actualizada.</em>`;
-            }
             if (tip) tip.hidden = true;
           });
         });
@@ -1350,7 +1406,7 @@
               const el = document.getElementById(id);
               if (el) el.value = '';
             });
-            cargarZonaUSDA(selectedZone, true);
+            toggleZonaUSDA(selectedZone);
           }
         });
       }
@@ -1362,45 +1418,8 @@
           
           if (zonas) {
             ['input-plantas', 'input-palmeras', 'input-zonas', 'input-ciudades'].forEach(i => { if(i !== id) document.getElementById(i).value = ''; });
-            capasActivas.clearLayers();
-            
-            Promise.allSettled(zonas.map(z => 
-              fetch(`https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${z}.geojson`)
-              .then(r => { if(!r.ok) throw new Error(); return r.json(); })
-              .then(d => L.geoJson(d, { 
-                style: { fillColor: (coloresUSDA[z]||'#e74c3c'), weight: 1.5, color: '#333', fillOpacity: 0.65 },
-                onEachFeature: function(feature, layer) {
-                  layer.on({
-                    mouseover: function(e) {
-                      e.target.setStyle({ fillOpacity: 0.9, weight: 3 });
-                      if (tip) {
-                        tip.textContent = `Zona USDA ${z.toUpperCase()} (${temperaturasUSDA[z] || ''})`;
-                        tip.hidden = false;
-                      }
-                    },
-                    mousemove: function(e) {
-                      if (tip) {
-                        tip.style.left = (e.originalEvent.clientX + 12) + 'px';
-                        tip.style.top = (e.originalEvent.clientY + 12) + 'px';
-                      }
-                    },
-                    mouseout: function(e) {
-                      e.target.setStyle({ fillOpacity: 0.65, weight: 1.5 });
-                      if (tip) tip.hidden = true;
-                    }
-                  });
-                }
-              }).bindPopup(`<b>Zona USDA: ${z.toUpperCase()}</b><br>Temp. Mínima Promedio: ${temperaturasUSDA[z]||'N/A'}`))
-            )).then(resultados => {
-              let added = false;
-              resultados.forEach(res => { if(res.status === 'fulfilled') { capasActivas.addLayer(res.value); added = true; } });
-              if(added) map.setView([-38.416097, -63.616672], 4);
-            });
-
-            if (zonas.length > 0) {
-              const primeraZona = zonas[0].toLowerCase();
-              cargarZonaUSDA(primeraZona, false);
-            }
+            actualizarZonasActivas(zonas, false);
+            map.setView([-38.416097, -63.616672], 4);
           }
         });
       }
@@ -1485,6 +1504,9 @@
           if (bounds.length > 0) map.fitBounds(bounds, { padding: [50,50], maxZoom: 14 });
         }
       });
+
+      // Inicialización por defecto (Cargar zona 10b activa)
+      actualizarZonasActivas(['10b'], true);
     });
   })();
   </script>
