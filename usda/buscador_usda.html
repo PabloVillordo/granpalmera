@@ -1340,7 +1340,7 @@
           });
         }
 
-        // 4. Actualizar texto informativo
+        // 4. Actualizar texto informativo con formato dinámico
         actualizarFeedbackTexto();
 
         if (syncInput) {
@@ -1363,16 +1363,36 @@
         }
       }
 
+      // FUNCIÓN DE FORMATO Y LEYENDA TÉCNICA DINÁMICA
       function actualizarFeedbackTexto() {
         const zoneFeedback = document.getElementById('zone-feedback');
         if (!zoneFeedback) return;
 
         if (zonasActivas.size === 0) {
           zoneFeedback.innerHTML = `Sin zonas seleccionadas — <em>Hacé clic en una o más zonas de la botonera para visualizarlas en el mapa.</em>`;
-        } else {
-          const arr = Array.from(zonasActivas).map(z => z.toUpperCase()).sort();
-          zoneFeedback.innerHTML = `Zonas activas (${arr.length}): <strong>${arr.join(', ')}</strong> — <em>Isotermas e iluminación de botones sincronizadas.</em>`;
+          return;
         }
+
+        const ordenZonas = ['1a','1b','2a','2b','3a','3b','4a','4b','5a','5b','6a','6b','7a','7b','8a','8b','9a','9b','10a','10b','11a'];
+        const activasOrdenadas = Array.from(zonasActivas)
+          .map(z => z.toLowerCase())
+          .sort((a, b) => ordenZonas.indexOf(a) - ordenZonas.indexOf(b));
+
+        const masFria = activasOrdenadas[0];
+        const masCalida = activasOrdenadas[activasOrdenadas.length - 1];
+        const tempMasFria = temperaturasUSDA[masFria] || 'N/A';
+
+        let textoRango = '';
+        if (activasOrdenadas.length > 2) {
+          const limiteInferior = activasOrdenadas[1];
+          textoRango = `"Zona ${masCalida}" a "Zona ${limiteInferior}"`;
+        } else if (activasOrdenadas.length === 2) {
+          textoRango = `"Zona ${masCalida}" a "Zona ${masFria}"`;
+        } else {
+          textoRango = `"Zona ${masFria}"`;
+        }
+
+        zoneFeedback.innerHTML = `Zonas activas: ${textoRango} &nbsp;-&nbsp; Zona más fria "Zona ${masFria}" (Temp. Mínima Promedio: ${tempMasFria})`;
       }
 
       // LISTENERS Y EVENTOS EN LA BOTONERA DE ZONAS USDA
