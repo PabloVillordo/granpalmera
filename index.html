@@ -538,26 +538,6 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   gap: 1rem;
 }
 
-.hub-sublabel {
-  grid-column: 1 / -1;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--tierra);
-  font-weight: 700;
-  margin-top: 1rem;
-  margin-bottom: 0.1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.hub-sublabel::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--crema);
-}
-
 .hub-card { 
   background: var(--lino); 
   border: 1px solid var(--crema); 
@@ -832,40 +812,38 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     </div>
   </header>
 
-  <!-- MÓDULO 2: SERVICIOS Y CATÁLOGO (ACORDEÓN EXCLUSIVO REPLEGADO) -->
+  <!-- MÓDULO 2: SERVICIOS Y CATÁLOGO (ACORDEÓN EXCLUSIVO REPLEGADO CON NUEVA ESTRUCTURA) -->
   <section class="section section--crema" id="sec-servicios">
     <div class="section-head reveal">
-      <span class="eyebrow">Servicios Gran Palmera</span>
-      <h2>Canales, Productos & Servicios</h2>
-      <p>Seleccioná la categoría que buscás para desplegar las opciones disponibles.</p>
+      <span class="eyebrow">Catálogo & Soluciones</span>
+      <h2>Elije, Comprá y Diseñá tu Espacio Verde</h2>
+      <p>Explorá nuestro catálogo de plantas tropicales, tiendas de compra online, logística de envío y servicios de paisajismo a medida.</p>
     </div>
     
     <div class="accordion-group stagger">
       
-      <!-- CATEGORÍA 1: ELIJE TU PLANTA (PRODUCTOS) -->
+      <!-- ACCORDEÓN 1: ELIJE TU PLANTA -->
       <div class="accordion-item">
-        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-planta">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-elije-planta">
           <div class="accordion-header-left">
             <div class="accordion-cat-icon"><i class="fa-solid fa-leaf"></i></div>
             <div class="accordion-title-group">
               <h3>Elije tu Planta</h3>
-              <p>Palmeras exclusivas, catálogo online, prueba de resistencia y envíos</p>
+              <p>Inspiración, prueba de tolerancia agroclimática y novedades</p>
             </div>
           </div>
           <div class="accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
         </button>
 
-        <div class="accordion-wrapper" id="cat-planta">
+        <div class="accordion-wrapper" id="cat-elije-planta">
           <div class="accordion-content">
             <div class="accordion-body">
               <div class="hub-subgrid">
                 
-                <div class="hub-sublabel">Elije tu planta</div>
-                
                 <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" rel="noopener" class="hub-card">
                   <div class="hub-icon-wrapper"><i class="fab fa-pinterest-p"></i></div>
                   <div class="hub-info">
-                    <span class="hub-subtitle">Inspiración</span>
+                    <span class="hub-subtitle">Diseños & Especies</span>
                     <span class="hub-title">Ejemplos en Pinterest</span>
                   </div>
                   <i class="fa-solid fa-chevron-right hub-arrow"></i>
@@ -880,42 +858,11 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
                   <i class="fa-solid fa-chevron-right hub-arrow"></i>
                 </a>
 
-                <div class="hub-sublabel">Comprá tu planta</div>
-
-                <a href="https://granpalmera.mitiendanube.com/" target="_blank" rel="noopener" class="hub-card">
-                  <div class="hub-icon-wrapper"><i class="fa-solid fa-bag-shopping"></i></div>
+                <a href="https://whatsapp.com/channel/0029VbDNEdM6rsR2btM00y2Z" target="_blank" rel="noopener" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-bullhorn"></i></div>
                   <div class="hub-info">
-                    <span class="hub-subtitle">Comprá Online</span>
-                    <span class="hub-title">Tienda Nube</span>
-                  </div>
-                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
-                </a>
-
-                <a href="https://www.mercadolibre.com.ar/pagina/granpalmera" target="_blank" rel="noopener" class="hub-card">
-                  <div class="hub-icon-wrapper"><i class="fa-solid fa-store"></i></div>
-                  <div class="hub-info">
-                    <span class="hub-subtitle">Tienda Oficial</span>
-                    <span class="hub-title">Mercado Libre</span>
-                  </div>
-                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
-                </a>
-
-                <div class="hub-sublabel">Todo sobre el envío</div>
-
-                <a href="envios/envios_granpalmera.html" class="hub-card">
-                  <div class="hub-icon-wrapper"><i class="fa-solid fa-truck-ramp-box"></i></div>
-                  <div class="hub-info">
-                    <span class="hub-subtitle">Logística Segura</span>
-                    <span class="hub-title">Envíos a todo el país</span>
-                  </div>
-                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
-                </a>
-
-                <a href="direccion/direccion_granpalmera.html" class="hub-card">
-                  <div class="hub-icon-wrapper"><i class="fa-solid fa-location-dot"></i></div>
-                  <div class="hub-info">
-                    <span class="hub-subtitle">Ubicación y Horarios</span>
-                    <span class="hub-title">Visitá el vivero</span>
+                    <span class="hub-subtitle">Novedades & Stock Recién Ingresado</span>
+                    <span class="hub-title">Canal Público de WhatsApp</span>
                   </div>
                   <i class="fa-solid fa-chevron-right hub-arrow"></i>
                 </a>
@@ -926,7 +873,100 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
         </div>
       </div>
 
-      <!-- CATEGORÍA 2: ESTUDIO DE PAISAJISMO (SERVICIOS) -->
+      <!-- ACCORDEÓN 2: COMPRÁ TU PLANTA -->
+      <div class="accordion-item">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-compra-planta">
+          <div class="accordion-header-left">
+            <div class="accordion-cat-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+            <div class="accordion-title-group">
+              <h3>Comprá tu Planta</h3>
+              <p>Tiendas oficiales de venta directa y atención personalizada</p>
+            </div>
+          </div>
+          <div class="accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </button>
+
+        <div class="accordion-wrapper" id="cat-compra-planta">
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <div class="hub-subgrid">
+                
+                <a href="https://granpalmera.mitiendanube.com/" target="_blank" rel="noopener" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-store"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">E-Commerce Oficial</span>
+                    <span class="hub-title">Comprá Online en Tienda Nube</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <a href="https://www.mercadolibre.com.ar/pagina/granpalmera" target="_blank" rel="noopener" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-box-open"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Envíos Protegidos</span>
+                    <span class="hub-title">Tienda Oficial Mercado Libre</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <a href="https://wa.me/message/3R4CL2MTGO4VC1" target="_blank" rel="noopener" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fab fa-whatsapp"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Venta Directa & Especies Especiales</span>
+                    <span class="hub-title">Asesoramiento & Compra por WhatsApp</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCORDEÓN 3: TODO SOBRE EL ENVÍO -->
+      <div class="accordion-item">
+        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-todo-envio">
+          <div class="accordion-header-left">
+            <div class="accordion-cat-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="accordion-title-group">
+              <h3>Todo sobre el Envío</h3>
+              <p>Logística segura a todo el país y visita a nuestro vivero predial</p>
+            </div>
+          </div>
+          <div class="accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </button>
+
+        <div class="accordion-wrapper" id="cat-todo-envio">
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <div class="hub-subgrid">
+                
+                <a href="envios/envios_granpalmera.html" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-shield-halved"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Acondicionamiento & Cobertura</span>
+                    <span class="hub-title">Logística Segura de Envíos</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+                <a href="direccion/direccion_granpalmera.html" class="hub-card">
+                  <div class="hub-icon-wrapper"><i class="fa-solid fa-location-dot"></i></div>
+                  <div class="hub-info">
+                    <span class="hub-subtitle">Posadas, Misiones</span>
+                    <span class="hub-title">Ubicación y Horarios del Vivero</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-right hub-arrow"></i>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCORDEÓN 4: ESTUDIO DE PAISAJISMO -->
       <div class="accordion-item">
         <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-paisajismo">
           <div class="accordion-header-left">
@@ -975,7 +1015,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
         </div>
       </div>
 
-      <!-- CATEGORÍA 3: CONTACTO Y NOVEDADES -->
+      <!-- ACCORDEÓN 5: CONTACTO & NOVEDADES (SIN CAMBIOS) -->
       <div class="accordion-item">
         <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-contacto">
           <div class="accordion-header-left">
