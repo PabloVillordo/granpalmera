@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="es-AR" class="preload">
 <head>
-    <!-- ========================================== -->
-    <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
-    <!-- ========================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light">
     
     <title>Buscador de Resistencia al Frío y Zonas USDA | Gran Palmera</title>
-    <meta name="description" content="🌴 Utiliza nuestro buscador basado en el USDA Plant Hardiness Zone Map para consultar la resistencia al frío de tu planta y las zonas en Argentina.">
+    <meta name="description" content="🌴 Consulta la resistencia al frío de palmeras y plantas perennes con nuestro mapa interactivo de Zonas USDA, isotermas y fichas de rusticidad en Argentina.">
     <link rel="canonical" href="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html" />
 
     <!-- Meta etiquetas Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html">
     <meta property="og:title" content="Buscador de Resistencia al Frío y Zonas USDA | Gran Palmera">
-    <meta property="og:description" content="🌴 Consulta la resistencia térmica al frío de tu planta e isotermas USDA en Argentina. Herramienta interactiva de Granpalmera.">
+    <meta property="og:description" content="🌴 Consulta la resistencia térmica al frío de tu planta e isotermas USDA en Argentina. Herramienta interactiva de Gran Palmera.">
     <meta property="og:image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
     <meta property="og:image:secure_url" content="https://www.granpalmera-vivero-paisajismo.com/img/logo_granpalmera.png">
     <meta property="og:image:type" content="image/png">
@@ -38,7 +35,7 @@
     <!-- Preconexión de Fuentes y Librerías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- CSS Externos (FontAwesome & Leaflet Nativo) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -57,6 +54,10 @@
         --verde-atardecer: #3a4a3f; 
         --burdeos: #6e3b3b;
         --accent-color: #a4b39e;
+        --gold: #c4a15a;
+        --line: #ddd4c2;
+        --ink: #1c241c;
+        --muted: #5c6b5c;
         
         --e-out: cubic-bezier(0.22, 1, 0.36, 1); 
         --e-out-lg: cubic-bezier(0.16, 1, 0.30, 1);
@@ -70,7 +71,7 @@
       }
 
       * { box-sizing: border-box; margin: 0; padding: 0; }
-      html { color-scheme: light only; overflow-x: clip; }
+      html { color-scheme: light only; overflow-x: clip; scroll-behavior: smooth; }
       body { 
         background: var(--lino); 
         color: var(--grafito); 
@@ -180,7 +181,7 @@
         border: 1px solid var(--crema);
         border-radius: 16px;
         padding: 1.8rem;
-        margin-bottom: 1.8rem;
+        margin-bottom: 1.2rem;
         box-shadow: 0 12px 32px rgba(74,64,64,0.06);
         display: flex;
         flex-direction: column;
@@ -276,6 +277,174 @@
       .input-status.success { color: var(--salvia); }
       .input-status.error { color: var(--burdeos); }
 
+      /* BARRA DE PRESETS DE MAPA DE ARGENTINA */
+      .map-presets-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 1.2rem;
+        flex-wrap: wrap;
+        background: #ffffff;
+        padding: 0.8rem 1.2rem;
+        border-radius: 12px;
+        border: 1px solid var(--crema);
+        box-shadow: 0 4px 16px rgba(74,64,64,0.04);
+      }
+      .presets-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--tierra-deep);
+        margin-right: 0.4rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .preset-btn {
+        background: var(--lino);
+        border: 1px solid var(--crema);
+        border-radius: 100px;
+        padding: 0.45rem 1rem;
+        font-family: 'Lato', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--grafito);
+        cursor: pointer;
+        transition: all 0.3s var(--e-soft);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .preset-btn:hover {
+        background: var(--rosa);
+        color: var(--tierra-deep);
+        border-color: var(--rosa);
+        transform: translateY(-1px);
+      }
+      .preset-btn.active {
+        background: var(--verde-atardecer) !important;
+        color: var(--lino) !important;
+        border-color: var(--verde-atardecer) !important;
+        box-shadow: 0 4px 12px rgba(58,74,63,0.25);
+      }
+
+      /* ══════════════════════════════════════════════════════════════ */
+      /* BOTONERA DE ZONAS CLIMÁTICAS USDA (CLONADA EXACTA DE ROYSTONEA)*/
+      /* ══════════════════════════════════════════════════════════════ */
+      .usda-widget-card {
+        background: #ffffff;
+        border: 1px solid var(--crema);
+        border-radius: 16px;
+        padding: 1.6rem;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 12px 32px rgba(74,64,64,0.06);
+        position: relative;
+        z-index: 15;
+      }
+
+      .usda-widget-card h2, .usda-widget-card h3 {
+        font-family: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+        font-size: 1.55rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .temp-chart { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); 
+        gap: 4px; 
+        margin: 12px 0; 
+      }
+
+      .zone-cell { 
+        appearance: none; 
+        border: 1px solid rgba(0,0,0,0.15); 
+        background: #c8c5be; 
+        color: var(--ink); 
+        padding: 8px 2px; 
+        cursor: pointer; 
+        font-family: 'Source Sans 3', 'Lato', sans-serif; 
+        text-align: center; 
+        transition: transform 0.15s, outline 0.15s, box-shadow 0.15s; 
+        border-radius: 3px; 
+      }
+      .zone-cell span { display: block; font-weight: 700; font-size: 12px; line-height: 1.1; }
+      .zone-cell small { font-size: 10px; opacity: 0.85; display: block; margin-top: 1px; }
+      .zone-cell.is-min { box-shadow: inset 0 -3px 0 var(--gold); }
+      .zone-cell.is-focus, .zone-cell.is-hover, .zone-cell.active { 
+        outline: 2px solid var(--gold); 
+        transform: scale(1.05); 
+        z-index: 3; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+      }
+
+      /* PALETA CROMÁTICA OFICIAL USDA Extraída de roystonea_regia.html */
+      .zone-cell.is-range[data-zone="1a"] { background: #3c3c3c; color: #fff; }
+      .zone-cell.is-range[data-zone="1b"] { background: #FFFFFF; color: #000; }
+      .zone-cell.is-range[data-zone="2a"] { background: #DDDFE3; color: #000; }
+      .zone-cell.is-range[data-zone="2b"] { background: #B8BABE; color: #000; }
+      .zone-cell.is-range[data-zone="3a"] { background: #EBD8FD; color: #000; }
+      .zone-cell.is-range[data-zone="3b"] { background: #F779E0; color: #000; }
+      .zone-cell.is-range[data-zone="4a"] { background: #B979D1; color: #fff; }
+      .zone-cell.is-range[data-zone="4b"] { background: #D6EDFD; color: #000; }
+      .zone-cell.is-range[data-zone="5a"] { background: #77A7F0; color: #000; }
+      .zone-cell.is-range[data-zone="5b"] { background: #77DCFD; color: #000; }
+      .zone-cell.is-range[data-zone="6a"] { background: #779FB7; color: #000; }
+      .zone-cell.is-range[data-zone="6b"] { background: #DCF1CB; color: #000; }
+      .zone-cell.is-range[data-zone="7a"] { background: #A2F97D; color: #000; }
+      .zone-cell.is-range[data-zone="7b"] { background: #8AB37D; color: #000; }
+      .zone-cell.is-range[data-zone="8a"] { background: #F7F97D; color: #000; }
+      .zone-cell.is-range[data-zone="8b"] { background: #F7CE7D; color: #000; }
+      .zone-cell.is-range[data-zone="9a"] { background: #B19F7D; color: #000; }
+      .zone-cell.is-range[data-zone="9b"] { background: #CB797D; color: #000; }
+      .zone-cell.is-range[data-zone="10a"] { background: #F7B9BD; color: #000; }
+      .zone-cell.is-range[data-zone="10b"] { background: #F7797D; color: #000; }
+      .zone-cell.is-range[data-zone="11a"] { background: #D81B60; color: #fff; }
+
+      .chart-caption { 
+        color: var(--muted); 
+        font-family: 'Source Sans 3', sans-serif;
+        font-size: 0.92rem; 
+        min-height: 1.4em; 
+        margin-top: 10px;
+        line-height: 1.4;
+      }
+
+      .map-stack-single { margin-top: 18px; }
+      .map-stack-single h3 { 
+        font-family: 'Fraunces', Georgia, serif; 
+        margin: 0 0 8px; 
+        font-size: 22px; 
+        color: var(--ink);
+      }
+
+      .map-legend { 
+        font-size: 13px; 
+        color: var(--muted); 
+        display: flex; 
+        gap: 12px; 
+        flex-wrap: wrap; 
+        align-items: center; 
+        margin-bottom: 10px; 
+        font-family: 'Source Sans 3', sans-serif;
+      }
+      .swatch { 
+        display: inline-block; 
+        width: 12px; 
+        height: 12px; 
+        margin-right: 4px; 
+        vertical-align: middle; 
+        border-radius: 2px; 
+      }
+      .swatch.range { background: #F7B9BD; border: 1px solid #5b4638; }
+      .swatch.off { background: #c8c5be; border: 1px solid #777; }
+
+      /* MAPA LEAFLET */
       #map { height: 65vh; max-height: 700px; width: 100%; border-radius: 12px; box-shadow: 0 12px 32px rgba(74,64,64,0.08); border: 1px solid var(--crema); z-index: 10; position: relative; }
       .leaflet-popup-content { font-family: 'Lato', sans-serif; font-size: 0.9rem; text-align: center; margin: 12px; }
       
@@ -285,154 +454,51 @@
       .fa-spin-fast { animation: fa-spin 0.7s infinite linear; }
       .smn-marker-icon { background: var(--verde-atardecer); border: 2px solid #ffffff; border-radius: 50%; color: #ffffff; text-align: center; line-height: 26px; font-size: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-      /* MÓDULO INTERACTIVO SELECTOR USDA */
-      .controles-climaticos-panel {
-        margin-top: 1.8rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1.8rem;
-      }
-
-      .usda-widget {
-        background: #ffffff;
-        border: 1px solid var(--crema);
-        border-radius: 16px;
-        padding: 1.8rem;
-        box-shadow: 0 12px 32px rgba(74,64,64,0.06);
-      }
-
-      .usda-widget .widget-header h3 {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.35rem;
-        font-weight: 700;
-        color: var(--verde-atardecer);
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-      }
-      .usda-widget .widget-header h3 i { color: var(--rosa); }
-
-      .usda-widget .widget-header p {
-        font-size: 0.88rem;
-        color: rgba(74,64,64,0.85);
-        margin-top: 0.4rem;
-      }
-
-      /* Grid de Botones con Estilos Cromáticos Oficiales USDA */
-      .zone-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
-        gap: 0.5rem;
-        margin-top: 1.2rem;
-      }
-
-      .zone-grid button {
-        border: 1px solid rgba(0,0,0,0.15);
-        border-radius: 8px;
-        padding: 0.6rem 0.2rem;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: all 0.25s var(--e-soft);
-        font-family: 'Lato', sans-serif;
-      }
-
-      .zone-grid button span { font-weight: 700; font-size: 0.92rem; color: inherit; }
-      .zone-grid button small { font-size: 0.68rem; opacity: 0.85; color: inherit; margin-top: 1px; }
-
-      /* ESTADO INACTIVO (GRIS): Cuando la zona no está encendida en el mapa */
-      .zone-grid button:not(.active) {
-        background: #e5e2dc !important;
-        color: #8c857b !important;
-        border-color: #d2ccc2 !important;
-        opacity: 0.65;
-        box-shadow: none;
-        transform: none;
-      }
-
-      .zone-grid button:not(.active):hover {
-        opacity: 1;
-        background: #d8d3c8 !important;
-        color: var(--grafito) !important;
-        outline: 1px solid var(--tierra);
-      }
-
-      .zone-grid button.active:hover {
-        transform: translateY(-3px) scale(1.05);
-        filter: brightness(1.1);
-        outline: 2px solid var(--tierra-deep);
-        box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-        z-index: 3;
-      }
-
-      /* Indicador visual de botón activo */
-      .zone-grid button.active {
-        outline: 3px solid var(--tierra-deep);
-        outline-offset: 1px;
-        transform: scale(1.08);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-        z-index: 2;
-        opacity: 1;
-      }
-
-      /* Tooltip Flotante Interactivo */
-      #geo-tip {
-        position: fixed;
-        z-index: 3000;
+      /* CARTEL FLOTANTE (TOOLTIP) SOBRE LAS ISOTERMAS DEL MAPA */
+      .leaflet-tooltip.usda-map-tooltip {
+        background: #1c241c;
+        border: 1px solid var(--gold);
+        color: #ffffff;
+        font-family: "Source Sans 3", system-ui, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 5px 10px;
+        border-radius: 4px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
         pointer-events: none;
-        background: var(--verde-atardecer);
-        color: var(--lino);
-        font-family: 'Lato', sans-serif;
-        font-size: 0.8rem;
-        font-weight: 700;
-        padding: 6px 12px;
-        border-radius: 6px;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-        border: 1px solid var(--rosa);
-        transition: opacity 0.1s ease;
       }
+      .leaflet-tooltip-top.usda-map-tooltip::before { border-top-color: #1c241c; }
+      .leaflet-tooltip-bottom.usda-map-tooltip::before { border-bottom-color: #1c241c; }
+      .leaflet-tooltip-left.usda-map-tooltip::before { border-left-color: #1c241c; }
+      .leaflet-tooltip-right.usda-map-tooltip::before { border-right-color: #1c241c; }
 
-      /* Mapeo de Colores Oficiales USDA por Isoterma */
-      .zone-grid button.hz1a.active  { background: #3c3c3c; color: #ffffff; }
-      .zone-grid button.hz1b.active  { background: #ffffff; color: #000000; border-color: #cccccc; }
-      .zone-grid button.hz2a.active  { background: #DDDFE3; color: #000000; }
-      .zone-grid button.hz2b.active  { background: #B8BABE; color: #000000; }
-      .zone-grid button.hz3a.active  { background: #EBD8FD; color: #000000; }
-      .zone-grid button.hz3b.active  { background: #F779E0; color: #000000; }
-      .zone-grid button.hz4a.active  { background: #B979D1; color: #ffffff; }
-      .zone-grid button.hz4b.active  { background: #D6EDFD; color: #000000; }
-      .zone-grid button.hz5a.active  { background: #77A7F0; color: #000000; }
-      .zone-grid button.hz5b.active  { background: #77DCFD; color: #000000; }
-      .zone-grid button.hz6a.active  { background: #779FB7; color: #000000; }
-      .zone-grid button.hz6b.active  { background: #DCF1CB; color: #000000; }
-      .zone-grid button.hz7a.active  { background: #A2F97D; color: #000000; }
-      .zone-grid button.hz7b.active  { background: #8AB37D; color: #000000; }
-      .zone-grid button.hz8a.active  { background: #F7F97D; color: #000000; }
-      .zone-grid button.hz8b.active  { background: #F7CE7D; color: #000000; }
-      .zone-grid button.hz9a.active  { background: #B19F7D; color: #000000; }
-      .zone-grid button.hz9b.active  { background: #CB797D; color: #000000; }
-      .zone-grid button.hz10a.active { background: #F7B9BD; color: #000000; }
-      .zone-grid button.hz10b.active { background: #F7797D; color: #000000; }
-      .zone-grid button.hz11a.active { background: #D81B60; color: #ffffff; }
-
-      .zone-feedback {
-        margin-top: 1.2rem;
-        padding: 0.9rem 1.2rem;
-        background: var(--lino);
-        border-left: 4px solid var(--rosa);
-        border-radius: 6px;
-        font-size: 0.88rem;
-        color: var(--grafito);
-        transition: all 0.2s ease;
-      }
-
-      /* CARDS */
-      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(1.2rem, 2.5vw, 2.2rem); max-width: 1080px; margin-inline: auto; }
-      .card { background: #ffffff; border: 1px solid var(--crema); border-radius: 12px; padding: 2.2rem 1.8rem; display: flex; flex-direction: column; gap: 0.75rem; transition: transform var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft), border-color 0.3s; }
+      /* CARDS Y DIRECTORIO DE ESPECIES */
+      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(1.2rem, 2.5vw, 2.2rem); max-width: 1200px; margin-inline: auto; }
+      .card { background: #ffffff; border: 1px solid var(--crema); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft), border-color 0.3s; }
       .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(74,64,64,0.09); border-color: var(--rosa); }
-      .card h3 { font-size: 1.4rem; color: var(--verde-atardecer); line-height: 1.2; }
-      .card p { color: rgba(74,64,64,0.85); font-size: 0.95rem; flex: 1; margin: 0; }
+      .card-img { aspect-ratio: 4/3; width: 100%; overflow: hidden; background: var(--crema); display: block; }
+      .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--e-soft); }
+      .card:hover .card-img img { transform: scale(1.05); }
+      .card-body { padding: 1.6rem 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+      .card-body h3 { font-size: 1.3rem; color: var(--verde-atardecer); line-height: 1.2; font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+      .card-body p { color: rgba(74,64,64,0.85); font-size: 0.92rem; flex: 1; margin: 0; line-height: 1.5; }
+      .card-body .more { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tierra); margin-top: 0.5rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.3s; }
+      .card-body .more:hover { color: var(--tierra-deep); }
+      .card.is-hidden { display: none !important; }
+
+      .zone-badge {
+        display: inline-block;
+        background: var(--lino);
+        border: 1px solid var(--crema);
+        color: var(--tierra-deep);
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 100px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        align-self: flex-start;
+      }
 
       /* FAQ ACORDEÓN */
       .faq { max-width: 1000px; margin-inline: auto; }
@@ -501,6 +567,7 @@
     <a class="nav__brand" href="https://www.granpalmera-vivero-paisajismo.com/index.html">Gran Palmera</a>
     <div class="nav__links" id="navLinks">
       <a href="#sec-mapa">El Mapa & Buscadores</a>
+      <a href="#sec-especies">Especies & Palmeras</a>
       <a href="#sec-beneficios">Beneficios</a>
       <a href="#sec-base-conocimiento">Guía Técnica</a>
       <a href="#sec-propuesta">Servicios</a>
@@ -529,14 +596,14 @@
       
       <p class="hero__sub">
         <span data-rise>
-          Determina qué plantas perennes tienen mayor probabilidad de prosperar según la temperatura mínima invernal. Consulta la Resistencia Térmica, las Isotermas y el Arbolado Urbano en el mapa interactivo.
+          Determina qué plantas perennes y palmeras exóticas tienen mayor probabilidad de prosperar según la temperatura mínima invernal. Consulta la Resistencia Térmica, las Isotermas y el Arbolado Urbano en el mapa interactivo.
         </span>
       </p>
 
       <div class="info-links" data-rise>
         <a href="#sec-mapa" class="info-btn"><i class="fa-solid fa-map-location-dot"></i> Ir al Centro de Búsqueda</a>
-        <a href="#sec-usda" class="info-btn"><i class="fa-solid fa-circle-info"></i> USDA Plant Map</a>
-        <a href="#sec-isotermas" class="info-btn"><i class="fa-solid fa-chart-line"></i> Isotermas</a>
+        <a href="#sec-especies" class="info-btn"><i class="fa-solid fa-tree"></i> Catálogo de Especies</a>
+        <a href="#sec-base-conocimiento" class="info-btn"><i class="fa-solid fa-circle-info"></i> Guía Técnica USDA</a>
       </div>
 
       <div class="scrollcue">
@@ -550,12 +617,13 @@
         <span class="eyebrow">Centro de Control Climático</span>
         <h2>Isotermas, Consultas & Arbolado Urbano</h2>
         <p>
-          Utiliza el panel interactivo para explorar las Zonas USDA y zonas climáticas de Argentina. Escribe el nombre de la ciudad en la que vives para conocer la zona térmica en la que se encuentra, o busca el nombre común o científico de la planta que deseas para ver en el mapa en qué regiones puede resistir las temperaturas mínimas de invierno y verificar ejemplares geolocalizados.
+          Utiliza el panel interactivo para explorar las Zonas USDA y zonas climáticas de Argentina. Selecciona una vista rápida (Argentina, Buenos Aires o CABA), escribe el nombre de tu ciudad para conocer su zona térmica, o busca la palmera que deseas para verificar en el mapa en qué regiones puede resistir.
         </p>
       </div>
 
       <div class="map-wrapper reveal">
         
+        <!-- PANEL DE BÚSQUEDA Y FILTROS -->
         <div class="search-hub-panel">
           <div class="search-hub-panel__title">
             <i class="fa-solid fa-sliders"></i> Panel de Búsqueda & Filtros Integrados
@@ -599,49 +667,275 @@
           </div>
         </div>
 
+        <!-- PRESETS DE VISTA DE MAPA DE ARGENTINA -->
+        <div class="map-presets-bar">
+          <span class="presets-label"><i class="fa-solid fa-map-location-dot"></i> Vista rápida:</span>
+          <button type="button" class="preset-btn active" data-preset="arg"><i class="fa-solid fa-flag"></i> Argentina (País)</button>
+          <button type="button" class="preset-btn" data-preset="ba"><i class="fa-solid fa-location-dot"></i> Buenos Aires (Provincia)</button>
+          <button type="button" class="preset-btn" data-preset="caba"><i class="fa-solid fa-city"></i> CABA (Ciudad)</button>
+        </div>
+
+        <!-- ═════════════════════════════════════════════════════════════════════════ -->
+        <!-- BOTONERA DE ZONAS CLIMÁTICAS USDA (UBICADA JUSTO ENCIMA DEL MAPA)          -->
+        <!-- ═════════════════════════════════════════════════════════════════════════ -->
+        <div class="usda-widget-card" id="hardiness-widget">
+          <h2>Resistencia al frío</h2>
+
+          <!-- Cuadrícula de Botones de Zonas climáticas (Estilo y Valores de Roystonea Regia) -->
+          <div class="temp-chart" role="img" aria-label="Gráfico de zonas climáticas USDA en Argentina">
+            <button type="button" class="zone-cell" data-zone="1a"><span>1a</span><small>-51°C</small></button>
+            <button type="button" class="zone-cell" data-zone="1b"><span>1b</span><small>-48°C</small></button>
+            <button type="button" class="zone-cell" data-zone="2a"><span>2a</span><small>-45°C</small></button>
+            <button type="button" class="zone-cell" data-zone="2b"><span>2b</span><small>-42°C</small></button>
+            <button type="button" class="zone-cell" data-zone="3a"><span>3a</span><small>-40°C</small></button>
+            <button type="button" class="zone-cell" data-zone="3b"><span>3b</span><small>-37°C</small></button>
+            <button type="button" class="zone-cell" data-zone="4a"><span>4a</span><small>-34°C</small></button>
+            <button type="button" class="zone-cell" data-zone="4b"><span>4b</span><small>-31°C</small></button>
+            <button type="button" class="zone-cell" data-zone="5a"><span>5a</span><small>-28°C</small></button>
+            <button type="button" class="zone-cell" data-zone="5b"><span>5b</span><small>-26°C</small></button>
+            <button type="button" class="zone-cell" data-zone="6a"><span>6a</span><small>-23°C</small></button>
+            <button type="button" class="zone-cell" data-zone="6b"><span>6b</span><small>-20°C</small></button>
+            <button type="button" class="zone-cell" data-zone="7a"><span>7a</span><small>-17°C</small></button>
+            <button type="button" class="zone-cell" data-zone="7b"><span>7b</span><small>-15°C</small></button>
+            <button type="button" class="zone-cell" data-zone="8a"><span>8a</span><small>-12°C</small></button>
+            <button type="button" class="zone-cell" data-zone="8b"><span>8b</span><small>-9°C</small></button>
+            <button type="button" class="zone-cell" data-zone="9a"><span>9a</span><small>-6°C</small></button>
+            <button type="button" class="zone-cell" data-zone="9b"><span>9b</span><small>-3°C</small></button>
+            <button type="button" class="zone-cell is-range is-min" data-zone="10a"><span>10a</span><small>-1°C</small></button>
+            <button type="button" class="zone-cell is-range" data-zone="10b"><span>10b</span><small>+1°C</small></button>
+            <button type="button" class="zone-cell is-range" data-zone="11a"><span>11a</span><small>+4°C</small></button>
+          </div>
+
+          <p class="chart-caption" id="map-caption">Zonas USDA compatibles destacadas: 10a–11a. Las regiones coloreadas en Argentina son aptas para cultivo en exterior.</p>
+
+          <div class="map-stack-single">
+            <h3>Argentina</h3>
+            <p class="map-legend">
+              <span class="swatch range"></span> Isoterma compatible en Argentina
+              <span class="swatch off"></span> Demasiado frío
+            </p>
+          </div>
+        </div>
+
         <!-- VISOR DE MAPA LEAFLET -->
         <div id="map"></div>
 
-        <!-- MÓDULO INTERACTIVO SELECTOR USDA -->
-        <div id="controles-climaticos" class="controles-climaticos-panel">
-          
-          <div class="usda-widget" aria-labelledby="usda-heading">
-            <header class="widget-header">
-              <h3 id="usda-heading"><i class="fa-solid fa-layer-group"></i> Selector de Zonas USDA</h3>
-              <p>Hacé clic en una o varias zonas térmicas para encender o apagar las isotermas en el mapa interactivo de Argentina:</p>
-            </header>
+      </div>
+    </section>
 
-            <!-- Selector USDA con rango completo de 1a a 11a -->
-            <div class="zone-grid" role="tablist" aria-label="Zonas térmicas de resistencia">
-              <button role="tab" aria-selected="false" data-zone="1a" class="hz1a"><span>1a</span><small>-51.1°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="1b" class="hz1b"><span>1b</span><small>-48.3°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="2a" class="hz2a"><span>2a</span><small>-45.6°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="2b" class="hz2b"><span>2b</span><small>-42.8°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="3a" class="hz3a"><span>3a</span><small>-40.0°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="3b" class="hz3b"><span>3b</span><small>-37.2°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="4a" class="hz4a"><span>4a</span><small>-34.4°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="4b" class="hz4b"><span>4b</span><small>-31.7°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="5a" class="hz5a"><span>5a</span><small>-28.9°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="5b" class="hz5b"><span>5b</span><small>-26.1°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="6a" class="hz6a"><span>6a</span><small>-23.3°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="6b" class="hz6b"><span>6b</span><small>-20.6°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="7a" class="hz7a"><span>7a</span><small>-17.8°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="7b" class="hz7b"><span>7b</span><small>-15.0°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="8a" class="hz8a"><span>8a</span><small>-12.2°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="8b" class="hz8b"><span>8b</span><small>-9.4°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="9a" class="hz9a active"><span>9a</span><small>-6.7°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="9b" class="hz9b active"><span>9b</span><small>-3.9°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="10a" class="hz10a active"><span>10a</span><small>-1.1°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="10b" class="hz10b active"><span>10b</span><small>1.7°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="11a" class="hz11a active"><span>11a</span><small>4.4°C</small></button>
-            </div>
+    <!-- DIRECTORIO DE ESPECIES Y RUSTICIDAD -->
+    <section class="section" id="sec-especies">
+      <div class="section-head reveal">
+        <span class="eyebrow">Directorio Botánico</span>
+        <h2>Guía de Palmeras & Resistencia Térmica</h2>
+        <p>Explorá nuestra selección exhaustiva de palmeras y cycas con su respectivo rango de tolerancia al frío invernal.</p>
+      </div>
 
-            <div id="zone-feedback" class="zone-feedback" aria-live="polite">
-              Cargando mapa e isotermas activas...
-            </div>
+      <div class="cards stagger" id="species-grid">
+        
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="areca palm">
+          <a class="card-img" href="/areca-palm-cold-hardiness/" aria-label="Areca palm cold hardiness">
+            <img src="/wp-content/uploads/2026/08/areca-palm-tree-chrysalidocarpus-lutescens-card.jpg" alt="Areca palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/areca-palm-cold-hardiness/">Areca Palm (Chrysalidocarpus lutescens)</a></h3>
+            <p>Palmera multicaule de tallos amarillos ideal para interiores luminosos y jardines libres de heladas intensas.</p>
+            <a class="more" href="/areca-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
+        </article>
 
-        </div>
+        <article class="card species-card" data-zones="10b 11a 11b" data-sort="bamboo palm">
+          <a class="card-img" href="/bamboo-palm-cold-hardiness/" aria-label="Bamboo palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/bamboo-palm-chamaedorea-seifrizii-card.jpg" alt="Bamboo palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 11b</span>
+            <h3><a href="/bamboo-palm-cold-hardiness/">Bamboo Palm (Chamaedorea seifrizii)</a></h3>
+            <p>Especie agrupada con delgadas cañas verdes, muy utilizada como cerco vivo o decoración tropical de sombra.</p>
+            <a class="more" href="/bamboo-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="9b 10a 10b 11a 11b" data-sort="bangalow palm">
+          <a class="card-img" href="/bangalow-palm-cold-hardiness/" aria-label="Bangalow palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/bangalow-palm-archontophoenix-cunninghamiana-card.jpg" alt="Bangalow palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9b a 11b</span>
+            <h3><a href="/bangalow-palm-cold-hardiness/">Bangalow Palm (Archontophoenix cunninghamiana)</a></h3>
+            <p>Palmera plumosa del este de Australia, muy adaptable a costas templadas y subtropicales sin heladas extremas.</p>
+            <a class="more" href="/bangalow-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="9b 10a 10b 11a 11b" data-sort="bismarck palm">
+          <a class="card-img" href="/bismarck-palm-cold-hardiness/" aria-label="Bismarck palm cold hardiness">
+            <img src="/wp-content/uploads/2023/12/image-5-card.jpg" alt="Bismarck palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9b a 11b</span>
+            <h3><a href="/bismarck-palm-cold-hardiness/">Bismarck Palm (Bismarckia nobilis)</a></h3>
+            <p>Majestuosa palmera de frondas gigantescas azul-plateadas. Un ejemplar imponente para paisajes de sol pleno.</p>
+            <a class="more" href="/bismarck-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="10b 11a 11b" data-sort="bottle palm">
+          <a class="card-img" href="/bottle-palm-cold-hardiness/" aria-label="Bottle palm cold hardiness">
+            <img src="/wp-content/uploads/2023/12/image-4-card.jpg" alt="Bottle palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 11b</span>
+            <h3><a href="/bottle-palm-cold-hardiness/">Bottle Palm (Hyophorbe lagenicaulis)</a></h3>
+            <p>Curiosa palmera de crecimiento lento con un tronco hinchado en forma de botella. Requiere calor constante.</p>
+            <a class="more" href="/bottle-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="8a 8b 9a 9b 10a 10b 11a" data-sort="cabbage palmetto">
+          <a class="card-img" href="/cabbage-palmetto-cold-hardiness/" aria-label="Cabbage palmetto cold hardiness">
+            <img src="/wp-content/uploads/2026/09/cabbage-palm-sabal-palmetto-card.jpg" alt="Cabbage palmetto cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8a a 11a</span>
+            <h3><a href="/cabbage-palmetto-cold-hardiness/">Cabbage Palmetto (Sabal palmetto)</a></h3>
+            <p>Palmera abanico extremadamente resistente a vientos marinos, sequías y heladas moderadas de hasta -12 °C.</p>
+            <a class="more" href="/cabbage-palmetto-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="8b 9a 9b 10a 10b 11a" data-sort="california fan palm">
+          <a class="card-img" href="/california-fan-palm-cold-hardiness/" aria-label="California fan palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/california-fan-palm-washingtonia-filifera-card.jpg" alt="California fan palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8b a 11a</span>
+            <h3><a href="/california-fan-palm-cold-hardiness/">California Fan Palm (Washingtonia filifera)</a></h3>
+            <p>Robusta palmera de oasis de tronco muy grueso. Soporta climas áridos y heladas considerables.</p>
+            <a class="more" href="/california-fan-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="9a 9b 10a 10b 11a" data-sort="canary island date palm">
+          <a class="card-img" href="/canary-island-date-palm-cold-hardiness/" aria-label="Canary Island date palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/canary-island-date-palm-phoenix-canariensis-card.jpg" alt="Canary Island date palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9a a 11a</span>
+            <h3><a href="/canary-island-date-palm-cold-hardiness/">Canary Island Date Palm (Phoenix canariensis)</a></h3>
+            <p>Palmera fénix de gran porte y copa densa. Excelente tolerancia al frío y adaptable a múltiples suelos.</p>
+            <a class="more" href="/canary-island-date-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="7a 7b 8a 8b 9a 9b 10a 10b 11a 11b" data-sort="chinese windmill palm">
+          <a class="card-img" href="/chinese-windmill-palm-cold-hardiness/" aria-label="Chinese windmill palm cold hardiness">
+            <img src="/wp-content/uploads/2023/11/Palmvancouver-card.jpg" alt="Chinese windmill palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 7a a 11b</span>
+            <h3><a href="/chinese-windmill-palm-cold-hardiness/">Windmill Palm (Trachycarpus fortunei)</a></h3>
+            <p>La palmera de tronco peludo más resistente al frío del mundo. Tolera nieves y heladas severas de -15 °C.</p>
+            <a class="more" href="/chinese-windmill-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="10b 11a 11b 12a" data-sort="coconut palm">
+          <a class="card-img" href="/coconut-palm-cold-hardiness/" aria-label="Coconut palm cold hardiness">
+            <img src="/wp-content/uploads/2026/08/coconut-palm-tree-cocos-nucifera-card.jpg" alt="Coconut palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 12a</span>
+            <h3><a href="/coconut-palm-cold-hardiness/">Coconut Palm (Cocos nucifera)</a></h3>
+            <p>El cocotero tropical clásico. Requiere calor constante durante todo el año y no soporta el frío ni las heladas.</p>
+            <a class="more" href="/coconut-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="8a 8b 9a 9b 10a 10b 11a" data-sort="european fan palm">
+          <a class="card-img" href="/european-fan-palm-cold-hardiness/" aria-label="European fan palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/european-fan-palm-chamaerops-humilis-card.jpg" alt="European fan palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8a a 11a</span>
+            <h3><a href="/european-fan-palm-cold-hardiness/">European Fan Palm (Chamaerops humilis)</a></h3>
+            <p>La única palmera autóctona de Europa continental. Forma matas compactas y es extremadamente rústica.</p>
+            <a class="more" href="/european-fan-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="foxtail palm">
+          <a class="card-img" href="/foxtail-palm-cold-hardiness/" aria-label="Foxtail palm cold hardiness">
+            <img src="/wp-content/uploads/2023/11/100wodyetialeaf-card.jpg" alt="Foxtail palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/foxtail-palm-cold-hardiness/">Foxtail Palm (Wodyetia bifurcata)</a></h3>
+            <p>Especie de hojas plumosas similares a la cola de un zorro. Autolimpiante y muy cotizada en paisajismo moderno.</p>
+            <a class="more" href="/foxtail-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="8a 8b 9a 9b 10a 10b 11a" data-sort="pindo palm">
+          <a class="card-img" href="/pindo-palm-cold-hardiness/" aria-label="Pindo palm cold hardiness">
+            <img src="/wp-content/uploads/2023/11/640px-Starr-150811-0557-Butia_capitata-fruiting_habit-Enchanting_Floral_Gardens_of_Kula-Maui_25000133890-card.jpg" alt="Pindo palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8a a 11a</span>
+            <h3><a href="/pindo-palm-cold-hardiness/">Pindo Palm / Butia (Butia odorata / capitata)</a></h3>
+            <p>Palmera sudamericana de hojas arqueadas azuladas y frutos comestibles dulzones. Resistente a heladas fuertes.</p>
+            <a class="more" href="/pindo-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="9a 9b 10a 10b 11a 11b" data-sort="queen palm">
+          <a class="card-img" href="/queen-palm-cold-hardiness/" aria-label="Queen palm cold hardiness">
+            <img src="/wp-content/uploads/2026/08/queen-palm-card.jpg" alt="Queen palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9a a 11b</span>
+            <h3><a href="/queen-palm-cold-hardiness/">Queen Palm / Pindó (Syagrus romanzoffiana)</a></h3>
+            <p>Palmera nativa del litoral argentino de crecimiento rápido y frondas plumosas. Excelente para alineaciones urbanas.</p>
+            <a class="more" href="/queen-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="royal palm">
+          <a class="card-img" href="/royal-palm-cold-hardiness/" aria-label="Royal palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/royal-palm-tree-roystonea-regia-card.jpg" alt="Royal palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/royal-palm-cold-hardiness/">Royal Palm (Roystonea regia)</a></h3>
+            <p>Palmera de estípite liso y monumental de color gris hormigón. Símbolo del paisajismo tropical caribeño.</p>
+            <a class="more" href="/royal-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="8b 9a 9b 10a 10b 11a" data-sort="sago palm">
+          <a class="card-img" href="/sago-palm-cold-hardiness/" aria-label="Sago palm cold hardiness">
+            <img src="/wp-content/uploads/2023/12/image-3-card.jpg" alt="Sago palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8b a 11a</span>
+            <h3><a href="/sago-palm-cold-hardiness/">Sago Palm (Cycas revoluta)</a></h3>
+            <p>Planta prehistórica similar a una palmera. Muy apreciada como ejemplar destacado por su arquitectura simétrica.</p>
+            <a class="more" href="/sago-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="triangle palm">
+          <a class="card-img" href="/triangle-palm-cold-hardiness/" aria-label="Triangle palm cold hardiness">
+            <img src="/wp-content/uploads/2023/12/Untitled-design-2023-12-05T123345.547-819x1024-card.jpg" alt="Triangle palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/triangle-palm-cold-hardiness/">Triangle Palm (Dypsis decaryi)</a></h3>
+            <p>Originaria de Madagascar, destaca por la disposición tristicha única de sus hojas forming un triángulo perfecto.</p>
+            <a class="more" href="/triangle-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
 
       </div>
     </section>
@@ -651,24 +945,32 @@
       <div class="section-head reveal">
         <span class="eyebrow">Experiencia de Usuario</span>
         <h2>Beneficios de la Herramienta</h2>
-        <p>Diseñamos este buscador para que tomes decisiones informadas antes de intervenir tu jardín.</p>
+        <p>Diseñamos este buscador para que tomes decisiones informadas antes de intervenir tu jardín o proyecto paisajístico.</p>
       </div>
       <div class="cards stagger">
         <article class="card">
-          <h3>01 · Elección Sin Dudas</h3>
-          <p>Sabé al instante si la planta o palmera que te gusta va a prosperar en tu patio. Chau compras a ciegas.</p>
+          <div class="card-body">
+            <h3>01 · Elección Sin Dudas</h3>
+            <p>Sabé al instante si la palmera o planta exótica que te gusta va a prosperar en tu patio. Chau compras a ciegas.</p>
+          </div>
         </article>
         <article class="card">
-          <h3>02 · Protección Contra Heladas</h3>
-          <p>Visualizá en el mapa las temperaturas extremas de tu zona y garantizá que tu inversión verde sobreviva.</p>
+          <div class="card-body">
+            <h3>02 · Protección Contra Heladas</h3>
+            <p>Visualizá en el mapa las temperaturas extremas de tu zona y garantizá que tu inversión verde sobreviva al invierno.</p>
+          </div>
         </article>
         <article class="card">
-          <h3>03 · Prueba Real en tu Barrio</h3>
-          <p>Comprobá qué especies ya están creciendo fuertes en las calles de tu ciudad consultando el Arbolado Urbano.</p>
+          <div class="card-body">
+            <h3>03 · Prueba Real en tu Barrio</h3>
+            <p>Comprobá qué especies ya están creciendo fuertes en las calles de tu ciudad consultando el Arbolado Urbano.</p>
+          </div>
         </article>
         <article class="card">
-          <h3>04 · Respaldo Científico</h3>
-          <p>Datos térmicos oficiales (SMN) para asegurar que cada elección vegetal esté adaptada a tu suelo real.</p>
+          <div class="card-body">
+            <h3>04 · Respaldo Científico</h3>
+            <p>Datos térmicos oficiales (SMN) e isotermas para asegurar que cada elección vegetal esté adaptada a tu suelo real.</p>
+          </div>
         </article>
       </div>
     </section>
@@ -743,32 +1045,8 @@
           </div>
         </details>
 
-        <details class="faq__item" id="sec-agroclimaticos">
-          <summary class="faq__q">7. Requerimientos Agroclimáticos Adicionales<span class="ic" aria-hidden="true"></span></summary>
-          <div class="faq__a">
-            <p>El frío mínimo no es el único parámetro de viabilidad. Se deben considerar:</p>
-            <ul>
-              <li><strong>Temperatura Base (T base):</strong> Umbral para que la planta comience a crecer.</li>
-              <li><strong>Grados Día de Crecimiento (GDD):</strong> Acumulación de calor requerida en primavera/verano.</li>
-              <li><strong>AHS Heat Zones:</strong> Clasifica las regiones según los días que superan los 30 °C (Tolerancia al calor).</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="faq__item" id="sec-advertencias">
-          <summary class="faq__q">8. ⚠️ Advertencias y Limitaciones del Sistema<span class="ic" aria-hidden="true"></span></summary>
-          <div class="faq__a">
-            <ul>
-              <li><strong>Solo mide mínimas extremas:</strong> No contempla factores de luz, humedad o tipo de suelo.</li>
-              <li><strong>Duración del frío:</strong> Ignora si el frío dura una noche o un mes completo.</li>
-              <li><strong>Falta de calor acumulado:</strong> Una zona puede no tener heladas (Zona 10), pero si sus veranos son frescos, una planta tropical no prosperará por falta de calor metabólico diurno.</li>
-              <li><strong>Microclimas:</strong> Un patio amurallado orientado al norte en Argentina retiene más calor que un campo abierto en la misma ciudad.</li>
-            </ul>
-          </div>
-        </details>
-
         <details class="faq__item" id="sec-fuentes">
-          <summary class="faq__q">9. Fuentes de Datos Abiertos<span class="ic" aria-hidden="true"></span></summary>
+          <summary class="faq__q">7. Fuentes de Datos Abiertos<span class="ic" aria-hidden="true"></span></summary>
           <div class="faq__a">
             <p>Esta herramienta consume datos de libre acceso para fines divulgativos:</p>
             <ul>
@@ -780,7 +1058,7 @@
         </details>
 
         <details class="faq__item" id="sec-herramienta">
-          <summary class="faq__q">10. Acerca de los Desarrolladores | Gran Palmera<span class="ic" aria-hidden="true"></span></summary>
+          <summary class="faq__q">8. Acerca de los Desarrolladores | Gran Palmera<span class="ic" aria-hidden="true"></span></summary>
           <div class="faq__a">
             <p>Plataforma técnica desarrollada por el equipo de <strong>Gran Palmera Vivero & Paisajismo</strong> para asistir a profesionales y aficionados a tomar decisiones basadas en el rigor biológico, garantizando jardines sostenibles y resistentes en el tiempo.</p>
             <p style="margin-top: 15px; font-weight: bold;">
@@ -802,20 +1080,28 @@
       </div>
       <div class="cards stagger">
         <article class="card">
-          <h3>01 · Zonificación Térmica</h3>
-          <p>Cotejá la resistencia biológica de cada especie exótica con el clima real de tu región.</p>
+          <div class="card-body">
+            <h3>01 · Zonificación Térmica</h3>
+            <p>Cotejá la resistencia biológica de cada especie exótica con el clima real de tu región.</p>
+          </div>
         </article>
         <article class="card">
-          <h3>02 · Mapas & Datos Reales</h3>
-          <p>Explorá ejemplares censados y estaciones meteorológicas en vivo en el visor interactivo.</p>
+          <div class="card-body">
+            <h3>02 · Mapas & Datos Reales</h3>
+            <p>Explorá ejemplares censados y estaciones meteorológicas en vivo en el visor interactivo.</p>
+          </div>
         </article>
         <article class="card">
-          <h3>03 · Venta Online Segura</h3>
-          <p>Comprá plantas y palmeras de colección con técnicas de embalaje y envíos a todo el país.</p>
+          <div class="card-body">
+            <h3>03 · Venta Online Segura</h3>
+            <p>Comprá plantas y palmeras de colección con técnicas de embalaje y envíos a todo el país.</p>
+          </div>
         </article>
         <article class="card">
-          <h3>04 · Estudio de Paisajismo</h3>
-          <p>Transformamos tu visión en un ecosistema sustentable con renderizado 3D y ejecución profesional.</p>
+          <div class="card-body">
+            <h3>04 · Estudio de Paisajismo</h3>
+            <p>Transformamos tu visión en un ecosistema sustentable con renderizado 3D y ejecución profesional.</p>
+          </div>
         </article>
       </div>
     </section>
@@ -868,9 +1154,6 @@
 
   </main>
 
-  <!-- Elemento Tooltip Flotante -->
-  <div id="geo-tip" hidden></div>
-
   <!-- Botón Flotante WhatsApp -->
   <a class="wa-float" href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -887,7 +1170,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
-  <!-- LÓGICA JAVASCRIPT -->
+  <!-- LÓGICA JAVASCRIPT REFACTORIZADA CON SINCRONIZACIÓN BIDIRECCIONAL COMPLETADA -->
   <script>
   (function() {
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -920,6 +1203,8 @@
       document.querySelectorAll('a[href^="#"]').forEach(function(a) {
         a.addEventListener('click', function(e) {
           var targetId = a.getAttribute('href');
+          if (targetId.startsWith('#zone-')) return;
+          
           var target = document.querySelector(targetId);
           if (!target) return;
           e.preventDefault();
@@ -990,7 +1275,7 @@
       document.querySelectorAll('#navLinks a').forEach(function(a) { a.addEventListener('click', closeMenu); });
     }
 
-    // CANVAS 2D: NIEVE
+    // CANVAS 2D: NIEVE / PARTÍCULAS ATMOSFÉRICAS
     (function() {
       var canvas = document.getElementById('petals');
       if (!canvas || reduce) return;
@@ -1076,11 +1361,12 @@
       });
     })();
 
-    // LÓGICA DE DATOS Y MAPA LEAFLET
+    // LÓGICA DE DATOS Y MAPA LEAFLET CON LA BOTONERA ROYSTONEA Y SINCRONIZACIÓN BIDIRECCIONAL
     document.addEventListener("DOMContentLoaded", function() {
       if(typeof L === 'undefined') return;
 
-      const tip = document.getElementById('geo-tip');
+      const caption = document.getElementById("map-caption");
+      const defaultCaption = "Zonas USDA compatibles destacadas: 10a–11a. Las regiones coloreadas en Argentina son aptas para cultivo en exterior.";
 
       const boundsArgentina = L.latLngBounds(
         L.latLng(-55.5, -75.0),
@@ -1090,7 +1376,7 @@
       const map = L.map('map', {
         center: [-38.416097, -63.616672],
         zoom: 4,
-        minZoom: 4,
+        minZoom: 3,
         maxZoom: 18,
         maxBounds: boundsArgentina,
         maxBoundsViscosity: 1.0,
@@ -1108,17 +1394,28 @@
       let estacionesCargadas = false;
       let marcadorUsuario = null;
 
-      // =========================================================================
-      // 📌 PARÁMETROS DE CONFIGURACIÓN DE ZONAS PRECARGADAS AL INICIAR LA PÁGINA
-      // Edita el contenido de este array para sumar o quitar las zonas que deseas
-      // ver encendidas por defecto en el mapa y la botonera cuando abre el sitio.
-      // Ejemplo: ['11a', '10b', '10a', '9b', '9a']
-      // =========================================================================
-      const ZONAS_INICIALES = ['11a', '10b', '10a', '9b', '9a'];
-
-      // Estado multi-zona e índice de capas cargadas
+      // Zonas por defecto (10a, 10b, 11a)
+      const ZONAS_INICIALES = ['10a', '10b', '11a'];
       let zonasActivas = new Set(ZONAS_INICIALES);
-      let capasPorZona = {};
+      const layerMap = {};
+
+      const coloresUSDA = { 
+        '1a': '#3c3c3c', '1b': '#FFFFFF', '2a': '#DDDFE3', '2b': '#B8BABE', 
+        '3a': '#EBD8FD', '3b': '#F779E0', '4a': '#B979D1', '4b': '#D6EDFD', 
+        '5a': '#77A7F0', '5b': '#77DCFD', '6a': '#779FB7', '6b': '#DCF1CB', 
+        '7a': '#A2F97D', '7b': '#8AB37D', '8a': '#F7F97D', '8b': '#F7CE7D', 
+        '9a': '#B19F7D', '9b': '#CB797D', '10a': '#F7B9BD', '10b': '#F7797D', '11a': '#D81B60' 
+      };
+
+      const temperaturasUSDA = { 
+        '1a': '-51.1°C a -48.3°C', '1b': '-48.3°C a -45.6°C', '2a': '-45.6°C a -42.8°C', 
+        '2b': '-42.8°C a -40.0°C', '3a': '-40.0°C a -37.2°C', '3b': '-37.2°C a -34.4°C', 
+        '4a': '-34.4°C a -31.7°C', '4b': '-31.7°C a -28.9°C', '5a': '-28.9°C a -26.1°C', 
+        '5b': '-26.1°C a -23.3°C', '6a': '-23.3°C a -20.6°C', '6b': '-20.6°C a -17.8°C', 
+        '7a': '-17.8°C a -15.0°C', '7b': '-15.0°C a -12.2°C', '8a': '-12.2°C a -9.4°C', 
+        '8b': '-9.4°C a -6.7°C', '9a': '-6.7°C a -3.9°C', '9b': '-3.9°C a -1.1°C', 
+        '10a': '-1.1°C a 1.7°C', '10b': '1.7°C a 4.4°C', '11a': '4.4°C a 7.2°C' 
+      };
 
       function parseSMNCoord(val) {
         if (!val) return null;
@@ -1131,6 +1428,25 @@
         return null;
       }
 
+      // PRESETS DE MAPA
+      const presetBtns = document.querySelectorAll('.preset-btn');
+      presetBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          presetBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const p = this.dataset.preset;
+          
+          if (p === 'arg') {
+            map.flyTo([-38.416097, -63.616672], 4, { duration: 1.2 });
+          } else if (p === 'ba') {
+            map.flyTo([-36.6, -60.0], 6.5, { duration: 1.2 });
+          } else if (p === 'caba') {
+            map.flyTo([-34.603722, -58.381592], 11.5, { duration: 1.2 });
+          }
+        });
+      });
+
+      // CONTROLES SOBRE EL MAPA
       const ResetControl = L.Control.extend({
         options: { position: 'topright' },
         onAdd: function(m) {
@@ -1146,6 +1462,10 @@
             document.querySelectorAll('.map-custom-btn').forEach(btn => btn.classList.remove('active'));
             ['input-plantas', 'input-palmeras', 'input-zonas', 'input-ciudades', 'input-arbolado-especie'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
             const lista = document.getElementById('lista-sugerencias'); if(lista) lista.style.display = 'none';
+            filtrarTarjetasEspecies();
+            if (window.location.hash.startsWith('#zone-')) {
+              history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
           };
           return c;
         }
@@ -1215,9 +1535,6 @@
       map.addControl(new GeoControl());
       map.addControl(new SMNControl());
 
-      const coloresUSDA = { '1a': '#3c3c3c', '1b': '#FFFFFF', '2a': '#DDDFE3', '2b': '#B8BABE', '3a': '#EBD8FD', '3b': '#F779E0', '4a': '#B979D1', '4b': '#D6EDFD', '5a': '#77A7F0', '5b': '#77DCFD', '6a': '#779FB7', '6b': '#DCF1CB', '7a': '#A2F97D', '7b': '#8AB37D', '8a': '#F7F97D', '8b': '#F7CE7D', '9a': '#B19F7D', '9b': '#CB797D', '10a': '#F7B9BD', '10b': '#F7797D', '11a': '#D81B60' };
-      const temperaturasUSDA = { '1a': '-51.1°C a -48.3°C', '1b': '-48.3°C a -45.6°C', '2a': '-45.6°C a -42.8°C', '2b': '-42.8°C a -40.0°C', '3a': '-40.0°C a -37.2°C', '3b': '-37.2°C a -34.4°C', '4a': '-34.4°C a -31.7°C', '4b': '-31.7°C a -28.9°C', '5a': '-28.9°C a -26.1°C', '5b': '-26.1°C a -23.3°C', '6a': '-23.3°C a -20.6°C', '6b': '-20.6°C a -17.8°C', '7a': '-17.8°C a -15.0°C', '7b': '-15.0°C a -12.2°C', '8a': '-12.2°C a -9.4°C', '8b': '-9.4°C a -6.7°C', '9a': '-6.7°C a -3.9°C', '9b': '-3.9°C a -1.1°C', '10a': '-1.1°C a 1.7°C', '10b': '1.7°C a 4.4°C', '11a': '4.4°C a 7.2°C' };
-
       const dbPlantas = {}, dbPalmeras = {}, dbZonas = {}, dbCiudades = {};
       const bases = [
         { archivo: 'diccionario-plantas.csv', datalistId: 'list-plantas', dbTarget: dbPlantas, statusId: 'status-plantas' },
@@ -1230,7 +1547,7 @@
         Papa.parse(b.archivo, {
           download: true, header: true, skipEmptyLines: true,
           complete: function(res) {
-            const list = document.getElementById(b.datalistId); list.innerHTML = '';
+            const list = document.getElementById(b.datalistId); if(list) list.innerHTML = '';
             res.data.forEach(fila => {
               const f = {}; Object.keys(fila).forEach(k => f[k.replace(/^\uFEFF/, '').trim().toLowerCase()] = fila[k]);
               const zonasRaw = f["zonas usda"] || f["zonas"] || "";
@@ -1249,7 +1566,7 @@
                 b.dbTarget[et.toLowerCase()] = zArr;
                 if(f["nombre común"]) b.dbTarget[f["nombre común"].trim().toLowerCase()] = zArr;
                 if(f["nombre científico"]) b.dbTarget[f["nombre científico"].trim().toLowerCase()] = zArr;
-                const opt = document.createElement('option'); opt.value = et; list.appendChild(opt);
+                if(list) { const opt = document.createElement('option'); opt.value = et; list.appendChild(opt); }
               }
             });
             const stEl = document.getElementById(b.statusId);
@@ -1262,86 +1579,96 @@
         });
       });
 
-      // CARGA DE CAPA INDIVIDUAL GEOJSON
-      function cargarCapaGeoJSONZona(z) {
-        const colorIsotermico = coloresUSDA[z] || '#5b4638';
+      function cargarCapaGeoJSONZona(zKey) {
+        const isCompatible = zonasActivas.has(zKey);
+        const fillColor = isCompatible ? (coloresUSDA[zKey] || '#F7B9BD') : '#c8c5be';
+        const borderColor = isCompatible ? '#5b4638' : '#777777';
+        const fillOpacityVal = isCompatible ? 0.75 : 0.55;
+        const borderWidth = isCompatible ? 1.5 : 0.8;
 
-        fetch(`https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${z}.geojson`)
+        fetch(`https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${zKey}.geojson`)
           .then(r => { if(!r.ok) throw new Error("GeoJSON no disponible"); return r.json(); })
-          .then(d => {
-            if (!zonasActivas.has(z)) return;
+          .then(geoData => {
+            const statusLabel = isCompatible ? 'Apta / Seleccionada' : 'No seleccionada / Demasiado frío';
+            const tooltipContent = `<b>Zona ${zKey.toUpperCase()}</b> (${temperaturasUSDA[zKey] || ''})<br><small style="color:${isCompatible ? '#A2F97D' : '#ffb3b3'};">${statusLabel}</small>`;
 
-            const geoLayer = L.geoJson(d, {
+            const geoLayer = L.geoJson(geoData, {
               style: {
-                fillColor: colorIsotermico,
-                weight: 2,
-                color: '#5b4638',
-                fillOpacity: 0.70
+                fillColor: fillColor,
+                weight: borderWidth,
+                color: borderColor,
+                fillOpacity: fillOpacityVal
               },
               onEachFeature: function(feature, layer) {
+                // Sincronización MAPA -> BOTONERA (hover en el vector resalta el botón correspondiente)
                 layer.on({
                   mouseover: function(e) {
-                    e.target.setStyle({ fillOpacity: 0.9, weight: 3, color: '#1c241c' });
-                    if (tip) {
-                      tip.textContent = `Zona USDA ${z.toUpperCase()} (${temperaturasUSDA[z] || ''})`;
-                      tip.hidden = false;
-                    }
-                  },
-                  mousemove: function(e) {
-                    if (tip) {
-                      tip.style.left = (e.originalEvent.clientX + 12) + 'px';
-                      tip.style.top = (e.originalEvent.clientY + 12) + 'px';
+                    geoLayer.setStyle({ weight: 3, color: '#c4a15a', fillOpacity: 0.9 });
+                    geoLayer.bringToFront();
+                    
+                    const btn = document.querySelector(`.zone-cell[data-zone="${zKey}"]`);
+                    if (btn) btn.classList.add("is-hover");
+                    
+                    const tempRango = temperaturasUSDA[zKey] || 'Rango no disponible';
+                    if (caption) {
+                      caption.textContent = `Zona USDA ${zKey.toUpperCase()} (${tempRango}): ${isCompatible ? 'Rango apto para cultivo en exterior.' : 'Demasiado frío / No seleccionada.'}`;
                     }
                   },
                   mouseout: function(e) {
-                    geoLayer.resetStyle(e.target);
-                    if (tip) tip.hidden = true;
+                    const isCompNow = zonasActivas.has(zKey);
+                    geoLayer.setStyle({ 
+                      weight: isCompNow ? 1.5 : 0.8, 
+                      color: isCompNow ? '#5b4638' : '#777777', 
+                      fillOpacity: isCompNow ? 0.75 : 0.55 
+                    });
+                    
+                    const btn = document.querySelector(`.zone-cell[data-zone="${zKey}"]`);
+                    if (btn) btn.classList.remove("is-hover");
+                    
+                    if (caption) caption.textContent = defaultCaption;
                   }
                 });
               }
-            }).bindPopup(`<b>Zona USDA: ${z.toUpperCase()}</b><br>Temp. Mínima Promedio: ${temperaturasUSDA[z] || 'N/A'}`);
+            })
+            .bindTooltip(tooltipContent, {
+              sticky: true,
+              direction: 'top',
+              className: 'usda-map-tooltip'
+            })
+            .bindPopup(`<b>Zona USDA: ${zKey.toUpperCase()}</b><br>Estado: <b>${statusLabel}</b><br>Mínimas promedio: ${temperaturasUSDA[zKey] || 'N/A'}`);
             
-            capasPorZona[z] = geoLayer;
+            layerMap[zKey] = geoLayer;
             capasActivas.addLayer(geoLayer);
           })
-          .catch(e => console.log("GeoJSON no encontrado para la zona " + z));
+          .catch(e => console.log(`GeoJSON omitido para zona ${zKey}`));
       }
 
-      // FUNCIÓN MAESTRA: Sincroniza conjunto completo de zonas (Mapa ⬌ Botonera)
-      function actualizarZonasActivas(nuevasZonas, syncInput = true) {
+      function actualizarZonasActivas(nuevasZonas, syncInput = true, updateHash = true) {
         const targetZonas = new Set(nuevasZonas.map(z => z.toLowerCase()));
         zonasActivas = targetZonas;
 
-        // 1. Quitar del mapa las capas que ya no están activas
-        Object.keys(capasPorZona).forEach(z => {
-          if (!zonasActivas.has(z)) {
-            if (capasPorZona[z] && capasActivas.hasLayer(capasPorZona[z])) {
-              capasActivas.removeLayer(capasPorZona[z]);
-            }
-            delete capasPorZona[z];
+        Object.keys(coloresUSDA).forEach(zKey => {
+          if (!layerMap[zKey]) {
+            cargarCapaGeoJSONZona(zKey);
+          } else {
+            const isComp = zonasActivas.has(zKey);
+            layerMap[zKey].setStyle({
+              fillColor: isComp ? (coloresUSDA[zKey] || '#F7B9BD') : '#c8c5be',
+              weight: isComp ? 1.5 : 0.8,
+              color: isComp ? '#5b4638' : '#777777',
+              fillOpacity: isComp ? 0.75 : 0.55
+            });
           }
         });
 
-        // 2. Cargar capas que no estaban activas
-        zonasActivas.forEach(z => {
-          if (!capasPorZona[z]) {
-            cargarCapaGeoJSONZona(z);
-          }
+        document.querySelectorAll('.zone-cell').forEach(btn => {
+          const btnZone = btn.dataset.zone ? btn.dataset.zone.toLowerCase() : '';
+          const isActive = zonasActivas.has(btnZone);
+          btn.classList.toggle('is-range', isActive);
+          btn.classList.toggle('active', isActive);
         });
 
-        // 3. Sincronizar estado visual de los botones (Activo = Color USDA / Inactivo = Gris)
-        const zoneGrid = document.querySelector('.zone-grid');
-        if (zoneGrid) {
-          zoneGrid.querySelectorAll('button').forEach(btn => {
-            const btnZone = btn.dataset.zone ? btn.dataset.zone.toLowerCase() : '';
-            const isActive = zonasActivas.has(btnZone);
-            btn.classList.toggle('active', isActive);
-            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
-          });
-        }
-
-        // 4. Actualizar texto informativo con formato dinámico
-        actualizarFeedbackTexto();
+        filtrarTarjetasEspecies();
 
         if (syncInput) {
           const inputZonas = document.getElementById('input-zonas');
@@ -1350,103 +1677,112 @@
             inputZonas.value = arr.length > 0 ? `Zona ${arr.join(', ')}` : '';
           }
         }
+
+        if (updateHash) {
+          if (zonasActivas.size === 1) {
+            const singleZone = Array.from(zonasActivas)[0];
+            history.replaceState(null, '', '#zone-' + singleZone);
+          } else if (zonasActivas.size === 0 && window.location.hash.startsWith('#zone-')) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }
       }
 
-      // Conmuta (toggle ON/OFF) el estado de una zona individual al pulsar un botón
       function toggleZonaUSDA(z) {
         z = z.toLowerCase();
         const listaActual = Array.from(zonasActivas);
         if (zonasActivas.has(z)) {
-          actualizarZonasActivas(listaActual.filter(item => item !== z), true);
+          actualizarZonasActivas(listaActual.filter(item => item !== z), true, true);
         } else {
-          actualizarZonasActivas([...listaActual, z], true);
+          actualizarZonasActivas([...listaActual, z], true, true);
         }
       }
 
-      // FUNCIÓN DE FORMATO Y LEYENDA TÉCNICA DINÁMICA
-      function actualizarFeedbackTexto() {
-        const zoneFeedback = document.getElementById('zone-feedback');
-        if (!zoneFeedback) return;
+      function filtrarTarjetasEspecies() {
+        const speciesCards = document.querySelectorAll('.species-card');
+        if (speciesCards.length === 0) return;
 
         if (zonasActivas.size === 0) {
-          zoneFeedback.innerHTML = `Sin zonas seleccionadas — <em>Hacé clic en una o más zonas de la botonera para visualizarlas en el mapa.</em>`;
+          speciesCards.forEach(card => card.classList.remove('is-hidden'));
           return;
         }
 
-        const ordenZonas = ['1a','1b','2a','2b','3a','3b','4a','4b','5a','5b','6a','6b','7a','7b','8a','8b','9a','9b','10a','10b','11a'];
-        const activasOrdenadas = Array.from(zonasActivas)
-          .map(z => z.toLowerCase())
-          .sort((a, b) => ordenZonas.indexOf(a) - ordenZonas.indexOf(b));
-
-        const masFria = activasOrdenadas[0];
-        const masCalida = activasOrdenadas[activasOrdenadas.length - 1];
-        const tempMasFria = temperaturasUSDA[masFria] || 'N/A';
-
-        let textoRango = '';
-        if (activasOrdenadas.length > 2) {
-          const limiteInferior = activasOrdenadas[1];
-          textoRango = `"Zona ${masCalida}" a "Zona ${limiteInferior}"`;
-        } else if (activasOrdenadas.length === 2) {
-          textoRango = `"Zona ${masCalida}" a "Zona ${masFria}"`;
-        } else {
-          textoRango = `"Zona ${masFria}"`;
-        }
-
-        zoneFeedback.innerHTML = `Zonas activas: ${textoRango} &nbsp;-&nbsp; Zona más fria "Zona ${masFria}" (Temp. Mínima Promedio: ${tempMasFria})`;
+        speciesCards.forEach(card => {
+          const rawZones = card.dataset.zones || '';
+          const cardZones = rawZones.toLowerCase().split(/\s+/);
+          const matches = Array.from(zonasActivas).some(z => cardZones.includes(z));
+          card.classList.toggle('is-hidden', !matches);
+        });
       }
 
-      // LISTENERS Y EVENTOS EN LA BOTONERA DE ZONAS USDA
-      const zoneGrid = document.querySelector('.zone-grid');
-      if (zoneGrid) {
-        const zoneFeedback = document.getElementById('zone-feedback');
+      function leerHashZonaURL() {
+        const hash = window.location.hash;
+        if (hash && hash.startsWith('#zone-')) {
+          const z = hash.replace('#zone-', '').toLowerCase();
+          if (temperaturasUSDA[z] || coloresUSDA[z]) {
+            actualizarZonasActivas([z], true, false);
+            return true;
+          }
+        }
+        return false;
+      }
 
-        zoneGrid.querySelectorAll('button').forEach(btn => {
-          btn.addEventListener('mouseenter', function() {
-            const z = btn.dataset.zone;
-            if (z) {
-              const zKey = z.toLowerCase();
-              const tempRango = temperaturasUSDA[zKey] || 'Rango no especificado';
-              if (tip) {
-                tip.textContent = `Zona USDA ${z.toUpperCase()} (${tempRango})`;
-                tip.hidden = false;
-              }
-            }
-          });
+      window.addEventListener('hashchange', function() {
+        leerHashZonaURL();
+      });
 
-          btn.addEventListener('mousemove', function(e) {
-            if (tip) {
-              tip.style.left = (e.clientX + 12) + 'px';
-              tip.style.top = (e.clientY + 12) + 'px';
-            }
-          });
+      // SINCRONIZACIÓN BIDIRECCIONAL: BOTONERA -> MAPA
+      document.querySelectorAll(".zone-cell").forEach(cell => {
+        const zKey = cell.getAttribute("data-zone");
 
-          btn.addEventListener('mouseleave', function() {
-            if (tip) tip.hidden = true;
-          });
-        });
+        cell.addEventListener("mouseenter", () => {
+          const isCompatible = zonasActivas.has(zKey);
+          const tempRango = temperaturasUSDA[zKey] || 'Rango no disponible';
+          if (caption) {
+            caption.textContent = `Zona USDA ${zKey.toUpperCase()} (${tempRango}): ${isCompatible ? 'Rango apto para cultivo en exterior.' : 'Demasiado frío / No seleccionada.'}`;
+          }
+          cell.classList.add("is-hover");
 
-        zoneGrid.addEventListener('click', function(e) {
-          const btn = e.target.closest('button');
-          if (!btn) return;
-          const selectedZone = btn.dataset.zone;
-          if (selectedZone) {
-            ['input-plantas', 'input-palmeras', 'input-ciudades', 'input-arbolado-especie'].forEach(id => {
-              const el = document.getElementById(id);
-              if (el) el.value = '';
-            });
-            toggleZonaUSDA(selectedZone);
+          if (layerMap[zKey]) {
+            layerMap[zKey].setStyle({ weight: 3, color: '#c4a15a', fillOpacity: 0.9 });
+            layerMap[zKey].bringToFront();
+            layerMap[zKey].openTooltip();
           }
         });
-      }
+
+        cell.addEventListener("mouseleave", () => {
+          if (caption) caption.textContent = defaultCaption;
+          cell.classList.remove("is-hover");
+
+          if (layerMap[zKey]) {
+            const isComp = zonasActivas.has(zKey);
+            layerMap[zKey].setStyle({ 
+              weight: isComp ? 1.5 : 0.8, 
+              color: isComp ? '#5b4638' : '#777777', 
+              fillOpacity: isComp ? 0.75 : 0.55 
+            });
+            layerMap[zKey].closeTooltip();
+          }
+        });
+
+        cell.addEventListener("click", () => {
+          ['input-plantas', 'input-palmeras', 'input-ciudades', 'input-arbolado-especie'].forEach(id => {
+            const el = document.getElementById(id); if (el) el.value = '';
+          });
+          toggleZonaUSDA(zKey);
+        });
+      });
 
       function configBuscador(id, dbTarget) {
-        document.getElementById(id).addEventListener('input', function(e) {
+        const el = document.getElementById(id);
+        if(!el) return;
+        el.addEventListener('input', function(e) {
           const val = e.target.value.trim().toLowerCase();
           let zonas = dbTarget[val] || (val.length >= 2 ? Object.values(dbTarget).find((_, i) => Object.keys(dbTarget)[i].includes(val)) : null);
           
           if (zonas) {
-            ['input-plantas', 'input-palmeras', 'input-zonas', 'input-ciudades'].forEach(i => { if(i !== id) document.getElementById(i).value = ''; });
-            actualizarZonasActivas(zonas, false);
+            ['input-plantas', 'input-palmeras', 'input-zonas', 'input-ciudades'].forEach(i => { if(i !== id) { const input = document.getElementById(i); if(input) input.value = ''; } });
+            actualizarZonasActivas(zonas, false, true);
             map.setView([-38.416097, -63.616672], 4);
           }
         });
@@ -1473,68 +1809,75 @@
       initArbolado();
 
       let timeout;
-      inputEspecie.addEventListener('input', function(e) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          const txt = e.target.value.trim().toLowerCase();
-          if (txt.length < 2) { listaSug.style.display = 'none'; capaArbolesUrbano.clearLayers(); return; }
-          
-          const fil = todasLasEspecies.filter(esp => {
-            const comun = (esp.nombre_comun || '').toLowerCase();
-            const cientifico = (esp.nombre_cientifico || esp.nombre_científico || '').toLowerCase();
-            return comun.includes(txt) || cientifico.includes(txt);
-          }).slice(0, 6);
-
-          if (fil.length === 0) { listaSug.style.display = 'none'; return; }
-
-          listaSug.innerHTML = fil.map(esp => {
-            const comun = esp.nombre_comun || esp.slug || 'Especie';
-            const cientifico = esp.nombre_cientifico || esp.nombre_científico || '';
-            const etiqueta = cientifico ? `${comun} <em>(${cientifico})</em>` : comun;
-            const completo = cientifico ? `${comun} (${cientifico})` : comun;
+      if (inputEspecie) {
+        inputEspecie.addEventListener('input', function(e) {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            const txt = e.target.value.trim().toLowerCase();
+            if (txt.length < 2) { if(listaSug) listaSug.style.display = 'none'; capaArbolesUrbano.clearLayers(); return; }
             
-            return `<li data-url="${esp.url || ''}" data-nombre="${comun}" data-completo="${completo}">
-                      <strong>${etiqueta}</strong>
-                    </li>`;
-          }).join('');
-          
-          listaSug.style.display = 'block';
-        }, 300);
-      });
+            const fil = todasLasEspecies.filter(esp => {
+              const comun = (esp.nombre_comun || '').toLowerCase();
+              const cientifico = (esp.nombre_cientifico || esp.nombre_científico || '').toLowerCase();
+              return comun.includes(txt) || cientifico.includes(txt);
+            }).slice(0, 6);
 
-      listaSug.addEventListener('click', (e) => {
-        const li = e.target.closest('li');
-        if (li) {
-          const nomComun = li.getAttribute('data-nombre');
-          const nomCompleto = li.getAttribute('data-completo');
-          const url = li.getAttribute('data-url');
-          
-          inputEspecie.value = nomCompleto; 
-          listaSug.style.display = 'none';
-          
-          capaArbolesUrbano.clearLayers();
-          if (cacheArboles.length === 0) return;
-          
-          const query = nomComun.toLowerCase();
-          const extract = s => s ? s.split('/').filter(Boolean).pop().replace(/-/g, ' ').replace(/^\w/, c=>c.toUpperCase()) : "Especie";
-          
-          const filtrados = cacheArboles.filter(a => url ? a.species === url : extract(a.species).toLowerCase().includes(query));
-          const icon = L.icon({ iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png', iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [0,-34] });
-          const bounds = [];
-          
-          filtrados.forEach(a => {
-            const lat = parseFloat(a.lat), lng = parseFloat(a.lng);
-            if (!isNaN(lat) && !isNaN(lng)) {
-              capaArbolesUrbano.addLayer(L.marker([lat, lng], {icon}).bindPopup(`<b>Árbol #${a.id}</b><br><em>${nomCompleto}</em>`));
-              bounds.push([lat, lng]);
+            if (fil.length === 0) { if(listaSug) listaSug.style.display = 'none'; return; }
+
+            if(listaSug) {
+              listaSug.innerHTML = fil.map(esp => {
+                const comun = esp.nombre_comun || esp.slug || 'Especie';
+                const cientifico = esp.nombre_cientifico || esp.nombre_científico || '';
+                const etiqueta = cientifico ? `${comun} <em>(${cientifico})</em>` : comun;
+                const completo = cientifico ? `${comun} (${cientifico})` : comun;
+                
+                return `<li data-url="${esp.url || ''}" data-nombre="${comun}" data-completo="${completo}">
+                          <strong>${etiqueta}</strong>
+                        </li>`;
+              }).join('');
+              listaSug.style.display = 'block';
             }
-          });
-          if (bounds.length > 0) map.fitBounds(bounds, { padding: [50,50], maxZoom: 14 });
-        }
-      });
+          }, 300);
+        });
+      }
 
-      // Inicialización por defecto (Cargar zonas configuradas en ZONAS_INICIALES)
-      actualizarZonasActivas(ZONAS_INICIALES, true);
+      if (listaSug) {
+        listaSug.addEventListener('click', (e) => {
+          const li = e.target.closest('li');
+          if (li) {
+            const nomComun = li.getAttribute('data-nombre');
+            const nomCompleto = li.getAttribute('data-completo');
+            const url = li.getAttribute('data-url');
+            
+            if(inputEspecie) inputEspecie.value = nomCompleto; 
+            listaSug.style.display = 'none';
+            
+            capaArbolesUrbano.clearLayers();
+            if (cacheArboles.length === 0) return;
+            
+            const query = nomComun.toLowerCase();
+            const extract = s => s ? s.split('/').filter(Boolean).pop().replace(/-/g, ' ').replace(/^\w/, c=>c.toUpperCase()) : "Especie";
+            
+            const filtrados = cacheArboles.filter(a => url ? a.species === url : extract(a.species).toLowerCase().includes(query));
+            const icon = L.icon({ iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png', iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [0,-34] });
+            const bounds = [];
+            
+            filtrados.forEach(a => {
+              const lat = parseFloat(a.lat), lng = parseFloat(a.lng);
+              if (!isNaN(lat) && !isNaN(lng)) {
+                capaArbolesUrbano.addLayer(L.marker([lat, lng], {icon}).bindPopup(`<b>Árbol #${a.id}</b><br><em>${nomCompleto}</em>`));
+                bounds.push([lat, lng]);
+              }
+            });
+            if (bounds.length > 0) map.fitBounds(bounds, { padding: [50,50], maxZoom: 14 });
+          }
+        });
+      }
+
+      // Inicialización de zonas
+      if (!leerHashZonaURL()) {
+        actualizarZonasActivas(ZONAS_INICIALES, true, false);
+      }
     });
   })();
   </script>
