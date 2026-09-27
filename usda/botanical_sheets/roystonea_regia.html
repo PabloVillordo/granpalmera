@@ -489,7 +489,8 @@
         const fillOpacityVal = isCompatible ? 0.75 : 0.55;
         const borderWidth = isCompatible ? 1.5 : 0.8;
 
-        const mapUrl = `../../assets/maps/AR_HZ_${zKey}.geojson`;
+        //const mapUrl = `../../assets/maps/AR_HZ_${zKey}.geojson`;//
+        const mapUrl = `./assets/maps/AR_HZ_${zKey}.geojson`;
 
         const p = fetch(mapUrl)
           .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
