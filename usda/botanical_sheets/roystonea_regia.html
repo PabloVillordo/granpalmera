@@ -116,7 +116,7 @@
     .map-legend { font-size: 13px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
     .swatch { display: inline-block; width: 12px; height: 12px; margin-right: 4px; vertical-align: middle; border-radius: 2px; }
     .swatch.range { background: #F7B9BD; border: 1px solid #5b4638; }
-    .swatch.off { background: #c8c5be; }
+    .swatch.off { background: #c8c5be; border: 1px solid #777; }
 
     #map-usda-argentina {
       height: 480px;
@@ -124,6 +124,32 @@
       border-radius: 4px;
       border: 1px solid var(--line);
       z-index: 5;
+    }
+
+    /* ESTILO DEL CARTEL FLOTANTE (TOOLTIP) SOBRE LAS ISOTERMAS DEL MAPA */
+    .leaflet-tooltip.usda-map-tooltip {
+      background: #1c241c;
+      border: 1px solid var(--gold);
+      color: #ffffff;
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 4px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+    }
+    .leaflet-tooltip-top.usda-map-tooltip::before {
+      border-top-color: #1c241c;
+    }
+    .leaflet-tooltip-bottom.usda-map-tooltip::before {
+      border-bottom-color: #1c241c;
+    }
+    .leaflet-tooltip-left.usda-map-tooltip::before {
+      border-left-color: #1c241c;
+    }
+    .leaflet-tooltip-right.usda-map-tooltip::before {
+      border-right-color: #1c241c;
     }
 
     .sp-faq { background: #fff; border: 1px solid var(--line); padding: 12px 16px; margin: 0 0 10px; border-radius: 4px; }
@@ -192,7 +218,7 @@
         <!-- HERO & RESUMEN -->
         <div class="sp-intro">
           <figure class="sp-hero">
-            <img src="/img/logo_granpalmera.png" alt="Palmera Real - Roystonea regia" width="960">
+            <img src="./assets/images/roystonea_regia.webp" alt="Palmera Real - Roystonea regia" width="960">
             <figcaption>Wikimedia Commons · Dominio público</figcaption>
           </figure>
           <section class="sp-summary">
@@ -449,40 +475,74 @@
         attribution: '© OpenStreetMap' 
       }).addTo(map);
 
-      const targetZones = speciesData.zones || [];
+      const compatibleZones = (speciesData.zones || []).map(z => z.toLowerCase().trim());
+      const allZones = Object.keys(coloresUSDA);
+      
       const loadedBounds = [];
+      const layerMap = {};
       let promises = [];
 
-      targetZones.forEach(zone => {
-        const zKey = zone.toLowerCase().trim();
-        const colorIsotermico = coloresUSDA[zKey] || '#F7B9BD';
+      allZones.forEach(zKey => {
+        const isCompatible = compatibleZones.includes(zKey);
+        const fillColor = isCompatible ? (coloresUSDA[zKey] || '#F7B9BD') : '#c8c5be';
+        const borderColor = isCompatible ? '#5b4638' : '#777777';
+        const fillOpacityVal = isCompatible ? 0.75 : 0.55;
+        const borderWidth = isCompatible ? 1.5 : 0.8;
 
-        // Ruta absoluta desde la raíz del servidor web
-        const mapUrl = `/assets/maps/AR_HZ_${zKey}.geojson`;
+        const mapUrl = `../../assets/maps/AR_HZ_${zKey}.geojson`;
 
         const p = fetch(mapUrl)
-          .then(res => { 
-            if (!res.ok) {
-              throw new Error(`HTTP ${res.status} al intentar cargar ${mapUrl}`);
-            }
-            return res.json(); 
-          })
+          .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
           .then(geoData => {
+            const statusLabel = isCompatible ? 'Apta' : 'No apta (Demasiado frío)';
+            const tooltipContent = `<b>Zona ${zKey.toUpperCase()}</b> (${temperaturasUSDA[zKey] || ''})<br><small style="color:${isCompatible ? '#A2F97D' : '#ffb3b3'};">${statusLabel}</small>`;
+
             const geoLayer = L.geoJson(geoData, {
               style: {
-                fillColor: colorIsotermico,
-                weight: 1.5,
-                color: '#5b4638',
-                fillOpacity: 0.75
+                fillColor: fillColor,
+                weight: borderWidth,
+                color: borderColor,
+                fillOpacity: fillOpacityVal
+              },
+              onEachFeature: function(feature, layer) {
+                layer.on({
+                  mouseover: function(e) {
+                    layer.setStyle({ weight: 3, color: '#c4a15a', fillOpacity: 0.9 });
+                    layer.bringToFront();
+                    const btn = document.querySelector(`.zone-cell[data-zone="${zKey}"]`);
+                    if (btn) btn.classList.add("is-hover");
+                    const tempRango = temperaturasUSDA[zKey] || 'Rango no disponible';
+                    caption.textContent = `Zona USDA ${zKey.toUpperCase()} (${tempRango}): ${isCompatible ? 'Rango apto para cultivo en exterior.' : 'Demasiado frío para esta especie.'}`;
+                  },
+                  mouseout: function(e) {
+                    geoLayer.setStyle({ 
+                      weight: isCompatible ? 1.5 : 0.8, 
+                      color: isCompatible ? '#5b4638' : '#777777', 
+                      fillOpacity: isCompatible ? 0.75 : 0.55 
+                    });
+                    const btn = document.querySelector(`.zone-cell[data-zone="${zKey}"]`);
+                    if (btn) btn.classList.remove("is-hover");
+                    caption.textContent = defaultCaption;
+                  }
+                });
               }
-            }).bindPopup(`<b>${speciesData.common} (${speciesData.scientific})</b><br>Zona Viable USDA: <b>${zKey.toUpperCase()}</b><br>Mínimas promedio: ${temperaturasUSDA[zKey] || 'N/A'}`);
+            })
+            // CARTEL FLOTANTE (TOOLTIP) DINÁMICO QUE SIGUE AL CURSOR DEL RATÓN
+            .bindTooltip(tooltipContent, {
+              sticky: true,
+              direction: 'top',
+              className: 'usda-map-tooltip'
+            })
+            .bindPopup(`<b>${speciesData.common} (${speciesData.scientific})</b><br>Zona USDA: <b>${zKey.toUpperCase()}</b><br>Estado: <b>${statusLabel}</b><br>Mínimas promedio: ${temperaturasUSDA[zKey] || 'N/A'}`);
 
             geoLayer.addTo(map);
-            loadedBounds.push(geoLayer.getBounds());
+            layerMap[zKey] = geoLayer;
+
+            if (isCompatible) {
+              loadedBounds.push(geoLayer.getBounds());
+            }
           })
-          .catch(err => {
-            console.error(`[Error al cargar isoterma]`, err);
-          });
+          .catch(err => console.log(`Capa ${zKey} omitida`));
 
         promises.push(p);
       });
@@ -495,6 +555,7 @@
         }
       });
 
+      // Sincronización bidireccional: Hover en la botonera resalta la capa en el mapa y abre su tooltip
       document.querySelectorAll(".zone-cell").forEach(cell => {
         const z = cell.getAttribute("data-zone");
         
@@ -503,11 +564,27 @@
           const tempRango = temperaturasUSDA[z] || 'Rango no disponible';
           caption.textContent = `Zona USDA ${z.toUpperCase()} (${tempRango}): ${isCompatible ? 'Rango apto para cultivo en exterior.' : 'Demasiado frío para esta especie.'}`;
           cell.classList.add("is-hover");
+
+          if (layerMap[z]) {
+            layerMap[z].setStyle({ weight: 3, color: '#c4a15a', fillOpacity: 0.9 });
+            layerMap[z].bringToFront();
+            layerMap[z].openTooltip();
+          }
         });
 
         cell.addEventListener("mouseleave", () => {
           caption.textContent = defaultCaption;
           cell.classList.remove("is-hover");
+
+          if (layerMap[z]) {
+            const isCompatible = compatibleZones.includes(z);
+            layerMap[z].setStyle({ 
+              weight: isCompatible ? 1.5 : 0.8, 
+              color: isCompatible ? '#5b4638' : '#777777', 
+              fillOpacity: isCompatible ? 0.75 : 0.55 
+            });
+            layerMap[z].closeTooltip();
+          }
         });
       });
     });
