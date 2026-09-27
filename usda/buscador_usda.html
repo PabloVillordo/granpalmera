@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es-AR" class="preload">
 <head>
+    <!-- ========================================== -->
+    <!-- CONFIGURACIÓN BÁSICA Y SEO PRINCIPAL       -->
+    <!-- ========================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light">
     
     <title>Buscador de Resistencia al Frío y Zonas USDA | Gran Palmera</title>
-    <meta name="description" content="🌴 Consulta la resistencia al frío de palmeras y plantas perennes con nuestro mapa interactivo de Zonas USDA, isotermas y fichas de rusticidad en Argentina.">
+    <meta name="description" content="🌴 Consulta la resistencia al frío de palmeras y plantas perennes con nuestro mapa interactivo de Zonas USDA e Isotermas en Argentina.">
     <link rel="canonical" href="https://www.granpalmera-vivero-paisajismo.com/usda/buscador_usda.html" />
 
     <!-- Meta etiquetas Open Graph -->
@@ -35,7 +38,7 @@
     <!-- Preconexión de Fuentes y Librerías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- CSS Externos (FontAwesome & Leaflet Nativo) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -54,10 +57,6 @@
         --verde-atardecer: #3a4a3f; 
         --burdeos: #6e3b3b;
         --accent-color: #a4b39e;
-        --gold: #c4a15a;
-        --line: #ddd4c2;
-        --ink: #1c241c;
-        --muted: #5c6b5c;
         
         --e-out: cubic-bezier(0.22, 1, 0.36, 1); 
         --e-out-lg: cubic-bezier(0.16, 1, 0.30, 1);
@@ -71,7 +70,7 @@
       }
 
       * { box-sizing: border-box; margin: 0; padding: 0; }
-      html { color-scheme: light only; overflow-x: clip; scroll-behavior: smooth; }
+      html { color-scheme: light only; overflow-x: clip; }
       body { 
         background: var(--lino); 
         color: var(--grafito); 
@@ -181,7 +180,7 @@
         border: 1px solid var(--crema);
         border-radius: 16px;
         padding: 1.8rem;
-        margin-bottom: 1.2rem;
+        margin-bottom: 1.8rem;
         box-shadow: 0 12px 32px rgba(74,64,64,0.06);
         display: flex;
         flex-direction: column;
@@ -277,12 +276,12 @@
       .input-status.success { color: var(--salvia); }
       .input-status.error { color: var(--burdeos); }
 
-      /* BARRA DE PRESETS DE MAPA DE ARGENTINA */
+      /* BARRA DE PRESSETS DE MAPA DE ARGENTINA */
       .map-presets-bar {
         display: flex;
         align-items: center;
         gap: 0.6rem;
-        margin-bottom: 1.2rem;
+        margin-bottom: 0.8rem;
         flex-wrap: wrap;
         background: #ffffff;
         padding: 0.8rem 1.2rem;
@@ -329,122 +328,6 @@
         box-shadow: 0 4px 12px rgba(58,74,63,0.25);
       }
 
-      /* ══════════════════════════════════════════════════════════════ */
-      /* BOTONERA DE ZONAS CLIMÁTICAS USDA (CLONADA EXACTA DE ROYSTONEA)*/
-      /* ══════════════════════════════════════════════════════════════ */
-      .usda-widget-card {
-        background: #ffffff;
-        border: 1px solid var(--crema);
-        border-radius: 16px;
-        padding: 1.6rem;
-        margin-bottom: 1.2rem;
-        box-shadow: 0 12px 32px rgba(74,64,64,0.06);
-        position: relative;
-        z-index: 15;
-      }
-
-      .usda-widget-card h2, .usda-widget-card h3 {
-        font-family: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
-        font-size: 1.55rem;
-        font-weight: 700;
-        color: var(--ink);
-        margin-bottom: 0.8rem;
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-      }
-
-      .temp-chart { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); 
-        gap: 4px; 
-        margin: 12px 0; 
-      }
-
-      .zone-cell { 
-        appearance: none; 
-        border: 1px solid rgba(0,0,0,0.15); 
-        background: #c8c5be; 
-        color: var(--ink); 
-        padding: 8px 2px; 
-        cursor: pointer; 
-        font-family: 'Source Sans 3', 'Lato', sans-serif; 
-        text-align: center; 
-        transition: transform 0.15s, outline 0.15s, box-shadow 0.15s; 
-        border-radius: 3px; 
-      }
-      .zone-cell span { display: block; font-weight: 700; font-size: 12px; line-height: 1.1; }
-      .zone-cell small { font-size: 10px; opacity: 0.85; display: block; margin-top: 1px; }
-      .zone-cell.is-min { box-shadow: inset 0 -3px 0 var(--gold); }
-      .zone-cell.is-focus, .zone-cell.is-hover, .zone-cell.active { 
-        outline: 2px solid var(--gold); 
-        transform: scale(1.05); 
-        z-index: 3; 
-        box-shadow: 0 4px 12px rgba(0,0,0,0.18);
-      }
-
-      /* PALETA CROMÁTICA OFICIAL USDA Extraída de roystonea_regia.html */
-      .zone-cell.is-range[data-zone="1a"] { background: #3c3c3c; color: #fff; }
-      .zone-cell.is-range[data-zone="1b"] { background: #FFFFFF; color: #000; }
-      .zone-cell.is-range[data-zone="2a"] { background: #DDDFE3; color: #000; }
-      .zone-cell.is-range[data-zone="2b"] { background: #B8BABE; color: #000; }
-      .zone-cell.is-range[data-zone="3a"] { background: #EBD8FD; color: #000; }
-      .zone-cell.is-range[data-zone="3b"] { background: #F779E0; color: #000; }
-      .zone-cell.is-range[data-zone="4a"] { background: #B979D1; color: #fff; }
-      .zone-cell.is-range[data-zone="4b"] { background: #D6EDFD; color: #000; }
-      .zone-cell.is-range[data-zone="5a"] { background: #77A7F0; color: #000; }
-      .zone-cell.is-range[data-zone="5b"] { background: #77DCFD; color: #000; }
-      .zone-cell.is-range[data-zone="6a"] { background: #779FB7; color: #000; }
-      .zone-cell.is-range[data-zone="6b"] { background: #DCF1CB; color: #000; }
-      .zone-cell.is-range[data-zone="7a"] { background: #A2F97D; color: #000; }
-      .zone-cell.is-range[data-zone="7b"] { background: #8AB37D; color: #000; }
-      .zone-cell.is-range[data-zone="8a"] { background: #F7F97D; color: #000; }
-      .zone-cell.is-range[data-zone="8b"] { background: #F7CE7D; color: #000; }
-      .zone-cell.is-range[data-zone="9a"] { background: #B19F7D; color: #000; }
-      .zone-cell.is-range[data-zone="9b"] { background: #CB797D; color: #000; }
-      .zone-cell.is-range[data-zone="10a"] { background: #F7B9BD; color: #000; }
-      .zone-cell.is-range[data-zone="10b"] { background: #F7797D; color: #000; }
-      .zone-cell.is-range[data-zone="11a"] { background: #D81B60; color: #fff; }
-
-      .chart-caption { 
-        color: var(--muted); 
-        font-family: 'Source Sans 3', sans-serif;
-        font-size: 0.92rem; 
-        min-height: 1.4em; 
-        margin-top: 10px;
-        line-height: 1.4;
-      }
-
-      .map-stack-single { margin-top: 18px; }
-      .map-stack-single h3 { 
-        font-family: 'Fraunces', Georgia, serif; 
-        margin: 0 0 8px; 
-        font-size: 22px; 
-        color: var(--ink);
-      }
-
-      .map-legend { 
-        font-size: 13px; 
-        color: var(--muted); 
-        display: flex; 
-        gap: 12px; 
-        flex-wrap: wrap; 
-        align-items: center; 
-        margin-bottom: 10px; 
-        font-family: 'Source Sans 3', sans-serif;
-      }
-      .swatch { 
-        display: inline-block; 
-        width: 12px; 
-        height: 12px; 
-        margin-right: 4px; 
-        vertical-align: middle; 
-        border-radius: 2px; 
-      }
-      .swatch.range { background: #F7B9BD; border: 1px solid #5b4638; }
-      .swatch.off { background: #c8c5be; border: 1px solid #777; }
-
-      /* MAPA LEAFLET */
       #map { height: 65vh; max-height: 700px; width: 100%; border-radius: 12px; box-shadow: 0 12px 32px rgba(74,64,64,0.08); border: 1px solid var(--crema); z-index: 10; position: relative; }
       .leaflet-popup-content { font-family: 'Lato', sans-serif; font-size: 0.9rem; text-align: center; margin: 12px; }
       
@@ -454,25 +337,145 @@
       .fa-spin-fast { animation: fa-spin 0.7s infinite linear; }
       .smn-marker-icon { background: var(--verde-atardecer); border: 2px solid #ffffff; border-radius: 50%; color: #ffffff; text-align: center; line-height: 26px; font-size: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-      /* CARTEL FLOTANTE (TOOLTIP) SOBRE LAS ISOTERMAS DEL MAPA */
-      .leaflet-tooltip.usda-map-tooltip {
-        background: #1c241c;
-        border: 1px solid var(--gold);
-        color: #ffffff;
-        font-family: "Source Sans 3", system-ui, sans-serif;
-        font-size: 13px;
-        font-weight: 600;
-        padding: 5px 10px;
-        border-radius: 4px;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-        pointer-events: none;
+      /* MÓDULO INTERACTIVO SELECTOR USDA */
+      .controles-climaticos-panel {
+        margin-top: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
       }
-      .leaflet-tooltip-top.usda-map-tooltip::before { border-top-color: #1c241c; }
-      .leaflet-tooltip-bottom.usda-map-tooltip::before { border-bottom-color: #1c241c; }
-      .leaflet-tooltip-left.usda-map-tooltip::before { border-left-color: #1c241c; }
-      .leaflet-tooltip-right.usda-map-tooltip::before { border-right-color: #1c241c; }
 
-      /* CARDS Y DIRECTORIO DE ESPECIES */
+      .usda-widget {
+        background: #ffffff;
+        border: 1px solid var(--crema);
+        border-radius: 16px;
+        padding: 1.8rem;
+        box-shadow: 0 12px 32px rgba(74,64,64,0.06);
+      }
+
+      .usda-widget .widget-header h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--verde-atardecer);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .usda-widget .widget-header h3 i { color: var(--rosa); }
+
+      .usda-widget .widget-header p {
+        font-size: 0.88rem;
+        color: rgba(74,64,64,0.85);
+        margin-top: 0.4rem;
+      }
+
+      .zone-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+        gap: 0.5rem;
+        margin-top: 1.2rem;
+      }
+
+      .zone-grid button {
+        border: 1px solid rgba(0,0,0,0.15);
+        border-radius: 8px;
+        padding: 0.6rem 0.2rem;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.25s var(--e-soft);
+        font-family: 'Lato', sans-serif;
+      }
+
+      .zone-grid button span { font-weight: 700; font-size: 0.92rem; color: inherit; }
+      .zone-grid button small { font-size: 0.68rem; opacity: 0.85; color: inherit; margin-top: 1px; }
+
+      .zone-grid button:not(.active) {
+        background: #e5e2dc !important;
+        color: #8c857b !important;
+        border-color: #d2ccc2 !important;
+        opacity: 0.65;
+        box-shadow: none;
+        transform: none;
+      }
+
+      .zone-grid button:not(.active):hover {
+        opacity: 1;
+        background: #d8d3c8 !important;
+        color: var(--grafito) !important;
+        outline: 1px solid var(--tierra);
+      }
+
+      .zone-grid button.active:hover {
+        transform: translateY(-3px) scale(1.05);
+        filter: brightness(1.1);
+        outline: 2px solid var(--tierra-deep);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+        z-index: 3;
+      }
+
+      .zone-grid button.active {
+        outline: 3px solid var(--tierra-deep);
+        outline-offset: 1px;
+        transform: scale(1.08);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        z-index: 2;
+        opacity: 1;
+      }
+
+      #geo-tip {
+        position: fixed;
+        z-index: 3000;
+        pointer-events: none;
+        background: var(--verde-atardecer);
+        color: var(--lino);
+        font-family: 'Lato', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 6px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        border: 1px solid var(--rosa);
+        transition: opacity 0.1s ease;
+      }
+
+      /* Mapeo de Colores Oficiales USDA por Isoterma */
+      .zone-grid button.hz1a.active  { background: #3c3c3c; color: #ffffff; }
+      .zone-grid button.hz1b.active  { background: #ffffff; color: #000000; border-color: #cccccc; }
+      .zone-grid button.hz2a.active  { background: #DDDFE3; color: #000000; }
+      .zone-grid button.hz2b.active  { background: #B8BABE; color: #000000; }
+      .zone-grid button.hz3a.active  { background: #EBD8FD; color: #000000; }
+      .zone-grid button.hz3b.active  { background: #F779E0; color: #000000; }
+      .zone-grid button.hz4a.active  { background: #B979D1; color: #ffffff; }
+      .zone-grid button.hz4b.active  { background: #D6EDFD; color: #000000; }
+      .zone-grid button.hz5a.active  { background: #77A7F0; color: #000000; }
+      .zone-grid button.hz5b.active  { background: #77DCFD; color: #000000; }
+      .zone-grid button.hz6a.active  { background: #779FB7; color: #000000; }
+      .zone-grid button.hz6b.active  { background: #DCF1CB; color: #000000; }
+      .zone-grid button.hz7a.active  { background: #A2F97D; color: #000000; }
+      .zone-grid button.hz7b.active  { background: #8AB37D; color: #000000; }
+      .zone-grid button.hz8a.active  { background: #F7F97D; color: #000000; }
+      .zone-grid button.hz8b.active  { background: #F7CE7D; color: #000000; }
+      .zone-grid button.hz9a.active  { background: #B19F7D; color: #000000; }
+      .zone-grid button.hz9b.active  { background: #CB797D; color: #000000; }
+      .zone-grid button.hz10a.active { background: #F7B9BD; color: #000000; }
+      .zone-grid button.hz10b.active { background: #F7797D; color: #000000; }
+      .zone-grid button.hz11a.active { background: #D81B60; color: #ffffff; }
+
+      .zone-feedback {
+        margin-top: 1.2rem;
+        padding: 0.9rem 1.2rem;
+        background: var(--lino);
+        border-left: 4px solid var(--rosa);
+        border-radius: 6px;
+        font-size: 0.88rem;
+        color: var(--grafito);
+        transition: all 0.2s ease;
+      }
+
+      /* CARDS Y DIRECTORIO DE ESPECIES (INTEGRACIÓN PALM TREE PLANET) */
       .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(1.2rem, 2.5vw, 2.2rem); max-width: 1200px; margin-inline: auto; }
       .card { background: #ffffff; border: 1px solid var(--crema); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft), border-color 0.3s; }
       .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(74,64,64,0.09); border-color: var(--rosa); }
@@ -623,7 +626,6 @@
 
       <div class="map-wrapper reveal">
         
-        <!-- PANEL DE BÚSQUEDA Y FILTROS -->
         <div class="search-hub-panel">
           <div class="search-hub-panel__title">
             <i class="fa-solid fa-sliders"></i> Panel de Búsqueda & Filtros Integrados
@@ -667,7 +669,7 @@
           </div>
         </div>
 
-        <!-- PRESETS DE VISTA DE MAPA DE ARGENTINA -->
+        <!-- PRESSETS DE VISTA DE MAPA DE ARGENTINA -->
         <div class="map-presets-bar">
           <span class="presets-label"><i class="fa-solid fa-map-location-dot"></i> Vista rápida:</span>
           <button type="button" class="preset-btn active" data-preset="arg"><i class="fa-solid fa-flag"></i> Argentina (País)</button>
@@ -675,266 +677,768 @@
           <button type="button" class="preset-btn" data-preset="caba"><i class="fa-solid fa-city"></i> CABA (Ciudad)</button>
         </div>
 
-        <!-- ═════════════════════════════════════════════════════════════════════════ -->
-        <!-- BOTONERA DE ZONAS CLIMÁTICAS USDA (UBICADA JUSTO ENCIMA DEL MAPA)          -->
-        <!-- ═════════════════════════════════════════════════════════════════════════ -->
-        <div class="usda-widget-card" id="hardiness-widget">
-          <h2>Resistencia al frío</h2>
-
-          <!-- Cuadrícula de Botones de Zonas climáticas (Estilo y Valores de Roystonea Regia) -->
-          <div class="temp-chart" role="img" aria-label="Gráfico de zonas climáticas USDA en Argentina">
-            <button type="button" class="zone-cell" data-zone="1a"><span>1a</span><small>-51°C</small></button>
-            <button type="button" class="zone-cell" data-zone="1b"><span>1b</span><small>-48°C</small></button>
-            <button type="button" class="zone-cell" data-zone="2a"><span>2a</span><small>-45°C</small></button>
-            <button type="button" class="zone-cell" data-zone="2b"><span>2b</span><small>-42°C</small></button>
-            <button type="button" class="zone-cell" data-zone="3a"><span>3a</span><small>-40°C</small></button>
-            <button type="button" class="zone-cell" data-zone="3b"><span>3b</span><small>-37°C</small></button>
-            <button type="button" class="zone-cell" data-zone="4a"><span>4a</span><small>-34°C</small></button>
-            <button type="button" class="zone-cell" data-zone="4b"><span>4b</span><small>-31°C</small></button>
-            <button type="button" class="zone-cell" data-zone="5a"><span>5a</span><small>-28°C</small></button>
-            <button type="button" class="zone-cell" data-zone="5b"><span>5b</span><small>-26°C</small></button>
-            <button type="button" class="zone-cell" data-zone="6a"><span>6a</span><small>-23°C</small></button>
-            <button type="button" class="zone-cell" data-zone="6b"><span>6b</span><small>-20°C</small></button>
-            <button type="button" class="zone-cell" data-zone="7a"><span>7a</span><small>-17°C</small></button>
-            <button type="button" class="zone-cell" data-zone="7b"><span>7b</span><small>-15°C</small></button>
-            <button type="button" class="zone-cell" data-zone="8a"><span>8a</span><small>-12°C</small></button>
-            <button type="button" class="zone-cell" data-zone="8b"><span>8b</span><small>-9°C</small></button>
-            <button type="button" class="zone-cell" data-zone="9a"><span>9a</span><small>-6°C</small></button>
-            <button type="button" class="zone-cell" data-zone="9b"><span>9b</span><small>-3°C</small></button>
-            <button type="button" class="zone-cell is-range is-min" data-zone="10a"><span>10a</span><small>-1°C</small></button>
-            <button type="button" class="zone-cell is-range" data-zone="10b"><span>10b</span><small>+1°C</small></button>
-            <button type="button" class="zone-cell is-range" data-zone="11a"><span>11a</span><small>+4°C</small></button>
-          </div>
-
-          <p class="chart-caption" id="map-caption">Zonas USDA compatibles destacadas: 10a–11a. Las regiones coloreadas en Argentina son aptas para cultivo en exterior.</p>
-
-          <div class="map-stack-single">
-            <h3>Argentina</h3>
-            <p class="map-legend">
-              <span class="swatch range"></span> Isoterma compatible en Argentina
-              <span class="swatch off"></span> Demasiado frío
-            </p>
-          </div>
-        </div>
-
         <!-- VISOR DE MAPA LEAFLET -->
         <div id="map"></div>
+
+        <!-- MÓDULO INTERACTIVO SELECTOR USDA -->
+        <div id="controles-climaticos" class="controles-climaticos-panel">
+          
+          <div class="usda-widget" aria-labelledby="usda-heading">
+            <header class="widget-header">
+              <h3 id="usda-heading"><i class="fa-solid fa-layer-group"></i> Selector de Zonas USDA</h3>
+              <p>Hacé clic en una o varias zonas térmicas para encender o apagar las isotermas en el mapa interactivo de Argentina:</p>
+            </header>
+
+            <!-- Selector USDA con rango completo de 1a a 11a -->
+            <div class="zone-grid" role="tablist" aria-label="Zonas térmicas de resistencia">
+              <button role="tab" aria-selected="false" data-zone="1a" class="hz1a"><span>1a</span><small>-51.1°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="1b" class="hz1b"><span>1b</span><small>-48.3°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="2a" class="hz2a"><span>2a</span><small>-45.6°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="2b" class="hz2b"><span>2b</span><small>-42.8°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="3a" class="hz3a"><span>3a</span><small>-40.0°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="3b" class="hz3b"><span>3b</span><small>-37.2°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="4a" class="hz4a"><span>4a</span><small>-34.4°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="4b" class="hz4b"><span>4b</span><small>-31.7°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="5a" class="hz5a"><span>5a</span><small>-28.9°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="5b" class="hz5b"><span>5b</span><small>-26.1°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="6a" class="hz6a"><span>6a</span><small>-23.3°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="6b" class="hz6b"><span>6b</span><small>-20.6°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="7a" class="hz7a"><span>7a</span><small>-17.8°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="7b" class="hz7b"><span>7b</span><small>-15.0°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="8a" class="hz8a"><span>8a</span><small>-12.2°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="8b" class="hz8b"><span>8b</span><small>-9.4°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="9a" class="hz9a active"><span>9a</span><small>-6.7°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="9b" class="hz9b active"><span>9b</span><small>-3.9°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="10a" class="hz10a active"><span>10a</span><small>-1.1°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="10b" class="hz10b active"><span>10b</span><small>1.7°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="11a" class="hz11a active"><span>11a</span><small>4.4°C</small></button>
+            </div>
+
+            <div id="zone-feedback" class="zone-feedback" aria-live="polite">
+              Cargando mapa e isotermas activas...
+            </div>
+          </div>
+
+        </div>
 
       </div>
     </section>
 
+    <!-- DIRECTORIO DE ESPECIES Y RUSTICIDAD (CONTENIDO INTEGRADO DE PALM TREE PLANET) -->
     <!-- DIRECTORIO DE ESPECIES Y RUSTICIDAD -->
     <section class="section" id="sec-especies">
       <div class="section-head reveal">
         <span class="eyebrow">Directorio Botánico</span>
-        <h2>Guía de Palmeras & Resistencia Térmica</h2>
-        <p>Explorá nuestra selección exhaustiva de palmeras y cycas con su respectivo rango de tolerancia al frío invernal.</p>
+        <h2>Guía Completa de Palmeras & Resistencia Térmica</h2>
+        <p>Explorá nuestra selección exhaustiva de palmeras, cícadas y suculentas afines con sus respectivos rangos de tolerancia al frío invernal.</p>
       </div>
 
       <div class="cards stagger" id="species-grid">
         
+        <!-- 1. Areca Palm -->
         <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="areca palm">
-          <a class="card-img" href="/areca-palm-cold-hardiness/" aria-label="Areca palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/chrysalidocarpus_lutescens.html" aria-label="Areca palm cold hardiness">
             <img src="/wp-content/uploads/2026/08/areca-palm-tree-chrysalidocarpus-lutescens-card.jpg" alt="Areca palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 10a a 11b</span>
-            <h3><a href="/areca-palm-cold-hardiness/">Areca Palm (Chrysalidocarpus lutescens)</a></h3>
+            <h3><a href="/botanical_sheets/chrysalidocarpus_lutescens.html">Areca Palm (Chrysalidocarpus lutescens)</a></h3>
             <p>Palmera multicaule de tallos amarillos ideal para interiores luminosos y jardines libres de heladas intensas.</p>
-            <a class="more" href="/areca-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/chrysalidocarpus_lutescens.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 2. Bamboo Palm -->
         <article class="card species-card" data-zones="10b 11a 11b" data-sort="bamboo palm">
-          <a class="card-img" href="/bamboo-palm-cold-hardiness/" aria-label="Bamboo palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/chamaedorea_seifrizii.html" aria-label="Bamboo palm cold hardiness">
             <img src="/wp-content/uploads/2026/09/bamboo-palm-chamaedorea-seifrizii-card.jpg" alt="Bamboo palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 10b a 11b</span>
-            <h3><a href="/bamboo-palm-cold-hardiness/">Bamboo Palm (Chamaedorea seifrizii)</a></h3>
+            <h3><a href="/botanical_sheets/chamaedorea_seifrizii.html">Bamboo Palm (Chamaedorea seifrizii)</a></h3>
             <p>Especie agrupada con delgadas cañas verdes, muy utilizada como cerco vivo o decoración tropical de sombra.</p>
-            <a class="more" href="/bamboo-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/chamaedorea_seifrizii.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 3. Bangalow Palm -->
         <article class="card species-card" data-zones="9b 10a 10b 11a 11b" data-sort="bangalow palm">
-          <a class="card-img" href="/bangalow-palm-cold-hardiness/" aria-label="Bangalow palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/archontophoenix_cunninghamiana.html" aria-label="Bangalow palm cold hardiness">
             <img src="/wp-content/uploads/2026/09/bangalow-palm-archontophoenix-cunninghamiana-card.jpg" alt="Bangalow palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 9b a 11b</span>
-            <h3><a href="/bangalow-palm-cold-hardiness/">Bangalow Palm (Archontophoenix cunninghamiana)</a></h3>
+            <h3><a href="/botanical_sheets/archontophoenix_cunninghamiana.html">Bangalow Palm (Archontophoenix cunninghamiana)</a></h3>
             <p>Palmera plumosa del este de Australia, muy adaptable a costas templadas y subtropicales sin heladas extremas.</p>
-            <a class="more" href="/bangalow-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/archontophoenix_cunninghamiana.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 4. Bismarck Palm -->
         <article class="card species-card" data-zones="9b 10a 10b 11a 11b" data-sort="bismarck palm">
-          <a class="card-img" href="/bismarck-palm-cold-hardiness/" aria-label="Bismarck palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/bismarckia_nobilis.html" aria-label="Bismarck palm cold hardiness">
             <img src="/wp-content/uploads/2023/12/image-5-card.jpg" alt="Bismarck palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 9b a 11b</span>
-            <h3><a href="/bismarck-palm-cold-hardiness/">Bismarck Palm (Bismarckia nobilis)</a></h3>
+            <h3><a href="/botanical_sheets/bismarckia_nobilis.html">Bismarck Palm (Bismarckia nobilis)</a></h3>
             <p>Majestuosa palmera de frondas gigantescas azul-plateadas. Un ejemplar imponente para paisajes de sol pleno.</p>
-            <a class="more" href="/bismarck-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/bismarckia_nobilis.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 5. Bottle Palm -->
         <article class="card species-card" data-zones="10b 11a 11b" data-sort="bottle palm">
-          <a class="card-img" href="/bottle-palm-cold-hardiness/" aria-label="Bottle palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/hyophorbe_lagenicaulis.html" aria-label="Bottle palm cold hardiness">
             <img src="/wp-content/uploads/2023/12/image-4-card.jpg" alt="Bottle palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 10b a 11b</span>
-            <h3><a href="/bottle-palm-cold-hardiness/">Bottle Palm (Hyophorbe lagenicaulis)</a></h3>
+            <h3><a href="/botanical_sheets/hyophorbe_lagenicaulis.html">Bottle Palm (Hyophorbe lagenicaulis)</a></h3>
             <p>Curiosa palmera de crecimiento lento con un tronco hinchado en forma de botella. Requiere calor constante.</p>
-            <a class="more" href="/bottle-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/hyophorbe_lagenicaulis.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 6. Cabbage Palmetto -->
         <article class="card species-card" data-zones="8a 8b 9a 9b 10a 10b 11a" data-sort="cabbage palmetto">
-          <a class="card-img" href="/cabbage-palmetto-cold-hardiness/" aria-label="Cabbage palmetto cold hardiness">
+          <a class="card-img" href="/botanical_sheets/sabal_palmetto.html" aria-label="Cabbage palmetto cold hardiness">
             <img src="/wp-content/uploads/2026/09/cabbage-palm-sabal-palmetto-card.jpg" alt="Cabbage palmetto cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 8a a 11a</span>
-            <h3><a href="/cabbage-palmetto-cold-hardiness/">Cabbage Palmetto (Sabal palmetto)</a></h3>
+            <h3><a href="/botanical_sheets/sabal_palmetto.html">Cabbage Palmetto (Sabal palmetto)</a></h3>
             <p>Palmera abanico extremadamente resistente a vientos marinos, sequías y heladas moderadas de hasta -12 °C.</p>
-            <a class="more" href="/cabbage-palmetto-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/sabal_palmetto.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 7. California Fan Palm -->
         <article class="card species-card" data-zones="8b 9a 9b 10a 10b 11a" data-sort="california fan palm">
-          <a class="card-img" href="/california-fan-palm-cold-hardiness/" aria-label="California fan palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/washingtonia_filifera.html" aria-label="California fan palm cold hardiness">
             <img src="/wp-content/uploads/2026/09/california-fan-palm-washingtonia-filifera-card.jpg" alt="California fan palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 8b a 11a</span>
-            <h3><a href="/california-fan-palm-cold-hardiness/">California Fan Palm (Washingtonia filifera)</a></h3>
+            <h3><a href="/botanical_sheets/washingtonia_filifera.html">California Fan Palm (Washingtonia filifera)</a></h3>
             <p>Robusta palmera de oasis de tronco muy grueso. Soporta climas áridos y heladas considerables.</p>
-            <a class="more" href="/california-fan-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/washingtonia_filifera.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 8. Canary Island Date Palm -->
         <article class="card species-card" data-zones="9a 9b 10a 10b 11a" data-sort="canary island date palm">
-          <a class="card-img" href="/canary-island-date-palm-cold-hardiness/" aria-label="Canary Island date palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/phoenix_canariensis.html" aria-label="Canary Island date palm cold hardiness">
             <img src="/wp-content/uploads/2026/09/canary-island-date-palm-phoenix-canariensis-card.jpg" alt="Canary Island date palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 9a a 11a</span>
-            <h3><a href="/canary-island-date-palm-cold-hardiness/">Canary Island Date Palm (Phoenix canariensis)</a></h3>
+            <h3><a href="/botanical_sheets/phoenix_canariensis.html">Canary Island Date Palm (Phoenix canariensis)</a></h3>
             <p>Palmera fénix de gran porte y copa densa. Excelente tolerancia al frío y adaptable a múltiples suelos.</p>
-            <a class="more" href="/canary-island-date-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/phoenix_canariensis.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 9. Caranday Wax Palm -->
+        <article class="card species-card" data-zones="8b 9a 9b 10a 10b 11a" data-sort="caranday wax palm">
+          <a class="card-img" href="/botanical_sheets/copernicia_alba.html" aria-label="Caranday wax palm cold hardiness">
+            <img src="/wp-content/uploads/2023/11/image-1-card.jpg" alt="Caranday wax palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8b a 11a</span>
+            <h3><a href="/botanical_sheets/copernicia_alba.html">Caranday Wax Palm (Copernicia alba)</a></h3>
+            <p>Palmera sudamericana de follaje en abanico denso y cérea. Muy resistente a la sequía y suelos inundables.</p>
+            <a class="more" href="/botanical_sheets/copernicia_alba.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 10. Cardboard Palm -->
+        <article class="card species-card" data-zones="9b 10a 10b 11a 11b" data-sort="cardboard palm">
+          <a class="card-img" href="/botanical_sheets/zamia_furfuracea.html" aria-label="Cardboard palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/cardboard-palm-zamia-furfuracea-habit-card.jpg" alt="Cardboard palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9b a 11b</span>
+            <h3><a href="/botanical_sheets/zamia_furfuracea.html">Cardboard Palm (Zamia furfuracea)</a></h3>
+            <p>Cícada mexicana de folíolos rígidos y aterciopelados. Excelente planta ornamental de porte bajo.</p>
+            <a class="more" href="/botanical_sheets/zamia_furfuracea.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 11. Cat Palm -->
+        <article class="card species-card" data-zones="10b 11a 11b" data-sort="cat palm">
+          <a class="card-img" href="/botanical_sheets/chamaedorea_cataractarum.html" aria-label="Cat palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/cat-palm-chamaedorea-cataractarum-habit-card.jpg" alt="Cat palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 11b</span>
+            <h3><a href="/botanical_sheets/chamaedorea_cataractarum.html">Cat Palm (Chamaedorea cataractarum)</a></h3>
+            <p>Palmera densa casi sin tronco originaria del sur de México. Muy popular para interiores húmedos y patios.</p>
+            <a class="more" href="/botanical_sheets/chamaedorea_cataractarum.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 12. Chilean Wine Palm -->
+        <article class="card species-card" data-zones="8a 8b 9a 9b 10a 10b 11a" data-sort="chilean wine palm">
+          <a class="card-img" href="/botanical_sheets/jubaea_chilensis.html" aria-label="Chilean wine palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/chilean-wine-palm-jubaea-chilensis-card.jpg" alt="Chilean wine palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8a a 11a</span>
+            <h3><a href="/botanical_sheets/jubaea_chilensis.html">Chilean Wine Palm (Jubaea chilensis)</a></h3>
+            <p>Monumental palmera plumosa de tronco masivo. La palmera de hoja pinnada más resistente a heladas del mundo.</p>
+            <a class="more" href="/botanical_sheets/jubaea_chilensis.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 13. Chinese Fan Palm -->
+        <article class="card species-card" data-zones="9a 9b 10a 10b 11a 11b" data-sort="chinese fan palm">
+          <a class="card-img" href="/botanical_sheets/livistona_chinensis.html" aria-label="Chinese fan palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/chinese-fan-palm-livistona-chinensis-card.jpg" alt="Chinese fan palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9a a 11b</span>
+            <h3><a href="/botanical_sheets/livistona_chinensis.html">Chinese Fan Palm (Livistona chinensis)</a></h3>
+            <p>Palmera en abanico con extremos de hojas elegantemente péndulos. Forma una silueta en cascada muy distintiva.</p>
+            <a class="more" href="/botanical_sheets/livistona_chinensis.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 14. Chinese Windmill Palm -->
         <article class="card species-card" data-zones="7a 7b 8a 8b 9a 9b 10a 10b 11a 11b" data-sort="chinese windmill palm">
-          <a class="card-img" href="/chinese-windmill-palm-cold-hardiness/" aria-label="Chinese windmill palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/trachycarpus_fortunei.html" aria-label="Chinese windmill palm cold hardiness">
             <img src="/wp-content/uploads/2023/11/Palmvancouver-card.jpg" alt="Chinese windmill palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 7a a 11b</span>
-            <h3><a href="/chinese-windmill-palm-cold-hardiness/">Windmill Palm (Trachycarpus fortunei)</a></h3>
+            <h3><a href="/botanical_sheets/trachycarpus_fortunei.html">Windmill Palm (Trachycarpus fortunei)</a></h3>
             <p>La palmera de tronco peludo más resistente al frío del mundo. Tolera nieves y heladas severas de -15 °C.</p>
-            <a class="more" href="/chinese-windmill-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/trachycarpus_fortunei.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 15. Christmas Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="christmas palm">
+          <a class="card-img" href="/botanical_sheets/adonidia_merrillii.html" aria-label="Christmas palm cold hardiness">
+            <img src="/wp-content/uploads/2023/11/640px-Starr-071024-8820-Veitchia_merrillii-habit-Enchanting_Floral_Gardens_of_Kula-Maui_24267978113-card.jpg" alt="Christmas palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/botanical_sheets/adonidia_merrillii.html">Christmas Palm (Adonidia merrillii)</a></h3>
+            <p>Famosa palmera tropical de porte compacto apreciada por sus vistosos frutos rojos en invierno.</p>
+            <a class="more" href="/botanical_sheets/adonidia_merrillii.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 16. Coconut Palm -->
         <article class="card species-card" data-zones="10b 11a 11b 12a" data-sort="coconut palm">
-          <a class="card-img" href="/coconut-palm-cold-hardiness/" aria-label="Coconut palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/cocos_nucifera.html" aria-label="Coconut palm cold hardiness">
             <img src="/wp-content/uploads/2026/08/coconut-palm-tree-cocos-nucifera-card.jpg" alt="Coconut palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 10b a 12a</span>
-            <h3><a href="/coconut-palm-cold-hardiness/">Coconut Palm (Cocos nucifera)</a></h3>
+            <h3><a href="/botanical_sheets/cocos_nucifera.html">Coconut Palm (Cocos nucifera)</a></h3>
             <p>El cocotero tropical clásico. Requiere calor constante durante todo el año y no soporta el frío ni las heladas.</p>
-            <a class="more" href="/coconut-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/cocos_nucifera.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 17. Dwarf Palmetto -->
+        <article class="card species-card" data-zones="7a 7b 8a 8b 9a 9b 10a 10b 11a" data-sort="dwarf palmetto">
+          <a class="card-img" href="/botanical_sheets/sabal_minor.html" aria-label="Dwarf palmetto cold hardiness">
+            <img src="/wp-content/uploads/2026/09/dwarf-palmetto-sabal-minor-habit-card.jpg" alt="Dwarf palmetto cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 7a a 11a</span>
+            <h3><a href="/botanical_sheets/sabal_minor.html">Dwarf Palmetto (Sabal minor)</a></h3>
+            <p>Pequeña palmera nativa sin tronco conspicuo. Sumamente rústica y capaz de tolerar el frío extremo.</p>
+            <a class="more" href="/botanical_sheets/sabal_minor.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 18. European Fan Palm -->
         <article class="card species-card" data-zones="8a 8b 9a 9b 10a 10b 11a" data-sort="european fan palm">
-          <a class="card-img" href="/european-fan-palm-cold-hardiness/" aria-label="European fan palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/chamaerops_humilis.html" aria-label="European fan palm cold hardiness">
             <img src="/wp-content/uploads/2026/09/european-fan-palm-chamaerops-humilis-card.jpg" alt="European fan palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 8a a 11a</span>
-            <h3><a href="/european-fan-palm-cold-hardiness/">European Fan Palm (Chamaerops humilis)</a></h3>
+            <h3><a href="/botanical_sheets/chamaerops_humilis.html">European Fan Palm (Chamaerops humilis)</a></h3>
             <p>La única palmera autóctona de Europa continental. Forma matas compactas y es extremadamente rústica.</p>
-            <a class="more" href="/european-fan-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/chamaerops_humilis.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 19. Fishtail Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b 12a" data-sort="fishtail palm">
+          <a class="card-img" href="/botanical_sheets/caryota_mitis.html" aria-label="Fishtail palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/fishtail-palm-caryota-mitis-full-card.jpg" alt="Fishtail palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 12a</span>
+            <h3><a href="/botanical_sheets/caryota_mitis.html">Fishtail Palm (Caryota mitis)</a></h3>
+            <p>Palmera multicaule de folíolos dentados con forma de cola de pez. Crecimiento exótico y frondoso.</p>
+            <a class="more" href="/botanical_sheets/caryota_mitis.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 20. Flame Thrower Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="flame thrower palm">
+          <a class="card-img" href="/botanical_sheets/chambeyronia_macrocarpa.html" aria-label="Flame thrower palm cold hardiness">
+            <img src="/wp-content/uploads/2023/11/image-card.jpg" alt="Flame thrower palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/botanical_sheets/chambeyronia_macrocarpa.html">Flame Thrower Palm (Chambeyronia macrocarpa)</a></h3>
+            <p>Espectacular palmera tropical que despliega frondas nuevas de un intenso color rojo brillante.</p>
+            <a class="more" href="/botanical_sheets/chambeyronia_macrocarpa.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 21. Florida Thatch Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="florida thatch palm">
+          <a class="card-img" href="/botanical_sheets/thrinax_radiata.html" aria-label="Florida thatch palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/florida-thatch-palm-thrinax-radiata-card.jpg" alt="Florida thatch palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/botanical_sheets/thrinax_radiata.html">Florida Thatch Palm (Thrinax radiata)</a></h3>
+            <p>Palmera de tronco esbelto y hojas en abanico, nativa del Caribe y cayos de Florida. Tolera brisa marina.</p>
+            <a class="more" href="/botanical_sheets/thrinax_radiata.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 22. Foxtail Palm -->
         <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="foxtail palm">
-          <a class="card-img" href="/foxtail-palm-cold-hardiness/" aria-label="Foxtail palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/wodyetia_bifurcata.html" aria-label="Foxtail palm cold hardiness">
             <img src="/wp-content/uploads/2023/11/100wodyetialeaf-card.jpg" alt="Foxtail palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 10a a 11b</span>
-            <h3><a href="/foxtail-palm-cold-hardiness/">Foxtail Palm (Wodyetia bifurcata)</a></h3>
+            <h3><a href="/botanical_sheets/wodyetia_bifurcata.html">Foxtail Palm (Wodyetia bifurcata)</a></h3>
             <p>Especie de hojas plumosas similares a la cola de un zorro. Autolimpiante y muy cotizada en paisajismo moderno.</p>
-            <a class="more" href="/foxtail-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/wodyetia_bifurcata.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 23. High Plateau Coconut Palm -->
+        <article class="card species-card" data-zones="9b 10a 10b 11a" data-sort="high plateau coconut palm">
+          <a class="card-img" href="/botanical_sheets/beccariophoenix_alfredii.html" aria-label="High plateau coconut palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/high-plateau-coconut-palm-beccariophoenix-alfredii-card.jpg" alt="High plateau coconut palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9b a 11a</span>
+            <h3><a href="/botanical_sheets/beccariophoenix_alfredii.html">High Plateau Coconut (Beccariophoenix alfredii)</a></h3>
+            <p>Palmera de Madagascar similar al cocotero pero con gran resistencia a heladas suaves y fríos breves.</p>
+            <a class="more" href="/botanical_sheets/beccariophoenix_alfredii.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 24. Kentia Palm -->
+        <article class="card species-card" data-zones="9b 10a 10b 11a 11b" data-sort="kentia palm">
+          <a class="card-img" href="/botanical_sheets/howea_forsteriana.html" aria-label="Kentia palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/kentia-palm-tree-howea-forsteriana-card.jpg" alt="Kentia palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9b a 11b</span>
+            <h3><a href="/botanical_sheets/howea_forsteriana.html">Kentia Palm (Howea forsteriana)</a></h3>
+            <p>Elegante palmera de hojas arqueadas verde oscuro. La especie de interior más resistente a baja luz.</p>
+            <a class="more" href="/botanical_sheets/howea_forsteriana.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 25. King Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="king palm">
+          <a class="card-img" href="/botanical_sheets/archontophoenix_alexandrae.html" aria-label="King palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/king-palm-archontophoenix-alexandrae-card.jpg" alt="King palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/botanical_sheets/archontophoenix_alexandrae.html">King Palm (Archontophoenix alexandrae)</a></h3>
+            <p>Palmera australiana de rápido crecimiento, tronco anillado y capitel verde suave de gran distinción.</p>
+            <a class="more" href="/botanical_sheets/archontophoenix_alexandrae.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 26. Lady Palm -->
+        <article class="card species-card" data-zones="9a 9b 10a 10b 11a 11b" data-sort="lady palm">
+          <a class="card-img" href="/botanical_sheets/rhapis_excelsa.html" aria-label="Lady palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/lady-palm-rhapis-excelsa-card.jpg" alt="Lady palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9a a 11b</span>
+            <h3><a href="/botanical_sheets/rhapis_excelsa.html">Lady Palm (Rhapis excelsa)</a></h3>
+            <p>Palmera multicaule en cañas con hojas en abanico abombadas. Muy apreciada para jardines sombreados e interiores.</p>
+            <a class="more" href="/botanical_sheets/rhapis_excelsa.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 27. Lipstick Palm -->
+        <article class="card species-card" data-zones="10b 11a 11b 12a" data-sort="lipstick palm">
+          <a class="card-img" href="/botanical_sheets/cyrtostachys_renda.html" aria-label="Lipstick palm cold hardiness">
+            <img src="/wp-content/uploads/2023/12/Untitled-design-2023-12-02T175838.620-card.jpg" alt="Lipstick palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 12a</span>
+            <h3><a href="/botanical_sheets/cyrtostachys_renda.html">Lipstick Palm (Cyrtostachys renda)</a></h3>
+            <p>Impresionante palmera ecuatorial de capiteles y vainas rojo carmesí brillante. Requiere calor tropical constante.</p>
+            <a class="more" href="/botanical_sheets/cyrtostachys_renda.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 28. Macarthur Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b 12a" data-sort="macarthur palm">
+          <a class="card-img" href="/botanical_sheets/ptychosperma_macarthurii.html" aria-label="Macarthur palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/macarthur-palm-ptychosperma-propinquum-habit-card.jpg" alt="Macarthur palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 12a</span>
+            <h3><a href="/botanical_sheets/ptychosperma_macarthurii.html">Macarthur Palm (Ptychosperma macarthurii)</a></h3>
+            <p>Palmera agrupada de finos tallos y racimos plumosos. Ideal para patios tropicales y cercos vivos.</p>
+            <a class="more" href="/botanical_sheets/ptychosperma_macarthurii.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 29. Madagascar Palm -->
+        <article class="card species-card" data-zones="10b 11a 11b" data-sort="madagascar palm">
+          <a class="card-img" href="/botanical_sheets/pachypodium_lamerei.html" aria-label="Madagascar palm cold hardiness">
+            <img src="/wp-content/uploads/2026/08/madagascar-palm-pachypodium-lamerei-card.jpg" alt="Madagascar palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 11b</span>
+            <h3><a href="/botanical_sheets/pachypodium_lamerei.html">Madagascar Palm (Pachypodium lamerei)</a></h3>
+            <p>Suculenta espinosa de tronco suculento y penacho de hojas en la cima. Estética exótica y fácil cuidado.</p>
+            <a class="more" href="/botanical_sheets/pachypodium_lamerei.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 30. Majesty Palm -->
+        <article class="card species-card" data-zones="9b 10a 10b 11a 11b" data-sort="majesty palm">
+          <a class="card-img" href="/botanical_sheets/ravenea_rivularis.html" aria-label="Majesty palm cold hardiness">
+            <img src="/wp-content/uploads/2023/12/Untitled-design-2023-12-09T125457.446-1024x768-card.jpg" alt="Majesty palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9b a 11b</span>
+            <h3><a href="/botanical_sheets/ravenea_rivularis.html">Majesty Palm (Ravenea rivularis)</a></h3>
+            <p>Palmera de simetría elegante y frondas simétricas verde claro. Amante de la humedad y el riego frecuente.</p>
+            <a class="more" href="/botanical_sheets/ravenea_rivularis.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 31. Mazari Palm -->
+        <article class="card species-card" data-zones="8a 8b 9a 9b 10a 10b 11a" data-sort="mazari palm">
+          <a class="card-img" href="/botanical_sheets/nannorrhops_ritchieana.html" aria-label="Mazari palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/mazari-palm-nannorrhops-ritchieana-card.jpg" alt="Mazari palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8a a 11a</span>
+            <h3><a href="/botanical_sheets/nannorrhops_ritchieana.html">Mazari Palm (Nannorrhops ritchieana)</a></h3>
+            <p>Palmera desértica ramificada de hojas azulosas o grisáceas. Sumamente resistente a heladas secas y calores extremos.</p>
+            <a class="more" href="/botanical_sheets/nannorrhops_ritchieana.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 32. Medjool Date Palm -->
+        <article class="card species-card" data-zones="9a 9b 10a 10b 11a 11b" data-sort="medjool date palm">
+          <a class="card-img" href="/botanical_sheets/phoenix_dactylifera.html" aria-label="Medjool date palm cold hardiness">
+            <img src="/wp-content/uploads/2026/08/date-palm-tree-phoenix-dactylifera-card.jpg" alt="Medjool date palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9a a 11b</span>
+            <h3><a href="/botanical_sheets/phoenix_dactylifera.html">Medjool Date Palm (Phoenix dactylifera)</a></h3>
+            <p>La mítica palmera datilera de los oasis. Estructura imponente de frondas azuladas y frutos comestibles.</p>
+            <a class="more" href="/botanical_sheets/phoenix_dactylifera.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 33. Mexican Blue Palm -->
+        <article class="card species-card" data-zones="8b 9a 9b 10a 10b 11a" data-sort="mexican blue palm">
+          <a class="card-img" href="/botanical_sheets/brahea_armata.html" aria-label="Mexican blue palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/mexican-blue-palm-brahea-armata-card.jpg" alt="Mexican blue palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8b a 11a</span>
+            <h3><a href="/botanical_sheets/brahea_armata.html">Mexican Blue Palm (Brahea armata)</a></h3>
+            <p>Palmera de abanico con hojas de un intenso tono azul plateado. Gran tolerancia a la sequía y fríos moderados.</p>
+            <a class="more" href="/botanical_sheets/brahea_armata.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 34. Mexican Fan Palm -->
+        <article class="card species-card" data-zones="9a 9b 10a 10b 11a 11b" data-sort="mexican fan palm">
+          <a class="card-img" href="/botanical_sheets/washingtonia_robusta.html" aria-label="Mexican fan palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/mexican-fan-palm-washingtonia-robusta-card.jpg" alt="Mexican fan palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9a a 11b</span>
+            <h3><a href="/botanical_sheets/washingtonia_robusta.html">Mexican Fan Palm (Washingtonia robusta)</a></h3>
+            <p>Palmera esbelta de crecimiento rapidísimo y gran altura. Muy común en avenidas y alineaciones costeras.</p>
+            <a class="more" href="/botanical_sheets/washingtonia_robusta.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 35. Needle Palm -->
+        <article class="card species-card" data-zones="7a 7b 8a 8b 9a 9b 10a 10b" data-sort="needle palm">
+          <a class="card-img" href="/botanical_sheets/rhapidophyllum_hystrix.html" aria-label="Needle palm cold hardiness">
+            <img src="/wp-content/uploads/2023/12/image-8-card.jpg" alt="Needle palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 7a a 10b</span>
+            <h3><a href="/botanical_sheets/rhapidophyllum_hystrix.html">Needle Palm (Rhapidophyllum hystrix)</a></h3>
+            <p>La palmera de follaje abanico más tolerante a fríos extremos y nieve (-20 °C). Arbustiva con espinas en la base.</p>
+            <a class="more" href="/botanical_sheets/rhapidophyllum_hystrix.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 36. Old Man Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="old man palm">
+          <a class="card-img" href="/botanical_sheets/coccothrinax_crinita.html" aria-label="Old man palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/old-man-palm-coccothrinax-crinita-card.jpg" alt="Old man palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/botanical_sheets/coccothrinax_crinita.html">Old Man Palm (Coccothrinax crinita)</a></h3>
+            <p>Palmera cubana singular cubierta por una gruesa cabellera de fibras lanares sobre su tronco.</p>
+            <a class="more" href="/botanical_sheets/coccothrinax_crinita.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 37. Parlor Palm -->
+        <article class="card species-card" data-zones="10b 11a 11b" data-sort="parlor palm">
+          <a class="card-img" href="/botanical_sheets/chamaedorea_elegans.html" aria-label="Parlor palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/parlor-palm-chamaedorea-elegans-card.jpg" alt="Parlor palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 11b</span>
+            <h3><a href="/botanical_sheets/chamaedorea_elegans.html">Parlor Palm (Chamaedorea elegans)</a></h3>
+            <p>Clásica palmera de interior victoriana. Porte fino, frondas plumosas compactas y excelente tolerancia a sombra.</p>
+            <a class="more" href="/botanical_sheets/chamaedorea_elegans.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 38. Peach Palm -->
+        <article class="card species-card" data-zones="10b 11a 11b 12a" data-sort="peach palm">
+          <a class="card-img" href="/botanical_sheets/bactris_gasipaes.html" aria-label="Peach palm cold hardiness">
+            <img src="/wp-content/uploads/2023/12/image-11-575x1024-card.jpg" alt="Peach palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 12a</span>
+            <h3><a href="/botanical_sheets/bactris_gasipaes.html">Peach Palm / Pijao (Bactris gasipaes)</a></h3>
+            <p>Palmera multicaule tropical espinosa apreciada por sus nutritivos frutos comestibles y palmito.</p>
+            <a class="more" href="/botanical_sheets/bactris_gasipaes.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 39. Pindo Palm -->
         <article class="card species-card" data-zones="8a 8b 9a 9b 10a 10b 11a" data-sort="pindo palm">
-          <a class="card-img" href="/pindo-palm-cold-hardiness/" aria-label="Pindo palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/butia_odorata.html" aria-label="Pindo palm cold hardiness">
             <img src="/wp-content/uploads/2023/11/640px-Starr-150811-0557-Butia_capitata-fruiting_habit-Enchanting_Floral_Gardens_of_Kula-Maui_25000133890-card.jpg" alt="Pindo palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 8a a 11a</span>
-            <h3><a href="/pindo-palm-cold-hardiness/">Pindo Palm / Butia (Butia odorata / capitata)</a></h3>
+            <h3><a href="/botanical_sheets/butia_odorata.html">Pindo Palm / Butia (Butia odorata)</a></h3>
             <p>Palmera sudamericana de hojas arqueadas azuladas y frutos comestibles dulzones. Resistente a heladas fuertes.</p>
-            <a class="more" href="/pindo-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/butia_odorata.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 40. Ponytail Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="ponytail palm">
+          <a class="card-img" href="/botanical_sheets/beaucarnea_recurvata.html" aria-label="Ponytail palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/ponytail-palm-beaucarnea-recurvata-card.jpg" alt="Ponytail palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/botanical_sheets/beaucarnea_recurvata.html">Ponytail Palm (Beaucarnea recurvata)</a></h3>
+            <p>Planta suculenta de base hinchada que almacena agua y cabellera de hojas delgadas curvas.</p>
+            <a class="more" href="/botanical_sheets/beaucarnea_recurvata.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 41. Pygmy Date Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="pygmy date palm">
+          <a class="card-img" href="/botanical_sheets/phoenix_roebelenii.html" aria-label="Pygmy date palm cold hardiness">
+            <img src="/wp-content/uploads/2023/12/image-2-card.jpg" alt="Pygmy date palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 11b</span>
+            <h3><a href="/botanical_sheets/phoenix_roebelenii.html">Pygmy Date Palm (Phoenix roebelenii)</a></h3>
+            <p>Palmera enana de tronco fino y frondas finamente pinnadas. Muy popular en macetas y jardinería pequeña.</p>
+            <a class="more" href="/botanical_sheets/phoenix_roebelenii.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 42. Queen Palm -->
         <article class="card species-card" data-zones="9a 9b 10a 10b 11a 11b" data-sort="queen palm">
-          <a class="card-img" href="/queen-palm-cold-hardiness/" aria-label="Queen palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/syagrus_romanzoffiana.html" aria-label="Queen palm cold hardiness">
             <img src="/wp-content/uploads/2026/08/queen-palm-card.jpg" alt="Queen palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 9a a 11b</span>
-            <h3><a href="/queen-palm-cold-hardiness/">Queen Palm / Pindó (Syagrus romanzoffiana)</a></h3>
+            <h3><a href="/botanical_sheets/syagrus_romanzoffiana.html">Queen Palm / Pindó (Syagrus romanzoffiana)</a></h3>
             <p>Palmera nativa del litoral argentino de crecimiento rápido y frondas plumosas. Excelente para alineaciones urbanas.</p>
-            <a class="more" href="/queen-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/syagrus_romanzoffiana.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 43. Royal Palm -->
         <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="royal palm">
-          <a class="card-img" href="/royal-palm-cold-hardiness/" aria-label="Royal palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/roystonea_regia.html" aria-label="Royal palm cold hardiness">
             <img src="/wp-content/uploads/2026/09/royal-palm-tree-roystonea-regia-card.jpg" alt="Royal palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 10a a 11b</span>
-            <h3><a href="/royal-palm-cold-hardiness/">Royal Palm (Roystonea regia)</a></h3>
+            <h3><a href="/botanical_sheets/roystonea_regia.html">Royal Palm (Roystonea regia)</a></h3>
             <p>Palmera de estípite liso y monumental de color gris hormigón. Símbolo del paisajismo tropical caribeño.</p>
-            <a class="more" href="/royal-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/roystonea_regia.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 44. Ruffled Fan Palm -->
+        <article class="card species-card" data-zones="10b 11a 11b 12a" data-sort="ruffled fan palm">
+          <a class="card-img" href="/botanical_sheets/licuala_grandis.html" aria-label="Ruffled fan palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/ruffled-fan-palm-licuala-grandis-card.jpg" alt="Ruffled fan palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 12a</span>
+            <h3><a href="/botanical_sheets/licuala_grandis.html">Ruffled Fan Palm (Licuala grandis)</a></h3>
+            <p>Palmera de sombra de hojas plisadas e íntegras casi circulares. Joya botánica para sotobosque o interior cálido.</p>
+            <a class="more" href="/botanical_sheets/licuala_grandis.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 45. Sago Palm -->
         <article class="card species-card" data-zones="8b 9a 9b 10a 10b 11a" data-sort="sago palm">
-          <a class="card-img" href="/sago-palm-cold-hardiness/" aria-label="Sago palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/cycas_revoluta.html" aria-label="Sago palm cold hardiness">
             <img src="/wp-content/uploads/2023/12/image-3-card.jpg" alt="Sago palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 8b a 11a</span>
-            <h3><a href="/sago-palm-cold-hardiness/">Sago Palm (Cycas revoluta)</a></h3>
+            <h3><a href="/botanical_sheets/cycas_revoluta.html">Sago Palm (Cycas revoluta)</a></h3>
             <p>Planta prehistórica similar a una palmera. Muy apreciada como ejemplar destacado por su arquitectura simétrica.</p>
-            <a class="more" href="/sago-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="more" href="/botanical_sheets/cycas_revoluta.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- 46. Saw Palmetto -->
+        <article class="card species-card" data-zones="8a 8b 9a 9b 10a 10b 11a" data-sort="saw palmetto">
+          <a class="card-img" href="/botanical_sheets/serenoa_repens.html" aria-label="Saw palmetto cold hardiness">
+            <img src="/wp-content/uploads/2023/12/image-9-card.jpg" alt="Saw palmetto cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8a a 11a</span>
+            <h3><a href="/botanical_sheets/serenoa_repens.html">Saw Palmetto (Serenoa repens)</a></h3>
+            <p>Palmera rastrera extremadamente tolerante a sequías, suelos pobres y salinidad coastal.</p>
+            <a class="more" href="/botanical_sheets/serenoa_repens.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 47. Senegal Date Palm -->
+        <article class="card species-card" data-zones="9b 10a 10b 11a 11b 12a" data-sort="senegal date palm">
+          <a class="card-img" href="/botanical_sheets/phoenix_reclinata.html" aria-label="Senegal date palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/senegal-date-palm-phoenix-reclinata-habit-card.jpg" alt="Senegal date palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9b a 12a</span>
+            <h3><a href="/botanical_sheets/phoenix_reclinata.html">Senegal Date Palm (Phoenix reclinata)</a></h3>
+            <p>Palmera datilera africana cespitosa que forma bosquetes de troncos inclinados muy esculturales.</p>
+            <a class="more" href="/botanical_sheets/phoenix_reclinata.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 48. Silver Date Palm -->
+        <article class="card species-card" data-zones="9a 9b 10a 10b 11a 11b" data-sort="silver date palm">
+          <a class="card-img" href="/botanical_sheets/phoenix_sylvestris.html" aria-label="Silver date palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/silver-date-palm-phoenix-sylvestris-card.jpg" alt="Silver date palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 9a a 11b</span>
+            <h3><a href="/botanical_sheets/phoenix_sylvestris.html">Silver Date Palm (Phoenix sylvestris)</a></h3>
+            <p>Palmera fénix silvestre de la India con tronco trenzado y denso plumaje de matiz azulado-plateado.</p>
+            <a class="more" href="/botanical_sheets/phoenix_sylvestris.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 49. Solitaire Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b 12a" data-sort="solitaire palm">
+          <a class="card-img" href="/botanical_sheets/ptychosperma_elegans.html" aria-label="Solitaire palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/solitaire-palm-ptychosperma-elegans-habit-card.jpg" alt="Solitaire palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 12a</span>
+            <h3><a href="/botanical_sheets/ptychosperma_elegans.html">Solitaire Palm (Ptychosperma elegans)</a></h3>
+            <p>Palmera monocaule de tronco delgado y elegante capitel verde, originaria de Queensland.</p>
+            <a class="more" href="/botanical_sheets/ptychosperma_elegans.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 50. Spindle Palm -->
+        <article class="card species-card" data-zones="10b 11a 11b 12a" data-sort="spindle palm">
+          <a class="card-img" href="/botanical_sheets/hyophorbe_verschaffeltii.html" aria-label="Spindle palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/spindle-palm-hyophorbe-verschaffeltii-full-card.jpg" alt="Spindle palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 12a</span>
+            <h3><a href="/botanical_sheets/hyophorbe_verschaffeltii.html">Spindle Palm (Hyophorbe verschaffeltii)</a></h3>
+            <p>Parienta cercana de la palmera botella, con tronco abultado en la parte media en forma de huso.</p>
+            <a class="more" href="/botanical_sheets/hyophorbe_verschaffeltii.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 51. Teddy Bear Palm -->
+        <article class="card species-card" data-zones="10a 10b 11a 11b 12a" data-sort="teddy bear palm">
+          <a class="card-img" href="/botanical_sheets/chrysalidocarpus_leptocheilos.html" aria-label="Teddy bear palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/teddy-bear-palm-chrysalidocarpus-leptocheilos-card.jpg" alt="Teddy bear palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10a a 12a</span>
+            <h3><a href="/botanical_sheets/chrysalidocarpus_leptocheilos.html">Teddy Bear Palm (Chrysalidocarpus leptocheilos)</a></h3>
+            <p>Palmera de Madagascar famosa por su capitel de textura aterciopelada de un característico tono rojizo.</p>
+            <a class="more" href="/botanical_sheets/chrysalidocarpus_leptocheilos.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 52. Texas Palmetto -->
+        <article class="card species-card" data-zones="8b 9a 9b 10a 10b 11a" data-sort="texas palmetto">
+          <a class="card-img" href="/botanical_sheets/sabal_mexicana.html" aria-label="Texas palmetto cold hardiness">
+            <img src="/wp-content/uploads/2026/09/texas-palmetto-sabal-mexicana-card.jpg" alt="Texas palmetto cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 8b a 11a</span>
+            <h3><a href="/botanical_sheets/sabal_mexicana.html">Texas Palmetto (Sabal mexicana)</a></h3>
+            <p>Robusto Sabal autóctono del sur de Texas y México, con frondas gigantescas y alta resistencia climática.</p>
+            <a class="more" href="/botanical_sheets/sabal_mexicana.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 53. Traveler's Palm -->
+        <article class="card species-card" data-zones="10b 11a 11b 12a" data-sort="traveler's palm">
+          <a class="card-img" href="/botanical_sheets/ravenala_madagascariensis.html" aria-label="Traveler's palm cold hardiness">
+            <img src="/wp-content/uploads/2026/09/travelers-palm-ravenala-madagascariensis-habit-card.jpg" alt="Traveler's palm cold hardiness" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="zone-badge">Zonas 10b a 12a</span>
+            <h3><a href="/botanical_sheets/ravenala_madagascariensis.html">Traveler's Palm (Ravenala madagascariensis)</a></h3>
+            <p>Planta de Madagascar con abanico plano perfecto de hojas similares al bananero. Icono del paisajismo tropical.</p>
+            <a class="more" href="/botanical_sheets/ravenala_madagascariensis.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- 54. Triangle Palm -->
         <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="triangle palm">
-          <a class="card-img" href="/triangle-palm-cold-hardiness/" aria-label="Triangle palm cold hardiness">
+          <a class="card-img" href="/botanical_sheets/dypsis_decaryi.html" aria-label="Triangle palm cold hardiness">
             <img src="/wp-content/uploads/2023/12/Untitled-design-2023-12-05T123345.547-819x1024-card.jpg" alt="Triangle palm cold hardiness" loading="lazy">
           </a>
           <div class="card-body">
             <span class="zone-badge">Zonas 10a a 11b</span>
-            <h3><a href="/triangle-palm-cold-hardiness/">Triangle Palm (Dypsis decaryi)</a></h3>
-            <p>Originaria de Madagascar, destaca por la disposición tristicha única de sus hojas forming un triángulo perfecto.</p>
-            <a class="more" href="/triangle-palm-cold-hardiness/">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
+            <h3><a href="/botanical_sheets/dypsis_decaryi.html">Triangle Palm (Dypsis decaryi)</a></h3>
+            <p>Originaria de Madagascar, destaca por la disposición tristicha única de sus hojas formando un triángulo perfecto.</p>
+            <a class="more" href="/botanical_sheets/dypsis_decaryi.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
+        </article>
+
+      </div>
+    </section>
         </article>
 
       </div>
@@ -1154,6 +1658,9 @@
 
   </main>
 
+  <!-- Elemento Tooltip Flotante -->
+  <div id="geo-tip" hidden></div>
+
   <!-- Botón Flotante WhatsApp -->
   <a class="wa-float" href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1170,7 +1677,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
-  <!-- LÓGICA JAVASCRIPT REFACTORIZADA CON SINCRONIZACIÓN BIDIRECCIONAL COMPLETADA -->
+  <!-- LÓGICA JAVASCRIPT -->
   <script>
   (function() {
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1203,8 +1710,6 @@
       document.querySelectorAll('a[href^="#"]').forEach(function(a) {
         a.addEventListener('click', function(e) {
           var targetId = a.getAttribute('href');
-          if (targetId.startsWith('#zone-')) return;
-          
           var target = document.querySelector(targetId);
           if (!target) return;
           e.preventDefault();
@@ -1361,12 +1866,11 @@
       });
     })();
 
-    // LÓGICA DE DATOS Y MAPA LEAFLET CON LA BOTONERA ROYSTONEA Y SINCRONIZACIÓN BIDIRECCIONAL
+    // LÓGICA DE DATOS Y MAPA LEAFLET CON PRESETS DE VISTA ARGENTINA
     document.addEventListener("DOMContentLoaded", function() {
       if(typeof L === 'undefined') return;
 
-      const caption = document.getElementById("map-caption");
-      const defaultCaption = "Zonas USDA compatibles destacadas: 10a–11a. Las regiones coloreadas en Argentina son aptas para cultivo en exterior.";
+      const tip = document.getElementById('geo-tip');
 
       const boundsArgentina = L.latLngBounds(
         L.latLng(-55.5, -75.0),
@@ -1376,7 +1880,7 @@
       const map = L.map('map', {
         center: [-38.416097, -63.616672],
         zoom: 4,
-        minZoom: 3,
+        minZoom: 4,
         maxZoom: 18,
         maxBounds: boundsArgentina,
         maxBoundsViscosity: 1.0,
@@ -1394,28 +1898,10 @@
       let estacionesCargadas = false;
       let marcadorUsuario = null;
 
-      // Zonas por defecto (10a, 10b, 11a)
-      const ZONAS_INICIALES = ['10a', '10b', '11a'];
+      // Zonas precargadas por defecto
+      const ZONAS_INICIALES = ['11a', '10b', '10a', '9b', '9a'];
       let zonasActivas = new Set(ZONAS_INICIALES);
-      const layerMap = {};
-
-      const coloresUSDA = { 
-        '1a': '#3c3c3c', '1b': '#FFFFFF', '2a': '#DDDFE3', '2b': '#B8BABE', 
-        '3a': '#EBD8FD', '3b': '#F779E0', '4a': '#B979D1', '4b': '#D6EDFD', 
-        '5a': '#77A7F0', '5b': '#77DCFD', '6a': '#779FB7', '6b': '#DCF1CB', 
-        '7a': '#A2F97D', '7b': '#8AB37D', '8a': '#F7F97D', '8b': '#F7CE7D', 
-        '9a': '#B19F7D', '9b': '#CB797D', '10a': '#F7B9BD', '10b': '#F7797D', '11a': '#D81B60' 
-      };
-
-      const temperaturasUSDA = { 
-        '1a': '-51.1°C a -48.3°C', '1b': '-48.3°C a -45.6°C', '2a': '-45.6°C a -42.8°C', 
-        '2b': '-42.8°C a -40.0°C', '3a': '-40.0°C a -37.2°C', '3b': '-37.2°C a -34.4°C', 
-        '4a': '-34.4°C a -31.7°C', '4b': '-31.7°C a -28.9°C', '5a': '-28.9°C a -26.1°C', 
-        '5b': '-26.1°C a -23.3°C', '6a': '-23.3°C a -20.6°C', '6b': '-20.6°C a -17.8°C', 
-        '7a': '-17.8°C a -15.0°C', '7b': '-15.0°C a -12.2°C', '8a': '-12.2°C a -9.4°C', 
-        '8b': '-9.4°C a -6.7°C', '9a': '-6.7°C a -3.9°C', '9b': '-3.9°C a -1.1°C', 
-        '10a': '-1.1°C a 1.7°C', '10b': '1.7°C a 4.4°C', '11a': '4.4°C a 7.2°C' 
-      };
+      let capasPorZona = {};
 
       function parseSMNCoord(val) {
         if (!val) return null;
@@ -1428,7 +1914,7 @@
         return null;
       }
 
-      // PRESETS DE MAPA
+      // BOTONES DE PRESETS DE VISTA (ARGENTINA, BUENOS AIRES, CABA)
       const presetBtns = document.querySelectorAll('.preset-btn');
       presetBtns.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -1446,7 +1932,7 @@
         });
       });
 
-      // CONTROLES SOBRE EL MAPA
+      // CONTROLES FLOTANTES SOBRE EL MAPA
       const ResetControl = L.Control.extend({
         options: { position: 'topright' },
         onAdd: function(m) {
@@ -1463,9 +1949,6 @@
             ['input-plantas', 'input-palmeras', 'input-zonas', 'input-ciudades', 'input-arbolado-especie'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
             const lista = document.getElementById('lista-sugerencias'); if(lista) lista.style.display = 'none';
             filtrarTarjetasEspecies();
-            if (window.location.hash.startsWith('#zone-')) {
-              history.replaceState(null, '', window.location.pathname + window.location.search);
-            }
           };
           return c;
         }
@@ -1535,6 +2018,9 @@
       map.addControl(new GeoControl());
       map.addControl(new SMNControl());
 
+      const coloresUSDA = { '1a': '#3c3c3c', '1b': '#FFFFFF', '2a': '#DDDFE3', '2b': '#B8BABE', '3a': '#EBD8FD', '3b': '#F779E0', '4a': '#B979D1', '4b': '#D6EDFD', '5a': '#77A7F0', '5b': '#77DCFD', '6a': '#779FB7', '6b': '#DCF1CB', '7a': '#A2F97D', '7b': '#8AB37D', '8a': '#F7F97D', '8b': '#F7CE7D', '9a': '#B19F7D', '9b': '#CB797D', '10a': '#F7B9BD', '10b': '#F7797D', '11a': '#D81B60' };
+      const temperaturasUSDA = { '1a': '-51.1°C a -48.3°C', '1b': '-48.3°C a -45.6°C', '2a': '-45.6°C a -42.8°C', '2b': '-42.8°C a -40.0°C', '3a': '-40.0°C a -37.2°C', '3b': '-37.2°C a -34.4°C', '4a': '-34.4°C a -31.7°C', '4b': '-31.7°C a -28.9°C', '5a': '-28.9°C a -26.1°C', '5b': '-26.1°C a -23.3°C', '6a': '-23.3°C a -20.6°C', '6b': '-20.6°C a -17.8°C', '7a': '-17.8°C a -15.0°C', '7b': '-15.0°C a -12.2°C', '8a': '-12.2°C a -9.4°C', '8b': '-9.4°C a -6.7°C', '9a': '-6.7°C a -3.9°C', '9b': '-3.9°C a -1.1°C', '10a': '-1.1°C a 1.7°C', '10b': '1.7°C a 4.4°C', '11a': '4.4°C a 7.2°C' };
+
       const dbPlantas = {}, dbPalmeras = {}, dbZonas = {}, dbCiudades = {};
       const bases = [
         { archivo: 'diccionario-plantas.csv', datalistId: 'list-plantas', dbTarget: dbPlantas, statusId: 'status-plantas' },
@@ -1579,95 +2065,80 @@
         });
       });
 
-      function cargarCapaGeoJSONZona(zKey) {
-        const isCompatible = zonasActivas.has(zKey);
-        const fillColor = isCompatible ? (coloresUSDA[zKey] || '#F7B9BD') : '#c8c5be';
-        const borderColor = isCompatible ? '#5b4638' : '#777777';
-        const fillOpacityVal = isCompatible ? 0.75 : 0.55;
-        const borderWidth = isCompatible ? 1.5 : 0.8;
+      function cargarCapaGeoJSONZona(z) {
+        const colorIsotermico = coloresUSDA[z] || '#5b4638';
 
-        fetch(`https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${zKey}.geojson`)
+        fetch(`https://gm-pm.s3.amazonaws.com/gj/hz/AR_HZ_${z}.geojson`)
           .then(r => { if(!r.ok) throw new Error("GeoJSON no disponible"); return r.json(); })
-          .then(geoData => {
-            const statusLabel = isCompatible ? 'Apta / Seleccionada' : 'No seleccionada / Demasiado frío';
-            const tooltipContent = `<b>Zona ${zKey.toUpperCase()}</b> (${temperaturasUSDA[zKey] || ''})<br><small style="color:${isCompatible ? '#A2F97D' : '#ffb3b3'};">${statusLabel}</small>`;
+          .then(d => {
+            if (!zonasActivas.has(z)) return;
 
-            const geoLayer = L.geoJson(geoData, {
+            const geoLayer = L.geoJson(d, {
               style: {
-                fillColor: fillColor,
-                weight: borderWidth,
-                color: borderColor,
-                fillOpacity: fillOpacityVal
+                fillColor: colorIsotermico,
+                weight: 2,
+                color: '#5b4638',
+                fillOpacity: 0.70
               },
               onEachFeature: function(feature, layer) {
-                // Sincronización MAPA -> BOTONERA (hover en el vector resalta el botón correspondiente)
                 layer.on({
                   mouseover: function(e) {
-                    geoLayer.setStyle({ weight: 3, color: '#c4a15a', fillOpacity: 0.9 });
-                    geoLayer.bringToFront();
-                    
-                    const btn = document.querySelector(`.zone-cell[data-zone="${zKey}"]`);
-                    if (btn) btn.classList.add("is-hover");
-                    
-                    const tempRango = temperaturasUSDA[zKey] || 'Rango no disponible';
-                    if (caption) {
-                      caption.textContent = `Zona USDA ${zKey.toUpperCase()} (${tempRango}): ${isCompatible ? 'Rango apto para cultivo en exterior.' : 'Demasiado frío / No seleccionada.'}`;
+                    e.target.setStyle({ fillOpacity: 0.9, weight: 3, color: '#1c241c' });
+                    if (tip) {
+                      tip.textContent = `Zona USDA ${z.toUpperCase()} (${temperaturasUSDA[z] || ''})`;
+                      tip.hidden = false;
+                    }
+                  },
+                  mousemove: function(e) {
+                    if (tip) {
+                      tip.style.left = (e.originalEvent.clientX + 12) + 'px';
+                      tip.style.top = (e.originalEvent.clientY + 12) + 'px';
                     }
                   },
                   mouseout: function(e) {
-                    const isCompNow = zonasActivas.has(zKey);
-                    geoLayer.setStyle({ 
-                      weight: isCompNow ? 1.5 : 0.8, 
-                      color: isCompNow ? '#5b4638' : '#777777', 
-                      fillOpacity: isCompNow ? 0.75 : 0.55 
-                    });
-                    
-                    const btn = document.querySelector(`.zone-cell[data-zone="${zKey}"]`);
-                    if (btn) btn.classList.remove("is-hover");
-                    
-                    if (caption) caption.textContent = defaultCaption;
+                    geoLayer.resetStyle(e.target);
+                    if (tip) tip.hidden = true;
                   }
                 });
               }
-            })
-            .bindTooltip(tooltipContent, {
-              sticky: true,
-              direction: 'top',
-              className: 'usda-map-tooltip'
-            })
-            .bindPopup(`<b>Zona USDA: ${zKey.toUpperCase()}</b><br>Estado: <b>${statusLabel}</b><br>Mínimas promedio: ${temperaturasUSDA[zKey] || 'N/A'}`);
+            }).bindPopup(`<b>Zona USDA: ${z.toUpperCase()}</b><br>Temp. Mínima Promedio: ${temperaturasUSDA[z] || 'N/A'}`);
             
-            layerMap[zKey] = geoLayer;
+            capasPorZona[z] = geoLayer;
             capasActivas.addLayer(geoLayer);
           })
-          .catch(e => console.log(`GeoJSON omitido para zona ${zKey}`));
+          .catch(e => console.log("GeoJSON no encontrado para la zona " + z));
       }
 
-      function actualizarZonasActivas(nuevasZonas, syncInput = true, updateHash = true) {
+      function actualizarZonasActivas(nuevasZonas, syncInput = true) {
         const targetZonas = new Set(nuevasZonas.map(z => z.toLowerCase()));
         zonasActivas = targetZonas;
 
-        Object.keys(coloresUSDA).forEach(zKey => {
-          if (!layerMap[zKey]) {
-            cargarCapaGeoJSONZona(zKey);
-          } else {
-            const isComp = zonasActivas.has(zKey);
-            layerMap[zKey].setStyle({
-              fillColor: isComp ? (coloresUSDA[zKey] || '#F7B9BD') : '#c8c5be',
-              weight: isComp ? 1.5 : 0.8,
-              color: isComp ? '#5b4638' : '#777777',
-              fillOpacity: isComp ? 0.75 : 0.55
-            });
+        Object.keys(capasPorZona).forEach(z => {
+          if (!zonasActivas.has(z)) {
+            if (capasPorZona[z] && capasActivas.hasLayer(capasPorZona[z])) {
+              capasActivas.removeLayer(capasPorZona[z]);
+            }
+            delete capasPorZona[z];
           }
         });
 
-        document.querySelectorAll('.zone-cell').forEach(btn => {
-          const btnZone = btn.dataset.zone ? btn.dataset.zone.toLowerCase() : '';
-          const isActive = zonasActivas.has(btnZone);
-          btn.classList.toggle('is-range', isActive);
-          btn.classList.toggle('active', isActive);
+        zonasActivas.forEach(z => {
+          if (!capasPorZona[z]) {
+            cargarCapaGeoJSONZona(z);
+          }
         });
 
+        const zoneGrid = document.querySelector('.zone-grid');
+        if (zoneGrid) {
+          zoneGrid.querySelectorAll('button').forEach(btn => {
+            const btnZone = btn.dataset.zone ? btn.dataset.zone.toLowerCase() : '';
+            const isActive = zonasActivas.has(btnZone);
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+        }
+
+        actualizarFeedbackTexto();
         filtrarTarjetasEspecies();
 
         if (syncInput) {
@@ -1677,27 +2148,50 @@
             inputZonas.value = arr.length > 0 ? `Zona ${arr.join(', ')}` : '';
           }
         }
-
-        if (updateHash) {
-          if (zonasActivas.size === 1) {
-            const singleZone = Array.from(zonasActivas)[0];
-            history.replaceState(null, '', '#zone-' + singleZone);
-          } else if (zonasActivas.size === 0 && window.location.hash.startsWith('#zone-')) {
-            history.replaceState(null, '', window.location.pathname + window.location.search);
-          }
-        }
       }
 
       function toggleZonaUSDA(z) {
         z = z.toLowerCase();
         const listaActual = Array.from(zonasActivas);
         if (zonasActivas.has(z)) {
-          actualizarZonasActivas(listaActual.filter(item => item !== z), true, true);
+          actualizarZonasActivas(listaActual.filter(item => item !== z), true);
         } else {
-          actualizarZonasActivas([...listaActual, z], true, true);
+          actualizarZonasActivas([...listaActual, z], true);
         }
       }
 
+      function actualizarFeedbackTexto() {
+        const zoneFeedback = document.getElementById('zone-feedback');
+        if (!zoneFeedback) return;
+
+        if (zonasActivas.size === 0) {
+          zoneFeedback.innerHTML = `Sin zonas seleccionadas — <em>Hacé clic en una o más zonas de la botonera para visualizarlas en el mapa.</em>`;
+          return;
+        }
+
+        const ordenZonas = ['1a','1b','2a','2b','3a','3b','4a','4b','5a','5b','6a','6b','7a','7b','8a','8b','9a','9b','10a','10b','11a'];
+        const activasOrdenadas = Array.from(zonasActivas)
+          .map(z => z.toLowerCase())
+          .sort((a, b) => ordenZonas.indexOf(a) - ordenZonas.indexOf(b));
+
+        const masFria = activasOrdenadas[0];
+        const masCalida = activasOrdenadas[activasOrdenadas.length - 1];
+        const tempMasFria = temperaturasUSDA[masFria] || 'N/A';
+
+        let textoRango = '';
+        if (activasOrdenadas.length > 2) {
+          const limiteInferior = activasOrdenadas[1];
+          textoRango = `"Zona ${masCalida}" a "Zona ${limiteInferior}"`;
+        } else if (activasOrdenadas.length === 2) {
+          textoRango = `"Zona ${masCalida}" a "Zona ${masFria}"`;
+        } else {
+          textoRango = `"Zona ${masFria}"`;
+        }
+
+        zoneFeedback.innerHTML = `Zonas activas: ${textoRango} &nbsp;-&nbsp; Zona más fria "Zona ${masFria}" (Temp. Mínima Promedio: ${tempMasFria})`;
+      }
+
+      // FILTRADO DINÁMICO DE TARJETAS DE ESPECIES SEGÚN LAS ZONAS SELECCIONADAS
       function filtrarTarjetasEspecies() {
         const speciesCards = document.querySelectorAll('.species-card');
         if (speciesCards.length === 0) return;
@@ -1715,63 +2209,43 @@
         });
       }
 
-      function leerHashZonaURL() {
-        const hash = window.location.hash;
-        if (hash && hash.startsWith('#zone-')) {
-          const z = hash.replace('#zone-', '').toLowerCase();
-          if (temperaturasUSDA[z] || coloresUSDA[z]) {
-            actualizarZonasActivas([z], true, false);
-            return true;
-          }
-        }
-        return false;
-      }
-
-      window.addEventListener('hashchange', function() {
-        leerHashZonaURL();
-      });
-
-      // SINCRONIZACIÓN BIDIRECCIONAL: BOTONERA -> MAPA
-      document.querySelectorAll(".zone-cell").forEach(cell => {
-        const zKey = cell.getAttribute("data-zone");
-
-        cell.addEventListener("mouseenter", () => {
-          const isCompatible = zonasActivas.has(zKey);
-          const tempRango = temperaturasUSDA[zKey] || 'Rango no disponible';
-          if (caption) {
-            caption.textContent = `Zona USDA ${zKey.toUpperCase()} (${tempRango}): ${isCompatible ? 'Rango apto para cultivo en exterior.' : 'Demasiado frío / No seleccionada.'}`;
-          }
-          cell.classList.add("is-hover");
-
-          if (layerMap[zKey]) {
-            layerMap[zKey].setStyle({ weight: 3, color: '#c4a15a', fillOpacity: 0.9 });
-            layerMap[zKey].bringToFront();
-            layerMap[zKey].openTooltip();
-          }
-        });
-
-        cell.addEventListener("mouseleave", () => {
-          if (caption) caption.textContent = defaultCaption;
-          cell.classList.remove("is-hover");
-
-          if (layerMap[zKey]) {
-            const isComp = zonasActivas.has(zKey);
-            layerMap[zKey].setStyle({ 
-              weight: isComp ? 1.5 : 0.8, 
-              color: isComp ? '#5b4638' : '#777777', 
-              fillOpacity: isComp ? 0.75 : 0.55 
-            });
-            layerMap[zKey].closeTooltip();
-          }
-        });
-
-        cell.addEventListener("click", () => {
-          ['input-plantas', 'input-palmeras', 'input-ciudades', 'input-arbolado-especie'].forEach(id => {
-            const el = document.getElementById(id); if (el) el.value = '';
+      const zoneGrid = document.querySelector('.zone-grid');
+      if (zoneGrid) {
+        zoneGrid.querySelectorAll('button').forEach(btn => {
+          btn.addEventListener('mouseenter', function() {
+            const z = btn.dataset.zone;
+            if (z && tip) {
+              const tempRango = temperaturasUSDA[z.toLowerCase()] || 'Rango no especificado';
+              tip.textContent = `Zona USDA ${z.toUpperCase()} (${tempRango})`;
+              tip.hidden = false;
+            }
           });
-          toggleZonaUSDA(zKey);
+
+          btn.addEventListener('mousemove', function(e) {
+            if (tip) {
+              tip.style.left = (e.clientX + 12) + 'px';
+              tip.style.top = (e.clientY + 12) + 'px';
+            }
+          });
+
+          btn.addEventListener('mouseleave', function() {
+            if (tip) tip.hidden = true;
+          });
         });
-      });
+
+        zoneGrid.addEventListener('click', function(e) {
+          const btn = e.target.closest('button');
+          if (!btn) return;
+          const selectedZone = btn.dataset.zone;
+          if (selectedZone) {
+            ['input-plantas', 'input-palmeras', 'input-ciudades', 'input-arbolado-especie'].forEach(id => {
+              const el = document.getElementById(id);
+              if (el) el.value = '';
+            });
+            toggleZonaUSDA(selectedZone);
+          }
+        });
+      }
 
       function configBuscador(id, dbTarget) {
         const el = document.getElementById(id);
@@ -1782,7 +2256,7 @@
           
           if (zonas) {
             ['input-plantas', 'input-palmeras', 'input-zonas', 'input-ciudades'].forEach(i => { if(i !== id) { const input = document.getElementById(i); if(input) input.value = ''; } });
-            actualizarZonasActivas(zonas, false, true);
+            actualizarZonasActivas(zonas, false);
             map.setView([-38.416097, -63.616672], 4);
           }
         });
@@ -1874,10 +2348,8 @@
         });
       }
 
-      // Inicialización de zonas
-      if (!leerHashZonaURL()) {
-        actualizarZonasActivas(ZONAS_INICIALES, true, false);
-      }
+      // Inicialización de zonas iniciales
+      actualizarZonasActivas(ZONAS_INICIALES, true);
     });
   })();
   </script>
