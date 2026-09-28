@@ -149,8 +149,21 @@
       .logo-circle:hover { transform: scale(1.05); }
       .logo-image { width: 100%; height: 100%; object-fit: cover; }
 
-      /* HERO SECTION */
-      .hero { position: relative; min-height: 85svh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 7rem var(--pad) 4rem; background: var(--verde-atardecer); color: var(--lino); overflow: hidden; }
+      /* ════ HERO SECTION ════ */
+      /* CAMBIO 1: Extensión del min-height a 100svh para abarcar toda la pantalla en verde degradado (igual a index.html) */
+      .hero { 
+        position: relative; 
+        min-height: 100svh; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        text-align: center; 
+        padding: 7rem var(--pad) 4rem; 
+        background: var(--verde-atardecer); 
+        color: var(--lino); 
+        overflow: hidden; 
+      }
       .hero__glow { position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 40%, rgba(201,168,154,0.22), transparent 62%); pointer-events: none; }
       .hero h1 { font-size: clamp(2.3rem, 5.2vw, 4.5rem); max-width: min(94vw, 24ch); margin-inline: auto; position: relative; z-index: 2; font-weight: 600; }
       .hero h1 .accent { color: #E6CDBF; }
@@ -168,45 +181,165 @@
       /* SECCIONES GENERALES */
       .section { padding: clamp(4.5rem, 10vh, 8rem) var(--pad); position: relative; }
       .section--crema { background: transparent; }
-      .section-head { margin-bottom: clamp(2rem, 5vh, 3.5rem); max-width: 54rem; margin-inline: auto; text-align: center; }
+      .section-head { margin-bottom: clamp(2rem, 5vh, 3.5rem); max-width: 58rem; margin-inline: auto; text-align: center; }
       .section-head h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); color: var(--verde-atardecer); }
-      .section-head p { margin: 1.2rem auto 0; max-width: 65ch; color: rgba(74,64,64,0.84); font-size: clamp(0.95rem, 1.2vw, 1.1rem); }
+      .section-head p { margin: 1.2rem auto 0; max-width: 68ch; color: rgba(74,64,64,0.84); font-size: clamp(0.95rem, 1.2vw, 1.1rem); }
 
-      /* PANEL DE CONTROL UNIFICADO DE BÚSQUEDA Y MAPA */
+      /* PANEL DE CONTROL UNIFICADO EN FORMA DE ACORDEÓN INTERACTIVO */
       .map-wrapper { max-width: 1000px; margin: 0 auto; }
       
-      .search-hub-panel {
-        background: #ffffff;
-        border: 1px solid var(--crema);
-        border-radius: 16px;
-        padding: 1.8rem;
-        margin-bottom: 1.8rem;
-        box-shadow: 0 12px 32px rgba(74,64,64,0.06);
+      .accordion-group-climate {
         display: flex;
         flex-direction: column;
         gap: 1.2rem;
-        position: relative;
-        z-index: 20;
+        margin-bottom: 2rem;
       }
 
-      .search-hub-panel__title {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 1.35rem;
-        font-weight: 700;
-        color: var(--verde-atardecer);
+      .climate-accordion-item {
+        background: #ffffff;
+        border: 1px solid var(--crema);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(74,64,64,0.04);
+        transition: border-color var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft);
+      }
+
+      .climate-accordion-item.is-open {
+        border-color: var(--rosa);
+        box-shadow: 0 12px 32px rgba(74,64,64,0.09);
+      }
+
+      .climate-accordion-header {
+        width: 100%;
+        background: #ffffff;
+        border: none;
+        outline: none;
+        padding: 1.4rem 1.8rem;
         display: flex;
         align-items: center;
-        gap: 0.6rem;
-        border-bottom: 1px dashed var(--crema);
-        padding-bottom: 0.8rem;
+        justify-content: space-between;
+        cursor: pointer;
+        text-align: left;
+        user-select: none;
+        transition: background-color 0.3s var(--e-soft);
       }
-      .search-hub-panel__title i { color: var(--rosa); }
 
-      .search-hub-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      .climate-accordion-header:hover {
+        background-color: var(--lino);
+      }
+
+      .climate-accordion-header-left {
+        display: flex;
+        align-items: center;
         gap: 1.2rem;
-        align-items: start;
+      }
+
+      .climate-accordion-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--lino);
+        border: 1px solid var(--crema);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: var(--verde-atardecer);
+        flex-shrink: 0;
+        transition: background-color 0.3s var(--e-soft), color 0.3s var(--e-soft), border-color 0.3s var(--e-soft);
+      }
+
+      .climate-accordion-item.is-open .climate-accordion-icon,
+      .climate-accordion-header:hover .climate-accordion-icon {
+        background: var(--rosa);
+        color: var(--tierra-deep);
+        border-color: var(--rosa);
+      }
+
+      .climate-accordion-title-group h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+        font-weight: 700;
+        color: var(--verde-atardecer);
+      }
+
+      .climate-accordion-chevron {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--lino);
+        border: 1px solid var(--crema);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--verde-atardecer);
+        font-size: 0.9rem;
+        transition: transform var(--d-comp) var(--e-out), background-color 0.3s, color 0.3s;
+      }
+
+      .climate-accordion-item.is-open .climate-accordion-chevron {
+        transform: rotate(180deg);
+        background: var(--rosa);
+        color: var(--tierra-deep);
+        border-color: var(--rosa);
+      }
+
+      /* Transición fluida por CSS Grid */
+      .climate-accordion-wrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows var(--d-comp) var(--e-out);
+      }
+
+      .climate-accordion-item.is-open .climate-accordion-wrapper {
+        grid-template-rows: 1fr;
+      }
+
+      .climate-accordion-content {
+        overflow: hidden;
+      }
+
+      .climate-accordion-body {
+        padding: 1rem 1.8rem 1.8rem 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        border-top: 1px dashed var(--crema);
+        background: #faf8f5;
+      }
+
+      .climate-info-text {
+        font-size: 0.92rem;
+        color: var(--grafito);
+        line-height: 1.6;
+      }
+
+      .climate-info-text a {
+        color: var(--tierra-deep);
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: color 0.2s;
+      }
+
+      .climate-info-text a:hover {
+        color: var(--rosa);
+      }
+
+      .climate-input-block {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background: #ffffff;
+        padding: 1.2rem;
+        border-radius: 12px;
+        border: 1px solid var(--crema);
+      }
+
+      .buscador-grid-dual {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
       }
 
       .buscador-item {
@@ -245,7 +378,7 @@
 
       #lista-sugerencias {
         position: absolute;
-        top: calc(100% - 1.2rem);
+        top: calc(100% + 4px);
         left: 0;
         right: 0;
         z-index: 1000;
@@ -275,6 +408,34 @@
       }
       .input-status.success { color: var(--salvia); }
       .input-status.error { color: var(--burdeos); }
+
+      .action-subblock {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        background: #ffffff;
+        padding: 1.2rem;
+        border-radius: 12px;
+        border: 1px solid var(--crema);
+      }
+
+      .action-subitem {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.8rem 1rem;
+        background: var(--lino);
+        border: 1px solid var(--crema);
+        border-radius: 10px;
+        flex-wrap: wrap;
+      }
+
+      .action-subitem p {
+        font-size: 0.88rem;
+        color: var(--grafito);
+        margin: 0;
+      }
 
       /* BARRA DE PRESSETS DE MAPA DE ARGENTINA */
       .map-presets-bar {
@@ -475,7 +636,7 @@
         transition: all 0.2s ease;
       }
 
-      /* CARDS Y DIRECTORIO DE ESPECIES (INTEGRACIÓN PALM TREE PLANET) */
+      /* CARDS Y DIRECTORIO DE ESPECIES */
       .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(1.2rem, 2.5vw, 2.2rem); max-width: 1200px; margin-inline: auto; }
       .card { background: #ffffff; border: 1px solid var(--crema); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft), border-color 0.3s; }
       .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(74,64,64,0.09); border-color: var(--rosa); }
@@ -501,6 +662,104 @@
         letter-spacing: 0.04em;
         text-transform: uppercase;
         align-self: flex-start;
+      }
+
+      /* BARRA DE HERRAMIENTAS Y FEEDBACK DEL CATÁLOGO */
+      .species-toolbar-panel {
+        max-width: 1000px;
+        margin: 0 auto 1.8rem auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .species-count-banner {
+        background: #ffffff;
+        border: 1px solid var(--crema);
+        border-left: 4px solid var(--salvia);
+        padding: 1rem 1.4rem;
+        border-radius: 8px;
+        font-size: 0.92rem;
+        color: var(--grafito);
+        box-shadow: 0 4px 14px rgba(74,64,64,0.04);
+        line-height: 1.5;
+      }
+
+      .species-jump-box {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        background: #ffffff;
+        padding: 0.82rem 1.2rem;
+        border-radius: 10px;
+        border: 1px solid var(--crema);
+        box-shadow: 0 4px 14px rgba(74,64,64,0.04);
+        flex-wrap: wrap;
+      }
+
+      .species-jump-box label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--tierra-deep);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .species-select {
+        flex: 1;
+        min-width: 260px;
+        padding: 0.65rem 1rem;
+        font-family: 'Lato', sans-serif;
+        font-size: 0.88rem;
+        border: 1px solid var(--crema);
+        border-radius: 6px;
+        background: var(--lino);
+        color: var(--grafito);
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s var(--e-soft);
+      }
+
+      .species-select:focus {
+        background: #ffffff;
+        border-color: var(--rosa);
+        box-shadow: 0 0 0 3px rgba(201,168,154,0.18);
+      }
+
+      /* ESTADO VACÍO */
+      .species-empty-card {
+        max-width: 620px;
+        margin: 2rem auto;
+        background: #ffffff;
+        border: 1px solid var(--crema);
+        border-radius: 16px;
+        padding: 2.5rem 2rem;
+        text-align: center;
+        box-shadow: 0 12px 32px rgba(74,64,64,0.06);
+      }
+
+      .species-empty-card .empty-icon {
+        font-size: 2.6rem;
+        color: var(--rosa);
+        margin-bottom: 0.8rem;
+      }
+
+      .species-empty-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.8rem;
+        color: var(--verde-atardecer);
+        margin-bottom: 0.6rem;
+        font-weight: 700;
+      }
+
+      .species-empty-card p {
+        color: rgba(74,64,64,0.85);
+        font-size: 0.98rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
       }
 
       /* FAQ ACORDEÓN */
@@ -569,7 +828,7 @@
   <nav class="nav" id="nav" aria-label="Navegación Principal">
     <a class="nav__brand" href="https://www.granpalmera-vivero-paisajismo.com/index.html">Gran Palmera</a>
     <div class="nav__links" id="navLinks">
-      <a href="#sec-mapa">El Mapa & Buscadores</a>
+      <a href="#sec-mapa">Centro de Control Climático</a>
       <a href="#sec-especies">Especies & Palmeras</a>
       <a href="#sec-beneficios">Beneficios</a>
       <a href="#sec-base-conocimiento">Guía Técnica</a>
@@ -615,58 +874,198 @@
       </div>
     </header>
 
+    <!-- CENTRO DE CONTROL CLIMÁTICO REFACTORIZADO EN ACORDEÓN INTERACTIVO -->
     <section class="section section--crema" id="sec-mapa">
       <div class="section-head reveal">
-        <span class="eyebrow">Centro de Control Climático</span>
-        <h2>Isotermas, Consultas & Arbolado Urbano</h2>
+        <span class="eyebrow">Centro de Control Climático | Gran Palmera Vivero & Paisajismo</span>
+        <h2>Panel de Búsqueda & Filtros Integrados</h2>
         <p>
-          Utiliza el panel interactivo para explorar las Zonas USDA y zonas climáticas de Argentina. Selecciona una vista rápida (Argentina, Buenos Aires o CABA), escribe el nombre de tu ciudad para conocer su zona térmica, o busca la palmera que deseas para verificar en el mapa en qué regiones puede resistir.
+          Herramienta diseñada por <strong>Gran Palmera Vivero & Paisajismo</strong> para facilitarte la consulta agroclimática. Desplegá los módulos a continuación para buscar por zona, especie, ciudad o arbolado urbano:
         </p>
       </div>
 
       <div class="map-wrapper reveal">
         
-        <div class="search-hub-panel">
-          <div class="search-hub-panel__title">
-            <i class="fa-solid fa-sliders"></i> Panel de Búsqueda & Filtros Integrados
-          </div>
+        <!-- ESTRUCTURA EN ACORDEÓN INTERACTIVO -->
+        <div class="accordion-group-climate">
 
-          <div class="search-hub-grid">
-            <div class="buscador-item">
-              <label for="input-zonas"><i class="fa-solid fa-layer-group"></i> Zonas USDA</label>
-              <input type="text" id="input-zonas" list="list-zonas" placeholder="Ej. Zona 8b...">
-              <datalist id="list-zonas"></datalist>
-              <span id="status-zonas" class="input-status">Cargando base...</span>
-            </div>
+          <!-- BOTÓN 1: ZONAS USDA -->
+          <!-- CAMBIO 2: Inicia desplegado por defecto con la clase 'is-open' y aria-expanded='true' -->
+          <div class="climate-accordion-item is-open">
+            <button class="climate-accordion-header" type="button" aria-expanded="true" aria-controls="acc-climate-usda">
+              <div class="climate-accordion-header-left">
+                <div class="climate-accordion-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="climate-accordion-title-group">
+                  <h3>Conocé las Zonas USDA de Argentina</h3>
+                </div>
+              </div>
+              <div class="climate-accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
 
-            <div class="buscador-item">
-              <label for="input-ciudades"><i class="fa-solid fa-city"></i> Ciudades (ARG)</label>
-              <input type="text" id="input-ciudades" list="list-ciudades" placeholder="Buscar por ciudad...">
-              <datalist id="list-ciudades"></datalist>
-              <span id="status-ciudades" class="input-status">Cargando base...</span>
-            </div>
-
-            <div class="buscador-item">
-              <label for="input-plantas"><i class="fa-solid fa-leaf"></i> Plantas</label>
-              <input type="text" id="input-plantas" list="list-plantas" placeholder="Buscar por planta...">
-              <datalist id="list-plantas"></datalist>
-              <span id="status-plantas" class="input-status">Cargando base...</span>
-            </div>
-
-            <div class="buscador-item">
-              <label for="input-palmeras"><i class="fa-solid fa-tree"></i> Palmeras</label>
-              <input type="text" id="input-palmeras" list="list-palmeras" placeholder="Buscar por palmera...">
-              <datalist id="list-palmeras"></datalist>
-              <span id="status-palmeras" class="input-status">Cargando base...</span>
-            </div>
-
-            <div class="buscador-item">
-              <label for="input-arbolado-especie"><i class="fa-solid fa-magnifying-glass-location"></i> Arbolado Urbano</label>
-              <input type="text" id="input-arbolado-especie" placeholder="Especie (ej. Ceibo...)" autocomplete="off">
-              <ul id="lista-sugerencias"></ul>
-              <span id="status-arbolado" class="input-status">Conectando API...</span>
+            <div class="climate-accordion-wrapper" id="acc-climate-usda">
+              <div class="climate-accordion-content">
+                <div class="climate-accordion-body">
+                  <p class="climate-info-text">
+                    Identificá y comprendé qué es un Mapa de zonas de resistencia USDA para clasificar con precisión tu región geográfica. <a href="#sec-usda">Más información</a>
+                  </p>
+                  
+                  <div class="climate-input-block">
+                    <div class="buscador-item">
+                      <label for="input-zonas"><i class="fa-solid fa-layer-group"></i> Buscador Integrado: Zonas USDA</label>
+                      <input type="text" id="input-zonas" list="list-zonas" placeholder="Ej. Zona 8b, Zona 9a...">
+                      <datalist id="list-zonas"></datalist>
+                      <span id="status-zonas" class="input-status">Conectando a la base de datos...</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- BOTÓN 2: RUSTICIDAD TÉRMICA -->
+          <div class="climate-accordion-item">
+            <button class="climate-accordion-header" type="button" aria-expanded="false" aria-controls="acc-climate-rusticidad">
+              <div class="climate-accordion-header-left">
+                <div class="climate-accordion-icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
+                <div class="climate-accordion-title-group">
+                  <h3>Conocé la Rusticidad Térmica de tu Planta</h3>
+                </div>
+              </div>
+              <div class="climate-accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+
+            <div class="climate-accordion-wrapper" id="acc-climate-rusticidad">
+              <div class="climate-accordion-content">
+                <div class="climate-accordion-body">
+                  <p class="climate-info-text">
+                    Evaluá la teórica <a href="#sec-resistencia">resistencia al frío de las plantas</a> y palmeras que estás buscando frente a los picos de heladas invernales.
+                  </p>
+                  
+                  <div class="climate-input-block">
+                    <div class="buscador-grid-dual">
+                      <div class="buscador-item">
+                        <label for="input-plantas"><i class="fa-solid fa-leaf"></i> Buscador Integrado: Plantas</label>
+                        <input type="text" id="input-plantas" list="list-plantas" placeholder="Buscar por planta...">
+                        <datalist id="list-plantas"></datalist>
+                        <span id="status-plantas" class="input-status">Conectando a la base de datos...</span>
+                      </div>
+
+                      <div class="buscador-item">
+                        <label for="input-palmeras"><i class="fa-solid fa-tree"></i> Buscador Integrado: Palmeras</label>
+                        <input type="text" id="input-palmeras" list="list-palmeras" placeholder="Buscar por palmera...">
+                        <datalist id="list-palmeras"></datalist>
+                        <span id="status-palmeras" class="input-status">Conectando a la base de datos...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTÓN 3: ISOTERMAS Y MICROCLIMAS -->
+          <div class="climate-accordion-item">
+            <button class="climate-accordion-header" type="button" aria-expanded="false" aria-controls="acc-climate-isotermas">
+              <div class="climate-accordion-header-left">
+                <div class="climate-accordion-icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+                <div class="climate-accordion-title-group">
+                  <h3>Conocé las Isotermas y Microclimas de tu zona</h3>
+                </div>
+              </div>
+              <div class="climate-accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+
+            <div class="climate-accordion-wrapper" id="acc-climate-isotermas">
+              <div class="climate-accordion-content">
+                <div class="climate-accordion-body">
+                  <p class="climate-info-text">
+                    Consultá la teórica Isoterma USDA de tu zona, calculada mediante triangulación de datos de estaciones meteorológicas del SMN. Tené en cuenta que pueden existir márgenes de error estadísticos y que siempre debes considerar los microclimas urbanos y de tu propio patio (zonas soleadas, bajo dosel arbóreo o cerca de paredes que retienen calor diurno) para determinar si la especie puede crecer a la intemperie todo el año o si requiere protección estructural durante los inviernos.
+                  </p>
+                  
+                  <div class="climate-input-block">
+                    <div class="buscador-item">
+                      <label for="input-ciudades"><i class="fa-solid fa-city"></i> Buscador Integrado: Ciudades (ARG)</label>
+                      <input type="text" id="input-ciudades" list="list-ciudades" placeholder="Buscar por ciudad...">
+                      <datalist id="list-ciudades"></datalist>
+                      <span id="status-ciudades" class="input-status">Conectando a la base de datos...</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTÓN 4: ARBOLADO URBANO -->
+          <div class="climate-accordion-item">
+            <button class="climate-accordion-header" type="button" aria-expanded="false" aria-controls="acc-climate-arbolado">
+              <div class="climate-accordion-header-left">
+                <div class="climate-accordion-icon"><i class="fa-solid fa-tree-city"></i></div>
+                <div class="climate-accordion-title-group">
+                  <h3>Comprobá si la planta que buscás ya crece en tu ciudad</h3>
+                </div>
+              </div>
+              <div class="climate-accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+
+            <div class="climate-accordion-wrapper" id="acc-climate-arbolado">
+              <div class="climate-accordion-content">
+                <div class="climate-accordion-body">
+                  <p class="climate-info-text">
+                    Comprobación Práctica en Ciudad: Corroborá en el mapa si existen especímenes vivos de la planta que buscás registrados en el censo de Arbolado Urbano (enfocado actualmente en Capital y alrededores, como parte de un proyecto de relevamiento en constante desarrollo).
+                  </p>
+                  
+                  <div class="climate-input-block">
+                    <div class="buscador-item">
+                      <label for="input-arbolado-especie"><i class="fa-solid fa-magnifying-glass-location"></i> Buscador Integrado: Arbolado Urbano</label>
+                      <input type="text" id="input-arbolado-especie" placeholder="Especie (ej. Ceibo, Jacarandá...)" autocomplete="off">
+                      <ul id="lista-sugerencias"></ul>
+                      <span id="status-arbolado" class="input-status">Conectando a la API...</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTÓN 5: PLANTAS COMERCIALIZADAS -->
+          <div class="climate-accordion-item">
+            <button class="climate-accordion-header" type="button" aria-expanded="false" aria-controls="acc-climate-comercializadas">
+              <div class="climate-accordion-header-left">
+                <div class="climate-accordion-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div class="climate-accordion-title-group">
+                  <h3>Conocé las plantas que ofrecemos para tu zona</h3>
+                </div>
+              </div>
+              <div class="climate-accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+
+            <div class="climate-accordion-wrapper" id="acc-climate-comercializadas">
+              <div class="climate-accordion-content">
+                <div class="climate-accordion-body">
+                  <p class="climate-info-text">
+                    Descubrí qué plantas comercializamos para cada zona climática. Si el ejemplar de tu interés está en nuestro catálogo, podrás acceder directamente a su ficha botánica detallada con requerimientos de cuidado y el enlace de compra correspondiente.
+                  </p>
+                  
+                  <div class="action-subblock">
+                    <div class="action-subitem">
+                      <p>Consulta las plantas disponibles para la zona USDA seleccionada.</p>
+                      <a href="#sec-especies" class="btn btn--solid" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">
+                        <i class="fa-solid fa-list-check"></i> Catálogo & Rusticidad
+                      </a>
+                    </div>
+
+                    <div class="action-subitem">
+                      <p>Consulta las plantas disponibles para la zona USDA seleccionada e ir directo a su ficha.</p>
+                      <a href="#species-jump-box" class="btn btn--solid" style="padding: 0.6rem 1.2rem; font-size: 0.8rem; background-color: var(--verde-atardecer) !important; color: var(--lino) !important;">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Ve directo a la ficha
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <!-- PRESSETS DE VISTA DE MAPA DE ARGENTINA -->
@@ -724,15 +1123,35 @@
       </div>
     </section>
 
-    <!-- DIRECTORIO DE ESPECIES Y RUSTICIDAD (CONTENIDO INTEGRADO DE PALM TREE PLANET) -->
     <!-- DIRECTORIO DE ESPECIES Y RUSTICIDAD -->
     <section class="section" id="sec-especies">
       <div class="section-head reveal">
-        <span class="eyebrow">Directorio Botánico</span>
-        <h2>Guía Completa de Palmeras & Resistencia Térmica</h2>
-        <p>Explorá nuestra selección exhaustiva de palmeras, cícadas y suculentas afines con sus respectivos rangos de tolerancia al frío invernal.</p>
+        <span class="eyebrow">Catálogo & Rusticidad</span>
+        <h2>Fichas Botánicas y Guía de Cuidados para Exterior</h2>
+        <p>
+          Catálogo de especies ornamentales comercializadas en <strong>Gran Palmera</strong>, aptas para cultivarse a la intemperie durante todo el año al resistir las temperaturas mínimas invernales de las zonas seleccionadas en el mapa. Cada ficha técnica incluye los enlaces directos para adquirir los ejemplares.
+          <br><br>
+          <small style="opacity: 0.9; display: inline-block;">
+            <em>Nota técnica:</em> La tolerancia al frío invernal es una condición necesaria pero no única; existen otros requerimientos fisiológicos clave (como la acumulación de calor diurno, grado de insolación y drenaje del suelo) indispensables para su desarrollo vital. <a href="#sec-base-conocimiento" style="color: var(--tierra); font-weight: 700; text-decoration: underline;">Consultá nuestra Guía Técnica & FAQ</a>.
+          </small>
+        </p>
       </div>
 
+      <!-- BARRA DE HERRAMIENTAS Y MENSAJES DINÁMICOS -->
+      <div class="species-toolbar-panel" id="species-toolbar">
+        <div id="species-count-msg" class="species-count-banner">
+          Cargando catálogo de especies...
+        </div>
+        
+        <div id="species-jump-box" class="species-jump-box">
+          <label for="select-direct-sheet"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ve directo a la ficha:</label>
+          <select id="select-direct-sheet" class="species-select">
+            <option value="">Selecciona una planta para ver su ficha completa...</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- REJILLA DE TARJETAS (54 ESPECIES) -->
       <div class="cards stagger" id="species-grid">
         
         <!-- 1. Areca Palm -->
@@ -1432,11 +1851,28 @@
           <div class="card-body">
             <span class="zone-badge">Zonas 10a a 11b</span>
             <h3><a href="./botanical_sheets/dypsis_decaryi.html">Triangle Palm (Dypsis decaryi)</a></h3>
-            <p>Originaria de Madagascar, destaca por la disposición tristicha única de sus hojas formando un triángulo perfecto.</p>
+            <p>Originaria de Madagascar, destaca por la disposición tristicha única de sus hojas forming un triángulo perfecto.</p>
             <a class="more" href="./botanical_sheets/dypsis_decaryi.html">Leer ficha técnica <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
 
+      </div>
+
+      <!-- BOTÓN INTERACTIVO "VER MÁS / VER MENOS" -->
+      <div style="text-align: center;">
+        <button type="button" id="btn-show-more-cards" class="btn btn--solid" style="display:none; margin: 2.2rem auto 0 auto;">
+          Ver las restantes vistas previas <i class="fa-solid fa-chevron-down"></i>
+        </button>
+      </div>
+
+      <!-- TARJETA ESTADO VACÍO -->
+      <div id="species-empty-state" class="species-empty-card" style="display: none;">
+        <div class="empty-icon"><i class="fa-solid fa-seedling"></i></div>
+        <h3>Ejemplares Bajo Pedido Especial</h3>
+        <p>En nuestro vivero no comercializamos habitualmente plantas de catálogo estándar para las zonas USDA seleccionadas en el mapa, ¡pero podemos conseguírtelas a pedido!</p>
+        <a href="https://api.whatsapp.com/send?phone=5493764839810&text=Hola%20Gran%20Palmera,%20necesito%20asesoramiento%20y%20cotizaci%C3%B3n%20para%20especies%20de%20mi%20zona%20climatica" target="_blank" rel="noopener" class="btn btn--solid" style="background-color: var(--verde-atardecer) !important; color: var(--lino) !important;">
+          <i class="fab fa-whatsapp"></i> Solicitar Asesoramiento por WhatsApp
+        </a>
       </div>
     </section>
 
@@ -1776,7 +2212,31 @@
       document.querySelectorAll('#navLinks a').forEach(function(a) { a.addEventListener('click', closeMenu); });
     }
 
-    // CANVAS 2D: NIEVE / PARTÍCULAS ATMOSFÉRICAS
+    // LÓGICA DE ACORDEÓN INTERACTIVO INDEPENDIENTE PARA EL CENTRO DE CONTROL CLIMÁTICO
+    var climateAccordionItems = document.querySelectorAll('.climate-accordion-item');
+    climateAccordionItems.forEach(function(item) {
+      var header = item.querySelector('.climate-accordion-header');
+      if (!header) return;
+
+      header.addEventListener('click', function() {
+        var isOpen = item.classList.contains('is-open');
+
+        // Permite la apertura y cierre independiente de cada botón
+        if (isOpen) {
+          item.classList.remove('is-open');
+          header.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('is-open');
+          header.setAttribute('aria-expanded', 'true');
+        }
+
+        setTimeout(function() {
+          if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+        }, 350);
+      });
+    });
+
+    // CANVAS 2D: PARTÍCULAS ATMOSFÉRICAS / COPOS
     (function() {
       var canvas = document.getElementById('petals');
       if (!canvas || reduce) return;
@@ -1910,7 +2370,7 @@
         return null;
       }
 
-      // BOTONES DE PRESETS DE VISTA (ARGENTINA, BUENOS AIRES, CABA)
+      // BOTONES DE PRESETS DE VISTA
       const presetBtns = document.querySelectorAll('.preset-btn');
       presetBtns.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -2187,21 +2647,106 @@
         zoneFeedback.innerHTML = `Zonas activas: ${textoRango} &nbsp;-&nbsp; Zona más fria "Zona ${masFria}" (Temp. Mínima Promedio: ${tempMasFria})`;
       }
 
-      // FILTRADO DINÁMICO DE TARJETAS DE ESPECIES SEGÚN LAS ZONAS SELECCIONADAS
+      // FILTRADO DINÁMICO DE TARJETAS
+      let expandirEspecies = false;
+
       function filtrarTarjetasEspecies() {
-        const speciesCards = document.querySelectorAll('.species-card');
+        const speciesCards = Array.from(document.querySelectorAll('.species-card'));
         if (speciesCards.length === 0) return;
 
-        if (zonasActivas.size === 0) {
-          speciesCards.forEach(card => card.classList.remove('is-hidden'));
+        const countMsg = document.getElementById('species-count-msg');
+        const jumpBox = document.getElementById('species-jump-box');
+        const speciesGrid = document.getElementById('species-grid');
+        const emptyState = document.getElementById('species-empty-state');
+        const btnMore = document.getElementById('btn-show-more-cards');
+        const selectSheet = document.getElementById('select-direct-sheet');
+
+        const coincidentes = speciesCards.filter(card => {
+          if (zonasActivas.size === 0) return true;
+          const rawZones = card.dataset.zones || '';
+          const cardZones = rawZones.toLowerCase().split(/\s+/);
+          return Array.from(zonasActivas).some(z => cardZones.includes(z));
+        });
+
+        const total = coincidentes.length;
+
+        if (total === 0) {
+          if (speciesGrid) speciesGrid.style.display = 'none';
+          if (countMsg) countMsg.style.display = 'none';
+          if (jumpBox) jumpBox.style.display = 'none';
+          if (btnMore) btnMore.style.display = 'none';
+          if (emptyState) emptyState.style.display = 'block';
           return;
         }
 
-        speciesCards.forEach(card => {
-          const rawZones = card.dataset.zones || '';
-          const cardZones = rawZones.toLowerCase().split(/\s+/);
-          const matches = Array.from(zonasActivas).some(z => cardZones.includes(z));
-          card.classList.toggle('is-hidden', !matches);
+        if (speciesGrid) speciesGrid.style.display = 'grid';
+        if (emptyState) emptyState.style.display = 'none';
+        if (jumpBox) jumpBox.style.display = 'flex';
+        if (countMsg) countMsg.style.display = 'block';
+
+        speciesCards.forEach(card => card.classList.add('is-hidden'));
+
+        const limite = expandirEspecies ? total : 3;
+
+        coincidentes.forEach((card, index) => {
+          if (index < limite) {
+            card.classList.remove('is-hidden');
+          }
+        });
+
+        if (countMsg) {
+          if (total <= 3) {
+            countMsg.innerHTML = `Encontramos <strong>${total}</strong> ${total === 1 ? 'especie' : 'especies'} de plantas resistentes a las mínimas de tu zona, que habitualmente comercializamos. Muestra completa a continuación.`;
+          } else if (!expandirEspecies) {
+            countMsg.innerHTML = `Encontramos <strong>${total}</strong> especies de plantas resistentes a las mínimas de tu zona, que habitualmente comercializamos. Aquí las 3 primeras vistas previas. Sigue los enlaces para ver las fichas completas de cuidados.`;
+          } else {
+            countMsg.innerHTML = `Mostrando las <strong>${total}</strong> especies compatibles con las zonas climáticas seleccionadas.`;
+          }
+        }
+
+        if (btnMore) {
+          if (total > 3) {
+            btnMore.style.display = 'inline-flex';
+            if (!expandirEspecies) {
+              const restantes = total - 3;
+              btnMore.innerHTML = `Ver las restantes ${restantes} vistas previas <i class="fa-solid fa-chevron-down"></i>`;
+            } else {
+              btnMore.innerHTML = `Ver menos vistas previas <i class="fa-solid fa-chevron-up"></i>`;
+            }
+          } else {
+            btnMore.style.display = 'none';
+          }
+        }
+
+        if (selectSheet) {
+          selectSheet.innerHTML = '<option value="">Selecciona una planta para ir directo a su ficha...</option>';
+          coincidentes.forEach(card => {
+            const linkEl = card.querySelector('h3 a');
+            if (linkEl) {
+              const opt = document.createElement('option');
+              opt.value = linkEl.getAttribute('href');
+              opt.textContent = linkEl.textContent.trim();
+              selectSheet.appendChild(opt);
+            }
+          });
+        }
+      }
+
+      const btnMoreCards = document.getElementById('btn-show-more-cards');
+      if (btnMoreCards) {
+        btnMoreCards.addEventListener('click', function() {
+          expandirEspecies = !expandirEspecies;
+          filtrarTarjetasEspecies();
+          if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+        });
+      }
+
+      const selectSheetEl = document.getElementById('select-direct-sheet');
+      if (selectSheetEl) {
+        selectSheetEl.addEventListener('change', function() {
+          if (this.value) {
+            window.location.href = this.value;
+          }
         });
       }
 
@@ -2344,7 +2889,7 @@
         });
       }
 
-      // Inicialización de zonas iniciales
+      // Inicialización de zonas
       actualizarZonasActivas(ZONAS_INICIALES, true);
     });
   })();
