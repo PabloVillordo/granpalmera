@@ -2,7 +2,7 @@
 <!--
   GRAN PALMERA · Ficha Técnica Botánica & Resistencia al Frío (Roystonea regia)
   SISTEMA: Refactorización y Clonación de Arquitectura CSS, GSAP ScrollTrigger, Lenis Smooth Scroll y Canvas 2D.
-  ARQUITECTURA: Ficha de especie interactiva con integración Leaflet, Mapa de Argentina y Botonera USDA.
+  ARQUITECTURA: Ficha de especie interactiva con integración Leaflet, Mapa de Argentina con presets de zoom (Argentina, PBA, CABA) y Botonera USDA.
 -->
 <html lang="es-AR" class="preload">
 <head>
@@ -380,6 +380,49 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 /* Contenedor del Mapa de Argentina y Leyendas */
 .map-stack-single { margin-top: 1.6rem; }
 .map-stack-single h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 0.6rem; color: var(--verde-atardecer); }
+
+/* BOTONES DE PRESET DE ZOOM DEL MAPA */
+.map-preset-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+.map-preset-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--tierra);
+  font-weight: 700;
+  margin-right: 0.2rem;
+}
+.btn-preset {
+  appearance: none;
+  background: #ffffff;
+  border: 1px solid var(--crema);
+  color: var(--verde-atardecer);
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s var(--e-soft), color 0.3s var(--e-soft), border-color 0.3s var(--e-soft), transform 0.2s var(--e-soft);
+  box-shadow: 0 2px 8px rgba(74,64,64,0.03);
+}
+.btn-preset:hover {
+  background-color: var(--lino);
+  border-color: var(--rosa);
+  transform: translateY(-1px);
+}
+.btn-preset.is-active {
+  background-color: var(--verde-atardecer) !important;
+  color: var(--lino) !important;
+  border-color: var(--verde-atardecer) !important;
+  box-shadow: 0 4px 12px rgba(58,74,63,0.2);
+}
+
 .map-legend { font-size: 0.86rem; color: var(--tierra); display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.8rem; font-weight: 700; }
 .swatch { display: inline-block; width: 14px; height: 14px; margin-right: 5px; vertical-align: middle; border-radius: 3px; }
 .swatch.range { background: #F7B9BD; border: 1px solid #5b4638; }
@@ -603,7 +646,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
         <div><span>Temp. límite</span><strong>28°F / -2°C</strong></div>
       </div>
 
-      <!-- SECCIÓN DE RESISTENCIA Y MAPA DE ARGENTINA -->
+      <!-- SECCIÓN DE RESISTENCIA Y MAPA DE ARGENTINA CON PRESETS DE ZOOM -->
       <section class="sp-card reveal" id="hardiness">
         <h2>Resistencia al frío</h2>
         <p class="lede-sm">Sobrevive hasta aprox. <strong>28°F / -2°C</strong>. Rango en exterior: <strong>USDA 10a–11a</strong>. Pasa el cursor o haz clic en las zonas climáticas para consultar la tolerancia.</p>
@@ -637,6 +680,15 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
         <!-- MAPA DE ARGENTINA (LEAFLET + GEOLAYERS) -->
         <div class="map-stack-single">
           <h3>Isotermas Térmicas en Argentina</h3>
+          
+          <!-- BOTONES PRESET DE ZOOM -->
+          <div class="map-preset-controls">
+            <span class="map-preset-label">Vista / Zoom:</span>
+            <button type="button" class="btn-preset is-active" data-preset="arg">Argentina</button>
+            <button type="button" class="btn-preset" data-preset="pba">Buenos Aires</button>
+            <button type="button" class="btn-preset" data-preset="caba">CABA</button>
+          </div>
+
           <p class="map-legend">
             <span class="swatch range"></span> Isoterma compatible en Argentina
             <span class="swatch off"></span> Demasiado frío
@@ -972,7 +1024,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     document.addEventListener('visibilitychange', function() { running = !document.hidden; if (running) draw(); });
   })();
 
-  /* LÓGICA TÉCNICA DEL MAPA LEAFLET Y BOTONERA USDA */
+  /* LÓGICA TÉCNICA DEL MAPA LEAFLET, PRESETS DE ZOOM Y BOTONERA USDA */
   document.addEventListener("DOMContentLoaded", function () {
     const speciesData = JSON.parse(document.getElementById("species-data").textContent);
     const caption = document.getElementById("map-caption");
@@ -996,14 +1048,20 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
       '10a': '-1.1°C a 1.7°C', '10b': '1.7°C a 4.4°C', '11a': '4.4°C a 7.2°C' 
     };
 
+    const mapPresets = {
+      arg: { center: [-38.416097, -63.616672], zoom: 4 },
+      pba: { center: [-36.600000, -60.000000], zoom: 7 },
+      caba: { center: [-34.603722, -58.381592], zoom: 11 }
+    };
+
     const boundsArgentina = L.latLngBounds(
       L.latLng(-55.5, -75.0),
       L.latLng(-20.5, -50.0)
     );
 
     const map = L.map('map-usda-argentina', {
-      center: [-38.416097, -63.616672],
-      zoom: 4,
+      center: mapPresets.arg.center,
+      zoom: mapPresets.arg.zoom,
       minZoom: 3,
       maxZoom: 12,
       maxBounds: boundsArgentina,
@@ -1014,6 +1072,22 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
       maxZoom: 12, 
       attribution: '© OpenStreetMap' 
     }).addTo(map);
+
+    /* LÓGICA DE INTERACCIÓN DE PRESETS DE ZOOM */
+    document.querySelectorAll('.btn-preset').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.btn-preset').forEach(b => b.classList.remove('is-active'));
+        this.classList.add('is-active');
+
+        const presetKey = this.getAttribute('data-preset');
+        if (mapPresets[presetKey]) {
+          map.flyTo(mapPresets[presetKey].center, mapPresets[presetKey].zoom, {
+            duration: 1.2,
+            easeLinearity: 0.25
+          });
+        }
+      });
+    });
 
     const compatibleZones = (speciesData.zones || []).map(z => z.toLowerCase().trim());
     const allZones = Object.keys(coloresUSDA);
