@@ -833,7 +833,7 @@
       <a href="#sec-beneficios">Beneficios</a>
       <a href="#sec-base-conocimiento">Guía Técnica</a>
       <a href="#sec-propuesta">Servicios</a>
-      <a class="nav__cta" href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="nav__cta" href="https://api.whatsapp.com/send?phone=5493764149835" target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <button class="nav__burger" id="navBurger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -886,6 +886,60 @@
 
       <div class="map-wrapper reveal">
         
+
+
+
+
+        <!-- MÓDULO INTERACTIVO SELECTOR USDA -->
+        <div id="controles-climaticos" class="controles-climaticos-panel">
+          
+          <div class="usda-widget" aria-labelledby="usda-heading">
+            <header class="widget-header">
+              <h3 id="usda-heading"><i class="fa-solid fa-layer-group"></i> Selector de Zonas USDA</h3>
+              <p>Hacé clic en una o varias zonas térmicas para encender o apagar las isotermas en el mapa interactivo de Argentina:</p>
+            </header>
+
+            <!-- Selector USDA con rango completo de 1a a 11a -->
+            <div class="zone-grid" role="tablist" aria-label="Zonas térmicas de resistencia">
+              <button role="tab" aria-selected="false" data-zone="1a" class="hz1a"><span>1a</span><small>-51.1°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="1b" class="hz1b"><span>1b</span><small>-48.3°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="2a" class="hz2a"><span>2a</span><small>-45.6°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="2b" class="hz2b"><span>2b</span><small>-42.8°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="3a" class="hz3a"><span>3a</span><small>-40.0°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="3b" class="hz3b"><span>3b</span><small>-37.2°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="4a" class="hz4a"><span>4a</span><small>-34.4°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="4b" class="hz4b"><span>4b</span><small>-31.7°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="5a" class="hz5a"><span>5a</span><small>-28.9°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="5b" class="hz5b"><span>5b</span><small>-26.1°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="6a" class="hz6a"><span>6a</span><small>-23.3°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="6b" class="hz6b"><span>6b</span><small>-20.6°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="7a" class="hz7a"><span>7a</span><small>-17.8°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="7b" class="hz7b"><span>7b</span><small>-15.0°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="8a" class="hz8a"><span>8a</span><small>-12.2°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="8b" class="hz8b"><span>8b</span><small>-9.4°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="9a" class="hz9a active"><span>9a</span><small>-6.7°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="9b" class="hz9b active"><span>9b</span><small>-3.9°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="10a" class="hz10a active"><span>10a</span><small>-1.1°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="10b" class="hz10b active"><span>10b</span><small>1.7°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="11a" class="hz11a active"><span>11a</span><small>4.4°C</small></button>
+            </div>
+
+            <div id="zone-feedback" class="zone-feedback" aria-live="polite">
+              Cargando mapa e isotermas activas...
+            </div>
+          </div>
+
+        <!-- PRESSETS DE VISTA DE MAPA DE ARGENTINA -->
+        <div class="map-presets-bar">
+          <span class="presets-label"><i class="fa-solid fa-map-location-dot"></i> Vista rápida:</span>
+          <button type="button" class="preset-btn active" data-preset="arg"><i class="fa-solid fa-flag"></i> Argentina (País)</button>
+          <button type="button" class="preset-btn" data-preset="ba"><i class="fa-solid fa-location-dot"></i> Buenos Aires (Provincia)</button>
+          <button type="button" class="preset-btn" data-preset="caba"><i class="fa-solid fa-city"></i> CABA (Ciudad)</button>
+        </div>
+
+        <!-- VISOR DE MAPA LEAFLET -->
+        <div id="map"></div>
+
         <!-- ESTRUCTURA EN ACORDEÓN INTERACTIVO -->
         <div class="accordion-group-climate">
 
@@ -938,7 +992,7 @@
               <div class="climate-accordion-content">
                 <div class="climate-accordion-body">
                   <p class="climate-info-text">
-                    Evaluá la teórica <a href="#sec-resistencia">resistencia al frío de las plantas</a> y palmeras que estás buscando frente a los picos de heladas invernales.
+                    Averigua la resistencia al frío teórica de las plantas y palmeras que estás buscando frente a los picos de heladas invernales. <a href="#sec-resistencia">Más información</a>
                   </p>
                   
                   <div class="climate-input-block">
@@ -979,7 +1033,7 @@
               <div class="climate-accordion-content">
                 <div class="climate-accordion-body">
                   <p class="climate-info-text">
-                    Consultá la teórica Isoterma USDA de tu zona, calculada mediante triangulación de datos de estaciones meteorológicas del SMN. Tené en cuenta que pueden existir márgenes de error estadísticos y que siempre debes considerar los microclimas urbanos y de tu propio patio (zonas soleadas, bajo dosel arbóreo o cerca de paredes que retienen calor diurno) para determinar si la especie puede crecer a la intemperie todo el año o si requiere protección estructural durante los inviernos.
+                    Consultá la teórica Isoterma USDA de tu zona, calculada mediante triangulación de datos de estaciones meteorológicas del SMN. Tené en cuenta que pueden existir márgenes de error estadísticos y que siempre debes considerar los microclimas urbanos y de tu propio patio (zonas soleadas, bajo dosel arbóreo o cerca de paredes que retienen calor diurno) para determinar si la especie puede crecer a la intemperie todo el año o si requiere protección estructural durante los inviernos. <a href="#sec-isotermas">Más información</a>
                   </p>
                   
                   <div class="climate-input-block">
@@ -1011,7 +1065,7 @@
               <div class="climate-accordion-content">
                 <div class="climate-accordion-body">
                   <p class="climate-info-text">
-                    Comprobación Práctica en Ciudad: Corroborá en el mapa si existen especímenes vivos de la planta que buscás registrados en el censo de Arbolado Urbano (enfocado actualmente en Capital y alrededores, como parte de un proyecto de relevamiento en constante desarrollo).
+                    Comprobación Práctica en Ciudad: Corroborá en el mapa si existen especímenes vivos de la planta que buscás registrados en el censo de Arbolado Urbano (enfocado actualmente en Capital y alrededores, como parte de un proyecto de relevamiento en constante desarrollo). <a href="https://arboladourbano.com/notas/">Más información</a>
                   </p>
                   
                   <div class="climate-input-block">
@@ -1068,55 +1122,6 @@
 
         </div>
 
-        <!-- PRESSETS DE VISTA DE MAPA DE ARGENTINA -->
-        <div class="map-presets-bar">
-          <span class="presets-label"><i class="fa-solid fa-map-location-dot"></i> Vista rápida:</span>
-          <button type="button" class="preset-btn active" data-preset="arg"><i class="fa-solid fa-flag"></i> Argentina (País)</button>
-          <button type="button" class="preset-btn" data-preset="ba"><i class="fa-solid fa-location-dot"></i> Buenos Aires (Provincia)</button>
-          <button type="button" class="preset-btn" data-preset="caba"><i class="fa-solid fa-city"></i> CABA (Ciudad)</button>
-        </div>
-
-        <!-- VISOR DE MAPA LEAFLET -->
-        <div id="map"></div>
-
-        <!-- MÓDULO INTERACTIVO SELECTOR USDA -->
-        <div id="controles-climaticos" class="controles-climaticos-panel">
-          
-          <div class="usda-widget" aria-labelledby="usda-heading">
-            <header class="widget-header">
-              <h3 id="usda-heading"><i class="fa-solid fa-layer-group"></i> Selector de Zonas USDA</h3>
-              <p>Hacé clic en una o varias zonas térmicas para encender o apagar las isotermas en el mapa interactivo de Argentina:</p>
-            </header>
-
-            <!-- Selector USDA con rango completo de 1a a 11a -->
-            <div class="zone-grid" role="tablist" aria-label="Zonas térmicas de resistencia">
-              <button role="tab" aria-selected="false" data-zone="1a" class="hz1a"><span>1a</span><small>-51.1°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="1b" class="hz1b"><span>1b</span><small>-48.3°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="2a" class="hz2a"><span>2a</span><small>-45.6°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="2b" class="hz2b"><span>2b</span><small>-42.8°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="3a" class="hz3a"><span>3a</span><small>-40.0°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="3b" class="hz3b"><span>3b</span><small>-37.2°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="4a" class="hz4a"><span>4a</span><small>-34.4°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="4b" class="hz4b"><span>4b</span><small>-31.7°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="5a" class="hz5a"><span>5a</span><small>-28.9°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="5b" class="hz5b"><span>5b</span><small>-26.1°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="6a" class="hz6a"><span>6a</span><small>-23.3°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="6b" class="hz6b"><span>6b</span><small>-20.6°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="7a" class="hz7a"><span>7a</span><small>-17.8°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="7b" class="hz7b"><span>7b</span><small>-15.0°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="8a" class="hz8a"><span>8a</span><small>-12.2°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="8b" class="hz8b"><span>8b</span><small>-9.4°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="9a" class="hz9a active"><span>9a</span><small>-6.7°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="9b" class="hz9b active"><span>9b</span><small>-3.9°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="10a" class="hz10a active"><span>10a</span><small>-1.1°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="10b" class="hz10b active"><span>10b</span><small>1.7°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="11a" class="hz11a active"><span>11a</span><small>4.4°C</small></button>
-            </div>
-
-            <div id="zone-feedback" class="zone-feedback" aria-live="polite">
-              Cargando mapa e isotermas activas...
-            </div>
-          </div>
 
         </div>
 
@@ -1870,7 +1875,7 @@
         <div class="empty-icon"><i class="fa-solid fa-seedling"></i></div>
         <h3>Ejemplares Bajo Pedido Especial</h3>
         <p>En nuestro vivero no comercializamos habitualmente plantas de catálogo estándar para las zonas USDA seleccionadas en el mapa, ¡pero podemos conseguírtelas a pedido!</p>
-        <a href="https://api.whatsapp.com/send?phone=5493764839810&text=Hola%20Gran%20Palmera,%20necesito%20asesoramiento%20y%20cotizaci%C3%B3n%20para%20especies%20de%20mi%20zona%20climatica" target="_blank" rel="noopener" class="btn btn--solid" style="background-color: var(--verde-atardecer) !important; color: var(--lino) !important;">
+        <a href="https://api.whatsapp.com/send?phone=5493764149835&text=Hola%20Gran%20Palmera,%20necesito%20asesoramiento%20y%20cotizaci%C3%B3n%20para%20especies%20de%20mi%20zona%20climatica" target="_blank" rel="noopener" class="btn btn--solid" style="background-color: var(--verde-atardecer) !important; color: var(--lino) !important;">
           <i class="fab fa-whatsapp"></i> Solicitar Asesoramiento por WhatsApp
         </a>
       </div>
@@ -1986,8 +1991,9 @@
           <div class="faq__a">
             <p>Esta herramienta consume datos de libre acceso para fines divulgativos:</p>
             <ul>
-              <li><strong>Isotermas:</strong> Plantmaps Argentina / Trebrown Nurseries.</li>
-              <li><strong>Arbolado:</strong> API Arbolado Urbano (Censos municipales geolocalizados).</li>
+              <li><strong>Isotermas:</strong>Mapas de zonas de rusticidad para plantas en Argentina. <a href="https://www.plantmaps.com/interactive-argentina-plant-hardiness-zone-map-celsius.php" target="_blank" rel="noopener">Plantmaps Argentina</a> </li>
+              <li><strong>Zonas de resistencia de palmeras:</strong>listado especieas de palmeras con su respectiva zona de resistencia climática. <a href="https://www.trebrown.com/" target="_blank" rel="noopener">Trebrown Nurseries</a> </li>
+              <li><strong>Arbolado:</strong> API Arbolado Urbano (Censos municipales geolocalizados). <a href="https://arboladourbano.com/" target="_blank" rel="noopener">Arbolado Urbano</a> </li> </li>
               <li><strong>Estaciones:</strong> Servicio Meteorológico Nacional (SMN).</li>
             </ul>
           </div>
@@ -2047,7 +2053,7 @@
       <h2 class="reveal">¿Querés transformar tu paisaje?</h2>
       <p class="reveal">No necesitás saber qué plantas comprar ni tener el diseño resuelto. Contanos qué espacio tenés y nuestro equipo técnico te asesora.</p>
       <div class="cta__actions reveal">
-        <a class="btn btn--solid" href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener" style="background-color:#ffffff !important; color:var(--tierra-deep) !important;">
+        <a class="btn btn--solid" href="https://api.whatsapp.com/send?phone=5493764149835" target="_blank" rel="noopener" style="background-color:#ffffff !important; color:var(--tierra-deep) !important;">
           <i class="fab fa-whatsapp"></i> Hablar con un Asesor Botánico
         </a>
       </div>
@@ -2062,7 +2068,7 @@
         </div>
         <div>
           <h4>Contacto</h4>
-          <p><a href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener">WhatsApp Oficial</a></p>
+          <p><a href="https://api.whatsapp.com/send?phone=5493764149835" target="_blank" rel="noopener">WhatsApp Oficial</a></p>
           <p style="color:rgba(250,247,242,0.6); margin-top:0.4rem">Lunes a Sábado, 8 a 19 h</p>
         </div>
         <div>
@@ -2082,7 +2088,7 @@
           <a href="https://www.linkedin.com/company/granpalmera" target="_blank" title="LinkedIn" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <p style="margin-top: 1.2rem; font-size: 0.82rem; color: rgba(250,247,242,0.7);">
-          Sitio desarrollado por <a href="https://www.granpalmera-vivero-paisajismo.com" target="_blank" rel="noopener" style="color: var(--rosa); text-decoration: underline; text-underline-offset: 3px; font-weight: 700;">Pablo Villordo</a>
+          Sitio desarrollado por <a href="https://www.linkedin.com/in/pablo-villordo/" target="_blank" rel="noopener" style="color: var(--rosa); text-decoration: underline; text-underline-offset: 3px; font-weight: 700;">Pablo Villordo</a>
         </p>
       </div>
       <p class="footer__credit">Herramienta de Zonas USDA &copy; Gran Palmera.</p>
@@ -2094,7 +2100,7 @@
   <div id="geo-tip" hidden></div>
 
   <!-- Botón Flotante WhatsApp -->
-  <a class="wa-float" href="https://api.whatsapp.com/send?phone=5493764839810" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">
+  <a class="wa-float" href="https://api.whatsapp.com/send?phone=5493764149835" target="_blank" rel="noopener" aria-label="Contacto por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/>
     </svg>
@@ -2355,7 +2361,7 @@
       let marcadorUsuario = null;
 
       // Zonas precargadas por defecto
-      const ZONAS_INICIALES = ['11a', '10b', '10a', '9b', '9a'];
+      const ZONAS_INICIALES = ['11a', '10b', '10a'];
       let zonasActivas = new Set(ZONAS_INICIALES);
       let capasPorZona = {};
 
