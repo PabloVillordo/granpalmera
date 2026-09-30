@@ -886,6 +886,60 @@
 
       <div class="map-wrapper reveal">
         
+
+
+
+
+        <!-- MÓDULO INTERACTIVO SELECTOR USDA -->
+        <div id="controles-climaticos" class="controles-climaticos-panel">
+          
+          <div class="usda-widget" aria-labelledby="usda-heading">
+            <header class="widget-header">
+              <h3 id="usda-heading"><i class="fa-solid fa-layer-group"></i> Selector de Zonas USDA</h3>
+              <p>Hacé clic en una o varias zonas térmicas para encender o apagar las isotermas en el mapa interactivo de Argentina:</p>
+            </header>
+
+            <!-- Selector USDA con rango completo de 1a a 11a -->
+            <div class="zone-grid" role="tablist" aria-label="Zonas térmicas de resistencia">
+              <button role="tab" aria-selected="false" data-zone="1a" class="hz1a"><span>1a</span><small>-51.1°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="1b" class="hz1b"><span>1b</span><small>-48.3°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="2a" class="hz2a"><span>2a</span><small>-45.6°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="2b" class="hz2b"><span>2b</span><small>-42.8°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="3a" class="hz3a"><span>3a</span><small>-40.0°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="3b" class="hz3b"><span>3b</span><small>-37.2°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="4a" class="hz4a"><span>4a</span><small>-34.4°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="4b" class="hz4b"><span>4b</span><small>-31.7°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="5a" class="hz5a"><span>5a</span><small>-28.9°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="5b" class="hz5b"><span>5b</span><small>-26.1°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="6a" class="hz6a"><span>6a</span><small>-23.3°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="6b" class="hz6b"><span>6b</span><small>-20.6°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="7a" class="hz7a"><span>7a</span><small>-17.8°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="7b" class="hz7b"><span>7b</span><small>-15.0°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="8a" class="hz8a"><span>8a</span><small>-12.2°C</small></button>
+              <button role="tab" aria-selected="false" data-zone="8b" class="hz8b"><span>8b</span><small>-9.4°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="9a" class="hz9a active"><span>9a</span><small>-6.7°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="9b" class="hz9b active"><span>9b</span><small>-3.9°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="10a" class="hz10a active"><span>10a</span><small>-1.1°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="10b" class="hz10b active"><span>10b</span><small>1.7°C</small></button>
+              <button role="tab" aria-selected="true" data-zone="11a" class="hz11a active"><span>11a</span><small>4.4°C</small></button>
+            </div>
+
+            <div id="zone-feedback" class="zone-feedback" aria-live="polite">
+              Cargando mapa e isotermas activas...
+            </div>
+          </div>
+
+        <!-- PRESSETS DE VISTA DE MAPA DE ARGENTINA -->
+        <div class="map-presets-bar">
+          <span class="presets-label"><i class="fa-solid fa-map-location-dot"></i> Vista rápida:</span>
+          <button type="button" class="preset-btn active" data-preset="arg"><i class="fa-solid fa-flag"></i> Argentina (País)</button>
+          <button type="button" class="preset-btn" data-preset="ba"><i class="fa-solid fa-location-dot"></i> Buenos Aires (Provincia)</button>
+          <button type="button" class="preset-btn" data-preset="caba"><i class="fa-solid fa-city"></i> CABA (Ciudad)</button>
+        </div>
+
+        <!-- VISOR DE MAPA LEAFLET -->
+        <div id="map"></div>
+
         <!-- ESTRUCTURA EN ACORDEÓN INTERACTIVO -->
         <div class="accordion-group-climate">
 
@@ -1068,55 +1122,6 @@
 
         </div>
 
-        <!-- PRESSETS DE VISTA DE MAPA DE ARGENTINA -->
-        <div class="map-presets-bar">
-          <span class="presets-label"><i class="fa-solid fa-map-location-dot"></i> Vista rápida:</span>
-          <button type="button" class="preset-btn active" data-preset="arg"><i class="fa-solid fa-flag"></i> Argentina (País)</button>
-          <button type="button" class="preset-btn" data-preset="ba"><i class="fa-solid fa-location-dot"></i> Buenos Aires (Provincia)</button>
-          <button type="button" class="preset-btn" data-preset="caba"><i class="fa-solid fa-city"></i> CABA (Ciudad)</button>
-        </div>
-
-        <!-- VISOR DE MAPA LEAFLET -->
-        <div id="map"></div>
-
-        <!-- MÓDULO INTERACTIVO SELECTOR USDA -->
-        <div id="controles-climaticos" class="controles-climaticos-panel">
-          
-          <div class="usda-widget" aria-labelledby="usda-heading">
-            <header class="widget-header">
-              <h3 id="usda-heading"><i class="fa-solid fa-layer-group"></i> Selector de Zonas USDA</h3>
-              <p>Hacé clic en una o varias zonas térmicas para encender o apagar las isotermas en el mapa interactivo de Argentina:</p>
-            </header>
-
-            <!-- Selector USDA con rango completo de 1a a 11a -->
-            <div class="zone-grid" role="tablist" aria-label="Zonas térmicas de resistencia">
-              <button role="tab" aria-selected="false" data-zone="1a" class="hz1a"><span>1a</span><small>-51.1°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="1b" class="hz1b"><span>1b</span><small>-48.3°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="2a" class="hz2a"><span>2a</span><small>-45.6°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="2b" class="hz2b"><span>2b</span><small>-42.8°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="3a" class="hz3a"><span>3a</span><small>-40.0°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="3b" class="hz3b"><span>3b</span><small>-37.2°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="4a" class="hz4a"><span>4a</span><small>-34.4°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="4b" class="hz4b"><span>4b</span><small>-31.7°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="5a" class="hz5a"><span>5a</span><small>-28.9°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="5b" class="hz5b"><span>5b</span><small>-26.1°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="6a" class="hz6a"><span>6a</span><small>-23.3°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="6b" class="hz6b"><span>6b</span><small>-20.6°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="7a" class="hz7a"><span>7a</span><small>-17.8°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="7b" class="hz7b"><span>7b</span><small>-15.0°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="8a" class="hz8a"><span>8a</span><small>-12.2°C</small></button>
-              <button role="tab" aria-selected="false" data-zone="8b" class="hz8b"><span>8b</span><small>-9.4°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="9a" class="hz9a active"><span>9a</span><small>-6.7°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="9b" class="hz9b active"><span>9b</span><small>-3.9°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="10a" class="hz10a active"><span>10a</span><small>-1.1°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="10b" class="hz10b active"><span>10b</span><small>1.7°C</small></button>
-              <button role="tab" aria-selected="true" data-zone="11a" class="hz11a active"><span>11a</span><small>4.4°C</small></button>
-            </div>
-
-            <div id="zone-feedback" class="zone-feedback" aria-live="polite">
-              Cargando mapa e isotermas activas...
-            </div>
-          </div>
 
         </div>
 
