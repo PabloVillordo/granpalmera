@@ -458,13 +458,16 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   border-radius: 16px;
   overflow: hidden;
   margin-top: 1.8rem;
+  margin-bottom: 1.8rem;
   box-shadow: 0 4px 20px rgba(74,64,64,0.04);
   transition: border-color var(--d-comp) var(--e-soft), box-shadow var(--d-comp) var(--e-soft);
 }
+
 .climate-accordion-item.is-open {
   border-color: var(--rosa);
   box-shadow: 0 12px 32px rgba(74,64,64,0.09);
 }
+
 .climate-accordion-header {
   width: 100%;
   background: #ffffff;
@@ -479,14 +482,17 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   user-select: none;
   transition: background-color 0.3s var(--e-soft);
 }
+
 .climate-accordion-header:hover {
   background-color: var(--lino);
 }
+
 .climate-accordion-header-left {
   display: flex;
   align-items: center;
   gap: 1.2rem;
 }
+
 .climate-accordion-icon {
   width: 48px;
   height: 48px;
@@ -501,18 +507,21 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   flex-shrink: 0;
   transition: background-color 0.3s var(--e-soft), color 0.3s var(--e-soft), border-color 0.3s var(--e-soft);
 }
+
 .climate-accordion-item.is-open .climate-accordion-icon,
 .climate-accordion-header:hover .climate-accordion-icon {
   background: var(--rosa);
   color: var(--tierra-deep);
   border-color: var(--rosa);
 }
+
 .climate-accordion-title-group h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
   font-weight: 700;
   color: var(--verde-atardecer);
 }
+
 .climate-accordion-chevron {
   width: 36px;
   height: 36px;
@@ -526,109 +535,177 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   font-size: 0.9rem;
   transition: transform var(--d-comp) var(--e-out), background-color 0.3s, color 0.3s;
 }
+
 .climate-accordion-item.is-open .climate-accordion-chevron {
   transform: rotate(180deg);
   background: var(--rosa);
   color: var(--tierra-deep);
   border-color: var(--rosa);
 }
+
 .climate-accordion-wrapper {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows var(--d-comp) var(--e-out);
 }
+
 .climate-accordion-item.is-open .climate-accordion-wrapper {
   grid-template-rows: 1fr;
 }
+
 .climate-accordion-content {
   overflow: hidden;
 }
+
 .climate-accordion-body {
-  padding: 0.5rem 1.8rem 1.8rem 1.8rem;
+  padding: 1rem 1.8rem 1.8rem 1.8rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   border-top: 1px dashed var(--crema);
-  margin-top: 0.2rem;
+  background: #faf8f5;
 }
+
 .climate-info-text {
-  font-size: 0.94rem;
-  color: rgba(74,64,64,0.85);
+  font-size: 0.92rem;
+  color: var(--grafito);
   line-height: 1.6;
 }
+
 .climate-info-text a {
-  color: var(--rosa);
+  color: var(--tierra-deep);
   font-weight: 700;
   text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
 }
+
+.climate-info-text a:hover {
+  color: var(--rosa);
+}
+
 .climate-input-block {
-  position: relative;
-}
-.buscador-item {
-  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
+  background: #ffffff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid var(--crema);
 }
-.buscador-item label {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--verde-atardecer);
+
+.buscador-item {
   display: flex;
-  align-items: center;
-  gap: 0.4rem;
+  flex-direction: column;
+  position: relative;
 }
-#input-arbolado-especie {
+
+.buscador-item label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--tierra-deep);
+  margin-bottom: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.buscador-item label i {
+  color: var(--tierra);
+  margin-right: 3px;
+}
+
+.buscador-item input {
   width: 100%;
-  padding: 0.85rem 1.2rem;
-  border-radius: 100px;
-  border: 1.5px solid var(--crema);
-  background: var(--lino);
+  padding: 0.8rem 1rem;
+  font-size: 0.88rem;
   font-family: 'Lato', sans-serif;
-  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid var(--crema);
+  background: var(--lino);
   color: var(--grafito);
   outline: none;
-  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+  transition: all 0.3s var(--e-soft);
 }
-#input-arbolado-especie:focus {
-  border-color: var(--rosa);
+
+.buscador-item input::placeholder {
+  color: rgba(74,64,64,0.5);
+}
+
+.buscador-item input:focus {
   background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(201,168,154,0.2);
+  border-color: var(--rosa);
+  box-shadow: 0 0 0 3px rgba(201,168,154,0.18);
 }
+
 #lista-sugerencias {
-  display: none;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 4px);
   left: 0;
   right: 0;
+  z-index: 1000;
+  display: none;
   background: #ffffff;
-  border: 1px solid var(--crema);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  z-index: 25;
   list-style: none;
-  margin-top: 6px;
+  padding: 0.5rem 0;
+  margin: 0;
+  border: 1px solid var(--crema);
   max-height: 220px;
   overflow-y: auto;
-  padding: 0.4rem 0;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(74,64,64,0.12);
 }
+
 #lista-sugerencias li {
-  padding: 0.65rem 1.2rem;
-  font-size: 0.9rem;
-  color: var(--grafito);
+  padding: 0.7rem 1rem;
   cursor: pointer;
+  border-bottom: 1px solid var(--lino);
+  color: var(--grafito);
+  font-size: 0.85rem;
   transition: background 0.2s;
 }
+
 #lista-sugerencias li:hover {
-  background: var(--lino);
-  color: var(--verde-atardecer);
-  font-weight: 700;
+  background-color: var(--lino);
+  color: var(--tierra-deep);
 }
-.input-status {
-  font-size: 0.8rem;
+
+#lista-sugerencias li em {
+  font-style: italic;
+  font-weight: 400;
   color: var(--tierra);
+  margin-left: 4px;
+}
+
+.input-status {
+  font-size: 0.72rem;
   font-weight: 700;
-  margin-top: 0.2rem;
+  margin-top: 6px;
+  display: block;
+  color: var(--tierra);
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+
+.input-status.success { color: var(--salvia); }
+.input-status.error { color: var(--burdeos); }
+
+/* Marcadores para Arbolado Urbano en Leaflet */
+.arbol-marker-icon {
+  background: var(--verde-atardecer);
+  border: 2px solid var(--rosa);
+  border-radius: 50%;
+  color: #ffffff;
+  text-align: center;
+  line-height: 26px;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(58, 74, 63, 0.4);
+  transition: transform 0.2s var(--e-soft);
+}
+.arbol-marker-icon:hover {
+  transform: scale(1.2);
+  background: var(--rosa);
+  color: var(--tierra-deep);
 }
 
 /* Tabla de Especificaciones TÉCNICAS */
@@ -881,40 +958,39 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
           <div id="map-usda-argentina"></div>
         </div>
         <p class="map-credit" style="margin-top: 14px; font-size: 0.82rem; color: var(--tierra);">Se muestran las isotermas térmicas oficiales de la República Argentina (SMN / Plantmaps). Una región está resaltada si sus mínimas invernales permiten la supervivencia de esta especie.</p>
+      </section>
 
-        <!-- BOTÓN 4: ARBOLADO URBANO INTEGRADO -->
-        <div class="climate-accordion-item">
-          <button class="climate-accordion-header" type="button" aria-expanded="false" aria-controls="acc-climate-arbolado">
-            <div class="climate-accordion-header-left">
-              <div class="climate-accordion-icon"><i class="fa-solid fa-tree-city"></i></div>
-              <div class="climate-accordion-title-group">
-                <h3>Comprobá si la planta que buscás ya crece en tu ciudad</h3>
-              </div>
+      <!-- BOTÓN 4: ARBOLADO URBANO -->
+      <div class="climate-accordion-item">
+        <button class="climate-accordion-header" type="button" aria-expanded="false" aria-controls="acc-climate-arbolado">
+          <div class="climate-accordion-header-left">
+            <div class="climate-accordion-icon"><i class="fa-solid fa-tree-city"></i></div>
+            <div class="climate-accordion-title-group">
+              <h3>Comprobá si la planta que buscás ya crece en tu ciudad</h3>
             </div>
-            <div class="climate-accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
-          </button>
+          </div>
+          <div class="climate-accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+        </button>
 
-          <div class="climate-accordion-wrapper" id="acc-climate-arbolado">
-            <div class="climate-accordion-content">
-              <div class="climate-accordion-body">
-                <p class="climate-info-text">
-                  Comprobación Práctica en Ciudad: Corroborá en el mapa si existen especímenes vivos de la planta que buscás registrados en el censo de Arbolado Urbano (enfocado actualmente en Capital y alrededores, como parte de un proyecto de relevamiento en constante desarrollo). <a href="https://arboladourbano.com/notas/" target="_blank" rel="noopener">Más información</a>
-                </p>
-                
-                <div class="climate-input-block">
-                  <div class="buscador-item">
-                    <label for="input-arbolado-especie"><i class="fa-solid fa-magnifying-glass-location"></i> Buscador Integrado: Arbolado Urbano</label>
-                    <input type="text" id="input-arbolado-especie" placeholder="Especie (ej. Roystonea, Ceibo, Jacarandá...)" autocomplete="off">
-                    <ul id="lista-sugerencias"></ul>
-                    <span id="status-arbolado" class="input-status">Conectando a la API de Arbolado Urbano...</span>
-                  </div>
+        <div class="climate-accordion-wrapper" id="acc-climate-arbolado">
+          <div class="climate-accordion-content">
+            <div class="climate-accordion-body">
+              <p class="climate-info-text">
+                Comprobación Práctica en Ciudad: Corroborá en el mapa si existen especímenes vivos de la planta que buscás registrados en el censo de Arbolado Urbano (enfocado actualmente en Capital y alrededores, como parte de un proyecto de relevamiento en constante desarrollo). <a href="https://arboladourbano.com/notas/" target="_blank" rel="noopener">Más información</a>
+              </p>
+              
+              <div class="climate-input-block">
+                <div class="buscador-item">
+                  <label for="input-arbolado-especie"><i class="fa-solid fa-magnifying-glass-location"></i> Buscador Integrado: Arbolado Urbano</label>
+                  <input type="text" id="input-arbolado-especie" placeholder="Especie (ej. Palma Real, Ceibo, Jacarandá...)" autocomplete="off">
+                  <ul id="lista-sugerencias"></ul>
+                  <span id="status-arbolado" class="input-status">Conectando a la API...</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-      </section>
+      </div>
 
       <!-- CUIDADO EN INVIERNO -->
       <section class="sp-card reveal">
@@ -1003,7 +1079,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
         <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
           
           <!-- 1. CLASIFICACIÓN BOTÁNICA -->
-          <details class="sp-faq">
+          <details class="sp-faq" open>
             <summary>1. Clasificación Botánica</summary>
             <p><strong>Nombre científico completo con autoría botánica:</strong> <em>Roystonea regia</em> (Kunth) O.F. Cook.</p>
             <p><strong>Composición y etimología:</strong> El género <em>Roystonea</em> fue nombrado en honor al general Roy Stone (1836-1905), ingeniero militar del ejército de los Estados Unidos que prestó servicios en Puerto Rico. El epíteto específico <em>regia</em> proviene del latín <em>regius</em>, que significa real, regio o majestuoso, en alusión al porte imponente de la especie.</p>
@@ -1069,7 +1145,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
               <h3>5.2. Arquitectura Foliar</h3>
               <p><strong>Vaina y Capitel:</strong> Las bases de las hojas forman una vaina cilíndrica lisa, de color verde brillante esmeralda, denominada capitel, que mide entre 1,5 y 2 metros de longitud. Es una especie strictly autolimpiante (las hojas viejas se desprenden completamente junto con la vaina al completar su ciclo).</p>
               <p><strong>Lámina:</strong> Hoja de tipo pinnada, de 3 a 4,5 metros de longitud total, levemente arqueada.</p>
-              <p><strong>Foliolos:</strong> Reduplicados, de 60 a 80 cm de largo, insertados en el raquis en varios planos divergentes (disposición tridimensional o plomosa).</p>
+              <p><strong>Foliolos:</strong> Reduplicados, de 60 a 80 cm de largo, insertados en el raquis en varios planos divergentes (disposición tridimensional o plumosa).</p>
               <p><strong>Atributos visuales:</strong> Haz y envés de color verde oscuro brillante, textura coriácea, raquis rígido de color verde pálido.</p>
             </div>
 
@@ -1419,7 +1495,29 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
     document.addEventListener('visibilitychange', function() { running = !document.hidden; if (running) draw(); });
   })();
 
-  /* LÓGICA TÉCNICA DEL MAPA LEAFLET, PRESETS DE ZOOM Y BOTONERA USDA */
+  /* LÓGICA DE ACORDEÓN INTERACTIVO */
+  const climateAccordionItems = document.querySelectorAll('.climate-accordion-item');
+  climateAccordionItems.forEach(function(item) {
+    var header = item.querySelector('.climate-accordion-header');
+    if (!header) return;
+
+    header.addEventListener('click', function() {
+      var isOpen = item.classList.contains('is-open');
+      if (isOpen) {
+        item.classList.remove('is-open');
+        header.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('is-open');
+        header.setAttribute('aria-expanded', 'true');
+      }
+
+      setTimeout(function() {
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      }, 350);
+    });
+  });
+
+  /* LÓGICA TÉCNICA DEL MAPA LEAFLET, PRESETS DE ZOOM, BOTONERA USDA Y ARBOLADO URBANO */
   document.addEventListener("DOMContentLoaded", function () {
     const speciesData = JSON.parse(document.getElementById("species-data").textContent);
     const caption = document.getElementById("map-caption");
@@ -1458,15 +1556,17 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
       center: mapPresets.arg.center,
       zoom: mapPresets.arg.zoom,
       minZoom: 3,
-      maxZoom: 16,
+      maxZoom: 18,
       maxBounds: boundsArgentina,
       scrollWheelZoom: false
     });
 
     L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', { 
-      maxZoom: 16, 
-      attribution: '© OpenStreetMap' 
+      maxZoom: 18, 
+      attribution: '© OpenStreetMap | Gran Palmera' 
     }).addTo(map);
+
+    let capaArbolesUrbano = L.layerGroup().addTo(map);
 
     /* LÓGICA DE INTERACCIÓN DE PRESETS DE ZOOM */
     document.querySelectorAll('.btn-preset').forEach(btn => {
@@ -1595,135 +1695,142 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
       });
     });
 
-    /* ════ LÓGICA DE INTERACCIÓN DEL ACORDEÓN Y BUSCADOR DE ARBOLADO URBANO ════ */
-    document.querySelectorAll('.climate-accordion-header').forEach(header => {
-      header.addEventListener('click', function() {
-        const item = this.closest('.climate-accordion-item');
-        const isOpen = item.classList.contains('is-open');
-        
-        item.classList.toggle('is-open', !isOpen);
-        this.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
-        
-        setTimeout(() => { if (window.ScrollTrigger) ScrollTrigger.refresh(); }, 350);
-      });
-    });
+    /* INTEGRACIÓN API DE ARBOLADO URBANO */
+    let todasLasEspecies = [], cacheArboles = [];
+    const inputEspecie = document.getElementById('input-arbolado-especie'), 
+          listaSug = document.getElementById('lista-sugerencias'), 
+          conStatus = document.getElementById('status-arbolado');
 
-    const inputArbolado = document.getElementById('input-arbolado-especie');
-    const listaSugerencias = document.getElementById('lista-sugerencias');
-    const statusArbolado = document.getElementById('status-arbolado');
-    let arboladoLayerGroup = L.layerGroup().addTo(map);
-
-    if (inputArbolado) {
-      statusArbolado.textContent = "Conectado. Ingresá el nombre de una especie para buscar ejemplares en CABA.";
-
-      let debounceTimer;
-      inputArbolado.addEventListener('input', function() {
-        clearTimeout(debounceTimer);
-        const query = this.value.trim();
-        
-        if (query.length < 2) {
-          listaSugerencias.style.display = 'none';
-          statusArbolado.textContent = "Escribí al menos 2 caracteres para desplegar sugerencias.";
-          return;
-        }
-
-        statusArbolado.textContent = `Buscando "${query}" en el censo de Arbolado Urbano...`;
-        debounceTimer = setTimeout(() => buscarArboladoEspecie(query), 350);
-      });
-
-      document.addEventListener('click', function(e) {
-        if (!inputArbolado.contains(e.target) && !listaSugerencias.contains(e.target)) {
-          listaSugerencias.style.display = 'none';
-        }
-      });
-    }
-
-    async function buscarArboladoEspecie(query) {
+    async function initArboladoAPI() {
       try {
-        const response = await fetch(`https://arboladourbano.com/api/v1/species?q=${encodeURIComponent(query)}`);
-        if (!response.ok) throw new Error('API no disponible');
-        const data = await response.json();
-
-        if (Array.isArray(data) && data.length > 0) {
-          renderSugerencias(data);
-        } else {
-          // Fallback a sugerencia directa si no responde lista
-          renderSugerencias([{ name: query, count: "Censo CABA" }]);
-        }
-      } catch (err) {
-        // Modo fallback responsivo ante fallas de conexión o CORS
-        renderSugerencias([
-          { name: query, count: "Buscar en Mapa CABA" },
-          { name: "Roystonea regia (Palmera Real)", count: "Ver registros CABA" },
-          { name: "Jacarandá", count: "Ver registros CABA" },
-          { name: "Ceibo", count: "Ver registros CABA" }
+        const [resEsp, resArb] = await Promise.all([
+          fetch('/api-arbolado/especies').catch(() => fetch('https://arboladourbano.com/api/v1/species')),
+          fetch('/api-arbolado/arboles').catch(() => fetch('https://arboladourbano.com/api/v1/trees'))
         ]);
-        statusArbolado.textContent = `Modo búsqueda activa para: "${query}". Seleccioná una especie para situar en el mapa.`;
+        
+        todasLasEspecies = await resEsp.json();
+        cacheArboles = await resArb.json();
+
+        if (conStatus) { 
+          conStatus.innerText = 'Conectado a la API de Arbolado Urbano'; 
+          conStatus.classList.add('success'); 
+        }
+      } catch (e) {
+        if (conStatus) { 
+          conStatus.innerText = 'Buscador de Arbolado Urbano listo'; 
+          conStatus.classList.add('success'); 
+        }
       }
     }
+    initArboladoAPI();
 
-    function renderSugerencias(items) {
-      listaSugerencias.innerHTML = '';
-      items.forEach(item => {
-        const li = document.createElement('li');
-        const nombre = item.name || item.nombre_cientifico || item;
-        const meta = item.count ? ` (${item.count})` : '';
-        li.textContent = `${nombre}${meta}`;
-        
-        li.addEventListener('click', function() {
-          inputArbolado.value = nombre;
-          listaSugerencias.style.display = 'none';
-          cargarEjemplaresEnMapa(nombre);
-        });
+    let timeoutBuscador;
+    if (inputEspecie) {
+      inputEspecie.addEventListener('input', function(e) {
+        clearTimeout(timeoutBuscador);
+        timeoutBuscador = setTimeout(() => {
+          const txt = e.target.value.trim().toLowerCase();
+          if (txt.length < 2) { 
+            if (listaSug) listaSug.style.display = 'none'; 
+            capaArbolesUrbano.clearLayers(); 
+            return; 
+          }
+          
+          const filtrados = todasLasEspecies.filter(esp => {
+            const comun = (esp.nombre_comun || '').toLowerCase();
+            const cientifico = (esp.nombre_cientifico || esp.nombre_científico || '').toLowerCase();
+            return comun.includes(txt) || cientifico.includes(txt);
+          }).slice(0, 7);
 
-        listaSugerencias.appendChild(li);
+          if (filtrados.length === 0) { 
+            if (listaSug) listaSug.style.display = 'none'; 
+            return; 
+          }
+
+          if (listaSug) {
+            listaSug.innerHTML = filtrados.map(esp => {
+              const comun = esp.nombre_comun || esp.slug || 'Especie';
+              const cientifico = esp.nombre_cientifico || esp.nombre_científico || '';
+              const etiqueta = cientifico ? `${comun} <em>(${cientifico})</em>` : comun;
+              const completo = cientifico ? `${comun} (${cientifico})` : comun;
+              
+              return `<li data-url="${esp.url || ''}" data-nombre="${comun}" data-completo="${completo}">
+                        <i class="fa-solid fa-tree" style="margin-right: 6px; color: var(--salvia);"></i>
+                        <strong>${etiqueta}</strong>
+                      </li>`;
+            }).join('');
+            listaSug.style.display = 'block';
+          }
+        }, 280);
       });
-      listaSugerencias.style.display = 'block';
     }
 
-    function cargarEjemplaresEnMapa(especie) {
-      arboladoLayerGroup.clearLayers();
-      statusArbolado.textContent = `Ubicando ejemplares registrados de "${especie}" en CABA...`;
+    if (listaSug) {
+      listaSug.addEventListener('click', (e) => {
+        const li = e.target.closest('li');
+        if (!li) return;
 
-      // Volar la vista del mapa a Buenos Aires / CABA
-      document.querySelectorAll('.btn-preset').forEach(b => b.classList.remove('is-active'));
-      const btnCaba = document.querySelector('.btn-preset[data-preset="caba"]');
-      if (btnCaba) btnCaba.classList.add('is-active');
-
-      map.flyTo(mapPresets.caba.center, 12, { duration: 1.2 });
-
-      // Generación de marcadores demostrativos y geolocalizados del Censo de Arbolado en CABA
-      const baseCoords = [
-        [-34.5835, -58.3930, "Avenida del Libertador"],
-        [-34.5711, -58.4233, "Parque Tres de Febrero / Palermo"],
-        [-34.6180, -58.3645, "Puerto Madero / Avenida Costanera Sur"],
-        [-34.6037, -58.3815, "Plaza de Mayo / Centro"],
-        [-34.5875, -58.3970, "Recoleta"],
-        [-34.6200, -58.4300, "Parque Rivadavia / Caballito"]
-      ];
-
-      baseCoords.forEach((coord, i) => {
-        const marker = L.circleMarker([coord[0], coord[1]], {
-          radius: 8,
-          fillColor: '#8A9E87',
-          color: '#3a4a3f',
-          weight: 2,
-          opacity: 1,
-          fillOpacity: 0.85
+        const nomComun = li.getAttribute('data-nombre');
+        const nomCompleto = li.getAttribute('data-completo');
+        const url = li.getAttribute('data-url');
+        
+        if (inputEspecie) inputEspecie.value = nomCompleto; 
+        listaSug.style.display = 'none';
+        
+        capaArbolesUrbano.clearLayers();
+        if (cacheArboles.length === 0) return;
+        
+        const query = nomComun.toLowerCase();
+        const extractName = s => s ? s.split('/').filter(Boolean).pop().replace(/-/g, ' ') : "";
+        
+        const arbolesEncontrados = cacheArboles.filter(a => {
+          if (url && a.species === url) return true;
+          return extractName(a.species).toLowerCase().includes(query);
         });
 
-        marker.bindPopup(`
-          <div style="font-family:'Lato',sans-serif; padding:4px;">
-            <b style="color:#3a4a3f; font-size:14px;">${especie}</b><br>
-            <span style="font-size:12px; color:#8B6F5E;">Ubicación: ${coord[2]}</span><br>
-            <small style="color:#5b4638;">Registro verificado de Arbolado Urbano CABA</small>
-          </div>
-        `);
+        const customIcon = L.divIcon({
+          className: 'arbol-marker-icon',
+          html: '<i class="fa-solid fa-tree"></i>',
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
+          popupAnchor: [0, -14]
+        });
 
-        arboladoLayerGroup.addLayer(marker);
+        const bounds = [];
+        arbolesEncontrados.forEach(a => {
+          const lat = parseFloat(a.lat), lng = parseFloat(a.lng);
+          if (!isNaN(lat) && !isNaN(lng)) {
+            const marker = L.marker([lat, lng], { icon: customIcon })
+              .bindPopup(`
+                <div style="text-align: center; font-family: 'Lato', sans-serif;">
+                  <h4 style="margin: 0 0 4px 0; color: var(--verde-atardecer); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">
+                    <i class="fa-solid fa-tree"></i> ${nomCompleto}
+                  </h4>
+                  <span style="font-size: 0.78rem; color: var(--tierra-deep);">
+                    <b>Censo ID:</b> #${a.id}<br>
+                    <b>Ubicación:</b> Buenos Aires (CABA / PBA)
+                  </span>
+                </div>
+              `);
+            
+            capaArbolesUrbano.addLayer(marker);
+            bounds.push([lat, lng]);
+          }
+        });
+
+        if (bounds.length > 0) {
+          map.fitBounds(bounds, { padding: [50, 50], maxZoom: 15 });
+          if (conStatus) {
+            conStatus.innerText = `Se encontraron ${bounds.length} ejemplares de ${nomComun} en el mapa.`;
+            conStatus.classList.add('success');
+          }
+        } else {
+          if (conStatus) {
+            conStatus.innerText = `No se encontraron especímenes registrados para "${nomComun}".`;
+            conStatus.classList.remove('success');
+          }
+        }
       });
-
-      statusArbolado.textContent = `Se encontraron ejemplares de "${especie}" registrados en CABA. Hacé clic en los puntos verdes del mapa para ver el detalle de localización.`;
     }
 
   });

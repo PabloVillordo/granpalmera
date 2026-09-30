@@ -943,112 +943,6 @@
         <!-- ESTRUCTURA EN ACORDEÓN INTERACTIVO -->
         <div class="accordion-group-climate">
 
-          <!-- BOTÓN 1: ZONAS USDA -->
-          <!-- CAMBIO 2: Inicia desplegado por defecto con la clase 'is-open' y aria-expanded='true' -->
-          <div class="climate-accordion-item is-open">
-            <button class="climate-accordion-header" type="button" aria-expanded="true" aria-controls="acc-climate-usda">
-              <div class="climate-accordion-header-left">
-                <div class="climate-accordion-icon"><i class="fa-solid fa-layer-group"></i></div>
-                <div class="climate-accordion-title-group">
-                  <h3>Conocé las Zonas USDA de Argentina</h3>
-                </div>
-              </div>
-              <div class="climate-accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
-            </button>
-
-            <div class="climate-accordion-wrapper" id="acc-climate-usda">
-              <div class="climate-accordion-content">
-                <div class="climate-accordion-body">
-                  <p class="climate-info-text">
-                    Identificá y comprendé qué es un Mapa de zonas de resistencia USDA para clasificar con precisión tu región geográfica. <a href="#sec-usda">Más información</a>
-                  </p>
-                  
-                  <div class="climate-input-block">
-                    <div class="buscador-item">
-                      <label for="input-zonas"><i class="fa-solid fa-layer-group"></i> Buscador Integrado: Zonas USDA</label>
-                      <input type="text" id="input-zonas" list="list-zonas" placeholder="Ej. Zona 8b, Zona 9a...">
-                      <datalist id="list-zonas"></datalist>
-                      <span id="status-zonas" class="input-status">Conectando a la base de datos...</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- BOTÓN 2: RUSTICIDAD TÉRMICA -->
-          <div class="climate-accordion-item">
-            <button class="climate-accordion-header" type="button" aria-expanded="false" aria-controls="acc-climate-rusticidad">
-              <div class="climate-accordion-header-left">
-                <div class="climate-accordion-icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
-                <div class="climate-accordion-title-group">
-                  <h3>Conocé la Rusticidad Térmica de tu Planta</h3>
-                </div>
-              </div>
-              <div class="climate-accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
-            </button>
-
-            <div class="climate-accordion-wrapper" id="acc-climate-rusticidad">
-              <div class="climate-accordion-content">
-                <div class="climate-accordion-body">
-                  <p class="climate-info-text">
-                    Averigua la resistencia al frío teórica de las plantas y palmeras que estás buscando frente a los picos de heladas invernales. <a href="#sec-resistencia">Más información</a>
-                  </p>
-                  
-                  <div class="climate-input-block">
-                    <div class="buscador-grid-dual">
-                      <div class="buscador-item">
-                        <label for="input-plantas"><i class="fa-solid fa-leaf"></i> Buscador Integrado: Plantas</label>
-                        <input type="text" id="input-plantas" list="list-plantas" placeholder="Buscar por planta...">
-                        <datalist id="list-plantas"></datalist>
-                        <span id="status-plantas" class="input-status">Conectando a la base de datos...</span>
-                      </div>
-
-                      <div class="buscador-item">
-                        <label for="input-palmeras"><i class="fa-solid fa-tree"></i> Buscador Integrado: Palmeras</label>
-                        <input type="text" id="input-palmeras" list="list-palmeras" placeholder="Buscar por palmera...">
-                        <datalist id="list-palmeras"></datalist>
-                        <span id="status-palmeras" class="input-status">Conectando a la base de datos...</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- BOTÓN 3: ISOTERMAS Y MICROCLIMAS -->
-          <div class="climate-accordion-item">
-            <button class="climate-accordion-header" type="button" aria-expanded="false" aria-controls="acc-climate-isotermas">
-              <div class="climate-accordion-header-left">
-                <div class="climate-accordion-icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
-                <div class="climate-accordion-title-group">
-                  <h3>Conocé las Isotermas y Microclimas de tu zona</h3>
-                </div>
-              </div>
-              <div class="climate-accordion-chevron"><i class="fa-solid fa-chevron-down"></i></div>
-            </button>
-
-            <div class="climate-accordion-wrapper" id="acc-climate-isotermas">
-              <div class="climate-accordion-content">
-                <div class="climate-accordion-body">
-                  <p class="climate-info-text">
-                    Consultá la teórica Isoterma USDA de tu zona, calculada mediante triangulación de datos de estaciones meteorológicas del SMN. Tené en cuenta que pueden existir márgenes de error estadísticos y que siempre debes considerar los microclimas urbanos y de tu propio patio (zonas soleadas, bajo dosel arbóreo o cerca de paredes que retienen calor diurno) para determinar si la especie puede crecer a la intemperie todo el año o si requiere protección estructural durante los inviernos. <a href="#sec-isotermas">Más información</a>
-                  </p>
-                  
-                  <div class="climate-input-block">
-                    <div class="buscador-item">
-                      <label for="input-ciudades"><i class="fa-solid fa-city"></i> Buscador Integrado: Ciudades (ARG)</label>
-                      <input type="text" id="input-ciudades" list="list-ciudades" placeholder="Buscar por ciudad...">
-                      <datalist id="list-ciudades"></datalist>
-                      <span id="status-ciudades" class="input-status">Conectando a la base de datos...</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- BOTÓN 4: ARBOLADO URBANO -->
           <div class="climate-accordion-item">
             <button class="climate-accordion-header" type="button" aria-expanded="false" aria-controls="acc-climate-arbolado">
@@ -1120,6 +1014,20 @@
             </div>
           </div>
 
+                <!-- BARRA DE HERRAMIENTAS Y MENSAJES DINÁMICOS -->
+          <div class="species-toolbar-panel" id="species-toolbar">
+            <div id="species-count-msg" class="species-count-banner">
+              Cargando catálogo de especies...
+            </div>
+          
+            <div id="species-jump-box" class="species-jump-box">
+              <label for="select-direct-sheet"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ve directo a la ficha:</label>
+              <select id="select-direct-sheet" class="species-select">
+                <option value="">Selecciona una planta para ver su ficha completa...</option>
+              </select>
+            </div>
+          </div>
+
         </div>
 
 
@@ -1128,33 +1036,6 @@
       </div>
     </section>
 
-    <!-- DIRECTORIO DE ESPECIES Y RUSTICIDAD -->
-    <section class="section" id="sec-especies">
-      <div class="section-head reveal">
-        <span class="eyebrow">Catálogo & Rusticidad</span>
-        <h2>Fichas Botánicas y Guía de Cuidados para Exterior</h2>
-        <p>
-          Catálogo de especies ornamentales comercializadas en <strong>Gran Palmera</strong>, aptas para cultivarse a la intemperie durante todo el año al resistir las temperaturas mínimas invernales de las zonas seleccionadas en el mapa. Cada ficha técnica incluye los enlaces directos para adquirir los ejemplares.
-          <br><br>
-          <small style="opacity: 0.9; display: inline-block;">
-            <em>Nota técnica:</em> La tolerancia al frío invernal es una condición necesaria pero no única; existen otros requerimientos fisiológicos clave (como la acumulación de calor diurno, grado de insolación y drenaje del suelo) indispensables para su desarrollo vital. <a href="#sec-base-conocimiento" style="color: var(--tierra); font-weight: 700; text-decoration: underline;">Consultá nuestra Guía Técnica & FAQ</a>.
-          </small>
-        </p>
-      </div>
-
-      <!-- BARRA DE HERRAMIENTAS Y MENSAJES DINÁMICOS -->
-      <div class="species-toolbar-panel" id="species-toolbar">
-        <div id="species-count-msg" class="species-count-banner">
-          Cargando catálogo de especies...
-        </div>
-        
-        <div id="species-jump-box" class="species-jump-box">
-          <label for="select-direct-sheet"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ve directo a la ficha:</label>
-          <select id="select-direct-sheet" class="species-select">
-            <option value="">Selecciona una planta para ver su ficha completa...</option>
-          </select>
-        </div>
-      </div>
 
       <!-- REJILLA DE TARJETAS (54 ESPECIES) -->
       <div class="cards stagger" id="species-grid">
