@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es-AR" class="preload">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+
+  <!-- SEO Y METADATOS PRINCIPALES -->
+  <title>Blog Botánico & Cultivo | Granpalmera Posadas</title>
+  <meta name="description" content="Biblioteca técnica y editorial de Granpalmera: investigación, guías de cultivo, climatología USDA, botánica y diseño paisajístico con plantas tropicales en Argentina.">
+  <link rel="canonical" href="https://www.granpalmera-vivero-paisajismo.com/blog/">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.granpalmera-vivero-paisajismo.com/blog/">
+  <meta property="og:title" content="Blog Botánico & Cultivo | Granpalmera">
+  <meta property="og:description" content="Conocimiento técnico, ensayos de aclimatación, guías de germinación y paisajismo tropical en Argentina.">
+  <meta property="og:image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo-granpalmera.png">
+  <meta property="og:image:secure_url" content="https://www.granpalmera-vivero-paisajismo.com/img/logo-granpalmera.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="500">
+  <meta property="og:image:height" content="500">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Granpalmera">
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog Botánico & Cultivo | Granpalmera">
+  <meta name="twitter:description" content="Biblioteca editorial sobre palmeras de colección, cultivo, resistencia climática USDA y paisajismo.">
+  <meta name="twitter:image" content="https://www.granpalmera-vivero-paisajismo.com/img/logo-granpalmera.png">
+
+  <link rel="icon" type="image/png" href="../img/logo-granpalmera.png">
+
+  <!-- GOOGLE ANALYTICS -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW542SW71"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LWW542SW71');
+  </script>
+
+  <!-- PRECONEXIÓN DE FUENTES Y CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@1,400;1,500&family=Lato:wght@300;400;700&display=swap"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- SCHEMA.ORG JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.granpalmera-vivero-paisajismo.com/#organization",
+        "name": "Granpalmera",
+        "url": "https://www.granpalmera-vivero-paisajismo.com",
+        "logo": "https://www.granpalmera-vivero-paisajismo.com/img/logo-granpalmera.png"
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://www.granpalmera-vivero-paisajismo.com/blog/#blog",
+        "name": "Blog Botánico & Cultivo Granpalmera",
+        "description": "Biblioteca técnica de divulgación, investigación y experiencia práctica sobre palmeras, plantas tropicales, climatología y paisajismo.",
+        "publisher": {
+          "@id": "https://www.granpalmera-vivero-paisajismo.com/#organization"
+        },
+        "inLanguage": "es-AR"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.granpalmera-vivero-paisajismo.com/blog/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.granpalmera-vivero-paisajismo.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.granpalmera-vivero-paisajismo.com/blog/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- ESTILOS EXTERNOS -->
+  <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+
+<div id="bgwash" aria-hidden="true"></div>
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<!-- NAVEGACIÓN PRINCIPAL -->
+<nav class="nav" id="nav" aria-label="Navegación Principal">
+  <a class="nav__brand" href="../index.html">Granpalmera</a>
+  <div class="nav__links" id="navLinks">
+    <a href="../vivero/index.html">Catálogo</a>
+    <a href="../usda/index.html">Mapa USDA</a>
+    <a href="../paisajismo/index.html">Paisajismo</a>
+    <a href="index.html" class="nav__link--active">Blog</a>
+    <a class="nav__cta" href="https://api.whatsapp.com/send?phone=5493764149835" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <button class="nav__burger" id="navBurger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main id="inicio">
+
+  <!-- MÓDULO 1: HERO SECTION -->
+
+  <!-- CABECERA EDITORIAL (BLOG HERO) -->
+  <header class="blog-hero">
+    <span class="hero__glow" aria-hidden="true"></span>
+
+    <!-- LOGO CIRCULAR -->
+    <div class="logo-circle" data-rise>
+      <img src="../img/logo-granpalmera.png" alt="Logotipo Granpalmera" class="logo-image" loading="eager">
+    </div>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Navegación secundaria" data-rise>
+      <a href="../index.html">Inicio</a>
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span>Blog Botánico</span>
+    </nav>
+
+    <p class="hero__eyebrow">
+      <span class="eyebrow accent" data-rise>Conocimiento & Divulgación</span>
+    </p>
+
+    <h1 data-rise>
+      <span>GRANPALMERA</span>
+      <span class="accent">Biblioteca Editorial</span>
+    </h1>
+
+    <p class="editorial-axis" data-rise>
+      Botánica · Cultivo · Climatología · Paisajismo
+    </p>
+
+    <p class="hero__sub" data-rise>
+      Un archivo vivo de experiencia de campo, investigación botánica, ensayos de resistencia térmica y diseño paisajístico sustentado en la ciencia del cultivo.
+    </p>
+
+    <!-- BUSCADOR EDITORIAL -->
+    <div class="hero__search blog-search" data-rise>
+      <input type="text" id="input-blog-search" placeholder="Buscar guías: heladas, germinación, Bismarckia, sustratos..." aria-label="Buscar artículos en el blog">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+    </div>
+  </header>
+
+  <!-- MÓDULO 2: LAS 6 ÁREAS EDITORIALES -->
+  <section class="section" id="categorias">
+    <div class="section-head reveal">
+      <span class="eyebrow">Estructura del Conocimiento</span>
+      <h2>Áreas de Investigación & Experiencia</h2>
+      <p>Explorá nuestros artículos organizados según el eje técnico de consulta.</p>
+    </div>
+
+    <div class="category-grid stagger">
+      
+      <!-- CATEGORÍA 1: PALMERAS -->
+      <a href="palmeras/index.html" class="category-card">
+        <div class="category-card__icon"><i class="fa-solid fa-tree"></i></div>
+        <div class="category-card__body">
+          <span class="category-card__tag">01 · Taxonomía & Especies</span>
+          <h3>Palmeras</h3>
+          <p>Morfología, tasa de crecimiento, identificación de variedades de colección y hábitos de desarrollo.</p>
+        </div>
+        <div class="category-card__footer">
+          <span>Explorar sección</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </a>
+
+      <!-- CATEGORÍA 2: PLANTAS -->
+      <a href="plantas/index.html" class="category-card">
+        <div class="category-card__icon"><i class="fa-solid fa-leaf"></i></div>
+        <div class="category-card__body">
+          <span class="category-card__tag">02 · Colección Tropical</span>
+          <h3>Plantas</h3>
+          <p>Especies ornamentales, sotobosque tropical, bromelias, aráceas y acompañantes de follaje exótico.</p>
+        </div>
+        <div class="category-card__footer">
+          <span>Explorar sección</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </a>
+
+      <!-- CATEGORÍA 3: CULTIVO -->
+      <a href="cultivo/index.html" class="category-card">
+        <div class="category-card__icon"><i class="fa-solid fa-seedling"></i></div>
+        <div class="category-card__body">
+          <span class="category-card__tag">03 · Técnica Agronómica</span>
+          <h3>Cultivo</h3>
+          <p>Germinación, escarificación, formulación de sustratos, trasplante de ejemplares y nutrición.</p>
+        </div>
+        <div class="category-card__footer">
+          <span>Explorar sección</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </a>
+
+      <!-- CATEGORÍA 4: CLIMA Y ADAPTACIÓN -->
+      <a href="clima-y-adaptacion/index.html" class="category-card">
+        <div class="category-card__icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
+        <div class="category-card__body">
+          <span class="category-card__tag">04 · Climatología</span>
+          <h3>Clima & Adaptación</h3>
+          <p>Tolerancia al frío, análisis de zonas USDA, manejo de heladas y microclimas de protección.</p>
+        </div>
+        <div class="category-card__footer">
+          <span>Explorar sección</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </a>
+
+      <!-- CATEGORÍA 5: PAISAJISMO -->
+      <a href="paisajismo/index.html" class="category-card">
+        <div class="category-card__icon"><i class="fa-solid fa-compass-drafting"></i></div>
+        <div class="category-card__body">
+          <span class="category-card__tag">05 · Arquitectura del Jardín</span>
+          <h3>Paisajismo</h3>
+          <p>Criterios de composición vegetal, estratificación por capas, sombreado y diseño con palmeras.</p>
+        </div>
+        <div class="category-card__footer">
+          <span>Explorar sección</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </a>
+
+      <!-- CATEGORÍA 6: CIENCIA Y BOTÁNICA -->
+      <a href="ciencia-y-botanica/index.html" class="category-card">
+        <div class="category-card__icon"><i class="fa-solid fa-flask-vial"></i></div>
+        <div class="category-card__body">
+          <span class="category-card__tag">06 · Rigor Académico</span>
+          <h3>Ciencia & Botánica</h3>
+          <p>Fisiología vegetal, nomenclatura botánica, taxonomía oficial y notas de investigación propia.</p>
+        </div>
+        <div class="category-card__footer">
+          <span>Explorar sección</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- MÓDULO 3: ARTÍCULOS DESTACADOS -->
+  <section class="section section--crema" id="articulos-destacados">
+    <div class="section-head reveal">
+      <span class="eyebrow">Lecturas Fundamentales</span>
+      <h2>Artículos Destacados</h2>
+      <p>Una selección de nuestras investigaciones y guías técnicas más consultadas.</p>
+    </div>
+
+    <div class="article-grid stagger">
+      
+      <!-- ARTÍCULO 1 -->
+      <article class="article-card">
+        <div class="article-card__header">
+          <span class="article-card__category">Clima & Adaptación</span>
+          <span class="article-card__readtime"><i class="fa-regular fa-clock"></i> 8 min lect.</span>
+        </div>
+        <h3><a href="clima-y-adaptacion/palmeras-resistentes-al-frio.html">¿Qué palmeras soportan realmente el frío en Argentina?</a></h3>
+        <p>Análisis técnico de la tolerancia a temperaturas bajo cero en palmeras de colección, diferenciando heladas secas, heladas negras y duración del evento térmico.</p>
+        <div class="article-card__footer">
+          <span class="article-card__date">Publicado por Granpalmera</span>
+          <a href="clima-y-adaptacion/palmeras-resistentes-al-frio.html" class="article-card__link">Leer artículo completo →</a>
+        </div>
+      </article>
+
+      <!-- ARTÍCULO 2 -->
+      <article class="article-card">
+        <div class="article-card__header">
+          <span class="article-card__category">Cultivo</span>
+          <span class="article-card__readtime"><i class="fa-regular fa-clock"></i> 11 min lect.</span>
+        </div>
+        <h3><a href="cultivo/proteccion-contra-heladas.html">Cómo proteger palmeras y plantas tropicales durante una ola polar</a></h3>
+        <p>Protocolos de acondicionamiento preventivo: mulching radicular, cubiertas microperforadas antifrost, riegos de inercia térmica y anti-desecantes.</p>
+        <div class="article-card__footer">
+          <span class="article-card__date">Publicado por Granpalmera</span>
+          <a href="cultivo/proteccion-contra-heladas.html" class="article-card__link">Leer artículo completo →</a>
+        </div>
+      </article>
+
+      <!-- ARTÍCULO 3 -->
+      <article class="article-card">
+        <div class="article-card__header">
+          <span class="article-card__category">Clima & Adaptación</span>
+          <span class="article-card__readtime"><i class="fa-regular fa-clock"></i> 10 min lect.</span>
+        </div>
+        <h3><a href="clima-y-adaptacion/zonas-usda-argentina.html">USDA 9b, 10a y 10b: qué significa realmente para tu jardín</a></h3>
+        <p>Interpretación técnica de la cartografía de rusticidad en las regiones bioclimáticas de Argentina y su aplicación práctica al seleccionar especies exóticas.</p>
+        <div class="article-card__footer">
+          <span class="article-card__date">Publicado por Granpalmera</span>
+          <a href="clima-y-adaptacion/zonas-usda-argentina.html" class="article-card__link">Leer artículo completo →</a>
+        </div>
+      </article>
+
+      <!-- ARTÍCULO 4 -->
+      <article class="article-card">
+        <div class="article-card__header">
+          <span class="article-card__category">Cultivo</span>
+          <span class="article-card__readtime"><i class="fa-regular fa-clock"></i> 14 min lect.</span>
+        </div>
+        <h3><a href="cultivo/germinacion-semillas-palmeras.html">Guía de germinación y escarificación de semillas de palmeras</a></h3>
+        <p>Técnicas de hidratación, escarificación mecánica, estratificación cálida y control fitosanitario de hongos en sustratos de turba y perlita.</p>
+        <div class="article-card__footer">
+          <span class="article-card__date">Publicado por Granpalmera</span>
+          <a href="cultivo/germinacion-semillas-palmeras.html" class="article-card__link">Leer artículo completo →</a>
+        </div>
+      </article>
+
+      <!-- ARTÍCULO 5 -->
+      <article class="article-card">
+        <div class="article-card__header">
+          <span class="article-card__category">Paisajismo</span>
+          <span class="article-card__readtime"><i class="fa-regular fa-clock"></i> 9 min lect.</span>
+        </div>
+        <h3><a href="paisajismo/palmeras-de-coleccion-paisajismo.html">Palmeras tropicales en el paisajismo contemporáneo</a></h3>
+        <p>Criterios de integración visual, puntos focales de gran porte (Bismarckia, Roystonea) y estratificación en tres capas para jardines residenciales.</p>
+        <div class="article-card__footer">
+          <span class="article-card__date">Publicado por Granpalmera</span>
+          <a href="paisajismo/palmeras-de-coleccion-paisajismo.html" class="article-card__link">Leer artículo completo →</a>
+        </div>
+      </article>
+
+      <!-- ARTÍCULO 6 -->
+      <article class="article-card">
+        <div class="article-card__header">
+          <span class="article-card__category">Ciencia & Botánica</span>
+          <span class="article-card__readtime"><i class="fa-regular fa-clock"></i> 12 min lect.</span>
+        </div>
+        <h3><a href="ciencia-y-botanica/fisiologia-adaptacion-tropicales.html">Fisiología de adaptación: por qué una planta tropical sobrevive en clima templado</a></h3>
+        <p>Estudio de los mecanismos celulares de endurecimiento al frío, acumulación de azúcares solubles y protección de membranas lipídicas.</p>
+        <div class="article-card__footer">
+          <span class="article-card__date">Publicado por Granpalmera</span>
+          <a href="ciencia-y-botanica/fisiologia-adaptacion-tropicales.html" class="article-card__link">Leer artículo completo →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- MÓDULO 4: CTA FINAL -->
+  <!-- CTA CONEXIÓN CON EL VIVERO -->
+  <section class="section cta" id="cta-vivero">
+    <h2 class="reveal">¿Buscás ejemplares aclimatados para tu proyecto?</h2>
+    <p class="reveal">Cotejá la tolerancia climática de tus especies favoritas en nuestro Buscador USDA o ponete en contacto con nuestro equipo técnico.</p>
+    <div class="cta__actions reveal">
+      <a class="btn btn--white" href="../usda/index.html">
+        <i class="fa-solid fa-map-location-dot"></i> Probar Buscador USDA
+      </a>
+      <a class="btn btn--ghost" href="../vivero/index.html">
+        <i class="fa-solid fa-seedling"></i> Ver Catálogo de Especies
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer-full">
+    <footer class="footer">
+      <div>
+        <p class="footer__brand">Granpalmera</p>
+        <p>Vivero y Paisajismo · Posadas, Misiones, Argentina.<br>Especialistas en palmeras de colección y plantas tropicales.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p><a href="https://api.whatsapp.com/send?phone=5493764149835" target="_blank" rel="noopener">WhatsApp Oficial</a></p>
+        <p class="footer__hours">Lunes a Sábado, 8 a 19 h</p>
+      </div>
+      <div>
+        <h4>Explorar</h4>
+        <p><a href="../index.html">Inicio Granpalmera</a></p>
+        <p><a href="../vivero/index.html">Catálogo de Especies</a></p>
+        <p><a href="index.html">Blog Botánico</a></p>
+        <p><a href="../usda/index.html">Mapa USDA</a></p>
+        <p class="footer__tag">Cultivando el trópico.</p>
+      </div>
+    </footer>
+
+    <div class="footer__social-section">
+      <div class="footer__socials">
+        <a href="https://www.instagram.com/granpalmera/" target="_blank" title="Instagram" aria-label="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/GranPalmera/" target="_blank" title="Facebook" aria-label="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@granpalmera" target="_blank" title="TikTok" aria-label="TikTok" rel="noopener"><i class="fab fa-tiktok"></i></a>
+        <a href="https://ar.pinterest.com/granpalmera/_saved/" target="_blank" title="Pinterest" aria-label="Pinterest" rel="noopener"><i class="fab fa-pinterest-p"></i></a>
+        <a href="https://www.youtube.com/@GranPalmera" target="_blank" title="YouTube" aria-label="YouTube" rel="noopener"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/company/82666520/" target="_blank" title="LinkedIn" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p class="footer__author-credit">
+        Sitio desarrollado por <a href="https://www.linkedin.com/in/pablo-villordo/" target="_blank" rel="noopener" class="footer__author-link">Pablo Villordo</a>
+      </p>
+    </div>
+
+    <p class="footer__credit">Granpalmera · Servicio de Paisajismo Integral y Vivero en Posadas, Misiones.</p>
+  </div>
+</main>
+
+<!-- BOTÓN FLOTANTE DE WHATSAPP -->
+<a class="wa-float" href="https://api.whatsapp.com/send?phone=5493764149835" target="_blank" rel="noopener" aria-label="Contacto directo por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5c-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7-.1 1.3Z"/>
+  </svg>
+</a>
+
+<!-- LIBRERÍAS DE ANIMACIÓN EXTERNAS -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<!-- SCRIPT COMPORTAMIENTO LOCAL -->
+<script src="../js/blog.js" defer></script>
+</body>
+</html>
