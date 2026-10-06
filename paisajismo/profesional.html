@@ -25,6 +25,7 @@
 <meta property="og:site_name" content="Gran Palmera">
 
 <link rel="icon" type="image/png" href="../img/logo-granpalmera.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -510,7 +511,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 
 <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
 <nav class="nav" id="nav" aria-label="Navegación Principal">
-  <a class="nav__brand" href="../index.html">Gran Palmera</a>
+  <a class="nav__brand" href="../index.html">Granpalmera</a>
   <div class="nav__links" id="navLinks">
     <a href="#manifiesto">Enfoque</a>
     <a href="#proyectoStage">El Proyecto</a>
@@ -525,15 +526,26 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
   </button>
 </nav>
 
+   
+<!-- MÓDULO 1: HERO  -->
+<!-- Contenedor principal: Define el área de contenido único y central de la sección "Inicio" -->
 <main id="inicio">
 
-  <!-- MÓDULO 1: HERO SECTION B2B -->
+   <!-- Encabezado de la sección: Bloque introductorio visual del Hero que contiene la identidad de la marca -->
   <header class="hero">
+    <!-- Efecto visual: Destello o resplandor de fondo desenfocado oculto para lectores de pantalla -->
     <span class="hero__glow" aria-hidden="true"></span>
-    
+
+     <!-- Enlace contenedor: Redirige a la página principal con texto accesible al pasar el cursor (tooltip) -->
+    <a href="https://www.granpalmera-vivero-paisajismo.com/index.html" title="Volver a Inicio" data-rise></a>
+
+    <!-- Logotipo principal en contenedor circular (Animación: data-rise) -->
     <div class="logo-circle" data-rise>
-      <img src="../img/logo-granpalmera.png" alt="Gran Palmera Paisajismo Profesional" class="logo-image" loading="eager">
+      
+      <!-- Imagen del logotipo principal mediante ruta absoluta -->
+      <img src="../img/logo-granpalmera.png" alt="Logotipo Granpalmera" class="logo-image" loading="eager">
     </div>
+    
 
     <p class="hero__eyebrow">
       <span class="eyebrow accent" style="font-size:1rem; letter-spacing:0.04em; text-transform:none" data-rise>
