@@ -31,7 +31,7 @@
     });
   }
 
-  // Desplazamiento suave para enlaces de ancla
+  // Desplazamiento suave para enlaces de ancla (Botonera Hero e Íconos)
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
       var target = document.querySelector(a.getAttribute('href'));
@@ -113,7 +113,7 @@
     }
   }
 
-  // Animaciones de Entradas Heroicas (Incluye la entrada fluida del logo .logo-circle)
+  // Animaciones de Entradas Heroicas (Aplica a logo, títulos, buscador, botones y Deslizá)
   if (!reduce) {
     gsap.set('[data-rise]', { yPercent: 100, opacity: 0 });
     gsap.to('[data-rise]', { 
@@ -168,7 +168,7 @@
     var COUNT = window.innerWidth < 760 ? 5 : 9;
     
     var monsteraImg = new Image();
-    monsteraImg.src = '../img/monstera.png';
+    monsteraImg.src = '../img/monstera.webp';
     var imgReady = false;
     monsteraImg.onload = function() { imgReady = true; };
 

@@ -265,7 +265,7 @@
     var COUNT = window.innerWidth < 760 ? 5 : 9;
     
     var monsteraImg = new Image();
-    monsteraImg.src = 'img/monstera.png';
+    monsteraImg.src = 'img/monstera.webp';
     var imgReady = false;
     monsteraImg.onload = function() { imgReady = true; };
 
