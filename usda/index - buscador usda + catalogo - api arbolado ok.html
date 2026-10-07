@@ -1454,7 +1454,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
-  <!-- LÓGICA JAVASCRIPT INTEGRADA (v7 REFACTORIZADA) -->
+  <!-- LÓGICA JAVASCRIPT INTEGRADA (v7) -->
   <script>
   (function() {
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2151,7 +2151,7 @@
       configBuscador('input-plantas', dbPlantas); configBuscador('input-palmeras', dbPalmeras);
       configBuscador('input-zonas', dbZonas); configBuscador('input-ciudades', dbCiudades);
 
-      // ARBOLADO URBANO API (ALGORITMO REFACTORIZADO EN CASCADA 5 NIVELES CON SANITIZACIÓN DE OBJETOS)
+      // ARBOLADO URBANO API (REFACTORIZADO v7: COINCIDENCIA EXACTA Y CANVAS CIRCLEMARKER)
       let todasLasEspecies = [], cacheArboles = [];
       let capaArbolesUrbano = L.layerGroup().addTo(map);
       const inputEspecie = document.getElementById('input-arbolado-especie'), 
@@ -2216,77 +2216,56 @@
           const li = e.target.closest('li');
           if (!li) return;
 
-          // Helper para extraer el último segmento de una ruta o ID
+          // Extrae el segmento final limpio de una URL o cadena de ID
           const getCleanSegment = str => {
             if (!str) return "";
             const partes = String(str).trim().split('/').filter(Boolean);
             return partes[partes.length - 1].toLowerCase().trim();
           };
 
-          const slugify = str => str ? str.toLowerCase().trim().replace(/[\s_]+/g, '-') : "";
+          const slugify = str => str ? str.toLowerCase().trim().replace(/\s+/g, '-') : "";
 
-          // 1. Extraer todos los datos enriquecidos de la sugerencia seleccionada
-          const rawId = li.getAttribute('data-id') || '';
-          const rawUrl = li.getAttribute('data-url') || '';
-          const rawSlug = li.getAttribute('data-slug') || '';
-          const rawCientifico = li.getAttribute('data-cientifico') || '';
-          const rawComun = li.getAttribute('data-comun') || '';
-          const nomCompleto = li.getAttribute('data-completo') || rawComun;
-
-          const targetId = getCleanSegment(rawId);
-          const targetUrl = rawUrl.trim().toLowerCase();
-          const targetUrlSeg = getCleanSegment(rawUrl);
-          const targetSlug = slugify(rawSlug || rawCientifico || rawComun);
-          const targetCientifico = rawCientifico.trim().toLowerCase();
-          const targetComun = rawComun.trim().toLowerCase();
-
+          // Identificadores exactos de la especie seleccionada
+          const espId = getCleanSegment(li.getAttribute('data-id'));
+          const espUrlSeg = getCleanSegment(li.getAttribute('data-url'));
+          const espSlug = getCleanSegment(li.getAttribute('data-slug'));
+          const espComun = (li.getAttribute('data-comun') || '').trim().toLowerCase();
+          const espCientifico = (li.getAttribute('data-cientifico') || '').trim().toLowerCase();
+          const nomCompleto = li.getAttribute('data-completo') || espComun;
+          
           if (inputEspecie) inputEspecie.value = nomCompleto; 
           listaSug.style.display = 'none';
           
           capaArbolesUrbano.clearLayers();
           if (!cacheArboles || cacheArboles.length === 0) return;
 
-          // 2. Algoritmo de filtrado en 5 niveles con sanitización de objetos
+          // Conjunto de identificadores numéricos/slug exactos
+          const exactTargets = new Set();
+          if (espId) exactTargets.add(espId);
+          if (espUrlSeg) exactTargets.add(espUrlSeg);
+          if (espSlug) exactTargets.add(espSlug);
+
+          // Conjunto de identificadores de texto exactos
+          const textTargets = new Set();
+          if (espCientifico) {
+            textTargets.add(espCientifico);
+            textTargets.add(slugify(espCientifico));
+          }
+          if (espComun) {
+            textTargets.add(espComun);
+            textTargets.add(slugify(espComun));
+          }
+
+          // Filtrar con Set.has() estricto
           const filtrados = cacheArboles.filter(a => {
             if (!a) return false;
+            const valRaw = String(a.species || a.species_id || a.especie || a.especie_id || '').trim().toLowerCase();
+            if (!valRaw) return false;
 
-            // Sanitización y normalización del objeto/propiedad de la especie en el árbol
-            let spObj = a.species || a.especie || a.species_id || a.especie_id || '';
-            let spStr = '';
-            
-            if (typeof spObj === 'object' && spObj !== null) {
-              spStr = JSON.stringify(spObj).toLowerCase();
-            } else {
-              spStr = String(spObj).trim().toLowerCase();
-            }
+            const valSeg = getCleanSegment(valRaw);
 
-            const spSeg = getCleanSegment(spStr);
-            const spSlug = slugify(spStr);
-
-            // Nivel 1: Coincidencia por ID de especie (numérico o segmento final de ruta)
-            if (targetId && (spSeg === targetId || spStr.includes(`/species/${targetId}/`) || spStr.includes(`"id":${targetId}`) || spStr.includes(`"id":"${targetId}"`))) {
-              return true;
-            }
-
-            // Nivel 2: Coincidencia por URL completa o segmento de URL
-            if (targetUrl && (spStr.includes(targetUrl) || (targetUrlSeg && spSeg === targetUrlSeg))) {
-              return true;
-            }
-
-            // Nivel 3: Coincidencia por Slug (ej. "roystonea-regia")
-            if (targetSlug && (spSlug === targetSlug || spSeg === targetSlug || spStr.includes(targetSlug))) {
-              return true;
-            }
-
-            // Nivel 4: Coincidencia por Nombre Científico
-            if (targetCientifico && (spStr.includes(targetCientifico) || spSlug.includes(slugify(targetCientifico)))) {
-              return true;
-            }
-
-            // Nivel 5: Coincidencia por Nombre Común
-            if (targetComun && (spStr.includes(targetComun) || spSlug.includes(slugify(targetComun)))) {
-              return true;
-            }
+            if (exactTargets.has(valRaw) || exactTargets.has(valSeg)) return true;
+            if (textTargets.has(valRaw) || textTargets.has(valSeg)) return true;
 
             return false;
           });
