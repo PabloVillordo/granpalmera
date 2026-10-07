@@ -26,9 +26,6 @@
 
     <!-- Ruta de acceso al icono de la página (Favicon) -->
     <link rel="icon" type="image/png" href="../../img/logo-granpalmera.png">
-    <!-- 
-    <link rel="icon" type="image/png" href="/img/logo-granpalmera.png">  
-    -->
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWW542SW71"></script>
@@ -1114,9 +1111,6 @@
                   </div>
 
                   <!-- DIRECTORIO DE ESPECIES Y RUSTICIDAD -->
-                  <!-- REJILLA DE TARJETAS CON MINI-MAPAS Y EFECTO STAGGER -->
-                  <!-- REJILLA DE TARJETAS CON ENCABEZADO SPLIT (TRADUCCIÓN AL ESPAÑOL APLICADA) --> 
-
                   <div class="cards stagger" id="species-grid" style="margin-top: 1rem;">
 
                     <!-- Ficha 43: Palmera Real Cubana -->
@@ -1169,7 +1163,6 @@
                         <a class="more" href="./botanical_sheets/cycas_revoluta.html">Ver Ficha & Comprar <i class="fa-solid fa-arrow-right"></i></a>
                       </div>
                     </article>
-
 
                     <!-- Ficha 1: Palmera Areca -->
                     <article class="card species-card" data-zones="10a 10b 11a 11b" data-sort="Palmera Areca">
@@ -1885,7 +1878,6 @@
                       </div>
                     </article>
 
-
                     <!-- Ficha 46: Palmito de la Florida -->
                     <article class="card species-card" data-zones="8a 8b 9a 9b 10a 10b 11a" data-sort="Palmito de la Florida">
                       <div class="card-media-split">
@@ -2039,10 +2031,6 @@
                       </div>
                     </article>
 
-
-
-
-                    
                   </div>
 
                   <div style="text-align: center; margin-top: 1.8rem;">
@@ -2258,7 +2246,6 @@
         const zonasRaw = el.dataset.zonas || '';
         const zonasArray = zonasRaw.toLowerCase().split(/[, ]+/).filter(Boolean);
 
-        // Zoom 2.1 centrado ligeramente más al norte para encuadrar todo el país
         const miniMap = L.map(mapId, {
           center: [-38.0, -64.0],
           zoom: 2.1,
@@ -3018,48 +3005,96 @@
       configBuscador('input-plantas', dbPlantas); configBuscador('input-palmeras', dbPalmeras);
       configBuscador('input-zonas', dbZonas); configBuscador('input-ciudades', dbCiudades);
 
-      // ARBOLADO URBANO API
+      // ARBOLADO URBANO API MEJORADA
       let todasLasEspecies = [], cacheArboles = [];
       let capaArbolesUrbano = L.layerGroup().addTo(map);
       const inputEspecie = document.getElementById('input-arbolado-especie'), 
             listaSug = document.getElementById('lista-sugerencias'), 
             conStatus = document.getElementById('status-arbolado');
 
+      async function fetchConFallback(endpoints) {
+        for (const url of endpoints) {
+          try {
+            const res = await fetch(url);
+            if (res.ok) {
+              const data = await res.json();
+              const lista = Array.isArray(data) ? data : (data.results || data.data || []);
+              if (Array.isArray(lista) && lista.length > 0) return lista;
+            }
+          } catch (e) {
+            console.warn(`No se pudo obtener respuesta desde ${url}:`, e);
+          }
+        }
+        throw new Error('Sin conexión con la API de Arbolado Urbano');
+      }
+
       async function initArbolado() {
+        const endpointsEspecies = [
+          'https://arboladourbano.com/api/v1/species',
+          '/api-arbolado/especies',
+          'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://arboladourbano.com/api/v1/species')
+        ];
+        const endpointsArboles = [
+          'https://arboladourbano.com/api/v1/trees',
+          '/api-arbolado/arboles',
+          'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://arboladourbano.com/api/v1/trees')
+        ];
+
         try {
-          const [resEsp, resArb] = await Promise.all([fetch('/api-arbolado/especies'), fetch('/api-arbolado/arboles')]);
-          todasLasEspecies = await resEsp.json(); cacheArboles = await resArb.json();
-          if (conStatus) { conStatus.innerText = 'API lista'; conStatus.classList.add('success'); }
+          const [esp, arb] = await Promise.all([
+            fetchConFallback(endpointsEspecies),
+            fetchConFallback(endpointsArboles)
+          ]);
+
+          todasLasEspecies = esp;
+          cacheArboles = arb;
+
+          if (conStatus) { 
+            conStatus.innerText = `API lista (${cacheArboles.length} ejemplares censados)`; 
+            conStatus.className = 'input-status success'; 
+          }
         } catch (e) {
-          if (conStatus) { conStatus.innerText = 'API no disponible'; conStatus.classList.add('error'); }
+          console.error('Error inicializando Arbolado Urbano:', e);
+          if (conStatus) { 
+            conStatus.innerText = 'API no disponible (Servicio fuera de línea)'; 
+            conStatus.className = 'input-status error'; 
+          }
         }
       }
       initArbolado();
 
-      let timeout;
+      let timeoutArbolado;
       if (inputEspecie) {
         inputEspecie.addEventListener('input', function(e) {
-          clearTimeout(timeout);
-          timeout = setTimeout(() => {
+          clearTimeout(timeoutArbolado);
+          timeoutArbolado = setTimeout(() => {
             const txt = e.target.value.trim().toLowerCase();
-            if (txt.length < 2) { if(listaSug) listaSug.style.display = 'none'; capaArbolesUrbano.clearLayers(); return; }
+            if (txt.length < 2) { 
+              if (listaSug) listaSug.style.display = 'none'; 
+              capaArbolesUrbano.clearLayers(); 
+              return; 
+            }
             
             const fil = todasLasEspecies.filter(esp => {
-              const comun = (esp.nombre_comun || '').toLowerCase();
-              const cientifico = (esp.nombre_cientifico || esp.nombre_científico || '').toLowerCase();
+              const comun = (esp.nombre_comun || esp.common_name || esp.name || esp.nombre || esp.slug || '').toLowerCase();
+              const cientifico = (esp.nombre_cientifico || esp.nombre_científico || esp.scientific_name || '').toLowerCase();
               return comun.includes(txt) || cientifico.includes(txt);
             }).slice(0, 6);
 
-            if (fil.length === 0) { if(listaSug) listaSug.style.display = 'none'; return; }
+            if (fil.length === 0) { 
+              if (listaSug) listaSug.style.display = 'none'; 
+              return; 
+            }
 
-            if(listaSug) {
+            if (listaSug) {
               listaSug.innerHTML = fil.map(esp => {
-                const comun = esp.nombre_comun || esp.slug || 'Especie';
-                const cientifico = esp.nombre_cientifico || esp.nombre_científico || '';
+                const comun = esp.nombre_comun || esp.common_name || esp.name || esp.nombre || esp.slug || 'Especie';
+                const cientifico = esp.nombre_cientifico || esp.nombre_científico || esp.scientific_name || '';
+                const url = esp.url || esp.slug || esp.id || '';
                 const etiqueta = cientifico ? `${comun} <em>(${cientifico})</em>` : comun;
                 const completo = cientifico ? `${comun} (${cientifico})` : comun;
                 
-                return `<li data-url="${esp.url || ''}" data-nombre="${comun}" data-completo="${completo}">
+                return `<li data-url="${url}" data-nombre="${comun}" data-completo="${completo}">
                           <strong>${etiqueta}</strong>
                         </li>`;
               }).join('');
@@ -3077,27 +3112,44 @@
             const nomCompleto = li.getAttribute('data-completo');
             const url = li.getAttribute('data-url');
             
-            if(inputEspecie) inputEspecie.value = nomCompleto; 
+            if (inputEspecie) inputEspecie.value = nomCompleto; 
             listaSug.style.display = 'none';
             
             capaArbolesUrbano.clearLayers();
             if (cacheArboles.length === 0) return;
             
             const query = nomComun.toLowerCase();
-            const extract = s => s ? s.split('/').filter(Boolean).pop().replace(/-/g, ' ').replace(/^\w/, c=>c.toUpperCase()) : "Especie";
+            const extract = s => s ? String(s).split('/').filter(Boolean).pop().replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase()) : "Especie";
             
-            const filtrados = cacheArboles.filter(a => url ? a.species === url : extract(a.species).toLowerCase().includes(query));
-            const icon = L.icon({ iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png', iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [0,-34] });
+            const filtrados = cacheArboles.filter(a => {
+              if (url && a.species) {
+                return String(a.species) === String(url) || String(a.species).includes(String(url));
+              }
+              return extract(a.species).toLowerCase().includes(query);
+            });
+
+            const icon = L.icon({ 
+              iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png', 
+              iconSize: [25, 41], 
+              iconAnchor: [12, 41], 
+              popupAnchor: [0, -34] 
+            });
             const bounds = [];
             
             filtrados.forEach(a => {
-              const lat = parseFloat(a.lat), lng = parseFloat(a.lng);
+              const lat = parseFloat(a.lat || a.latitude);
+              const lng = parseFloat(a.lng || a.lon || a.longitude);
               if (!isNaN(lat) && !isNaN(lng)) {
-                capaArbolesUrbano.addLayer(L.marker([lat, lng], {icon}).bindPopup(`<b>Árbol #${a.id}</b><br><em>${nomCompleto}</em>`));
+                capaArbolesUrbano.addLayer(
+                  L.marker([lat, lng], { icon }).bindPopup(`<b>Árbol #${a.id || ''}</b><br><em>${nomCompleto}</em>`)
+                );
                 bounds.push([lat, lng]);
               }
             });
-            if (bounds.length > 0) map.fitBounds(bounds, { padding: [50,50], maxZoom: 14 });
+
+            if (bounds.length > 0) {
+              map.fitBounds(bounds, { padding: [50, 50], maxZoom: 14 });
+            }
           }
         });
       }
