@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ets<!DOCTYPE html>
 <!--
   GRAN PALMERA · Ficha Técnica Botánica & Resistencia al Frío (Roystonea regia)
   SISTEMA: Refactorización y Clonación de Arquitectura CSS, GSAP ScrollTrigger, Lenis Smooth Scroll y Canvas 2D.
@@ -889,7 +889,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
       <!-- HERO & RESUMEN -->
       <div class="sp-intro reveal">
         <figure class="sp-hero">
-          <img src="./assets/images/roystonea_regia.webp" alt="Palmera Real - Roystonea regia">
+          <img src="/img/vivero/especies/roystonea_regia.webp" alt="Palmera Real - Roystonea regia">
           <figcaption>Wikimedia Commons · Dominio público</figcaption>
         </figure>
         <section class="sp-summary">
@@ -1598,7 +1598,7 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
       const fillOpacityVal = isCompatible ? 0.75 : 0.55;
       const borderWidth = isCompatible ? 1.5 : 0.8;
 
-      const mapUrl = `./assets/maps/AR_HZ_${zKey}.geojson`;
+      const mapUrl = `/geo/usda/AR_HZ_${zKey}.geojson`;
 
       const p = fetch(mapUrl)
         .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
