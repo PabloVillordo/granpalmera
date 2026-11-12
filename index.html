@@ -249,7 +249,7 @@
     <div class="accordion-group stagger">
       
       <!-- ACCORDEÓN 1: ELEGÍ TU PLANTA -->
-      <div class="accordion-item">
+      <div class="accordion-item" id="elegir-planta">
         <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-elije-planta">
           <div class="accordion-header-left">
             <div class="accordion-cat-icon"><i class="fa-solid fa-leaf"></i></div>
@@ -309,7 +309,7 @@
       </div>
 
       <!-- ACCORDEÓN 2: COMPRÁ TU PLANTA -->
-      <div class="accordion-item">
+      <div class="accordion-item" id="comprar-planta">
         <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-compra-planta">
           <div class="accordion-header-left">
             <div class="accordion-cat-icon"><i class="fa-solid fa-bag-shopping"></i></div>
@@ -360,7 +360,7 @@
       </div>
 
       <!-- ACCORDEÓN 3: TODO SOBRE EL ENVÍO -->
-      <div class="accordion-item">
+      <div class="accordion-item" id="envio">
         <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-todo-envio">
           <div class="accordion-header-left">
             <div class="accordion-cat-icon"><i class="fa-solid fa-truck-fast"></i></div>
@@ -440,7 +440,7 @@
       </div>
 
       <!-- ACCORDEÓN 4: ESTUDIO DE PAISAJISMO -->
-      <div class="accordion-item">
+      <div class="accordion-item" id="paisajismo">
         <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-paisajismo">
           <div class="accordion-header-left">
             <div class="accordion-cat-icon"><i class="fa-solid fa-compass-drafting"></i></div>
@@ -489,7 +489,7 @@
       </div>
 
       <!-- ACCORDEÓN 5: BLOG & NOVEDADES -->
-      <div class="accordion-item">
+      <div class="accordion-item" id="blog">
         <button class="accordion-header" type="button" aria-expanded="false" aria-controls="cat-blog-novedades">
           <div class="accordion-header-left">
             <div class="accordion-cat-icon"><i class="fa-solid fa-newspaper"></i></div>
@@ -721,5 +721,55 @@
 
 <!-- SCRIPT PRINCIPAL -->
 <script src="js/script.js" defer></script>
+
+<!-- APERTURA AUTOMÁTICA DE ACORDEONES POR ANCLA EN URL -->
+<script>
+  (function () {
+    function abrirAcordeonDesdeHash() {
+      const hash = window.location.hash.replace("#", "").trim();
+      if (!hash) return;
+
+      const destino = document.getElementById(hash);
+      if (!destino) return;
+
+      const item = destino.classList.contains("accordion-item")
+        ? destino
+        : destino.closest(".accordion-item");
+
+      if (!item) return;
+
+      const boton = item.querySelector(".accordion-header");
+      if (!boton) return;
+
+      const yaAbierto =
+        boton.getAttribute("aria-expanded") === "true" ||
+        item.classList.contains("active") ||
+        item.classList.contains("open") ||
+        item.classList.contains("is-open");
+
+      if (!yaAbierto) {
+        boton.click();
+      }
+
+      setTimeout(() => {
+        const nav = document.getElementById("nav");
+        const offset = nav ? nav.offsetHeight + 20 : 90;
+        const top = item.getBoundingClientRect().top + window.scrollY - offset;
+
+        if (window.ScrollTrigger) {
+          window.ScrollTrigger.refresh();
+        }
+
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: "smooth"
+        });
+      }, 220);
+    }
+
+    window.addEventListener("load", abrirAcordeonDesdeHash);
+    window.addEventListener("hashchange", abrirAcordeonDesdeHash);
+  })();
+</script>
 </body>
 </html>
