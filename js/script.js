@@ -356,11 +356,33 @@
       else if (val.includes('diseño') || val.includes('ejecución') || val.includes('paisajismo')) window.location.href = 'paisajismo/paisajismo_granpalmera.html';
       else if (val.includes('residencial')) window.location.href = 'paisajismo/paisajismo_residencial_granpalmera.html';
       else if (val.includes('profesionales') || val.includes('b2b')) window.location.href = 'paisajismo/paisajismo_profesional_granpalmera.html';
-      else if (val.includes('asesor') || val.includes('chat')) window.open('https://api.whatsapp.com/send?phone=5493764149835', '_blank');
+      else if (val.includes('asesor') || val.includes('chat')) window.open('https://api.whatsapp.com/send?phone=5493764149835&text=' + encodeURIComponent('¡Hola Gran Palmera! 👋 Vengo de su sitio web y quiero hacerles una consulta...'), '_blank');
       else if (val.includes('catálogo')) window.open('https://wa.me/c/5493764149835', '_blank');
       else if (val.includes('canal') || val.includes('novedades')) window.open('https://whatsapp.com/channel/0029VbDNEdM6rsR2btM00y2Z', '_blank');
     });
   }
+
+  // ════ ATRIBUCIÓN DINÁMICA DE WHATSAPP POR SECCIÓN DEL SITIO WEB ════
+  (function() {
+    var rawTitle = document.title || '';
+    var parts = rawTitle.split('|').map(function(s) { return s.trim(); });
+    var seccion = (parts.length > 1 && parts[0].toLowerCase() === 'granpalmera') ? parts[1] : parts[0];
+    var etiquetaSeccion = seccion ? ' (' + seccion + ')' : '';
+    var msg = '¡Hola Gran Palmera! 👋 Vengo de su sitio web' + etiquetaSeccion + ' y quiero hacerles una consulta...';
+    var waUrl = 'https://api.whatsapp.com/send?phone=5493764149835&text=' + encodeURIComponent(msg);
+
+    // 1. Actualizar siempre el botón flotante con la sección exacta
+    document.querySelectorAll('.wa-float').forEach(function(btn) {
+      btn.href = waUrl;
+    });
+
+    // 2. Actualizar otros enlaces de WhatsApp de la página que no tengan ya un texto prearmado
+    document.querySelectorAll('a[href*="api.whatsapp.com/send?phone=5493764149835"]').forEach(function(link) {
+      if (!link.classList.contains('wa-float') && link.href.indexOf('text=') === -1) {
+        link.href = waUrl;
+      }
+    });
+  })();
 
   window.addEventListener('load', function() { 
     ScrollTrigger.refresh(); 
